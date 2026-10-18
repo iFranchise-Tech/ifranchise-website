@@ -84,7 +84,7 @@
 @media(max-width:370px){.hero-copy h1{font-size:43px}.hero-actions .button{font-size:10px;padding:13px 10px}.hero-secondary{font-size:10px;padding:12px 6px}.hero-actions svg{width:16px}.brand-detail-copy{padding:20px}.brand-detail-copy h1{font-size:33px}.brand-hero-actions .button{font-size:11px;padding:12px}.brand-summary strong{font-size:15px}.brand-anchor-nav{font-size:9px;gap:8px}}
 
 /* Photography-led, monochromatic consulting design. */
-html{scroll-behavior:auto}body{background:#fff}*,*::before,*::after{animation:none!important}
+html{scroll-behavior:auto}body{background:#fff}
 h1,h2,h3{letter-spacing:-.035em}h2{font-size:clamp(30px,3vw,42px);line-height:1.18}h3{letter-spacing:-.025em}
 .button{border-radius:7px;min-height:46px;padding:13px 18px;font-size:13px;transition:background .15s,color .15s}
 .button:hover,.button:hover svg,.brand-card:hover,.brand-card:hover .brand-photo,.social-links a:hover,.whatsapp-float:hover{transform:none;box-shadow:none}

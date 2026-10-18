@@ -1,0 +1,17 @@
+.franchise-visual{display:block;width:100%;height:auto;overflow:visible;isolation:isolate;pointer-events:none}
+.franchise-visual .fv-assembly{transform-box:fill-box;transform-origin:50% 65%;animation:fv-assembly-drift 11s ease-in-out infinite}
+.franchise-visual .fv-expansion-assembly{animation-delay:-4s;animation-duration:13s}
+.franchise-visual .fv-model-assembly{animation-delay:-7s;animation-duration:14s}
+.franchise-visual .fv-orb{transform-box:fill-box;transform-origin:center;animation:fv-orb-breathe 6s ease-in-out infinite}
+.franchise-visual .fv-orb-two{animation-delay:-2.4s;animation-duration:7.5s}
+.franchise-visual .fv-orb-three{animation-delay:-4.1s;animation-duration:7s}
+.franchise-visual .fv-orb-four{animation-delay:-1s;animation-duration:6.5s}
+.franchise-visual .fv-path-sheen{animation:fv-path-travel 8s linear infinite}
+.franchise-visual .fv-model-upper{animation:fv-lock-drift 9s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes fv-assembly-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes fv-orb-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes fv-path-travel{to{stroke-dashoffset:-525}}
+@keyframes fv-lock-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+html[data-motion='paused'] .franchise-visual *,html[data-motion='paused'] .franchise-visual{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.franchise-visual,.franchise-visual *{animation:none!important;transition:none!important}}
+@media(max-width:650px){.franchise-visual{max-height:390px}}
