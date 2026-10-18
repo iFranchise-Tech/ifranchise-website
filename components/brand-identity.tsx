@@ -1,0 +1,1 @@
+export function BrandIdentity({footer=false}:{footer?:boolean}){return <a className={'brand identity-lockup'+(footer?' footer-logo':'')} href="/" aria-label="iFranchise home"><img className="identity-symbol" src="/assets/brandmark-purple.svg" width="35" height="36" alt=""/><img className="wordmark" src="/assets/wordmark.svg" width="133" height="34" alt=""/></a>}
