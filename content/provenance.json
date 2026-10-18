@@ -1,0 +1,511 @@
+{
+  "origin": "https://www.ifranchise.in",
+  "capturedDate": "2026-10-18",
+  "sourceSitemapLastmod": "2026-10-16",
+  "method": "Public HTTP sitemap + public shipped JS bundles; safe AST static interpretation of literal data, without executing site scripts; downloaded same-origin public assets. Source facts are not independent business verification.",
+  "coverage": {
+    "sitemapRoutes": 72,
+    "extraKnownRoute": "/data-rights-request",
+    "franchiseBrands": 12,
+    "blogPosts": 7,
+    "knowledgeArticles": 16,
+    "modelGuides": 3,
+    "investmentPages": 5,
+    "cityPages": 10,
+    "activeJobRoles": 2,
+    "inactiveJobRecords": 7,
+    "sourceIdentifiedFounders": 2,
+    "downloadedAssets": 122,
+    "downloadedBytes": 53613351,
+    "brochures": 11
+  },
+  "unavailableAssets": [],
+  "unavailableSourceDocuments": [
+    {
+      "brand": "EMORI",
+      "kind": "brochure",
+      "reason": "No brochure published in public source mapping."
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "lassi-investment",
+      "paths": [
+        "/franchise/lassi-n-cafe"
+      ],
+      "severity": "confirm-commercial-term",
+      "finding": "Original source investmentMin says \"UF - 15L onwards, 10 Lakhs\", investmentMax says \"₹11 Lakhs\". Conflicting lower figures remain in originalFacts.",
+      "recommendation": "Show investment on request / confirm format; do not silently pick a conflicting starting figure."
+    },
+    {
+      "id": "manufactured-investment-maximum",
+      "paths": [
+        "/franchise/brand-avenue",
+        "/franchise/odette"
+      ],
+      "severity": "source-calculation",
+      "finding": "Original function hs creates maxInr=minInr*1.5 when a sole figure has + or onwards. The Brand Avenue ₹45–67.5L range is calculated, not disclosed as a ceiling.",
+      "recommendation": "Use original disclosure wording (Brand Avenue ₹45L onwards) and avoid copied fabricated upper bounds."
+    },
+    {
+      "id": "odette-master-incomplete",
+      "paths": [
+        "/franchise/odette"
+      ],
+      "severity": "confirm-commercial-term",
+      "finding": "investmentMin is \"Units Franchise- 45L, Master Franchise - 1\"; master franchise amount has no denomination.",
+      "recommendation": "Use explicit investmentDisplay ₹45 Lakhs onwards; omit incomplete master figure."
+    },
+    {
+      "id": "returns-vs-profit-vs-roi",
+      "paths": [
+        "/franchise/freshco-goli-soda",
+        "/franchise/bigguys",
+        "/franchise/odette",
+        "/franchise/kasturi-creations"
+      ],
+      "severity": "avoid-misrepresentation",
+      "finding": "Original source parses ROI from generic returns strings. Freshco 85% is described as per-bottle gross margin in whyChoose, but roiPercentage field also says 85%. BIGGUYS ARR ₹32Cr is brand revenue, not investor return. Odette 20% annual ROI field is not reconciled with monthly guarantees/payback; Kasturi 28% annual ROI and five-year payback are not reconciled.",
+      "recommendation": "Label exact original fields as brand-provided indicative disclosures, preserve terms and context, avoid ranking by ROI or describing returns as guaranteed by iFranchise."
+    },
+    {
+      "id": "emori-margin-boundaries",
+      "paths": [
+        "/franchise/emori"
+      ],
+      "severity": "confirm-commercial-term",
+      "finding": "Tiered sales margins specify up to ₹30L, above ₹30L and below ₹50L, and above ₹50L. Exactly ₹50L is not specified.",
+      "recommendation": "Preserve disclosed wording, confirm contract thresholds before investor advice."
+    },
+    {
+      "id": "source-placeholder-team",
+      "paths": [
+        "/team"
+      ],
+      "severity": "exclude-placeholder",
+      "finding": "Original Team page contains John Doe and stock profiles, inconsistent with two named founders on About.",
+      "recommendation": "Exclude placeholder team profiles; use Syed Abdul Khader (Founder & Director) and Mohammad Abrar (Co-Founder) as identified on original About page."
+    },
+    {
+      "id": "unsubstantiated-social-proof",
+      "paths": [
+        "/",
+        "/about-us",
+        "/services",
+        "/list-your-brand"
+      ],
+      "severity": "exclude-unverified-claim",
+      "finding": "Original pages include 15,725 reviews, 100+ brands, 10,000+ inquiries/investors, fictional-looking testimonial records, and demonstration live dashboard numbers; source catalogue has 12 brands.",
+      "recommendation": "Do not publish aggregate claims/testimonials without business evidence. Preserve raw extraction solely for audit."
+    },
+    {
+      "id": "brand-reviews",
+      "paths": [
+        "/franchise/*"
+      ],
+      "severity": "exclude-unverified-claim",
+      "finding": "10 brands have manually embedded Google-labelled ratings and review records, without a captured live provider verification link.",
+      "recommendation": "Do not re-publish review schema, ratings, or claims without verification."
+    },
+    {
+      "id": "article-bylines",
+      "paths": [
+        "/blogs/*"
+      ],
+      "severity": "confirm-editorial-attribution",
+      "finding": "Original articles use named author/advisor profiles and stock avatar URLs. Author identity and authority were not verified.",
+      "recommendation": "Use iFranchise editorial attribution if user accepts; retain original authors only in audit until confirmed."
+    },
+    {
+      "id": "legal-stale-processing",
+      "paths": [
+        "/privacy-policy",
+        "/terms-and-conditions",
+        "/data-rights-request"
+      ],
+      "severity": "draft-needs-current-implementation",
+      "finding": "Existing legal pages explicitly state REQUIRES LEGAL REVIEW. Privacy refers to Google Apps Script/Sheets, Vercel and Resend, not the new private CRM/gateway.",
+      "recommendation": "Do not carry outdated processing claims into new policy. Adapt implementation descriptions and retain draft/legal review status; lead intake and conversion sending remain off."
+    },
+    {
+      "id": "knowledge-demo-charts",
+      "paths": [
+        "/resources/knowledge-hub",
+        "/resources/knowledge-hub/investor",
+        "/resources/knowledge-hub/brand"
+      ],
+      "severity": "exclude-demonstration-data",
+      "finding": "Knowledge hub bundle contains literal chart series and percentage segments without source evidence.",
+      "recommendation": "Migrate useful educational articles and navigation, not demonstrative financial charts as real market data."
+    },
+    {
+      "id": "city-budget-claims",
+      "paths": [
+        "/location/*",
+        "/investment-under-*",
+        "/high-roi-franchise-opportunities"
+      ],
+      "severity": "avoid-overclaim",
+      "finding": "City pages derive brand availability from generic target strings; budget pages include broad payback and model-availability claims.",
+      "recommendation": "Describe target expansion markets and indicative budgets, require location confirmation, do not imply guaranteed availability or returns."
+    },
+    {
+      "id": "emori-brochure",
+      "paths": [
+        "/franchise/emori"
+      ],
+      "severity": "not-published-source",
+      "finding": "No EMORI brochure URL exists in public source brochure mapping.",
+      "recommendation": "Do not invent brochure link; gallery and complete brand facts are available."
+    }
+  ],
+  "sourceBundles": [
+    {
+      "file": "index-BZfVs19k.js",
+      "url": "https://www.ifranchise.in/assets/index-BZfVs19k.js",
+      "error": null,
+      "sha256": "d4fd6f3d6d886060d0060774676eab7e867b32c99cbbb9518b765eeac6c43b9c"
+    },
+    {
+      "file": "forms-CUTHIPHe.js",
+      "url": "https://www.ifranchise.in/assets/forms-CUTHIPHe.js",
+      "error": null,
+      "sha256": "d0af85211eb9ab412f1dbb944da8a9276bed0343a5bae9ef614337f98c58bf23"
+    },
+    {
+      "file": "react-core-dtToZDjd.js",
+      "url": "https://www.ifranchise.in/assets/react-core-dtToZDjd.js",
+      "error": null,
+      "sha256": "8ae6e5bb2a25590bc29c0435813635682acdfb598fd7992e8e199d170f802650"
+    },
+    {
+      "file": "page-franchise-D1H4BP7M.js",
+      "url": "https://www.ifranchise.in/assets/page-franchise-D1H4BP7M.js",
+      "error": null,
+      "sha256": "28598f878f895a39a82b727a3f86147aefb0f9ccf6d6558f179fa416d6f11831"
+    },
+    {
+      "file": "framer-motion-dHkw-mme.js",
+      "url": "https://www.ifranchise.in/assets/framer-motion-dHkw-mme.js",
+      "error": null,
+      "sha256": "bf46bbbd6a5a2d1d4917758642e1aa0f5bc3d3eb9dac374327bbd441efb80859"
+    },
+    {
+      "file": "page-home-BYpP6gIi.js",
+      "url": "https://www.ifranchise.in/assets/page-home-BYpP6gIi.js",
+      "error": null,
+      "sha256": "6991342790e7c656550a5155030461847259345ca33c881b62a9501484f29948"
+    },
+    {
+      "file": "vendor-CpvFTltW.js",
+      "url": "https://www.ifranchise.in/assets/vendor-CpvFTltW.js",
+      "error": null,
+      "sha256": "35a06404d28f67e60efab758438cb885c655758543762cfd932140a3164bcb78"
+    },
+    {
+      "file": "page-brand-owners-_hY3-P8I.js",
+      "url": "https://www.ifranchise.in/assets/page-brand-owners-_hY3-P8I.js",
+      "error": null,
+      "sha256": "297b8f2b87f3cc99179571b20e92e0afc3a2a4c623b5b1f1adadf0300240aeab"
+    },
+    {
+      "file": "AnimatedSiteBackdrop-D0j5qFKN.js",
+      "url": "https://www.ifranchise.in/assets/AnimatedSiteBackdrop-D0j5qFKN.js",
+      "error": null,
+      "sha256": "a65d23ff4cf1f4b9d0b4d40b3342861513652f88a18e4f7800549f1d8b41a9cd"
+    },
+    {
+      "file": "expansion-assistant-DjwJ9Ql-.js",
+      "url": "https://www.ifranchise.in/assets/expansion-assistant-DjwJ9Ql-.js",
+      "error": null,
+      "sha256": "61b57455e4c7147a85bfee218d9910e560d2a2b8000204588eb8180926cd70be"
+    },
+    {
+      "file": "page-home-BYpP6gIi.js",
+      "url": "https://www.ifranchise.in/assets/page-home-BYpP6gIi.js",
+      "error": null,
+      "sha256": "6991342790e7c656550a5155030461847259345ca33c881b62a9501484f29948"
+    },
+    {
+      "file": "PreFooterCTA-DwjNWCR5.js",
+      "url": "https://www.ifranchise.in/assets/PreFooterCTA-DwjNWCR5.js",
+      "error": null,
+      "sha256": "2740387d05b67efc4744db0d47cfb5dae04fbc7dba4b88ceea701080f1a6aa25"
+    },
+    {
+      "file": "AboutPage-BJPsOM_V.js",
+      "url": "https://www.ifranchise.in/assets/AboutPage-BJPsOM_V.js",
+      "error": null,
+      "sha256": "fa0bdd8d7959e1e20abc3c1819fc0742954d4b2a5c83fd301e9d29607036b416"
+    },
+    {
+      "file": "TeamPage-CnNZOCec.js",
+      "url": "https://www.ifranchise.in/assets/TeamPage-CnNZOCec.js",
+      "error": null,
+      "sha256": "c7555b383776ca3f21cd2df87f3a35b866c835c5cd91cc3f4d92644c86dd49dc"
+    },
+    {
+      "file": "page-franchise-D1H4BP7M.js",
+      "url": "https://www.ifranchise.in/assets/page-franchise-D1H4BP7M.js",
+      "error": null,
+      "sha256": "28598f878f895a39a82b727a3f86147aefb0f9ccf6d6558f179fa416d6f11831"
+    },
+    {
+      "file": "page-franchise-D1H4BP7M.js",
+      "url": "https://www.ifranchise.in/assets/page-franchise-D1H4BP7M.js",
+      "error": null,
+      "sha256": "28598f878f895a39a82b727a3f86147aefb0f9ccf6d6558f179fa416d6f11831"
+    },
+    {
+      "file": "PrivacyPolicyPage-DRSVuBSb.js",
+      "url": "https://www.ifranchise.in/assets/PrivacyPolicyPage-DRSVuBSb.js",
+      "error": null,
+      "sha256": "bfdb0126abae2c5fa6d1c8d6bb87b728c4777e93ce2803fb6416e56c8559c1cd"
+    },
+    {
+      "file": "DataRightsRequestPage-BCKLdr11.js",
+      "url": "https://www.ifranchise.in/assets/DataRightsRequestPage-BCKLdr11.js",
+      "error": null,
+      "sha256": "d8d4744c855c014a999846a168838e6b27f1fe9a532bbfd24ea665aeefe6456a"
+    },
+    {
+      "file": "TermsConditionsPage-UHG4WHxD.js",
+      "url": "https://www.ifranchise.in/assets/TermsConditionsPage-UHG4WHxD.js",
+      "error": null,
+      "sha256": "58210bdd5541158569e0276a58237e538c0d30e32d05b5c1b6e8c1781eac9f9c"
+    },
+    {
+      "file": "NotFoundPage-CHLpN6vo.js",
+      "url": "https://www.ifranchise.in/assets/NotFoundPage-CHLpN6vo.js",
+      "error": null,
+      "sha256": "871a84746a872e0fa0deef1101b2069a380d317d90d30726db80c2978823b97b"
+    },
+    {
+      "file": "ContactPage-CXYdQwrn.js",
+      "url": "https://www.ifranchise.in/assets/ContactPage-CXYdQwrn.js",
+      "error": null,
+      "sha256": "ad3fc8e8929b57b0640be983f822a5f1b101f6f2b7bb2ecc8d9b04ac640af7e9"
+    },
+    {
+      "file": "BlogPage-BNY4AOzx.js",
+      "url": "https://www.ifranchise.in/assets/BlogPage-BNY4AOzx.js",
+      "error": null,
+      "sha256": "43a8d2af2303a9b4872ec513abe82ad1eac1695e11e333bf82ed503b9bc17f33"
+    },
+    {
+      "file": "BlogDetailPage-DJxkc4g7.js",
+      "url": "https://www.ifranchise.in/assets/BlogDetailPage-DJxkc4g7.js",
+      "error": null,
+      "sha256": "587db8fb83d7123f90f52fc1657b0370a29b3b9cbf7e8f7a09eb57edf4d7ae97"
+    },
+    {
+      "file": "ServicesPage-dhnJXJPt.js",
+      "url": "https://www.ifranchise.in/assets/ServicesPage-dhnJXJPt.js",
+      "error": null,
+      "sha256": "91d6c7b605a922c2cce30878b034d67dd7cd35666bfa796fd58d3a52c4754e2c"
+    },
+    {
+      "file": "LicensesPage-bCIwW7Jy.js",
+      "url": "https://www.ifranchise.in/assets/LicensesPage-bCIwW7Jy.js",
+      "error": null,
+      "sha256": "70ef0c55292c8bcf3c5858b67a52ecc1a25ff841b28a4ae31c1506e80a2e5fe1"
+    },
+    {
+      "file": "CareersPage-DRWva0rP.js",
+      "url": "https://www.ifranchise.in/assets/CareersPage-DRWva0rP.js",
+      "error": null,
+      "sha256": "85992cdf0cc4cacc31ad57d47a8a6c5593b6748a424eeb4403e294486b36d800"
+    },
+    {
+      "file": "CareerRolePage-DUUPEw6U.js",
+      "url": "https://www.ifranchise.in/assets/CareerRolePage-DUUPEw6U.js",
+      "error": null,
+      "sha256": "35ddb7bbe7a5127c1ddbd820e30b41606686385bc42aba462b014816f4b3b575"
+    },
+    {
+      "file": "page-brand-owners-_hY3-P8I.js",
+      "url": "https://www.ifranchise.in/assets/page-brand-owners-_hY3-P8I.js",
+      "error": null,
+      "sha256": "297b8f2b87f3cc99179571b20e92e0afc3a2a4c623b5b1f1adadf0300240aeab"
+    },
+    {
+      "file": "FAQPage-CsVf1_5U.js",
+      "url": "https://www.ifranchise.in/assets/FAQPage-CsVf1_5U.js",
+      "error": null,
+      "sha256": "e339c337b8f66640398d07cba889c7981cda2f1fdf292a930701b8252ef68bc3"
+    },
+    {
+      "file": "EcosystemRouter-BHBOuCfc.js",
+      "url": "https://www.ifranchise.in/assets/EcosystemRouter-BHBOuCfc.js",
+      "error": null,
+      "sha256": "dd046e20f3ce87420673725df905f7809d42a928f7363e1b4dd6b9d2dce6b4d3"
+    },
+    {
+      "file": "lenisScroll-Cwmuk6EU.js",
+      "url": "https://www.ifranchise.in/assets/lenisScroll-Cwmuk6EU.js",
+      "error": null,
+      "sha256": "8eff15627114d049d6cd459a9e696a0cc90e3b599b69fa785fd2e5e47bfd91c1"
+    },
+    {
+      "file": "page-franchise-D1H4BP7M.js",
+      "url": "https://www.ifranchise.in/assets/page-franchise-D1H4BP7M.js",
+      "error": null,
+      "sha256": "28598f878f895a39a82b727a3f86147aefb0f9ccf6d6558f179fa416d6f11831"
+    },
+    {
+      "file": "deferStyles-0cH5Vms2.js",
+      "url": "https://www.ifranchise.in/assets/deferStyles-0cH5Vms2.js",
+      "error": null,
+      "sha256": "2949507745542e8c9a0ea8ed27da2fd4654671a17ad5e90497d10ae3a2225de3"
+    },
+    {
+      "file": "conversionClickTracking-BWBZ8IDL.js",
+      "url": "https://www.ifranchise.in/assets/conversionClickTracking-BWBZ8IDL.js",
+      "error": null,
+      "sha256": "ee9414ac36ec939ac5e0281f0cf56161c44e6bca39aa77f1565db2f5063c96ae"
+    },
+    {
+      "file": "playFormSuccessSound-3mIBr2pC.js",
+      "url": "https://www.ifranchise.in/assets/playFormSuccessSound-3mIBr2pC.js",
+      "error": null,
+      "sha256": "0852573c2a7e79a0d73f2f0009627c01af03bff30b8e956f567b055dce178009"
+    },
+    {
+      "file": "OurServicesSection-CwGXU48r.js",
+      "url": "https://www.ifranchise.in/assets/OurServicesSection-CwGXU48r.js",
+      "error": null,
+      "sha256": "da7f94ae680eb152a01ea9e1ccc0353db5fdc540f0706e52b874fd05b6fdf250"
+    },
+    {
+      "file": "HomeFranchiseModelsSection-DdYQqpXC.js",
+      "url": "https://www.ifranchise.in/assets/HomeFranchiseModelsSection-DdYQqpXC.js",
+      "error": null,
+      "sha256": "b26c23a2bf6ccfa401e9c6763723a7c3377dd0b7a7530e6a94cc6a71a529c665"
+    },
+    {
+      "file": "HomeBrowseInvestmentSection-CSD54rlT.js",
+      "url": "https://www.ifranchise.in/assets/HomeBrowseInvestmentSection-CSD54rlT.js",
+      "error": null,
+      "sha256": "d078997d20c0c5530b7a7ea0706646e6d131d0652d7fa781f024a85eafe1e3f7"
+    },
+    {
+      "file": "OurServicesSection-CwGXU48r.js",
+      "url": "https://www.ifranchise.in/assets/OurServicesSection-CwGXU48r.js",
+      "error": null,
+      "sha256": "da7f94ae680eb152a01ea9e1ccc0353db5fdc540f0706e52b874fd05b6fdf250"
+    },
+    {
+      "file": "HomeFranchiseModelsSection-DdYQqpXC.js",
+      "url": "https://www.ifranchise.in/assets/HomeFranchiseModelsSection-DdYQqpXC.js",
+      "error": null,
+      "sha256": "b26c23a2bf6ccfa401e9c6763723a7c3377dd0b7a7530e6a94cc6a71a529c665"
+    },
+    {
+      "file": "HomeBrowseInvestmentSection-CSD54rlT.js",
+      "url": "https://www.ifranchise.in/assets/HomeBrowseInvestmentSection-CSD54rlT.js",
+      "error": null,
+      "sha256": "d078997d20c0c5530b7a7ea0706646e6d131d0652d7fa781f024a85eafe1e3f7"
+    },
+    {
+      "file": "SocialFollowBlock-BCFEHGRE.js",
+      "url": "https://www.ifranchise.in/assets/SocialFollowBlock-BCFEHGRE.js",
+      "error": null,
+      "sha256": "71173ccefa8f6ffaf10f84a7bf2db8b10fb4b8265ecd0556844c062fe0569142"
+    },
+    {
+      "file": "playFormSuccessSound-3mIBr2pC.js",
+      "url": "https://www.ifranchise.in/assets/playFormSuccessSound-3mIBr2pC.js",
+      "error": null,
+      "sha256": "0852573c2a7e79a0d73f2f0009627c01af03bff30b8e956f567b055dce178009"
+    },
+    {
+      "file": "playFormSuccessSound-3mIBr2pC.js",
+      "url": "https://www.ifranchise.in/assets/playFormSuccessSound-3mIBr2pC.js",
+      "error": null,
+      "sha256": "0852573c2a7e79a0d73f2f0009627c01af03bff30b8e956f567b055dce178009"
+    },
+    {
+      "file": "LegalContactFooter-ByfDpUQW.js",
+      "url": "https://www.ifranchise.in/assets/LegalContactFooter-ByfDpUQW.js",
+      "error": null,
+      "sha256": "3b610635dac6be851fce30b1d95c1c9ec957bdef4e8f521a029dcf3a58d94190"
+    },
+    {
+      "file": "LegalContactFooter-ByfDpUQW.js",
+      "url": "https://www.ifranchise.in/assets/LegalContactFooter-ByfDpUQW.js",
+      "error": null,
+      "sha256": "3b610635dac6be851fce30b1d95c1c9ec957bdef4e8f521a029dcf3a58d94190"
+    },
+    {
+      "file": "SocialFollowBlock-BCFEHGRE.js",
+      "url": "https://www.ifranchise.in/assets/SocialFollowBlock-BCFEHGRE.js",
+      "error": null,
+      "sha256": "71173ccefa8f6ffaf10f84a7bf2db8b10fb4b8265ecd0556844c062fe0569142"
+    },
+    {
+      "file": "BlogCard-CtnXZINj.js",
+      "url": "https://www.ifranchise.in/assets/BlogCard-CtnXZINj.js",
+      "error": null,
+      "sha256": "ef6d4a9fba5c3774019a592311c0156ee3e72cf5fd8fc12187837f3debe00180"
+    },
+    {
+      "file": "BlogCard-CtnXZINj.js",
+      "url": "https://www.ifranchise.in/assets/BlogCard-CtnXZINj.js",
+      "error": null,
+      "sha256": "ef6d4a9fba5c3774019a592311c0156ee3e72cf5fd8fc12187837f3debe00180"
+    },
+    {
+      "file": "CitationsSection-huDGtxDZ.js",
+      "url": "https://www.ifranchise.in/assets/CitationsSection-huDGtxDZ.js",
+      "error": null,
+      "sha256": "31d3452c3f57af8dc3c3375dc7724b3402a6c0f924073cb16c3a2665f65ada03"
+    },
+    {
+      "file": "OurServicesSection-CwGXU48r.js",
+      "url": "https://www.ifranchise.in/assets/OurServicesSection-CwGXU48r.js",
+      "error": null,
+      "sha256": "da7f94ae680eb152a01ea9e1ccc0353db5fdc540f0706e52b874fd05b6fdf250"
+    },
+    {
+      "file": "LegalContactFooter-ByfDpUQW.js",
+      "url": "https://www.ifranchise.in/assets/LegalContactFooter-ByfDpUQW.js",
+      "error": null,
+      "sha256": "3b610635dac6be851fce30b1d95c1c9ec957bdef4e8f521a029dcf3a58d94190"
+    },
+    {
+      "file": "CitationsSection-huDGtxDZ.js",
+      "url": "https://www.ifranchise.in/assets/CitationsSection-huDGtxDZ.js",
+      "error": null,
+      "sha256": "31d3452c3f57af8dc3c3375dc7724b3402a6c0f924073cb16c3a2665f65ada03"
+    },
+    {
+      "file": "lenis-CTzpULtm.js",
+      "url": "https://www.ifranchise.in/assets/lenis-CTzpULtm.js",
+      "error": null,
+      "sha256": "95b941a26323c80279abe25aa98ab131b42849d1acb60b28d15c106614b66751"
+    },
+    {
+      "file": "playFormSuccessSound-3mIBr2pC.js",
+      "url": "https://www.ifranchise.in/assets/playFormSuccessSound-3mIBr2pC.js",
+      "error": null,
+      "sha256": "0852573c2a7e79a0d73f2f0009627c01af03bff30b8e956f567b055dce178009"
+    }
+  ],
+  "routeInventory": "route-inventory.json",
+  "assetManifest": "asset-manifest.json",
+  "contentFiles": [
+    "brands.json",
+    "blogs.json",
+    "knowledge.json",
+    "franchise-models.json",
+    "investment-pages.json",
+    "cities.json",
+    "careers.json",
+    "assessment.json",
+    "normalized-pages.json",
+    "founders.json",
+    "redirects.json",
+    "citations.json"
+  ],
+  "rawExtraction": "pages.json and *.js.data.json retain full original source facts, including claims recommended for exclusion."
+}

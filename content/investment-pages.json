@@ -1,0 +1,300 @@
+{
+  "/investment-under-25-lakhs": {
+    "path": "/investment-under-25-lakhs",
+    "title": "Franchise Investment Under ₹25 Lakhs",
+    "cardLabel": "₹10L–₹25L",
+    "subtitle": "Explore verified franchise opportunities in India starting from ₹10 lakhs to ₹25 lakhs — ideal for first-time investors and lean-format businesses.",
+    "filterType": "range",
+    "minInr": 1000000,
+    "maxInr": 2500000,
+    "geoAnswer": "Franchise investments under ₹25 lakhs in India include lean-format food, beverage, retail, and service brands. iFranchise lists verified opportunities with FOFO, FOCO, and FICO models in this budget band.",
+    "highlights": [
+      "Lower capital entry for first-time franchise investors",
+      "Faster setup timelines for compact and kiosk formats",
+      "Strong demand in tier 2 and tier 3 cities",
+      "Multiple models: FOFO, FOCO, and FICO available"
+    ],
+    "educationalSections": [
+      {
+        "heading": "What to expect in the ₹10L–₹25L band",
+        "body": "Brands in this range often use compact footprints, streamlined menus, or service-led formats. Evaluate franchise fee, setup cost, working capital, royalty, and expected payback before committing."
+      },
+      {
+        "heading": "Due diligence checklist",
+        "body": "Confirm unit economics with existing franchisees, review the franchise agreement, validate territory rights, and assess local demand for the category before signing."
+      }
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "bestFor": "Hands-on operators",
+        "investment": "₹15L–₹25L",
+        "involvement": "High"
+      },
+      {
+        "model": "FOCO",
+        "bestFor": "Semi-passive investors",
+        "investment": "₹12L–₹22L",
+        "involvement": "Low"
+      },
+      {
+        "model": "FICO",
+        "bestFor": "Capital-only investors",
+        "investment": "₹10L–₹20L",
+        "involvement": "Minimal"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I start a franchise in India with under ₹25 lakhs?",
+        "answer": "Yes. Many food, beverage, retail, and service franchises offer entry points between ₹10 lakhs and ₹25 lakhs, especially in compact or kiosk formats."
+      },
+      {
+        "question": "Which franchise model works best under ₹25 lakhs?",
+        "answer": "FOFO suits active operators seeking control. FOCO and FICO suit investors who prefer the franchisor to manage operations while they provide capital."
+      },
+      {
+        "question": "How long is the payback for sub-₹25L franchises?",
+        "answer": "Payback varies by brand, city, and model — typically 18 to 36 months. Always review franchisor-provided unit economics and speak with existing unit owners."
+      }
+    ]
+  },
+  "/investment-under-50-lakhs": {
+    "path": "/investment-under-50-lakhs",
+    "title": "Franchise Investment ₹25L–₹50 Lakhs",
+    "cardLabel": "₹25L–₹50L",
+    "subtitle": "Discover growth-ready franchise brands in the ₹25 lakh to ₹50 lakh investment range — balanced risk, proven formats, and multi-city expansion potential.",
+    "filterType": "range",
+    "minInr": 2500000,
+    "maxInr": 5000000,
+    "geoAnswer": "Franchise investments between ₹25 lakhs and ₹50 lakhs in India cover established QSR, café, retail, and wellness formats with stronger brand recognition and multi-city rollout potential.",
+    "highlights": [
+      "Sweet spot for serious first-time and second-time investors",
+      "Broader category choice: F&B, retail, lifestyle, services",
+      "Strong unit economics with established brand systems",
+      "Eligible for FOFO, FOCO, and FICO structures"
+    ],
+    "educationalSections": [
+      {
+        "heading": "Why the ₹25L–₹50L band matters",
+        "body": "This range balances affordability with brand maturity. Investors gain access to proven SOPs, marketing support, and supply chain advantages without premium flagship investments."
+      },
+      {
+        "heading": "Location and format strategy",
+        "body": "Match format size to catchment: high-street, mall, or neighbourhood. Validate footfall, rental as a percentage of revenue, and staffing requirements for sustainable margins."
+      }
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "bestFor": "Entrepreneurs",
+        "investment": "₹30L–₹50L",
+        "involvement": "High"
+      },
+      {
+        "model": "FOCO",
+        "bestFor": "Professionals",
+        "investment": "₹28L–₹45L",
+        "involvement": "Low"
+      },
+      {
+        "model": "FICO",
+        "bestFor": "Portfolio investors",
+        "investment": "₹25L–₹40L",
+        "involvement": "Minimal"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What franchise categories are popular in the ₹25L–₹50L range?",
+        "answer": "Food and beverage, quick-service restaurants, cloud-kitchen formats, retail, and wellness brands are commonly available in this investment band across Indian cities."
+      },
+      {
+        "question": "Should I choose FOFO or FOCO at this budget?",
+        "answer": "Choose FOFO if you will manage operations daily. Choose FOCO if you prefer ownership with company-led operations and structured reporting."
+      },
+      {
+        "question": "How do I compare franchises in this range?",
+        "answer": "Compare investment breakdown, royalty, marketing fees, payback period, ROI, territory rights, and franchisor support. Use iFranchise listings and speak with our advisors."
+      }
+    ]
+  },
+  "/investment-under-1-crore": {
+    "path": "/investment-under-1-crore",
+    "title": "Franchise Investment ₹50L–₹1 Crore",
+    "cardLabel": "₹50L–₹1Cr",
+    "subtitle": "Premium mid-scale franchise opportunities between ₹50 lakhs and ₹1 crore — flagship formats, stronger brands, and higher revenue potential across India.",
+    "filterType": "range",
+    "minInr": 5000000,
+    "maxInr": 10000000,
+    "geoAnswer": "Franchise investments from ₹50 lakhs to ₹1 crore in India include flagship food, retail, and lifestyle brands with larger footprints, established supply chains, and multi-unit expansion paths.",
+    "highlights": [
+      "Access to established national and regional brands",
+      "Larger formats with higher revenue ceilings",
+      "Multi-unit and territory expansion opportunities",
+      "Stronger franchisor marketing and training infrastructure"
+    ],
+    "educationalSections": [
+      {
+        "heading": "Scaling considerations at ₹50L–₹1Cr",
+        "body": "At this level, investors should evaluate multi-unit potential, management team depth, and whether FOCO or FOFO aligns with their involvement capacity across outlets."
+      },
+      {
+        "heading": "Financial planning",
+        "body": "Budget for setup, inventory, marketing launch, and 6–9 months of working capital. Model conservative, base, and optimistic scenarios before signing."
+      }
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "bestFor": "Experienced operators",
+        "investment": "₹60L–₹1Cr",
+        "involvement": "High"
+      },
+      {
+        "model": "FOCO",
+        "bestFor": "HNIs & professionals",
+        "investment": "₹55L–₹90L",
+        "involvement": "Low"
+      },
+      {
+        "model": "FICO",
+        "bestFor": "Institutional backers",
+        "investment": "₹50L–₹80L",
+        "involvement": "Minimal"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What types of brands require ₹50 lakhs to ₹1 crore?",
+        "answer": "Full-format restaurants, large retail stores, wellness centres, and established QSR brands often fall in this range due to larger spaces and comprehensive setup requirements."
+      },
+      {
+        "question": "Is multi-unit franchising viable at this level?",
+        "answer": "Yes. Many investors use this budget for a flagship unit plus pipeline planning for a second outlet after proving unit economics."
+      },
+      {
+        "question": "How does iFranchise help at this investment level?",
+        "answer": "We provide verified listings, model comparisons, due diligence support, and introductions to franchisors — plus advisory on territory and expansion strategy."
+      }
+    ]
+  },
+  "/premium-franchise-opportunities": {
+    "path": "/premium-franchise-opportunities",
+    "title": "Premium Franchise Opportunities ₹1 Crore+",
+    "cardLabel": "₹1Cr+",
+    "subtitle": "High-investment franchise opportunities above ₹1 crore — master franchises, flagship outlets, and strategic brand partnerships across India.",
+    "filterType": "premium",
+    "minInr": 10000000,
+    "geoAnswer": "Premium franchise opportunities above ₹1 crore in India include master franchise rights, large-format retail, hospitality, and national brand partnerships with higher revenue and expansion potential.",
+    "highlights": [
+      "Master franchise and territory rights available",
+      "Flagship formats with national brand equity",
+      "Strategic partnerships for serious investors and groups",
+      "Dedicated advisory support from iFranchise"
+    ],
+    "educationalSections": [
+      {
+        "heading": "Premium franchise dynamics",
+        "body": "Above ₹1 crore, deals often involve territory rights, multi-unit commitments, or master franchise structures. Legal, financial, and operational due diligence is essential."
+      },
+      {
+        "heading": "Partnership approach",
+        "body": "iFranchise connects premium investors with brands seeking strategic expansion partners — including co-investment, area development, and structured rollout plans."
+      }
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "bestFor": "Operator-investors",
+        "investment": "₹1Cr+",
+        "involvement": "High"
+      },
+      {
+        "model": "FOCO",
+        "bestFor": "Asset owners",
+        "investment": "₹1Cr+",
+        "involvement": "Low"
+      },
+      {
+        "model": "FICO",
+        "bestFor": "Capital partners",
+        "investment": "₹1Cr+",
+        "involvement": "Minimal"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What qualifies as a premium franchise in India?",
+        "answer": "Premium franchises typically require ₹1 crore or more in total investment, often including master franchise fees, large-format setup, or multi-unit development agreements."
+      },
+      {
+        "question": "Do premium franchises offer higher returns?",
+        "answer": "They can offer higher absolute returns due to scale, but risk and capital intensity are also higher. Evaluate IRR, payback, and contractual protections carefully."
+      },
+      {
+        "question": "How do I access premium opportunities on iFranchise?",
+        "answer": "Browse premium listings, schedule a consultation with our advisors, or submit an enquiry for bespoke investor matching with high-investment brands."
+      }
+    ]
+  },
+  "/high-roi-franchise-opportunities": {
+    "path": "/high-roi-franchise-opportunities",
+    "title": "High ROI Franchise Opportunities in India",
+    "cardLabel": "High ROI",
+    "subtitle": "Curated franchise brands with strong return profiles — compare ROI, payback periods, and unit economics across verified iFranchise listings.",
+    "filterType": "highRoi",
+    "minRoi": 25,
+    "geoAnswer": "High ROI franchise opportunities in India are brands with strong unit economics, proven payback periods, and scalable formats. iFranchise curates listings with transparent ROI and investment data for informed decisions.",
+    "highlights": [
+      "Brands with verified ROI and payback data",
+      "Mix of FOFO, FOCO, and FICO high-performing formats",
+      "Categories with strong consumer demand in India",
+      "ROI calculator and readiness tools available"
+    ],
+    "educationalSections": [
+      {
+        "heading": "Understanding franchise ROI",
+        "body": "ROI should be evaluated alongside payback period, royalty structure, and working capital needs. A high ROI with long payback may be less attractive than moderate ROI with faster cash recovery."
+      },
+      {
+        "heading": "Risk-adjusted returns",
+        "body": "Compare franchise ROI with alternative investments only after accounting for operational involvement, brand risk, and contractual obligations. Use our ROI calculator for projections."
+      }
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "bestFor": "Active operators",
+        "investment": "Varies",
+        "involvement": "High"
+      },
+      {
+        "model": "FOCO",
+        "bestFor": "Passive owners",
+        "investment": "Varies",
+        "involvement": "Low"
+      },
+      {
+        "model": "FICO",
+        "bestFor": "Investors",
+        "investment": "Varies",
+        "involvement": "Minimal"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is a good ROI for a franchise in India?",
+        "answer": "Many investors target 20–35% annual ROI, but outcomes depend on brand, city, format, and model. Always validate with franchisor data and existing franchisee references."
+      },
+      {
+        "question": "How does iFranchise identify high ROI brands?",
+        "answer": "We surface brands with disclosed returns data, strong unit economics, market traction, and verified expansion performance across Indian cities."
+      },
+      {
+        "question": "Can I calculate ROI before investing?",
+        "answer": "Yes. Use our Franchise ROI Calculator to model investment, revenue, expenses, royalty, and growth — then speak with advisors for brand-specific validation."
+      }
+    ]
+  }
+}

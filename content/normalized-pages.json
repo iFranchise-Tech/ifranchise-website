@@ -1,0 +1,926 @@
+[
+  {
+    "path": "/about-us",
+    "title": "About iFranchise",
+    "intro": "iFranchise is the platform where brands find investors, investors find verified franchises, and everyone grows with data, not confusion.",
+    "sections": [
+      {
+        "heading": "Scale nationwide",
+        "body": [
+          "List your franchise, reach serious investors, and grow with structured expansion support."
+        ]
+      },
+      {
+        "heading": "Invest with clarity",
+        "body": [
+          "Compare verified opportunities, see real numbers, and choose franchises that fit your goals."
+        ]
+      },
+      {
+        "heading": "Match & support",
+        "body": [
+          "We bring transparency, data, and guidance so every franchise decision is confident, not guesswork."
+        ]
+      },
+      {
+        "heading": "Founder & Director",
+        "body": [
+          "I started iFranchise with a simple belief: every entrepreneur deserves a fair shot at building something extraordinary. Too many brilliant business ideas die not from lack of potential, but from lack of the right guidance, capital, and strategic support.",
+          "We're not just connecting brands with investors - we're building dreams into empires. Every franchise we validate, every partnership we forge, and every expansion we architect is driven by one mission: turning your vision into a legacy that outlasts us all.",
+          "Your success is our legacy. Let's build something India will remember."
+        ],
+        "name": "Syed Abdul Khader"
+      },
+      {
+        "heading": "Co-Founder",
+        "body": [
+          "I've spent over a decade watching businesses fail not because their ideas weren't good enough, but because they lacked the operational backbone to scale. That's what drives me every single day at iFranchise.",
+          "Scaling isn't just about opening more locations. It's about building systems so strong that your brand can thrive in 100 cities without losing its soul. It's about creating frameworks that turn chaos into clarity, and ambition into achievement.",
+          "We don't just advise - we roll up our sleeves and build alongside you. From market validation to operational excellence, we're in the trenches with every partner, ensuring no detail is overlooked and no opportunity is wasted.",
+          "Your growth is our obsession. Let's turn your brand into an unstoppable force."
+        ],
+        "name": "Mohammad Abrar"
+      },
+      {
+        "heading": "Our Foundation",
+        "body": [
+          "Built on transparency, data intelligence, and strategic execution to transform franchise growth."
+        ]
+      },
+      {
+        "heading": "Our Approach",
+        "body": [
+          "Data-driven matching, rigorous brand validation, and investor-first advisory for sustainable growth."
+        ]
+      },
+      {
+        "heading": "Our Edge",
+        "body": [
+          "Proprietary intelligence systems, verified opportunities, and end-to-end franchise expansion support."
+        ]
+      },
+      {
+        "heading": "Verified Franchise Intelligence",
+        "body": [
+          "Access thoroughly evaluated franchise opportunities backed by trust, transparency, and strategic validation."
+        ]
+      },
+      {
+        "heading": "Founder-Investor Ecosystem",
+        "body": [
+          "Bridge ambitious founders with expansion-ready investors through a unified strategic growth network."
+        ]
+      },
+      {
+        "heading": "Scalable Expansion Systems",
+        "body": [
+          "Leverage operational frameworks, business scaling tools, and market-entry systems built for long-term category growth."
+        ]
+      },
+      {
+        "heading": "Category Leadership Positioning",
+        "body": [
+          "Transform opportunities into dominant market presence through data-backed visibility and expansion intelligence."
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/about-us"
+  },
+  {
+    "path": "/team",
+    "title": "The people behind iFranchise",
+    "intro": "Meet our founders.",
+    "sections": [
+      {
+        "heading": "Founder & Director",
+        "body": [
+          "I started iFranchise with a simple belief: every entrepreneur deserves a fair shot at building something extraordinary. Too many brilliant business ideas die not from lack of potential, but from lack of the right guidance, capital, and strategic support.",
+          "We're not just connecting brands with investors - we're building dreams into empires. Every franchise we validate, every partnership we forge, and every expansion we architect is driven by one mission: turning your vision into a legacy that outlasts us all.",
+          "Your success is our legacy. Let's build something India will remember."
+        ],
+        "name": "Syed Abdul Khader"
+      },
+      {
+        "heading": "Co-Founder",
+        "body": [
+          "I've spent over a decade watching businesses fail not because their ideas weren't good enough, but because they lacked the operational backbone to scale. That's what drives me every single day at iFranchise.",
+          "Scaling isn't just about opening more locations. It's about building systems so strong that your brand can thrive in 100 cities without losing its soul. It's about creating frameworks that turn chaos into clarity, and ambition into achievement.",
+          "We don't just advise - we roll up our sleeves and build alongside you. From market validation to operational excellence, we're in the trenches with every partner, ensuring no detail is overlooked and no opportunity is wasted.",
+          "Your growth is our obsession. Let's turn your brand into an unstoppable force."
+        ],
+        "name": "Mohammad Abrar"
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/team",
+    "migrationNote": "Uses named founders from original About page; original Team page has placeholder profiles and is excluded."
+  },
+  {
+    "path": "/services",
+    "title": "Franchise consulting and expansion services",
+    "intro": "iFranchise helps brands document their model, attract investors, and expand with clarity—from first outlet to multi-city rollout.",
+    "sections": [
+      {
+        "heading": "Franchise Development",
+        "body": [
+          "Build a franchise model designed for long-term growth."
+        ]
+      },
+      {
+        "heading": "Franchise Documentation",
+        "body": [
+          "Prepare agreements, SOPs and business documentation."
+        ]
+      },
+      {
+        "heading": "Franchise Branding",
+        "body": [
+          "Create a brand that attracts the right franchise partners."
+        ]
+      },
+      {
+        "heading": "Investor Acquisition",
+        "body": [
+          "Connect with qualified investors across India."
+        ]
+      },
+      {
+        "heading": "Expansion Strategy",
+        "body": [
+          "Plan your growth with the right markets and locations."
+        ]
+      },
+      {
+        "heading": "Investor Onboarding",
+        "body": [
+          "Support franchise partners from onboarding to launch."
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/services",
+    "process": [
+      {
+        "heading": "Understand Your Brand",
+        "body": []
+      },
+      {
+        "heading": "Build the Foundation",
+        "body": []
+      },
+      {
+        "heading": "Attract Investors",
+        "body": []
+      },
+      {
+        "heading": "Match & Onboard",
+        "body": []
+      },
+      {
+        "heading": "Scale Across Markets",
+        "body": []
+      }
+    ]
+  },
+  {
+    "path": "/list-your-brand",
+    "title": "List your brand on iFranchise",
+    "intro": "Connect with franchise investors and entrepreneurs actively searching for franchise opportunities across India through our franchise marketplace.",
+    "sections": [
+      {
+        "heading": "Qualified Franchise Leads",
+        "body": [
+          "Connect with franchise investors and entrepreneurs actively searching for franchise opportunities across India through our franchise marketplace."
+        ]
+      },
+      {
+        "heading": "National Brand Exposure",
+        "body": [
+          "Showcase your brand to business buyers, expansion partners, and investors nationwide with structured franchise listing visibility."
+        ]
+      },
+      {
+        "heading": "Expansion Strategy Support",
+        "body": [
+          "Get guidance from franchise consulting specialists on franchise development, franchise model design, and scalable brand expansion."
+        ]
+      },
+      {
+        "heading": "Faster Market Expansion",
+        "body": [
+          "Accelerate franchise partner acquisition, franchise lead generation, and multi-city rollout with a proven franchise growth platform."
+        ]
+      },
+      {
+        "heading": "Emerging Brands",
+        "body": [
+          "Businesses preparing for structured franchise expansion and their first franchise partner acquisition."
+        ]
+      },
+      {
+        "heading": "Growth-Stage Brands",
+        "body": [
+          "Brands entering new cities and markets with a repeatable franchise model and franchise growth roadmap."
+        ]
+      },
+      {
+        "heading": "Established Businesses",
+        "body": [
+          "Companies seeking faster nationwide brand expansion through a credible franchise ecosystem and investor network."
+        ]
+      },
+      {
+        "heading": "Multi-Location Operators",
+        "body": [
+          "Businesses ready to scale through franchise partnerships, franchise lead generation, and systematic rollout."
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/list-your-brand",
+    "process": [
+      {
+        "heading": "Submit Brand Details",
+        "body": [
+          "Share your brand profile, operating model, and expansion goals through our franchise listing form — the first step in franchise development."
+        ]
+      },
+      {
+        "heading": "Brand Evaluation",
+        "body": [
+          "Our franchise consulting team reviews franchise readiness, unit economics, documentation, and positioning for investor discovery."
+        ]
+      },
+      {
+        "heading": "Profile Goes Live",
+        "body": [
+          "Your franchise opportunity is published on India's franchise listing platform with SEO-optimized visibility for franchise investors."
+        ]
+      },
+      {
+        "heading": "Receive Investor & Franchise Inquiries",
+        "body": [
+          "Get qualified franchise inquiries from entrepreneurs and investors aligned with your franchise expansion goals."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do I franchise my business?",
+        "answer": "To franchise your business in India, start by validating unit economics, documenting standard operating procedures, defining your franchise model (FOFO, FOCO, or FICO), and preparing legal franchise agreements. iFranchise supports franchise development end-to-end — from franchise consulting and model design to investor-ready listing on our franchise marketplace. List your brand to get a structured readiness review and a clear path to franchise expansion."
+      },
+      {
+        "question": "How much does franchise development cost?",
+        "answer": "Franchise development costs vary by industry, model complexity, and documentation depth. Typical investments include legal structuring, operations manuals, training systems, marketing collateral, and franchise consulting. iFranchise helps brands scope franchise development realistically and align spend with franchise growth goals. Submit your brand details for a tailored assessment — many brands begin with listing and consulting before full-scale rollout."
+      },
+      {
+        "question": "How do I find franchise investors?",
+        "answer": "Franchise investors discover opportunities through franchise listing platforms, franchise consultants, referrals, and structured outreach. iFranchise connects your brand with serious franchise investors searching our franchise ecosystem by ticket size, sector, geography, and operating model. A live franchise opportunity profile improves franchise lead generation and positions your brand for qualified franchise partner acquisition."
+      },
+      {
+        "question": "How can I promote my franchise opportunity?",
+        "answer": "Promote your franchise opportunity with an investor-grade listing, clear unit economics, compelling brand narrative, and visibility across India's franchise marketplace. iFranchise provides national brand exposure, franchise consulting support, and distribution to entrepreneurs researching franchise opportunities. Combined with SEO-optimized franchise listing content, your opportunity becomes discoverable on Google Search and AI platforms like ChatGPT, Gemini, Claude, and Perplexity."
+      },
+      {
+        "question": "Can I list my brand on iFranchise?",
+        "answer": "Yes. Brand owners with an operational business model can list on iFranchise — India's franchise growth platform for franchise expansion, franchise investors, and franchise partner acquisition. Submit your brand through the listing form on this page. Our team evaluates franchise readiness and guides you through onboarding to the franchise listing platform."
+      },
+      {
+        "question": "What industries can be franchised?",
+        "answer": "Most scalable businesses can be franchised — food and beverage, retail, education, health and wellness, home services, technology, and more. What matters is replicable operations, documented processes, and viable unit economics. iFranchise works with ambitious brands across industries; we do not limit listings to specific sectors. If your model can scale through franchise partnerships, you can explore listing on our franchise marketplace."
+      },
+      {
+        "question": "What is included in a premium listing?",
+        "answer": "A premium franchise listing on iFranchise includes structured brand profiling, franchise opportunity presentation, visibility to franchise investors on our marketplace, franchise lead generation support, and access to franchise consulting guidance on expansion strategy. Brands benefit from national exposure within the iFranchise franchise ecosystem, helping accelerate franchise growth and serious investor conversations."
+      }
+    ]
+  },
+  {
+    "path": "/contact-us",
+    "title": "Contact iFranchise",
+    "intro": "We support brand matching, diligence, financial understanding, launch planning, and ongoing growth guidance after onboarding.",
+    "sections": [
+      {
+        "heading": "Email us",
+        "body": [
+          "contact@ifranchise.in"
+        ],
+        "links": [
+          {
+            "label": "Email iFranchise",
+            "href": "mailto:contact@ifranchise.in"
+          }
+        ]
+      },
+      {
+        "heading": "Call us",
+        "body": [
+          "+91 91291 30303"
+        ],
+        "links": [
+          {
+            "label": "Call iFranchise",
+            "href": "tel:+919129130303"
+          }
+        ]
+      },
+      {
+        "heading": "Office",
+        "body": [
+          "Innov 8 Mantri Commercio, Tower A, No 51, 5th floor, Bellandur, Bangalore South, Bangalore - 560103, Karnataka"
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/contact-us"
+  },
+  {
+    "path": "/faq",
+    "title": "Frequently asked questions",
+    "intro": "Everything founders, investors, and future team members need to know about franchise growth on iFranchise.",
+    "sections": [
+      {
+        "heading": "About iFranchise",
+        "body": [],
+        "faqs": [
+          {
+            "question": "What is iFranchise?",
+            "answer": "iFranchise is an India-based franchise consulting and marketplace platform. We help investors discover verified franchise business opportunities and help brands expand through investor matching, franchise development, and growth advisory."
+          },
+          {
+            "question": "How does iFranchise help franchise investors?",
+            "answer": "Investors can browse verified franchise listings, compare investment range, business model (FOFO, FOCO, FICO), payback, and expansion cities, then enquire directly for franchise consulting support and brand introductions."
+          },
+          {
+            "question": "How does iFranchise help brand owners?",
+            "answer": "Brands can list on iFranchise to reach qualified investors, generate franchise leads, prepare franchise documentation, and plan multi-city expansion across India with structured onboarding support."
+          }
+        ]
+      },
+      {
+        "heading": "Services",
+        "body": [],
+        "faqs": [
+          {
+            "question": "What franchise consulting services does iFranchise offer?",
+            "answer": "iFranchise offers franchise opportunity discovery, expansion strategy, investor matching, lead generation, franchise documentation, territory planning, and ongoing growth advisory for brands and investors in India."
+          },
+          {
+            "question": "Does iFranchise work with first-time franchise investors?",
+            "answer": "Yes. Many partners are first-time operators. iFranchise helps compare models, understand unit economics, and connect with brands that provide structured onboarding, SOPs, and operational support."
+          },
+          {
+            "question": "Can iFranchise help my brand become franchise-ready?",
+            "answer": "Yes. We support franchise model design, legal documentation, investor materials, lead generation, and post-launch advisory so brands can scale beyond their first few units."
+          },
+          {
+            "question": "Which industries does iFranchise cover?",
+            "answer": "Food and beverage, retail, fashion, wellness, education, hospitality, and service franchises — with opportunities ranging from low-investment QSR formats to premium retail and hospitality concepts."
+          }
+        ]
+      },
+      {
+        "heading": "Franchise basics",
+        "body": [],
+        "faqs": [
+          {
+            "question": "How much does it cost to start a franchise?",
+            "answer": "Franchise investment varies by industry. Low-cost franchises (₹2–10 lakhs), mid-range (₹10–50 lakhs), premium (₹50 lakhs+). FOCO models often require 30–40% less capital than FOFO models."
+          },
+          {
+            "question": "What's the difference between FOCO, FOFO & FICO?",
+            "answer": "FOCO: You invest, company operates. FOFO: You own and operate. FICO: Capital-focused with company-led operations. Each offers different risk-reward profiles and involvement levels."
+          },
+          {
+            "question": "Is franchise business profitable in India?",
+            "answer": "Successful franchises typically achieve 15–25% net margins after stabilization. F&B shows ~18–30% gross margins, retail 25–40%, services 35–50% depending on brand strength and execution."
+          },
+          {
+            "question": "What legal documents are required?",
+            "answer": "Core documents include FDD, Franchise Agreement, Trademark License, Operations Manual, and Territory Rights, along with GST registration, FSSAI license (for F&B), and local permits."
+          },
+          {
+            "question": "How long does it take to launch a franchise?",
+            "answer": "Most brands go from agreement to launch in 3–6 months, including due diligence, documentation, site selection, fit-out, training, and soft launch preparation."
+          }
+        ]
+      },
+      {
+        "heading": "Investor questions",
+        "body": [],
+        "faqs": [
+          {
+            "question": "What is the typical investment range?",
+            "answer": "Most opportunities on our platform start around ₹20L and can go beyond ₹2.5Cr depending on brand category, ticket size, and market depth."
+          },
+          {
+            "question": "How long does it take to break even?",
+            "answer": "Break-even timelines vary by sector, but many franchise models we work with target 12–24 months with disciplined execution and working capital planning."
+          },
+          {
+            "question": "Do I need prior business experience?",
+            "answer": "Not necessarily. Many successful partners are first-time operators who rely on structured onboarding, SOPs, and advisory support from the brand and iFranchise."
+          },
+          {
+            "question": "What support does iFranchise provide?",
+            "answer": "We support brand matching, diligence, financial understanding, launch planning, and ongoing growth guidance after onboarding."
+          },
+          {
+            "question": "Can I operate multiple franchise units?",
+            "answer": "Yes. Multi-unit expansion is available for many brands after performance milestones and market readiness checks are met."
+          }
+        ]
+      },
+      {
+        "heading": "Brand owner questions",
+        "body": [],
+        "faqs": [
+          {
+            "question": "How do I franchise my business?",
+            "answer": "To franchise your business in India, start by validating unit economics, documenting standard operating procedures, defining your franchise model (FOFO, FOCO, or FICO), and preparing legal franchise agreements. iFranchise supports franchise development end-to-end — from franchise consulting and model design to investor-ready listing on our franchise marketplace. List your brand to get a structured readiness review and a clear path to franchise expansion."
+          },
+          {
+            "question": "How much does franchise development cost?",
+            "answer": "Franchise development costs vary by industry, model complexity, and documentation depth. Typical investments include legal structuring, operations manuals, training systems, marketing collateral, and franchise consulting. iFranchise helps brands scope franchise development realistically and align spend with franchise growth goals. Submit your brand details for a tailored assessment — many brands begin with listing and consulting before full-scale rollout."
+          },
+          {
+            "question": "How do I find franchise investors?",
+            "answer": "Franchise investors discover opportunities through franchise listing platforms, franchise consultants, referrals, and structured outreach. iFranchise connects your brand with serious franchise investors searching our franchise ecosystem by ticket size, sector, geography, and operating model. A live franchise opportunity profile improves franchise lead generation and positions your brand for qualified franchise partner acquisition."
+          },
+          {
+            "question": "How can I promote my franchise opportunity?",
+            "answer": "Promote your franchise opportunity with an investor-grade listing, clear unit economics, compelling brand narrative, and visibility across India's franchise marketplace. iFranchise provides national brand exposure, franchise consulting support, and distribution to entrepreneurs researching franchise opportunities. Combined with SEO-optimized franchise listing content, your opportunity becomes discoverable on Google Search and AI platforms like ChatGPT, Gemini, Claude, and Perplexity."
+          },
+          {
+            "question": "Can I list my brand on iFranchise?",
+            "answer": "Yes. Brand owners with an operational business model can list on iFranchise — India's franchise growth platform for franchise expansion, franchise investors, and franchise partner acquisition. Submit your brand through the listing form on this page. Our team evaluates franchise readiness and guides you through onboarding to the franchise listing platform."
+          },
+          {
+            "question": "What industries can be franchised?",
+            "answer": "Most scalable businesses can be franchised — food and beverage, retail, education, health and wellness, home services, technology, and more. What matters is replicable operations, documented processes, and viable unit economics. iFranchise works with ambitious brands across industries; we do not limit listings to specific sectors. If your model can scale through franchise partnerships, you can explore listing on our franchise marketplace."
+          },
+          {
+            "question": "What is included in a premium listing?",
+            "answer": "A premium franchise listing on iFranchise includes structured brand profiling, franchise opportunity presentation, visibility to franchise investors on our marketplace, franchise lead generation support, and access to franchise consulting guidance on expansion strategy. Brands benefit from national exposure within the iFranchise franchise ecosystem, helping accelerate franchise growth and serious investor conversations."
+          }
+        ]
+      },
+      {
+        "heading": "Careers",
+        "body": [],
+        "faqs": [
+          {
+            "question": "What kind of people do well at iFranchise?",
+            "answer": "Self-driven builders who care about outcomes. If you like ownership, clear communication, and work that connects brands with serious investors, you will fit our culture."
+          },
+          {
+            "question": "Is remote or hybrid work available?",
+            "answer": "Yes, for many future roles. We focus on quality of work and clear collaboration, not where your desk sits."
+          },
+          {
+            "question": "When will roles open, and how do I hear about them?",
+            "answer": "We are preparing our next hiring wave across strategy, product, growth, and operations. Follow us on LinkedIn for announcements, or email hr@ifranchise.in if you want to introduce yourself early."
+          },
+          {
+            "question": "Can I reach out before a role is posted?",
+            "answer": "Yes. Send a short note and your background to hr@ifranchise.in. We review thoughtful introductions as we plan upcoming hires."
+          },
+          {
+            "question": "What does growth look like here?",
+            "answer": "We are a growing company, so responsibilities evolve quickly. We promote from within where it makes sense and invest in people who want to build with us long term."
+          }
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/faq"
+  },
+  {
+    "path": "/privacy-policy",
+    "title": "Privacy Notice",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Status of this notice",
+        "body": [
+          "REQUIRES LEGAL REVIEW. This notice is a technical draft based on processing visible in the website code. It is not a legal certification. The registered legal entity operating under the iFranchise name, the applicable processing grounds, retention schedule, grievance contact, processor contracts, cross-border processing details, and the commencement of applicable DPDP Act and Rules provisions require confirmation."
+        ]
+      },
+      {
+        "heading": "Where this notice applies",
+        "body": [
+          "This notice describes personal-data handling visible on the iFranchise website when a person submits an enquiry, requests a franchise brochure, expresses interest in a franchise, applies to list a brand, applies for a role, requests data-principal assistance, or chooses to use analytics preferences and external contact links."
+        ]
+      },
+      {
+        "heading": "Personal data collected",
+        "body": [
+          "Depending on the form, the website may collect a name, email address, telephone number, company or brand details, state, city, preferred location, franchise or investment interests, enquiry message, job role, resume link, portfolio link, and request details. The form pipeline also attaches the source page, page URL, path, referrer, and submission timestamp. The website does not currently provide user accounts, collect passwords, accept direct resume uploads, or implement a payment-card form."
+        ]
+      },
+      {
+        "heading": "Purposes visible in the implementation",
+        "body": [
+          "The collected information is used to receive and respond to contact and advisory enquiries, evaluate brand applications, handle interest in a named franchise, provide requested brochures, evaluate job applications, receive data-rights requests, prevent basic form abuse, operate the website, and measure website and form performance when analytics is permitted. Any additional use, including promotional email, SMS, telephone or WhatsApp marketing, requires business and legal confirmation and an appropriate separate choice where required."
+        ]
+      },
+      {
+        "heading": "How form data is handled",
+        "body": [
+          "Submitted form information is validated and sanitised in the browser and sent over HTTPS to a Google Apps Script endpoint that appends it to a form-specific Google Sheets tab. When lead notifications are enabled in the deployment configuration, a Vercel serverless endpoint and Resend may also process a copy for an internal notification email. Google Sheet ownership, authorised users, email recipients, access-review procedures, backup practices, and storage regions are not established by this code and require business confirmation."
+        ]
+      },
+      {
+        "heading": "Franchise enquiries and other recipients",
+        "body": [
+          "A franchise enquiry identifies the franchise in which the person expressed interest. The code stores that context with the enquiry. Whether identifiable enquiry data is subsequently shared with the relevant franchise brand, and under what controls, is an operational fact requiring business and legal confirmation. The code also contains user-initiated links to WhatsApp/Meta, Cal.com, Google Maps, telephone, email and social-sharing services; information entered after leaving the website is handled under the selected service’s own terms and privacy practices."
+        ]
+      },
+      {
+        "heading": "Analytics, cookies and device storage",
+        "body": [
+          "The website uses first-party local or session storage for theme preference, scroll restoration, knowledge-hub progress, and the analytics-consent choice. Google Tag Manager and Google Analytics are intended to receive page and conversion events only after analytics consent. The exact tags in the live GTM container, GA4 settings, cookie names, retention settings, advertising features, and any additional pixels require a live configuration review. Analytics consent can be changed using the “Privacy choices” control in the website footer."
+        ]
+      },
+      {
+        "heading": "Retention",
+        "body": [
+          "REQUIRES LEGAL REVIEW. The code does not define or enforce a retention period for Google Sheets rows, internal notification emails, data-rights requests, analytics data, or third-party services. No automated deletion or anonymisation job exists. The business must approve a purpose-specific retention schedule and operational deletion procedure before a definite period can be stated here."
+        ]
+      },
+      {
+        "heading": "Security controls and limitations",
+        "body": [
+          "The implementation uses HTTPS endpoint validation, client-side field validation, payload sanitisation, honeypot fields, size limits, duplicate in-flight submission controls, and selected HTTP security headers. Access controls for Google Sheets and vendor systems are operational rather than defined in this repository. No internet service can be represented as completely secure, and this draft does not claim that security assessments, encryption at rest, or processor controls have been independently verified."
+        ]
+      },
+      {
+        "heading": "Data-principal requests",
+        "body": [
+          "REQUIRES LEGAL REVIEW. Subject to applicable and commenced law, a person may request information about processing, access-related information, correction, completion or updating, erasure, withdrawal of consent where consent applies, and grievance handling. Submit a request through the Data Rights Request form or contact contact@ifranchise.in. Identity and request authority may need to be verified before any personal data is disclosed, changed or erased. The website does not automatically expose stored personal data."
+        ]
+      },
+      {
+        "heading": "Withdrawing consent",
+        "body": [
+          "REQUIRES LEGAL REVIEW. Analytics consent can be rejected or withdrawn through the website privacy choices. For a previously submitted form, use the Data Rights Request form or the contact details below and identify the form or enquiry involved. Withdrawal does not itself determine whether information must be retained for another confirmed legal requirement; that assessment requires an internal verified process."
+        ]
+      },
+      {
+        "heading": "Children",
+        "body": [
+          "REQUIRES LEGAL REVIEW. The website and franchise investment services are presented for adults, and the Terms state an age threshold of 18. The forms do not currently perform age or parental-authority verification. The business and counsel must confirm whether any child-data processing is possible and what prevention or verifiable-consent controls are required."
+        ]
+      },
+      {
+        "heading": "Changes to this notice",
+        "body": [
+          "REQUIRES LEGAL REVIEW. This notice should be versioned when processing or legal requirements change. Material changes affecting consent should be presented for a fresh choice where required. A legal effective date must be approved rather than inferred solely from the website deployment date."
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/privacy-policy",
+    "migrationNote": "Original source draft. Update implementation-specific terms for CRM migration and retain draft status pending business/legal approval; do not publish outdated Google Sheets/Resend claims."
+  },
+  {
+    "path": "/terms-and-conditions",
+    "title": "Terms & Conditions",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Introduction",
+        "body": [
+          "REQUIRES LEGAL REVIEW. These Terms & Conditions govern access to and use of the iFranchise website, franchise opportunity discovery, brand enquiry workflows, advisory content, and related website tools. The registered legal entity operating under the iFranchise name must be confirmed before this wording is approved."
+        ]
+      },
+      {
+        "heading": "Acceptance of Terms",
+        "body": [
+          "By accessing or using iFranchise, you confirm that you are at least 18 years of age, have the legal capacity to enter into binding agreements, and have read, understood, and agreed to these Terms along with our Privacy Policy and any supplemental policies applicable to specific services. If you do not agree, you must discontinue use of the platform immediately."
+        ]
+      },
+      {
+        "heading": "Platform Description",
+        "body": [
+          "iFranchise operates as a franchise growth marketplace and consulting ecosystem. We facilitate connections between prospective franchisees and franchise brands, provide advisory resources, and support business evaluation processes. iFranchise does not guarantee investment outcomes, franchise approvals, or the accuracy of brand-provided information listed on the platform."
+        ]
+      },
+      {
+        "heading": "User Responsibilities",
+        "body": [
+          "REQUIRES LEGAL REVIEW. You should provide accurate and current information when submitting a website form and must not submit another person’s personal data without authority. The current website does not provide user registration or account credentials. Suspected misuse or security issues may be reported to contact@ifranchise.in."
+        ]
+      },
+      {
+        "heading": "Prohibited Conduct",
+        "body": [
+          "REQUIRES LEGAL REVIEW. You must not submit fraudulent or misleading information, impersonate another person, harvest personal data without authority, interfere with website security or availability, send automated abuse, introduce malicious content, or use the website for an unlawful purpose. Access may be restricted and appropriate action considered where misuse is detected."
+        ]
+      },
+      {
+        "heading": "Franchise Information Disclaimer",
+        "body": [
+          "Franchise listings, investment figures, ROI projections, and brand descriptions on iFranchise are provided for informational and evaluation purposes only. This information is sourced from franchise brands and has not been independently verified by iFranchise. Users should conduct independent due diligence and seek professional legal and financial advice before making any investment decision."
+        ]
+      },
+      {
+        "heading": "Payments and Transactions",
+        "body": [
+          "REQUIRES LEGAL REVIEW. No payment-card collection or checkout provider is implemented in the current website code. If a paid service is offered through a separate agreement or external process, the responsible entity, pricing, taxes, refund terms, payment provider and related privacy disclosures must be confirmed at that time."
+        ]
+      },
+      {
+        "heading": "Personal Data and Privacy",
+        "body": [
+          "REQUIRES LEGAL REVIEW. Personal data submitted through the website is handled as described in the Privacy Notice. A person submitting information must have authority to provide it and should use the available Data Rights Request form for applicable access-related information, correction, erasure, consent-withdrawal or grievance requests. iFranchise may need to verify identity or authority before acting on a request and will not automatically disclose stored personal data through the website."
+        ]
+      },
+      {
+        "heading": "Intellectual Property",
+        "body": [
+          "All platform content, including but not limited to text, graphics, logos, software, data compilations, and user interface elements, is owned by iFranchise or its licensors and is protected under applicable intellectual property laws. You are granted a limited, non-exclusive, non-transferable license to access and use the platform for lawful personal or business evaluation purposes only."
+        ]
+      },
+      {
+        "heading": "Limitation of Liability",
+        "body": [
+          "To the maximum extent permitted by applicable law, iFranchise and its officers, directors, employees, and partners shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the platform, including losses related to investment decisions, franchise outcomes, third-party conduct, or service interruptions."
+        ]
+      },
+      {
+        "heading": "Indemnification",
+        "body": [
+          "You agree to indemnify, defend, and hold harmless iFranchise and its affiliates from any claims, liabilities, damages, losses, and expenses - including reasonable legal fees - arising out of your use of the platform, violation of these Terms, infringement of any third-party rights, or submission of inaccurate information."
+        ]
+      },
+      {
+        "heading": "Termination",
+        "body": [
+          "REQUIRES LEGAL REVIEW. iFranchise may restrict access to public website functionality where necessary to address misuse, security concerns, legal requirements, or conduct harmful to the website or its users. The website currently has no user-account termination function."
+        ]
+      },
+      {
+        "heading": "Governing Law",
+        "body": [
+          "These Terms are governed by and construed in accordance with the laws of India. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of competent courts located in Bangalore, Karnataka, India, unless otherwise required by applicable law."
+        ]
+      },
+      {
+        "heading": "Dispute Resolution",
+        "body": [
+          "Before initiating formal legal proceedings, both parties agree to attempt resolution through good-faith written negotiation for a period of thirty (30) days from the date of written notice. If unresolved, disputes may be referred to binding arbitration under applicable Indian arbitration law, or to courts of competent jurisdiction as mutually agreed."
+        ]
+      },
+      {
+        "heading": "Modifications to Terms",
+        "body": [
+          "We reserve the right to update these Terms at any time. Material changes will be communicated through the platform or via registered contact details with reasonable advance notice. Continued use of iFranchise following any update constitutes your acceptance of the revised Terms."
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/terms-and-conditions",
+    "migrationNote": "Original source draft. Update implementation-specific terms for CRM migration and retain draft status pending business/legal approval; do not publish outdated Google Sheets/Resend claims."
+  },
+  {
+    "path": "/licenses",
+    "title": "Licenses & Attribution",
+    "intro": "",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": [
+          "This Licenses page documents the software components, content rights, third-party integrations, and intellectual property frameworks that underpin the iFranchise platform. We are committed to transparency regarding the tools and technologies we use, and to honoring the licensing obligations associated with each."
+        ]
+      },
+      {
+        "heading": "Open Source Software",
+        "body": [
+          "The iFranchise platform is built using open-source software components including React, Vite, Tailwind CSS, and various npm ecosystem packages. Each component is used in accordance with its respective license - including MIT, Apache 2.0, and BSD variants. A full dependency manifest is maintained in our technical documentation and is available upon request."
+        ]
+      },
+      {
+        "heading": "Proprietary Platform Software",
+        "body": [
+          "All custom software, algorithms, data models, and platform logic developed by iFranchise are proprietary and protected under applicable copyright and trade secret law. Unauthorized reproduction, reverse engineering, decompilation, or distribution of any proprietary component is strictly prohibited."
+        ]
+      },
+      {
+        "heading": "Franchise Brand Content",
+        "body": [
+          "Franchise brand names, logos, trademarks, promotional materials, and business descriptions displayed on the iFranchise marketplace remain the exclusive intellectual property of their respective brand owners. iFranchise operates as a marketplace facilitator and does not claim ownership of any brand-specific content. All brand content is displayed under license or with explicit permission from the respective brand."
+        ]
+      },
+      {
+        "heading": "Platform Content and Design",
+        "body": [
+          "All original content created by iFranchise - including editorial copy, UI design elements, iconography, illustrations, and data compilations - is protected under Indian and international copyright law. Users are granted a limited, non-exclusive right to view and interact with this content solely for legitimate business evaluation purposes. Any reproduction, redistribution, or commercial use requires prior written consent."
+        ]
+      },
+      {
+        "heading": "Third-Party Service Integrations",
+        "body": [
+          "iFranchise integrates with third-party services for payment processing, analytics, cloud infrastructure, communication, and mapping. These integrations are governed by the respective service providers' terms of service and licensing agreements. iFranchise does not sublicense third-party services to users beyond what is necessary for platform functionality."
+        ]
+      },
+      {
+        "heading": "API Access and Usage",
+        "body": [
+          "Access to any iFranchise API endpoints is subject to a separate API license agreement. Unauthorized access to, scraping of, or automated querying of platform APIs without a valid license is prohibited. Approved API partners must comply with rate limits, data handling requirements, and usage restrictions defined in their individual agreements."
+        ]
+      },
+      {
+        "heading": "User-Submitted Content",
+        "body": [
+          "Content submitted by users - including franchise enquiry forms, profile information, reviews, and communications - remains the intellectual property of the submitting party. By submitting content to iFranchise, users grant us a worldwide, royalty-free, non-exclusive license to store, process, display, and use that content solely for the purpose of delivering platform services."
+        ]
+      },
+      {
+        "heading": "Trademarks",
+        "body": [
+          "The iFranchise name, wordmark, logo, and associated brand identifiers are registered or common-law trademarks of iFranchise. Unauthorized use of these marks in any commercial context - including in domain names, advertising, or product names - is prohibited without explicit written authorization from iFranchise."
+        ]
+      },
+      {
+        "heading": "Data and Analytics",
+        "body": [
+          "Aggregated, anonymized platform data and market insights generated by iFranchise are proprietary. This data may be used internally for product improvement, shared with franchise brand partners in aggregate form, or published as market research. Individual user data is never sold or shared in identifiable form without consent."
+        ]
+      },
+      {
+        "heading": "Geographic and Regulatory Compliance",
+        "body": [
+          "iFranchise services are designed primarily for the Indian market and comply with applicable Indian regulatory frameworks including the Information Technology Act, 2000, and relevant data protection guidelines. Users accessing the platform from outside India are responsible for ensuring compliance with their local laws and regulations."
+        ]
+      },
+      {
+        "heading": "License Updates",
+        "body": [
+          "This Licenses page may be updated periodically to reflect changes in third-party dependencies, new integrations, regulatory requirements, or platform enhancements. Material changes will be communicated through the platform. For licensing inquiries or to request attribution details, contact contact@ifranchise.in."
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/licenses",
+    "migrationNote": "Original source draft. Update implementation-specific terms for CRM migration and retain draft status pending business/legal approval; do not publish outdated Google Sheets/Resend claims."
+  },
+  {
+    "path": "/data-rights-request",
+    "title": "Data Rights Request",
+    "intro": "Use this intake form to request access-related information, correction, erasure, consent withdrawal, or grievance review. Submission does not automatically disclose or change stored personal data.",
+    "sections": [
+      {
+        "heading": "Before submitting a request",
+        "body": [
+          "Do not include passwords, payment information, identity-document numbers, or unrelated sensitive information. Provide enough context to identify the relevant form or enquiry."
+        ]
+      }
+    ],
+    "sourceUrl": "https://www.ifranchise.in/data-rights-request",
+    "migrationNote": "Intake must remain disabled under current user instruction; present contact route."
+  },
+  {
+    "path": "/careers",
+    "title": "Careers at iFranchise",
+    "intro": "Build with a team connecting brands, investors, and growth.",
+    "sections": [],
+    "sourceUrl": "https://www.ifranchise.in/careers",
+    "jobs": [
+      {
+        "id": "business-development-trainee",
+        "active": true,
+        "title": "Business Development Trainee",
+        "dept": "Sales",
+        "type": "Internship",
+        "mode": "Hybrid",
+        "location": "Bengaluru, Karnataka (Remote / On-site)",
+        "duration": "6 Months",
+        "stipend": "Competitive Fixed Stipend + Performance Incentives",
+        "workingDays": "Monday – Saturday",
+        "workingHours": "10:00 AM – 7:00 PM",
+        "tagline": "Identify and onboard brands, build relationships with business leaders, and grow iFranchise through hands-on business development.",
+        "reportsTo": "Business Development / Leadership Team",
+        "experience": "Internship",
+        "openings": "1",
+        "joining": "Rolling basis",
+        "rounds": "2–3 Rounds",
+        "applyEmail": "hr@ifranchise.in",
+        "icon": {
+          "tag": "svg",
+          "className": "w-7 h-7",
+          "fill": "none",
+          "stroke": "currentColor",
+          "viewBox": "0 0 24 24",
+          "strokeWidth": 1.8,
+          "children": {
+            "tag": "path",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "d": "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          }
+        },
+        "keySkills": [
+          "Bachelor's or Master's in Business, Marketing, Commerce, or related fields",
+          "Strong communication and relationship-building skills",
+          "Comfortable speaking with founders, CEOs, and business owners"
+        ],
+        "whyJoin": "Attractive performance-based incentives for every brand successfully onboarded, practical exposure to sales and franchise consulting, direct interaction with founders and CEOs, work on real expansion projects, and a path to a full-time Business Development Executive role after a successful 6-month internship.",
+        "about": "iFranchise is a growing franchise development and business expansion platform that helps brands scale through strategic franchise partnerships. We work closely with emerging and established brands to support their growth and market expansion objectives.",
+        "aboutRole": "We are looking for a highly motivated and energetic Business Development Trainee to identify and onboard brands, build relationships with business leaders, and promote iFranchise services. This role offers hands-on exposure to business development, sales strategy, client acquisition, and franchise consulting—with structured training and mentorship throughout the internship.",
+        "responsibilities": [
+          "Research and identify brands suitable for franchise development and expansion",
+          "Engage growth-focused brands and open meaningful partnership discussions",
+          "Present iFranchise services and schedule meetings with senior management",
+          "Follow up with prospects and support brand onboarding through the full cycle"
+        ],
+        "requirements": [
+          "Self-motivated, target-driven, and eager to learn",
+          "Basic knowledge of sales and business development (preferred)"
+        ],
+        "applyNote": "Submit your resume with a brief introduction highlighting your interest in business development and client acquisition. You can also reach us on LinkedIn."
+      },
+      {
+        "id": "asst-business-development-manager-franchise-expansion",
+        "active": true,
+        "title": "Asst. Business Development Manager (Franchise Expansion)",
+        "dept": "Sales",
+        "type": "Full Time",
+        "mode": "Hybrid",
+        "location": "Bengaluru, Karnataka (Remote / On-site) · NCR-based candidates",
+        "duration": "Full-time",
+        "stipend": "Competitive Fixed Salary + Performance Incentives + Travel Reimbursements",
+        "workingDays": "Monday – Saturday",
+        "workingHours": "10:00 AM – 7:00 PM",
+        "tagline": "Lead brand acquisition and franchise expansion—own the full BD cycle from outreach to onboarding across India.",
+        "reportsTo": "Head of Business Development / Leadership",
+        "experience": "3–6 Years",
+        "openings": "1",
+        "joining": "Immediate / Rolling",
+        "rounds": "3–4 Rounds",
+        "applyEmail": "hr@ifranchise.in",
+        "icon": {
+          "tag": "svg",
+          "className": "w-7 h-7",
+          "fill": "none",
+          "stroke": "currentColor",
+          "viewBox": "0 0 24 24",
+          "strokeWidth": 1.8,
+          "children": {
+            "tag": "path",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "d": "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+          }
+        },
+        "keySkills": [
+          "3–6 years in BD, B2B sales, franchise sales, or brand partnerships",
+          "Proven track record of client acquisition and closing deals",
+          "Strong communication, presentation, and negotiation skills"
+        ],
+        "whyJoin": "Work with India’s growing brands and entrepreneurs, build a strong network of business leaders, contribute directly to company growth, performance-driven culture with substantial earning potential, competitive salary with incentives for every successful brand onboarded, travel allowance for official business travel, and fast-track progression into senior leadership.",
+        "about": "iFranchise is a leading franchise consulting and business expansion company helping brands scale through strategic franchise development, partner acquisition, and growth-focused expansion solutions. We work directly with founders, CEOs, and business leaders across India to build scalable franchise networks.",
+        "aboutRole": "We are looking for a dynamic Asst. Business Development Manager to lead brand acquisition and franchise expansion. Ideal candidates are based in the NCR region, love networking and travel, and want to own the complete cycle—from identifying brands and engaging founders/CEOs to onboarding them on iFranchise.",
+        "responsibilities": [
+          "Drive franchise sales and onboard brands onto the iFranchise platform",
+          "Identify and engage franchise investors and business buyers",
+          "Manage the full sales cycle from outreach to deal closure",
+          "Match investors with suitable franchise brands and support onboarding",
+          "Travel for client meetings, presentations, and industry events"
+        ],
+        "requirements": [
+          "Self-driven, target-oriented, and comfortable owning outcomes",
+          "Passion for networking, travel, and in-person client meetings",
+          "Entrepreneurial mindset with strong ownership and confidence",
+          "NCR-based candidates preferred"
+        ],
+        "applyNote": "Submit your resume with a brief introduction highlighting your experience in business development, franchise sales, and client acquisition. You can also apply via LinkedIn."
+      }
+    ],
+    "process": [
+      {
+        "heading": "Application Review",
+        "body": [
+          "We review every application within 5 business days."
+        ]
+      },
+      {
+        "heading": "Intro Call",
+        "body": [
+          "20-minute call with the hiring manager to align on fit and expectations."
+        ]
+      },
+      {
+        "heading": "Skills / Strategy Round",
+        "body": [
+          "A focused assessment - portfolio review, case study, or live task depending on the role."
+        ]
+      },
+      {
+        "heading": "Leadership Round",
+        "body": [
+          "Final conversation with a founder or department head."
+        ]
+      },
+      {
+        "heading": "Offer",
+        "body": [
+          "Fast turnaround. We move quickly for the right people."
+        ]
+      }
+    ],
+    "contactEmail": "hr@ifranchise.in"
+  }
+]

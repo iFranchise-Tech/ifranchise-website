@@ -1,27 +1,33 @@
-iFranchise website — private design preview
+iFranchise — modern website, full content migration and paused CRM integration
+Updated 18 October 2026
 
-Run with Node 22.13+ and pnpm 11.25:
-  pnpm install
-  pnpm dev
+Private website: https://ifranchise-studio-2026.babbysyed.chatgpt.site
+Existing public domain is unchanged. Preview keeps robots noindex/disallow.
 
-Build:
-  node /absolute/path/to/sites-plugin/scripts/build-site.mjs
-The source includes the supported Vinext/Sites worker build integration.
+CONTENT
+All 12 existing franchise listings, original galleries, and 11 available brand
+brochures. Seven blog posts, sixteen knowledge articles, model and investment
+guides, ten city pages, About, founder profiles, services, FAQs and active careers.
+78 page routes and 13 old aliases verified. Original path shapes are retained.
 
-Checks:
-  node --test tests/enquiry.test.mjs
-  pnpm exec tsc --noEmit
-  node tests/smoke.mjs   (local preview running on port 3018; TEST_ORIGIN can override)
+Source data and audit: content/*.json. Original public-site asset paths are
+retained beneath public/. Public detail pages identify commercial figures as
+source proposals requiring confirmation, not independently verified performance.
+Lassi N Cafe has conflicting investment figures; its budget filter is withheld.
+Auto-generated upper limits, placeholder staff and unsupported reviews omitted.
+The readiness self-check retains questions without treating risk appetite as an
+investment recommendation. Answers remain in the current page only.
 
-Important configuration:
-  lib/site.ts — canonical origin and private-preview index control
-  lib/site.ts — selected catalogue and editorial draft content
-  lib/enquiry.mjs — disabled gateway adapter and reviewed form mapping
-  lib/measurement.mjs — disabled GTM configuration and consent handling
-  integration/crm-contract.txt — actual CRM contract, gaps and activation sequence
-  integration/measurement-plan.json — event/consent mapping for Meta, Google and LinkedIn
+CRM
+Real gateway adapter in lib/journey-client.mjs for investor and brand journeys.
+Both local intake and conversion switches are Off. Paused status is read-only.
+See integration/crm-contract.txt and the migration report for review/activation.
+Existing metadata, structured data, semantic server HTML and consent controls
+remain. Advertising tags and conversion sending have not been activated.
 
-This is a private review version, not a replacement of www.ifranchise.in.
-Public domain launch, live CRM delivery, advertising account setup, funded campaigns,
-full catalogue migration, approved privacy terms and production performance validation remain.
-Keep the existing CRM intake/conversion switches Off until the owner explicitly enables them.
+VERIFICATION
+node --test tests/enquiry.test.mjs
+node tests/migration-smoke.mjs (local preview at http://127.0.0.1:3018)
+TypeScript and Sites build; desktop and mobile browser checks.
+
+Use the Sites workflow for future source synchronization and publication.

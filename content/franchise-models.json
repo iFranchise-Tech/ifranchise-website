@@ -1,0 +1,263 @@
+[
+  {
+    "code": "FOFO",
+    "path": "/fofo-model",
+    "title": "FOFO Franchise Model",
+    "fullTitle": "Franchise Owned, Franchise Operated (FOFO)",
+    "subtitle": "Own and operate your franchise unit with full control while leveraging a proven brand, systems, and ongoing franchisor support.",
+    "heroEyebrow": "Franchise Model Guide",
+    "accentColor": "#059669",
+    "badgeColor": "bg-emerald-100 text-emerald-700 border-emerald-200",
+    "explanation": "In the FOFO (Franchise Owned, Franchise Operated) model, you invest in and own the franchise unit while managing daily operations yourself. The franchisor provides brand license, standard operating procedures, training, marketing frameworks, and quality benchmarks — giving you entrepreneurial control with reduced brand risk.",
+    "howItWorks": [
+      "You invest capital and take legal ownership of the franchise unit.",
+      "The franchisor grants brand rights, SOPs, training, and launch support.",
+      "You hire staff, manage inventory, service quality, and local marketing.",
+      "You retain operating profits after royalties and agreed fees.",
+      "Franchisor provides audits, refresher training, and network support."
+    ],
+    "advantages": [
+      "Maximum operational control and local decision-making authority.",
+      "Higher profit potential without company-operated management fees.",
+      "Direct customer relationships and faster local market adaptation.",
+      "Strong fit for hands-on entrepreneurs and multi-unit operators.",
+      "Build transferable operational expertise within a proven brand."
+    ],
+    "challenges": [
+      "Requires significant personal time and management involvement.",
+      "Performance depends heavily on your leadership and team quality.",
+      "Higher workload during launch and staffing ramp-up phases.",
+      "Must comply with brand standards while handling day-to-day complexity."
+    ],
+    "idealInvestor": "Entrepreneurs, ex-corporate professionals, and business-minded operators who want hands-on ownership with a structured brand behind them. Best suited for investors ready to manage teams, customers, and daily operations.",
+    "investmentConsiderations": [
+      "Budget for working capital beyond the franchise fee and setup cost.",
+      "Evaluate training depth, SOP quality, and field support from the franchisor.",
+      "Confirm territory exclusivity, renewal terms, and performance clauses.",
+      "Assess local demand, staffing availability, and rental economics.",
+      "Plan for 12–18 months of active involvement during stabilisation."
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "ownership": "Franchisee",
+        "operations": "Franchisee",
+        "involvement": "High",
+        "control": "High"
+      },
+      {
+        "model": "FOCO",
+        "ownership": "Franchisee",
+        "operations": "Company",
+        "involvement": "Low",
+        "control": "Medium"
+      },
+      {
+        "model": "FICO",
+        "ownership": "Company",
+        "operations": "Company",
+        "involvement": "Minimal",
+        "control": "Low"
+      }
+    ],
+    "geoAnswer": "FOFO means Franchise Owned, Franchise Operated: you own the unit and run daily operations using the franchisor brand and systems. It suits hands-on entrepreneurs in India who want control, higher margins, and direct customer engagement.",
+    "relatedPaths": [
+      "/foco-model",
+      "/fico-model",
+      "/franchise-opportunities"
+    ],
+    "homeCard": {
+      "nameLine": "Franchise Owned • Franchise Operated",
+      "shortExplanation": "Best for investors who want complete control over operations."
+    },
+    "sourceUrl": "https://www.ifranchise.in/fofo-model",
+    "faqs": [
+      {
+        "question": "What does FOFO mean in franchising?",
+        "answer": "FOFO stands for Franchise Owned, Franchise Operated. The franchisee owns the unit and manages daily operations using the franchisor brand, systems, and support."
+      },
+      {
+        "question": "Who should choose the FOFO model in India?",
+        "answer": "Hands-on entrepreneurs, ex-professionals turning operators, and investors who want direct control over staff, customers, and local strategy should consider FOFO."
+      },
+      {
+        "question": "Is FOFO more profitable than FOCO or FICO?",
+        "answer": "FOFO can offer higher net margins when managed well because you avoid company-operated management fees. Profitability still depends on location, brand strength, and your operational execution."
+      }
+    ]
+  },
+  {
+    "code": "FOCO",
+    "path": "/foco-model",
+    "title": "FOCO Franchise Model",
+    "fullTitle": "Franchise Owned, Company Operated (FOCO)",
+    "subtitle": "Invest in and own the franchise unit while the franchisor manages operations, staffing, and quality — ideal for semi-passive investors.",
+    "heroEyebrow": "Franchise Model Guide",
+    "accentColor": "#2F0DA3",
+    "badgeColor": "bg-violet-100 text-violet-700 border-violet-200",
+    "explanation": "In the FOCO (Franchise Owned, Company Operated) model, you provide capital and own the franchise asset, but the franchisor runs day-to-day operations. This structure balances ownership benefits with professional management — popular among working professionals and investors seeking franchise returns without daily involvement.",
+    "howItWorks": [
+      "You invest and own the franchise unit or asset.",
+      "The franchisor deploys an operations team to run the outlet.",
+      "Brand standards, staffing, supply chain, and quality are centrally managed.",
+      "You receive performance reports and profit distributions per agreement.",
+      "Renewals and expansion follow franchisor-defined operating KPIs."
+    ],
+    "advantages": [
+      "Semi-passive income with limited daily operational burden.",
+      "Professional operations led by brand expertise and systems.",
+      "Lower personal risk from management inexperience.",
+      "Scalable — own multiple units without running each one.",
+      "Structured reporting and accountability from the franchisor."
+    ],
+    "challenges": [
+      "Less control over daily operational decisions.",
+      "Net returns depend on franchisor efficiency and fee structure.",
+      "Management fees can reduce margins versus FOFO.",
+      "Performance disputes require clear contractual governance."
+    ],
+    "idealInvestor": "Passive investors, working professionals, NRIs, and HNIs who want franchise exposure with minimal daily involvement. Ideal when you prefer asset ownership with expert operations management.",
+    "investmentConsiderations": [
+      "Review management fee structure, revenue share, and audit rights.",
+      "Validate franchisor track record on unit-level profitability.",
+      "Understand exit clauses, asset transfer rules, and renewal terms.",
+      "Confirm reporting frequency, transparency, and dispute resolution.",
+      "Compare net yield against FOFO after all operating charges."
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "ownership": "Franchisee",
+        "operations": "Franchisee",
+        "involvement": "High",
+        "control": "High"
+      },
+      {
+        "model": "FOCO",
+        "ownership": "Franchisee",
+        "operations": "Company",
+        "involvement": "Low",
+        "control": "Medium"
+      },
+      {
+        "model": "FICO",
+        "ownership": "Company",
+        "operations": "Company",
+        "involvement": "Minimal",
+        "control": "Low"
+      }
+    ],
+    "geoAnswer": "FOCO means Franchise Owned, Company Operated: you own the franchise unit while the company runs operations. In India, it suits investors who want brand-backed returns without managing staff, inventory, or daily outlet operations.",
+    "relatedPaths": [
+      "/fofo-model",
+      "/fico-model",
+      "/franchise-readiness-assessment"
+    ],
+    "homeCard": {
+      "nameLine": "Franchise Owned • Company Operated",
+      "shortExplanation": "Own the business while the company manages operations."
+    },
+    "sourceUrl": "https://www.ifranchise.in/foco-model",
+    "faqs": [
+      {
+        "question": "What is the FOCO franchise model?",
+        "answer": "FOCO means Franchise Owned, Company Operated. You own the franchise asset while the franchisor runs operations, making it suitable for semi-passive investors."
+      },
+      {
+        "question": "How are returns calculated in FOCO?",
+        "answer": "Returns are typically based on unit profitability after operating costs and management fees. Review the franchise agreement for revenue share, fee structure, and distribution frequency."
+      },
+      {
+        "question": "Can I own multiple FOCO units?",
+        "answer": "Yes. FOCO is popular for portfolio investors because the franchisor handles operations across units, reducing your day-to-day management burden."
+      }
+    ]
+  },
+  {
+    "code": "FICO",
+    "path": "/fico-model",
+    "title": "FICO Franchise Model",
+    "fullTitle": "Franchise Invested, Company Operated (FICO)",
+    "subtitle": "Provide investment capital while the franchisor owns and operates the unit — structured returns with zero operational responsibility.",
+    "heroEyebrow": "Franchise Model Guide",
+    "accentColor": "#ea580c",
+    "badgeColor": "bg-orange-100 text-orange-700 border-orange-200",
+    "explanation": "In the FICO (Franchise Invested, Company Operated) model, you act as a financial investor. The franchisor owns, sets up, and operates the outlet while you receive agreed returns based on revenue share, profit share, or fixed yield structures. It is closest to a brand-backed business investment with operational accountability on the company.",
+    "howItWorks": [
+      "You commit capital under a defined investment agreement.",
+      "The franchisor owns, sets up, and operates the franchise unit.",
+      "Revenue, costs, and performance are tracked with transparent reporting.",
+      "Returns are distributed per agreed schedule and structure.",
+      "Exit or renewal follows contract-defined timelines and conditions."
+    ],
+    "advantages": [
+      "Zero operational involvement required from the investor.",
+      "Structured, predictable return framework in many agreements.",
+      "Brand accountability for performance and compliance.",
+      "Lower entry barrier compared to full franchise ownership.",
+      "Portfolio approach across multiple units or categories."
+    ],
+    "challenges": [
+      "No ownership of the physical franchise asset in most structures.",
+      "Returns may be capped by the agreed investment framework.",
+      "Limited influence on day-to-day business decisions.",
+      "Requires thorough due diligence on franchisor financial health."
+    ],
+    "idealInvestor": "Investors seeking structured franchise returns without operational roles — similar to a business investment with brand-backed execution. Suitable for first-time franchise investors exploring lower-involvement entry points.",
+    "investmentConsiderations": [
+      "Scrutinise return mechanics: fixed yield vs revenue/profit share.",
+      "Review security, capital protection, and default remedies.",
+      "Validate audited financials and existing unit performance data.",
+      "Understand tenure, lock-in, exit windows, and renewal options.",
+      "Compare risk-adjusted returns with FOFO and FOCO alternatives."
+    ],
+    "comparison": [
+      {
+        "model": "FOFO",
+        "ownership": "Franchisee",
+        "operations": "Franchisee",
+        "involvement": "High",
+        "control": "High"
+      },
+      {
+        "model": "FOCO",
+        "ownership": "Franchisee",
+        "operations": "Company",
+        "involvement": "Low",
+        "control": "Medium"
+      },
+      {
+        "model": "FICO",
+        "ownership": "Company",
+        "operations": "Company",
+        "involvement": "Minimal",
+        "control": "Low"
+      }
+    ],
+    "geoAnswer": "FICO means Franchise Invested, Company Operated: you invest capital and the company runs the business. In India, FICO suits investors who want franchise-linked returns without owning or operating outlets themselves.",
+    "relatedPaths": [
+      "/fofo-model",
+      "/foco-model",
+      "/resources/knowledge-hub/investor/franchise-roi-guide"
+    ],
+    "homeCard": {
+      "nameLine": "Franchise Invested • Company Operated",
+      "shortExplanation": "Invest in the business while the company manages day-to-day operations."
+    },
+    "sourceUrl": "https://www.ifranchise.in/fico-model",
+    "faqs": [
+      {
+        "question": "What is FICO in franchise investment?",
+        "answer": "FICO stands for Franchise Invested, Company Operated. You provide capital; the franchisor owns and operates the unit under an agreed return structure."
+      },
+      {
+        "question": "Is FICO the same as a fixed deposit or equity investment?",
+        "answer": "No. FICO is a business-linked investment tied to franchise unit performance. Returns depend on the brand, agreement terms, and operational outcomes — not guaranteed bank interest."
+      },
+      {
+        "question": "What risks should FICO investors evaluate?",
+        "answer": "Review franchisor financials, unit economics, capital protection clauses, exit terms, and historical payout consistency before committing capital."
+      }
+    ]
+  }
+]

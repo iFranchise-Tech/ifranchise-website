@@ -1,0 +1,586 @@
+[
+  {
+    "url": "https://www.ifranchise.in/",
+    "path": "/",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/about-us",
+    "path": "/about-us",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/team",
+    "path": "/team",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "replace-placeholder-team-with-source-about-founders"
+  },
+  {
+    "url": "https://www.ifranchise.in/services",
+    "path": "/services",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise-opportunities",
+    "path": "/franchise-opportunities",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/list-your-brand",
+    "path": "/list-your-brand",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs",
+    "path": "/blogs",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/careers",
+    "path": "/careers",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/contact-us",
+    "path": "/contact-us",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/faq",
+    "path": "/faq",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/fofo-model",
+    "path": "/fofo-model",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "franchise-models.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/foco-model",
+    "path": "/foco-model",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "franchise-models.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/fico-model",
+    "path": "/fico-model",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "franchise-models.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/investment-under-25-lakhs",
+    "path": "/investment-under-25-lakhs",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "investment-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/investment-under-50-lakhs",
+    "path": "/investment-under-50-lakhs",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "investment-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/investment-under-1-crore",
+    "path": "/investment-under-1-crore",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "investment-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/premium-franchise-opportunities",
+    "path": "/premium-franchise-opportunities",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "investment-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/high-roi-franchise-opportunities",
+    "path": "/high-roi-franchise-opportunities",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "investment-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise-readiness-assessment",
+    "path": "/franchise-readiness-assessment",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "assessment.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub",
+    "path": "/resources/knowledge-hub",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor",
+    "path": "/resources/knowledge-hub/investor",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand",
+    "path": "/resources/knowledge-hub/brand",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/privacy-policy",
+    "path": "/privacy-policy",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "adapt-draft-to-current-CRM-processing"
+  },
+  {
+    "url": "https://www.ifranchise.in/terms-and-conditions",
+    "path": "/terms-and-conditions",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "adapt-draft-to-current-CRM-processing"
+  },
+  {
+    "url": "https://www.ifranchise.in/licenses",
+    "path": "/licenses",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/odette",
+    "path": "/franchise/odette",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/original-burger-co",
+    "path": "/franchise/original-burger-co",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/franco",
+    "path": "/franchise/franco",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/biggies-burger",
+    "path": "/franchise/biggies-burger",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/bigguys",
+    "path": "/franchise/bigguys",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/brand-avenue",
+    "path": "/franchise/brand-avenue",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/lassi-n-cafe",
+    "path": "/franchise/lassi-n-cafe",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/fusion-pizza-big-burger",
+    "path": "/franchise/fusion-pizza-big-burger",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/kasturi-creations",
+    "path": "/franchise/kasturi-creations",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/10-downing-street",
+    "path": "/franchise/10-downing-street",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/freshco-goli-soda",
+    "path": "/franchise/freshco-goli-soda",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/franchise/emori",
+    "path": "/franchise/emori",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "brands.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/mumbai",
+    "path": "/location/mumbai",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/delhi-ncr",
+    "path": "/location/delhi-ncr",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/bengaluru",
+    "path": "/location/bengaluru",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/hyderabad",
+    "path": "/location/hyderabad",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/chennai",
+    "path": "/location/chennai",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/pune",
+    "path": "/location/pune",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/kolkata",
+    "path": "/location/kolkata",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/ahmedabad",
+    "path": "/location/ahmedabad",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/jaipur",
+    "path": "/location/jaipur",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/location/chandigarh",
+    "path": "/location/chandigarh",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "cities.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs/how-to-evaluate-franchise-opportunity-india",
+    "path": "/blogs/how-to-evaluate-franchise-opportunity-india",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "blogs.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs/fofo-vs-fico-franchise-model-guide",
+    "path": "/blogs/fofo-vs-fico-franchise-model-guide",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "blogs.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs/franchise-unit-economics-checklist",
+    "path": "/blogs/franchise-unit-economics-checklist",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "blogs.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs/franchise-demand-india-2026",
+    "path": "/blogs/franchise-demand-india-2026",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "blogs.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs/top-9-clothing-franchise-opportunities-india",
+    "path": "/blogs/top-9-clothing-franchise-opportunities-india",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "blogs.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs/how-the-franchise-business-model-works",
+    "path": "/blogs/how-the-franchise-business-model-works",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "blogs.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/blogs/how-to-start-a-clothing-franchise-in-india",
+    "path": "/blogs/how-to-start-a-clothing-franchise-in-india",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "blogs.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/careers/business-development-trainee",
+    "path": "/careers/business-development-trainee",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "careers.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/careers/asst-business-development-manager-franchise-expansion",
+    "path": "/careers/asst-business-development-manager-franchise-expansion",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "careers.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/how-to-choose-the-right-franchise",
+    "path": "/resources/knowledge-hub/investor/how-to-choose-the-right-franchise",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/franchise-roi-guide",
+    "path": "/resources/knowledge-hub/investor/franchise-roi-guide",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/due-diligence-checklist",
+    "path": "/resources/knowledge-hub/investor/due-diligence-checklist",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/franchise-agreement-basics",
+    "path": "/resources/knowledge-hub/investor/franchise-agreement-basics",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/franchise-investment-risks",
+    "path": "/resources/knowledge-hub/investor/franchise-investment-risks",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/multi-unit-franchise-strategy",
+    "path": "/resources/knowledge-hub/investor/multi-unit-franchise-strategy",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/emerging-franchise-categories",
+    "path": "/resources/knowledge-hub/investor/emerging-franchise-categories",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/investor/common-investor-mistakes",
+    "path": "/resources/knowledge-hub/investor/common-investor-mistakes",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/how-to-franchise-your-business",
+    "path": "/resources/knowledge-hub/brand/how-to-franchise-your-business",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/franchise-expansion-strategy",
+    "path": "/resources/knowledge-hub/brand/franchise-expansion-strategy",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/operations-manual-guide",
+    "path": "/resources/knowledge-hub/brand/operations-manual-guide",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/territory-planning",
+    "path": "/resources/knowledge-hub/brand/territory-planning",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/franchise-recruitment",
+    "path": "/resources/knowledge-hub/brand/franchise-recruitment",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/unit-economics",
+    "path": "/resources/knowledge-hub/brand/unit-economics",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/scaling-through-franchising",
+    "path": "/resources/knowledge-hub/brand/scaling-through-franchising",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/resources/knowledge-hub/brand/franchise-sales-process",
+    "path": "/resources/knowledge-hub/brand/franchise-sales-process",
+    "lastmod": "2026-10-16",
+    "contentCaptured": true,
+    "contentFile": "knowledge.json",
+    "migrationStatus": "ready-with-claim-review-notes"
+  },
+  {
+    "url": "https://www.ifranchise.in/data-rights-request",
+    "path": "/data-rights-request",
+    "contentCaptured": true,
+    "inSitemap": false,
+    "contentFile": "normalized-pages.json",
+    "migrationStatus": "retain-route-with-intake-off"
+  }
+]

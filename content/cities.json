@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Mumbai",
+    "slug": "mumbai"
+  },
+  {
+    "name": "Delhi NCR",
+    "slug": "delhi-ncr",
+    "aliases": [
+      "delhi",
+      "new-delhi",
+      "ncr"
+    ]
+  },
+  {
+    "name": "Bengaluru",
+    "slug": "bengaluru",
+    "aliases": [
+      "bangalore",
+      "bengalore"
+    ]
+  },
+  {
+    "name": "Hyderabad",
+    "slug": "hyderabad"
+  },
+  {
+    "name": "Chennai",
+    "slug": "chennai"
+  },
+  {
+    "name": "Pune",
+    "slug": "pune"
+  },
+  {
+    "name": "Kolkata",
+    "slug": "kolkata"
+  },
+  {
+    "name": "Ahmedabad",
+    "slug": "ahmedabad"
+  },
+  {
+    "name": "Jaipur",
+    "slug": "jaipur"
+  },
+  {
+    "name": "Chandigarh",
+    "slug": "chandigarh"
+  }
+]

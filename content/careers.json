@@ -1,0 +1,519 @@
+{
+  "jobs": [
+    {
+      "id": "ui-ux-designer",
+      "active": false,
+      "title": "UI/UX Designer",
+      "dept": "Design",
+      "type": "Full-time",
+      "mode": "Onsite",
+      "location": "Bengaluru, Karnataka",
+      "tagline": "Design intuitive, scalable, and developer-ready experiences for enterprise CRM and business applications.",
+      "reportsTo": "Product and Technology Team",
+      "experience": "1–4 Years",
+      "applyEmail": "hr@ifranchise.in",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+        }
+      },
+      "opportunityPrompts": [
+        "Can you turn complex business requirements into intuitive product experiences?",
+        "Do you enjoy solving enterprise workflows and data-heavy UX problems?",
+        "Can you create structured, developer-ready Figma files and scalable design systems?"
+      ],
+      "keySkills": [
+        "1–4 years of relevant UI/UX or product design experience",
+        "Advanced Figma skills",
+        "Strong understanding of UX, user flows, and information architecture",
+        "Strong visual hierarchy, typography, spacing, and interaction design skills",
+        "Experience designing dashboards and data-heavy interfaces",
+        "Experience with responsive and component-based design",
+        "Strong understanding of design systems and reusable components",
+        "Strong problem-solving and product-thinking ability",
+        "Basic understanding of HTML/CSS and modern web interfaces",
+        "Ability to work independently and deliver high-quality designs within deadlines"
+      ],
+      "whyJoin": "Work on a real enterprise CRM and business application from the ground up. Solve complex product and UX problems, build scalable design systems, collaborate directly with technology and business teams, and create products used in real-world business operations.",
+      "about": "iFranchise is building an enterprise CRM and business application that supports real-world business operations, complex workflows, and scalable product experiences.",
+      "aboutRole": "We are looking for a highly skilled, product-focused UI/UX Designer who can turn complex business requirements into intuitive, scalable, and developer-ready product experiences. This is not a visual design-only role—we are looking for someone who understands user flows, product logic, enterprise workflows, and design systems.",
+      "responsibilities": [
+        "Translate PRDs and business requirements into clear user flows and product experiences",
+        "Design enterprise SaaS/CRM interfaces including dashboards, tables, forms, workflows, and data-heavy screens",
+        "Create wireframes, prototypes, and high-fidelity UI designs using Figma",
+        "Build and maintain reusable design systems and component libraries",
+        "Design responsive experiences across desktop, tablet, and mobile",
+        "Define complete UI states including loading, empty, error, success, validation, hover, active, and disabled states",
+        "Work closely with developers, QA, and business stakeholders to ensure accurate implementation",
+        "Maintain clean, structured, developer-ready Figma files with proper components, Auto Layout, variants, and specifications",
+        "Review implemented designs and continuously improve the product experience based on feedback and testing"
+      ],
+      "requirements": [
+        "Experience designing CRM, ERP, HRMS, B2B SaaS, or enterprise applications (preferred)",
+        "Experience with complex workflows and role-based interfaces (preferred)",
+        "Portfolio demonstrating real product design work, complex user flows, dashboards, design systems, and responsive applications (preferred)",
+        "Experience working directly with developers and providing production-ready design handoff (preferred)"
+      ],
+      "applyNote": "Submit your resume and portfolio demonstrating product design work, complex user flows, dashboards, design systems, and responsive applications."
+    },
+    {
+      "id": "business-development-trainee",
+      "active": true,
+      "title": "Business Development Trainee",
+      "dept": "Sales",
+      "type": "Internship",
+      "mode": "Hybrid",
+      "location": "Bengaluru, Karnataka (Remote / On-site)",
+      "duration": "6 Months",
+      "stipend": "Competitive Fixed Stipend + Performance Incentives",
+      "workingDays": "Monday – Saturday",
+      "workingHours": "10:00 AM – 7:00 PM",
+      "tagline": "Identify and onboard brands, build relationships with business leaders, and grow iFranchise through hands-on business development.",
+      "reportsTo": "Business Development / Leadership Team",
+      "experience": "Internship",
+      "openings": "1",
+      "joining": "Rolling basis",
+      "rounds": "2–3 Rounds",
+      "applyEmail": "hr@ifranchise.in",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        }
+      },
+      "keySkills": [
+        "Bachelor's or Master's in Business, Marketing, Commerce, or related fields",
+        "Strong communication and relationship-building skills",
+        "Comfortable speaking with founders, CEOs, and business owners"
+      ],
+      "whyJoin": "Attractive performance-based incentives for every brand successfully onboarded, practical exposure to sales and franchise consulting, direct interaction with founders and CEOs, work on real expansion projects, and a path to a full-time Business Development Executive role after a successful 6-month internship.",
+      "about": "iFranchise is a growing franchise development and business expansion platform that helps brands scale through strategic franchise partnerships. We work closely with emerging and established brands to support their growth and market expansion objectives.",
+      "aboutRole": "We are looking for a highly motivated and energetic Business Development Trainee to identify and onboard brands, build relationships with business leaders, and promote iFranchise services. This role offers hands-on exposure to business development, sales strategy, client acquisition, and franchise consulting—with structured training and mentorship throughout the internship.",
+      "responsibilities": [
+        "Research and identify brands suitable for franchise development and expansion",
+        "Engage growth-focused brands and open meaningful partnership discussions",
+        "Present iFranchise services and schedule meetings with senior management",
+        "Follow up with prospects and support brand onboarding through the full cycle"
+      ],
+      "requirements": [
+        "Self-motivated, target-driven, and eager to learn",
+        "Basic knowledge of sales and business development (preferred)"
+      ],
+      "applyNote": "Submit your resume with a brief introduction highlighting your interest in business development and client acquisition. You can also reach us on LinkedIn."
+    },
+    {
+      "id": "asst-business-development-manager-franchise-expansion",
+      "active": true,
+      "title": "Asst. Business Development Manager (Franchise Expansion)",
+      "dept": "Sales",
+      "type": "Full Time",
+      "mode": "Hybrid",
+      "location": "Bengaluru, Karnataka (Remote / On-site) · NCR-based candidates",
+      "duration": "Full-time",
+      "stipend": "Competitive Fixed Salary + Performance Incentives + Travel Reimbursements",
+      "workingDays": "Monday – Saturday",
+      "workingHours": "10:00 AM – 7:00 PM",
+      "tagline": "Lead brand acquisition and franchise expansion—own the full BD cycle from outreach to onboarding across India.",
+      "reportsTo": "Head of Business Development / Leadership",
+      "experience": "3–6 Years",
+      "openings": "1",
+      "joining": "Immediate / Rolling",
+      "rounds": "3–4 Rounds",
+      "applyEmail": "hr@ifranchise.in",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+        }
+      },
+      "keySkills": [
+        "3–6 years in BD, B2B sales, franchise sales, or brand partnerships",
+        "Proven track record of client acquisition and closing deals",
+        "Strong communication, presentation, and negotiation skills"
+      ],
+      "whyJoin": "Work with India’s growing brands and entrepreneurs, build a strong network of business leaders, contribute directly to company growth, performance-driven culture with substantial earning potential, competitive salary with incentives for every successful brand onboarded, travel allowance for official business travel, and fast-track progression into senior leadership.",
+      "about": "iFranchise is a leading franchise consulting and business expansion company helping brands scale through strategic franchise development, partner acquisition, and growth-focused expansion solutions. We work directly with founders, CEOs, and business leaders across India to build scalable franchise networks.",
+      "aboutRole": "We are looking for a dynamic Asst. Business Development Manager to lead brand acquisition and franchise expansion. Ideal candidates are based in the NCR region, love networking and travel, and want to own the complete cycle—from identifying brands and engaging founders/CEOs to onboarding them on iFranchise.",
+      "responsibilities": [
+        "Drive franchise sales and onboard brands onto the iFranchise platform",
+        "Identify and engage franchise investors and business buyers",
+        "Manage the full sales cycle from outreach to deal closure",
+        "Match investors with suitable franchise brands and support onboarding",
+        "Travel for client meetings, presentations, and industry events"
+      ],
+      "requirements": [
+        "Self-driven, target-oriented, and comfortable owning outcomes",
+        "Passion for networking, travel, and in-person client meetings",
+        "Entrepreneurial mindset with strong ownership and confidence",
+        "NCR-based candidates preferred"
+      ],
+      "applyNote": "Submit your resume with a brief introduction highlighting your experience in business development, franchise sales, and client acquisition. You can also apply via LinkedIn."
+    },
+    {
+      "id": "creative-director",
+      "active": false,
+      "title": "Creative Director",
+      "dept": "Design",
+      "type": "Full Time",
+      "mode": "Hybrid",
+      "location": "Bangalore",
+      "salary": "Rs.9L - Rs.12L / yr",
+      "tagline": "Lead iFranchise's visual ecosystem and brand creative direction.",
+      "reportsTo": "Head of Brand & Creative",
+      "experience": "5+ Years",
+      "openings": "1",
+      "joining": "Immediate / 30 Days",
+      "rounds": "3 Rounds",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+        }
+      },
+      "whyJoin": "At iFranchise, the Creative Director role is not a support function - it's a founding-level creative seat. You will shape how an entire category of franchise brands is perceived across India. Your work will be seen by thousands of investors, entrepreneurs, and brand partners every month.",
+      "about": "We are looking for a Creative Director to own the visual identity of iFranchise across all touchpoints - digital, print, and motion. You will set the creative standard, mentor the design team, and collaborate directly with founders on brand strategy.",
+      "responsibilities": [
+        "Define and evolve the iFranchise visual identity and design system",
+        "Lead a team of designers and motion artists across projects",
+        "Collaborate with marketing, product, and growth teams on campaigns",
+        "Own brand guidelines, typography, color, and motion standards",
+        "Review and approve all outgoing creative assets",
+        "Present creative concepts to leadership and stakeholders"
+      ],
+      "requirements": [
+        "5+ years of experience in creative direction or senior design roles",
+        "Strong portfolio demonstrating brand identity and digital design",
+        "Proficiency in Figma, Adobe Creative Suite, and motion tools",
+        "Experience leading and mentoring design teams",
+        "Excellent communication and presentation skills",
+        "Startup or agency background preferred"
+      ]
+    },
+    {
+      "id": "motion-designer",
+      "active": false,
+      "title": "Motion Designer",
+      "dept": "Design",
+      "type": "Full Time",
+      "mode": "Remote",
+      "location": "India",
+      "salary": "Rs.6L - Rs.9L / yr",
+      "tagline": "Bring the iFranchise brand to life through world-class motion and animation.",
+      "reportsTo": "Creative Director",
+      "experience": "2-4 Years",
+      "openings": "1",
+      "joining": "Immediate / 30 Days",
+      "rounds": "3 Rounds",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+        }
+      },
+      "whyJoin": "Motion at iFranchise is not an afterthought. We believe animation and motion are core to how premium brands communicate. You'll have creative freedom, a supportive team, and the opportunity to build a motion language from the ground up.",
+      "about": "As a Motion Designer at iFranchise, you will create compelling animations, video content, and interactive motion experiences that elevate our brand across social, web, and pitch decks. You will work closely with the Creative Director and content team.",
+      "responsibilities": [
+        "Design and produce motion graphics for social media, web, and presentations",
+        "Create animated explainer videos and brand reels",
+        "Collaborate with the design team on UI micro-interactions",
+        "Maintain consistency with brand motion guidelines",
+        "Deliver assets optimized for multiple platforms and formats"
+      ],
+      "requirements": [
+        "2+ years of motion design or animation experience",
+        "Proficiency in After Effects, Lottie, and Figma",
+        "Strong understanding of timing, easing, and visual storytelling",
+        "Portfolio with diverse motion work across digital formats",
+        "Ability to work independently in a remote-first environment"
+      ]
+    },
+    {
+      "id": "franchise-growth-strategist",
+      "active": false,
+      "title": "Franchise Growth Strategist",
+      "dept": "Growth",
+      "type": "Full Time",
+      "mode": "Onsite",
+      "location": "Bangalore",
+      "salary": "Rs.7L - Rs.10L / yr",
+      "tagline": "Drive franchise expansion strategy and brand partner growth across India.",
+      "reportsTo": "Head of Expansion",
+      "experience": "2-4 Years",
+      "openings": "2",
+      "joining": "Immediate",
+      "rounds": "3 Rounds",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+        }
+      },
+      "whyJoin": "This role sits at the intersection of strategy and execution. You'll work directly with founders, have access to real market data, and see the direct impact of your work as brands scale nationally through iFranchise.",
+      "about": "The Franchise Growth Strategist will own the end-to-end growth pipeline for franchise brand partnerships. You will identify expansion opportunities, build relationships with franchise brands, and develop go-to-market strategies that drive platform growth.",
+      "responsibilities": [
+        "Identify and onboard new franchise brands to the iFranchise marketplace",
+        "Develop and execute growth strategies for existing brand partners",
+        "Analyze market data to identify high-potential franchise categories",
+        "Build and maintain relationships with franchise decision-makers",
+        "Collaborate with marketing on lead generation campaigns",
+        "Report on growth KPIs and pipeline metrics to leadership"
+      ],
+      "requirements": [
+        "3+ years in business development, growth, or franchise consulting",
+        "Strong understanding of the Indian franchise market",
+        "Excellent relationship-building and negotiation skills",
+        "Data-driven mindset with experience in CRM tools",
+        "Willingness to travel for brand meetings and events"
+      ]
+    },
+    {
+      "id": "full-stack-developer",
+      "active": false,
+      "title": "Full-Stack Developer",
+      "dept": "Engineering",
+      "type": "Full-time",
+      "mode": "Hybrid",
+      "location": "Bengaluru, Karnataka",
+      "tagline": "Build and scale enterprise-grade CRM and internal business applications across the complete product stack.",
+      "reportsTo": "Product and Technology Team",
+      "experience": "2–4 Years",
+      "applyEmail": "hr@ifranchise.in",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "m8 9-3 3 3 3m8-6 3 3-3 3m-5 3 2-12"
+        }
+      },
+      "opportunityPrompts": [
+        "Can you take a feature from architecture and database design through deployment?",
+        "Do you enjoy solving complex enterprise workflows across the full stack?",
+        "Can you independently own production-ready modules and technical improvements?"
+      ],
+      "keySkills": [
+        "2–4 years of full-stack development experience",
+        "Strong React.js, Next.js, TypeScript, and JavaScript skills",
+        "Strong Node.js and REST API development experience",
+        "Experience with PostgreSQL and Supabase",
+        "Strong understanding of SQL and relational database design",
+        "Experience with authentication, authorization, and RBAC",
+        "Experience with responsive and component-based web development",
+        "Git/GitHub and pull-request workflow experience",
+        "API testing and debugging experience",
+        "Experience with Vercel or cloud deployment",
+        "Strong problem-solving and logical thinking skills",
+        "Ability to work independently and take ownership",
+        "Strong communication and ability to work under deadlines"
+      ],
+      "whyJoin": "Build a real enterprise CRM and internal business applications from the ground up. Work across the complete product development lifecycle, solve complex engineering problems, collaborate directly with UI/UX and QA teams, and take ownership of production-ready features with a strong focus on scalability, quality, and maintainability.",
+      "about": "iFranchise is building enterprise CRM and internal business applications that support complex workflows, scalable operations, and real-world business teams.",
+      "aboutRole": "We are looking for a strong, highly capable Full-Stack Developer who can build and scale enterprise-grade CRM and internal business applications. This role requires someone with an active problem-solving mindset who can independently take ownership of features from architecture and database design through development, testing, and deployment.",
+      "responsibilities": [
+        "Build complete CRM modules across frontend, backend, and database",
+        "Develop scalable and production-ready web applications",
+        "Design and implement REST APIs and business logic",
+        "Design and manage relational databases",
+        "Implement authentication, authorization, and role-based access control",
+        "Build dashboards, forms, tables, filters, and complex workflows",
+        "Integrate third-party APIs and services",
+        "Write clean, reusable, maintainable code",
+        "Debug and resolve technical issues efficiently",
+        "Work closely with UI/UX, QA, and business teams",
+        "Follow Git/GitHub branching and development practices",
+        "Handle deployments, production fixes, and technical improvements",
+        "Identify technical risks and propose better solutions",
+        "Take ownership of assigned modules from development through release"
+      ],
+      "requirements": [
+        "Experience with CRM, ERP, HRMS, or enterprise SaaS platforms (preferred)",
+        "Experience with B2B applications and complex business workflows (preferred)",
+        "Experience with data-heavy dashboards and analytics (preferred)",
+        "Third-party API integrations (preferred)",
+        "Email and notification systems (preferred)",
+        "File/document management (preferred)",
+        "Audit logs (preferred)",
+        "Performance optimization (preferred)",
+        "Application security (preferred)",
+        "Experience taking a feature from Requirement → Architecture → Database → API → Frontend → Integration → Testing → Deployment (preferred)"
+      ],
+      "applyNote": "Submit your resume, GitHub profile, and relevant project links highlighting full-stack ownership, enterprise applications, APIs, databases, and production deployments."
+    },
+    {
+      "id": "content-strategist",
+      "active": false,
+      "title": "Content Strategist",
+      "dept": "Marketing",
+      "type": "Full Time",
+      "mode": "Remote",
+      "location": "India",
+      "salary": "Rs.5L - Rs.8L / yr",
+      "tagline": "Build the editorial voice and content engine that powers iFranchise growth.",
+      "reportsTo": "Head of Marketing",
+      "experience": "2-4 Years",
+      "openings": "1",
+      "joining": "Immediate / 30 Days",
+      "rounds": "3 Rounds",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+        }
+      },
+      "whyJoin": "iFranchise is building the definitive content resource for franchise growth in India. As Content Strategist, you'll own that narrative - from SEO to thought leadership to brand storytelling.",
+      "about": "The Content Strategist will own iFranchise's editorial calendar, blog, social content, and thought leadership output. You will develop content that educates prospective franchisees, builds brand authority, and drives organic growth.",
+      "responsibilities": [
+        "Develop and execute a comprehensive content strategy across channels",
+        "Write and edit long-form blog posts, guides, and case studies",
+        "Manage the editorial calendar and content production pipeline",
+        "Collaborate with SEO, design, and growth teams on content campaigns",
+        "Analyze content performance and optimize based on data",
+        "Develop brand voice guidelines and ensure consistency"
+      ],
+      "requirements": [
+        "2+ years of content strategy or editorial experience",
+        "Exceptional writing and editing skills in English",
+        "Understanding of SEO principles and content marketing",
+        "Experience with CMS platforms and analytics tools",
+        "Knowledge of the franchise or business ecosystem is a plus"
+      ]
+    },
+    {
+      "id": "business-development-lead",
+      "active": false,
+      "title": "Business Development Lead",
+      "dept": "Sales",
+      "type": "Full Time",
+      "mode": "Hybrid",
+      "location": "Mumbai / Bangalore",
+      "salary": "Rs.8L - Rs.12L / yr",
+      "tagline": "Own the revenue pipeline and build strategic partnerships for iFranchise.",
+      "reportsTo": "Head of Revenue",
+      "experience": "4+ Years",
+      "openings": "2",
+      "joining": "Immediate",
+      "rounds": "3 Rounds",
+      "icon": {
+        "tag": "svg",
+        "className": "w-7 h-7",
+        "fill": "none",
+        "stroke": "currentColor",
+        "viewBox": "0 0 24 24",
+        "strokeWidth": 1.8,
+        "children": {
+          "tag": "path",
+          "strokeLinecap": "round",
+          "strokeLinejoin": "round",
+          "d": "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        }
+      },
+      "whyJoin": "You'll be closing deals that directly shape the iFranchise brand portfolio. With direct access to founders and a fast-moving pipeline, this role offers the kind of ownership and impact that most BD roles never provide.",
+      "about": "The Business Development Lead will drive iFranchise's revenue growth by identifying new business opportunities, closing strategic partnerships, and expanding our network of franchise brands and investors. You will work directly with the founding team.",
+      "responsibilities": [
+        "Identify, qualify, and close new business opportunities",
+        "Build and manage a pipeline of franchise brand and investor partnerships",
+        "Develop proposals, pitch decks, and partnership agreements",
+        "Represent iFranchise at industry events and franchise expos",
+        "Collaborate with marketing on demand generation strategies",
+        "Report on revenue metrics and pipeline health to leadership"
+      ],
+      "requirements": [
+        "4+ years in business development, sales, or strategic partnerships",
+        "Proven track record of closing deals and exceeding targets",
+        "Strong network in the franchise, retail, or startup ecosystem",
+        "Excellent communication, negotiation, and presentation skills",
+        "Self-starter with high ownership and accountability"
+      ]
+    }
+  ],
+  "hiringProcess": [
+    {
+      "step": "01",
+      "title": "Application Review",
+      "desc": "We review every application within 5 business days."
+    },
+    {
+      "step": "02",
+      "title": "Intro Call",
+      "desc": "20-minute call with the hiring manager to align on fit and expectations."
+    },
+    {
+      "step": "03",
+      "title": "Skills / Strategy Round",
+      "desc": "A focused assessment - portfolio review, case study, or live task depending on the role."
+    },
+    {
+      "step": "04",
+      "title": "Leadership Round",
+      "desc": "Final conversation with a founder or department head."
+    },
+    {
+      "step": "05",
+      "title": "Offer",
+      "desc": "Fast turnaround. We move quickly for the right people."
+    }
+  ]
+}

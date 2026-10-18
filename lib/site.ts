@@ -6,11 +6,7 @@ export const SITE = {
   phone: '+91 91291 30303',
   email: 'contact@ifranchise.in',
 };
-export const brands = [
-  {slug:'odette',name:'Odette',category:'Fashion & lifestyle',investment:45,budget:'₹45 lakh onwards',model:'FICO',tagline:'A new chapter in women’s fashion.',description:'Explore a women’s fashion and accessories franchise, with an emphasis on an inviting retail experience.',color:'rose',logo:'/assets/odette.webp',source:'https://www.ifranchise.in/franchise/odette'},
-  {slug:'emori',name:'EMORI',category:'Jewellery',investment:225,budget:'₹2.25 crore',model:'FICO',tagline:'A considered approach to modern jewellery.',description:'Discover a lab-grown diamond jewellery retail opportunity and discuss the operating model with the brand.',color:'sand',logo:'/assets/emori.webp',source:'https://www.ifranchise.in/franchise/emori'},
-  {slug:'kasturi-creations',name:'Kasturi Creations',category:'Fashion & lifestyle',investment:75,budget:'₹75 lakh onwards',model:'FICO',tagline:'Tradition, with room to grow.',description:'Explore an ethnic wear retail concept and understand the requirements for bringing it to your market.',color:'sage',logo:'/assets/kasturi.webp',source:'https://www.ifranchise.in/franchise/kasturi-creations'},
-];
+export {default as brands} from '../content/brands.json';
 export const faqs = [
  ['What does iFranchise do?', 'iFranchise provides franchise consulting in India. We help brands plan their expansion and help investors explore franchise opportunities based on their goals, location and operating preferences.'],
  ['How do I find a franchise that fits my budget?', 'Start with the investment range, the location you want to operate in and the time you can commit. Review the full setup cost, ongoing fees and working capital with the brand before making a decision.'],

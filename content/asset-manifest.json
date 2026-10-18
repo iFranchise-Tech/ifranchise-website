@@ -1,0 +1,978 @@
+[
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/odette/odette-franchise-logo.webp",
+    "path": "/brands/odette/odette-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/odette/odette-franchise-logo.webp",
+    "bytes": 12932,
+    "contentType": "image/webp",
+    "sha256": "16bb3a0a0da3052e904504960bc81f519b1f01643a4f88cf0e50569ccb1b6ff5"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/odette/odette-franchise-gallery-1.webp",
+    "path": "/brands/odette/odette-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/odette/odette-franchise-gallery-1.webp",
+    "bytes": 82210,
+    "contentType": "image/webp",
+    "sha256": "bd9169b0ad9bd0f8edb68b6ff7681fa31f1cc918ed41876e225b9cb5072ab647"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/odette/odette-franchise-gallery-2.webp",
+    "path": "/brands/odette/odette-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/odette/odette-franchise-gallery-2.webp",
+    "bytes": 227490,
+    "contentType": "image/webp",
+    "sha256": "270d4724a172e5d9e8458c876f93194561f3d90511662b1a2f0b1cab8a3d5bcf"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/odette/odette-franchise-gallery-3.webp",
+    "path": "/brands/odette/odette-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/odette/odette-franchise-gallery-3.webp",
+    "bytes": 211814,
+    "contentType": "image/webp",
+    "sha256": "d35ffb2d83a2ac10ea23dab1f1942d4ebf4b91744632cdde4731dd2c977c4e5f"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/odette/odette-franchise-gallery-4.webp",
+    "path": "/brands/odette/odette-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/odette/odette-franchise-gallery-4.webp",
+    "bytes": 311398,
+    "contentType": "image/webp",
+    "sha256": "3212b55451e1e3d286fe76a38ee8fc2896a9e21acc5a67171eb40c5738649538"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/odette/odette-franchise-gallery-5.webp",
+    "path": "/brands/odette/odette-franchise-gallery-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/odette/odette-franchise-gallery-5.webp",
+    "bytes": 147992,
+    "contentType": "image/webp",
+    "sha256": "1ef64654e03fbb4ae4b4383b453191613c70060170c12facb36c66556c393597"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/odette/odette-franchise-gallery-6.webp",
+    "path": "/brands/odette/odette-franchise-gallery-6.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/odette/odette-franchise-gallery-6.webp",
+    "bytes": 240480,
+    "contentType": "image/webp",
+    "sha256": "52d6556b0e67979108a72777224c4355dd0a58a7f682f3f07c6d4a7a5f8df19b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/odette.pdf",
+    "path": "/brochures/odette.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/odette.pdf",
+    "bytes": 5637214,
+    "contentType": "application/pdf",
+    "sha256": "2f501608eb29f6cf33bdf4da1e85aa065a11cea86d0dd903768f2966ab4c5966"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/original-burger-co/original-burger-co-franchise-logo.webp",
+    "path": "/brands/original-burger-co/original-burger-co-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/original-burger-co/original-burger-co-franchise-logo.webp",
+    "bytes": 62736,
+    "contentType": "image/webp",
+    "sha256": "1230b60d413a0f69e3e03a07dc3e0476462d652b0e0bce912dc8ec0193aaab6b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/original-burger-co/original-burger-co-franchise-gallery-1.webp",
+    "path": "/brands/original-burger-co/original-burger-co-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/original-burger-co/original-burger-co-franchise-gallery-1.webp",
+    "bytes": 213954,
+    "contentType": "image/webp",
+    "sha256": "d314b11af5e71710209dd7c4e9bf2ff1923f3dcad0b901299ba6176a0a3900a4"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/original-burger-co/original-burger-co-franchise-gallery-2.webp",
+    "path": "/brands/original-burger-co/original-burger-co-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/original-burger-co/original-burger-co-franchise-gallery-2.webp",
+    "bytes": 85062,
+    "contentType": "image/webp",
+    "sha256": "b606719f1b26dfe818d12a47948e594184b241fffdac282ceaf868b56351500e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/original-burger-co/original-burger-co-franchise-gallery-3.webp",
+    "path": "/brands/original-burger-co/original-burger-co-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/original-burger-co/original-burger-co-franchise-gallery-3.webp",
+    "bytes": 128694,
+    "contentType": "image/webp",
+    "sha256": "a23e65cbd12160dca2322012b431329aad8a8d3cadfab1c9e167572d7056bae5"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/original-burger-co/original-burger-co-franchise-gallery-4.webp",
+    "path": "/brands/original-burger-co/original-burger-co-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/original-burger-co/original-burger-co-franchise-gallery-4.webp",
+    "bytes": 141418,
+    "contentType": "image/webp",
+    "sha256": "ee6128faac5242255c98acff38a2b46ea0a933d8652fba1fff08b040a5f6a77d"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/original-burger-co/original-burger-co-franchise-gallery-5.webp",
+    "path": "/brands/original-burger-co/original-burger-co-franchise-gallery-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/original-burger-co/original-burger-co-franchise-gallery-5.webp",
+    "bytes": 207162,
+    "contentType": "image/webp",
+    "sha256": "773727129268d768af2ea21e11b63ae17f929382d7d91581bf4459eb961bbbfa"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/original-burger-co.pdf",
+    "path": "/brochures/original-burger-co.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/original-burger-co.pdf",
+    "bytes": 3412075,
+    "contentType": "application/pdf",
+    "sha256": "f5fbc38cbb00e99283a8a2973c51986b9ca19f5bee1b00d04b16dc5933e4c807"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/franco/franco-franchise-logo.webp",
+    "path": "/brands/franco/franco-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/franco/franco-franchise-logo.webp",
+    "bytes": 15162,
+    "contentType": "image/webp",
+    "sha256": "1330f21f3aa8589bf1ffd28cbcdbfe22e7eeb2c484badb79b665aebef08b7730"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/franco/franco-franchise-gallery-1.webp",
+    "path": "/brands/franco/franco-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/franco/franco-franchise-gallery-1.webp",
+    "bytes": 153324,
+    "contentType": "image/webp",
+    "sha256": "7e6e7a5223d1616cd82b1ab03d4e9122a4e43e99a2d8532afca8a7622772ea52"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/franco/franco-franchise-gallery-2.webp",
+    "path": "/brands/franco/franco-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/franco/franco-franchise-gallery-2.webp",
+    "bytes": 260378,
+    "contentType": "image/webp",
+    "sha256": "7b79772f9886307288ed8c92550aa2f817bf7b791b51ef9c32553c85bb1e05a6"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/franco/franco-franchise-gallery-3.webp",
+    "path": "/brands/franco/franco-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/franco/franco-franchise-gallery-3.webp",
+    "bytes": 217552,
+    "contentType": "image/webp",
+    "sha256": "0d60e7f361312983aa9fffc880db2f872dc040f4964d99260a1b875f556666ea"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/franco/franco-franchise-gallery-4.webp",
+    "path": "/brands/franco/franco-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/franco/franco-franchise-gallery-4.webp",
+    "bytes": 223892,
+    "contentType": "image/webp",
+    "sha256": "9d34d80fe897025ec7c664fb7334f30260ccebe5ef77f34adabb2763197faa52"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/franco.pdf",
+    "path": "/brochures/franco.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/franco.pdf",
+    "bytes": 2203969,
+    "contentType": "application/pdf",
+    "sha256": "6a81b922683e4440a1f275a2b2707382009a3c4d4dd8cb5f7cb7051c6862d2cc"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/biggies-burger/biggies-burger-franchise-logo.webp",
+    "path": "/brands/biggies-burger/biggies-burger-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/biggies-burger/biggies-burger-franchise-logo.webp",
+    "bytes": 42588,
+    "contentType": "image/webp",
+    "sha256": "c0a4c9d1bad33821ba716ba10787f609c6a46584697309d1412b990cc877715e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/biggies-burger/biggies-burger-franchise-gallery-1.webp",
+    "path": "/brands/biggies-burger/biggies-burger-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/biggies-burger/biggies-burger-franchise-gallery-1.webp",
+    "bytes": 210678,
+    "contentType": "image/webp",
+    "sha256": "4fbaa7ba54a34cde85f24d77406beb49807431271a5341ca8e4ac256cc072d27"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/biggies-burger/biggies-burger-franchise-gallery-2.webp",
+    "path": "/brands/biggies-burger/biggies-burger-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/biggies-burger/biggies-burger-franchise-gallery-2.webp",
+    "bytes": 219834,
+    "contentType": "image/webp",
+    "sha256": "fb86a5b60b83aa426d378381fc6561a28c4cb1db477723cf90661262570e519f"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/biggies-burger/biggies-burger-franchise-gallery-3.webp",
+    "path": "/brands/biggies-burger/biggies-burger-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/biggies-burger/biggies-burger-franchise-gallery-3.webp",
+    "bytes": 177584,
+    "contentType": "image/webp",
+    "sha256": "25c10e13c67f7c76ac8bc73fbeb7aae4bae115bf4b23587c7d96739172c4cd63"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/biggies-burger/biggies-burger-franchise-gallery-4.webp",
+    "path": "/brands/biggies-burger/biggies-burger-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/biggies-burger/biggies-burger-franchise-gallery-4.webp",
+    "bytes": 136722,
+    "contentType": "image/webp",
+    "sha256": "548148578516025c4152db578b27722398f6e010a266a82529b98c5e14a6b5e9"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/biggies-burger.pdf",
+    "path": "/brochures/biggies-burger.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/biggies-burger.pdf",
+    "bytes": 3121373,
+    "contentType": "application/pdf",
+    "sha256": "3324cced6866c3c488f8853ca16a19390e5ee6c5f256450663f06357fa9614b8"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/bigguys/bigguys-franchise-logo.webp",
+    "path": "/brands/bigguys/bigguys-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/bigguys/bigguys-franchise-logo.webp",
+    "bytes": 8486,
+    "contentType": "image/webp",
+    "sha256": "6f1da8750d48c4e161e455a01bf01941a1407b097faa159a598bcbb1b909ea04"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/bigguys/bigguys-franchise-gallery-1.webp",
+    "path": "/brands/bigguys/bigguys-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/bigguys/bigguys-franchise-gallery-1.webp",
+    "bytes": 201276,
+    "contentType": "image/webp",
+    "sha256": "3ce9a2212c70f5497633b5a870bef14b4eb9dcf23151c1846f0f54f5db8440d0"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/bigguys/bigguys-franchise-gallery-2.webp",
+    "path": "/brands/bigguys/bigguys-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/bigguys/bigguys-franchise-gallery-2.webp",
+    "bytes": 337376,
+    "contentType": "image/webp",
+    "sha256": "3791c631603d6552a61bb474523a85c1bc99664af25b4b5f672a0b6d90697fcd"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/bigguys/bigguys-franchise-gallery-3.webp",
+    "path": "/brands/bigguys/bigguys-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/bigguys/bigguys-franchise-gallery-3.webp",
+    "bytes": 183298,
+    "contentType": "image/webp",
+    "sha256": "7d8daa0f5918da0a2cba06c14fd761a01fa160948012cfdfbc5b20cc2aab6fa1"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/bigguys/bigguys-franchise-gallery-4.webp",
+    "path": "/brands/bigguys/bigguys-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/bigguys/bigguys-franchise-gallery-4.webp",
+    "bytes": 239020,
+    "contentType": "image/webp",
+    "sha256": "baa259df470ee87dec3bddf075f36206fab2d4bc2a2719aaa6785c39edc4fe4e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/bigguys.pdf",
+    "path": "/brochures/bigguys.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/bigguys.pdf",
+    "bytes": 1630264,
+    "contentType": "application/pdf",
+    "sha256": "ed0141338022417fb1825aece2d7e2d8b3e16616af1b85a937b8711694b5b37e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/brand-avenue/brand-avenue-franchise-logo.webp",
+    "path": "/brands/brand-avenue/brand-avenue-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/brand-avenue/brand-avenue-franchise-logo.webp",
+    "bytes": 2554,
+    "contentType": "image/webp",
+    "sha256": "b4c2b19d3d1c98c990edcd20b0fa213be3524f9d32be43877b7ac607b9c214b9"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/brand-avenue/brand-avenue-franchise-gallery-1.webp",
+    "path": "/brands/brand-avenue/brand-avenue-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/brand-avenue/brand-avenue-franchise-gallery-1.webp",
+    "bytes": 32938,
+    "contentType": "image/webp",
+    "sha256": "d9e40a3d6f28aff0ee560161a88a57b8bf9bded836083e73b73351028ff95fff"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/brand-avenue/brand-avenue-franchise-gallery-2.webp",
+    "path": "/brands/brand-avenue/brand-avenue-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/brand-avenue/brand-avenue-franchise-gallery-2.webp",
+    "bytes": 40096,
+    "contentType": "image/webp",
+    "sha256": "06e86bdcf9cde13825eed3d81ac4707a39af0a46e282d3cecdcaaea48d2cdff8"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/brand-avenue/brand-avenue-franchise-gallery-3.webp",
+    "path": "/brands/brand-avenue/brand-avenue-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/brand-avenue/brand-avenue-franchise-gallery-3.webp",
+    "bytes": 42720,
+    "contentType": "image/webp",
+    "sha256": "cb59bdf129c1c2584297418fbec2c81b97ea3e5a2977c50734b921b716c9e57b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/brand-avenue/brand-avenue-franchise-gallery-4.webp",
+    "path": "/brands/brand-avenue/brand-avenue-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/brand-avenue/brand-avenue-franchise-gallery-4.webp",
+    "bytes": 50942,
+    "contentType": "image/webp",
+    "sha256": "95829945a9228f07c9580e3e9e7132585ce94890ca2564c76f110380f1ff96d8"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/brand-avenue/brand-avenue-franchise-gallery-5.webp",
+    "path": "/brands/brand-avenue/brand-avenue-franchise-gallery-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/brand-avenue/brand-avenue-franchise-gallery-5.webp",
+    "bytes": 48544,
+    "contentType": "image/webp",
+    "sha256": "3f7becb7fecd5121b039988296474a43bde7742574630cde027cc0564f99a004"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/brand-avenue/brand-avenue-franchise-gallery-6.webp",
+    "path": "/brands/brand-avenue/brand-avenue-franchise-gallery-6.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/brand-avenue/brand-avenue-franchise-gallery-6.webp",
+    "bytes": 36242,
+    "contentType": "image/webp",
+    "sha256": "bfb4f35e007e477ecbe74357892b1b8b8b95f4eb2057d4789a3d3f24de44bec1"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/brand-avenue.pdf",
+    "path": "/brochures/brand-avenue.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/brand-avenue.pdf",
+    "bytes": 2822460,
+    "contentType": "application/pdf",
+    "sha256": "bfe4988a1ef7ffc8c398af6acb78bbdf56dcb2a692d9566fcb07b90f262f3e0e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/lassi-n-cafe/lassi-n-cafe-franchise-logo.webp",
+    "path": "/brands/lassi-n-cafe/lassi-n-cafe-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/lassi-n-cafe/lassi-n-cafe-franchise-logo.webp",
+    "bytes": 23224,
+    "contentType": "image/webp",
+    "sha256": "5e0bb0e715d4a75a1a7eb11d4d0feb433d7515c8bcbb698b8ef21815c485675e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-1.webp",
+    "path": "/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-1.webp",
+    "bytes": 148266,
+    "contentType": "image/webp",
+    "sha256": "255d16cbdf88391f1413fa7bec48a14204017f21a8a18c34ba54dad26c4f3a03"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-2.webp",
+    "path": "/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-2.webp",
+    "bytes": 18278,
+    "contentType": "image/webp",
+    "sha256": "c7128e74769386850401ed6065792dc591b0b0d9a63046e78734b39c7cc465d1"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-3.webp",
+    "path": "/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/lassi-n-cafe/lassi-n-cafe-franchise-gallery-3.webp",
+    "bytes": 35888,
+    "contentType": "image/webp",
+    "sha256": "6c91e14745eb9ed0a22a68d79bf47a65c225d2099d2f8366a82a648a95b44167"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/lassi-n-cafe.pdf",
+    "path": "/brochures/lassi-n-cafe.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/lassi-n-cafe.pdf",
+    "bytes": 3831818,
+    "contentType": "application/pdf",
+    "sha256": "9a934cda1cc7f74bc5fafdeb2da520dc68625d00481b264815fdd1c3d72054fe"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-logo.webp",
+    "path": "/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-logo.webp",
+    "bytes": 22686,
+    "contentType": "image/webp",
+    "sha256": "5cd77e41675d81d4e86e318a14ec8ebc592e875b1a04d8cb3fdd27885adc3fc6"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-1.webp",
+    "path": "/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-1.webp",
+    "bytes": 16014,
+    "contentType": "image/webp",
+    "sha256": "e5b2ed4400e456ba301da46fc211a8b6a9a05d3bf3790a5984ca8c2586db43f6"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-2.webp",
+    "path": "/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-2.webp",
+    "bytes": 6908,
+    "contentType": "image/webp",
+    "sha256": "ac2e52b573d64bfb45b30b895555fb7b949e1ad3003ed300040c7634cf17880f"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-3.webp",
+    "path": "/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-3.webp",
+    "bytes": 347590,
+    "contentType": "image/webp",
+    "sha256": "c8a3e5c1687ce2142064ced5f7753ee9e516056af6cd562228d2d4231ad5bebc"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-4.webp",
+    "path": "/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-4.webp",
+    "bytes": 283778,
+    "contentType": "image/webp",
+    "sha256": "75ecc06c26edd8768908055289bdecb96ab1effd9e26856df7b8aa8487a0f444"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-5.webp",
+    "path": "/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/fusion-pizza-big-burger/fusion-pizza-big-burger-franchise-gallery-5.webp",
+    "bytes": 177982,
+    "contentType": "image/webp",
+    "sha256": "7e36138acb8331bd239f7c9c53041195c6aabc567a7fd1d3260f5b4640024e5a"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/fusion-pizza-big-burger.pdf",
+    "path": "/brochures/fusion-pizza-big-burger.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/fusion-pizza-big-burger.pdf",
+    "bytes": 2927333,
+    "contentType": "application/pdf",
+    "sha256": "e203c53d696ba13f37b1ed27752f55f16b2368cc50e7aae103788cb3c1da3cd4"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-logo.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-logo.webp",
+    "bytes": 26956,
+    "contentType": "image/webp",
+    "sha256": "11cbd4552367147b9cf01ace8a5a97aebcb0d03b1a0cba40ab8bf15ea2a22f18"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-1.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-1.webp",
+    "bytes": 255408,
+    "contentType": "image/webp",
+    "sha256": "7fee06ce6c42e4a47e5bac2663814dd891eb7e87fef40eae71cf626d511fd736"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-2.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-2.webp",
+    "bytes": 155940,
+    "contentType": "image/webp",
+    "sha256": "cfe14dcb71821df6412933c6d2cd5215d493c5e1b1497e5dfaa999aeb32b5c43"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-3.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-3.webp",
+    "bytes": 227442,
+    "contentType": "image/webp",
+    "sha256": "7831ff74f2b2fe912b9132b0a962de075feab0a0ffdbe25332933d48a0f0a585"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-4.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-4.webp",
+    "bytes": 165668,
+    "contentType": "image/webp",
+    "sha256": "75f854a28fa682284f5d90bfaca9cf738c2a94bf8ff66e0a0ba315926ac499b0"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-5.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-5.webp",
+    "bytes": 167874,
+    "contentType": "image/webp",
+    "sha256": "df3f51a4cdb3b65eb0572f544b73806218cf7543541ec9bd951c14c6a058cb69"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-6.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-6.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-6.webp",
+    "bytes": 217096,
+    "contentType": "image/webp",
+    "sha256": "27102422ab59e51fc7def47d2835dbdd037077e2ac31f2c0faee4d7754010b1b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-7.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-7.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-7.webp",
+    "bytes": 204338,
+    "contentType": "image/webp",
+    "sha256": "ea6265f0f5e7adbba53f6717397d8772923ccff808a435284195a1e70757b0a1"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/kasturi-creations/kasturi-creations-franchise-gallery-8.webp",
+    "path": "/brands/kasturi-creations/kasturi-creations-franchise-gallery-8.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/kasturi-creations/kasturi-creations-franchise-gallery-8.webp",
+    "bytes": 210040,
+    "contentType": "image/webp",
+    "sha256": "63aa90f1fcdc7029296496b4665f5f6854c137c967b694c648ba50e1566bc59b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/kasturi-creations.pdf",
+    "path": "/brochures/kasturi-creations.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/kasturi-creations.pdf",
+    "bytes": 5180147,
+    "contentType": "application/pdf",
+    "sha256": "803581c8d9ee4f978626d13fe651934c1a4e41d2535a3df682edf328a7045786"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-logo.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-logo.webp",
+    "bytes": 33926,
+    "contentType": "image/webp",
+    "sha256": "678463a9c2e72d26e4ea3eaae75c25b415effb2b09942e993bb788bc27746075"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-1.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-1.webp",
+    "bytes": 229244,
+    "contentType": "image/webp",
+    "sha256": "6f108d8a1cf36d83892067f1611a840e82f29bb44491272902a4f167ca176b3e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-2.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-2.webp",
+    "bytes": 263472,
+    "contentType": "image/webp",
+    "sha256": "08d61e50fb41ab28b7783e6428b1f0dc8555afc42390e4e806c088a9dfe2eae5"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-3.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-3.webp",
+    "bytes": 245066,
+    "contentType": "image/webp",
+    "sha256": "df9eb9aef41d0facd1a218978fc1f61292178b711c87f3710918cff3523d3779"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-4.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-4.webp",
+    "bytes": 201218,
+    "contentType": "image/webp",
+    "sha256": "7f9d45c308f678d7b2cced16a099b7fdaaf710b5ff86c70f923ad3cf576e32f1"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-5.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-5.webp",
+    "bytes": 192828,
+    "contentType": "image/webp",
+    "sha256": "a8fcd055400636f670aca2c9977048209f8be00f81f313a69da0730ee2c33865"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-6.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-6.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-6.webp",
+    "bytes": 152808,
+    "contentType": "image/webp",
+    "sha256": "f692f616cd7f96b500fdfe2ba5429aa1a2ad5147537b8f1837ec2812210c39fc"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-7.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-7.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-7.webp",
+    "bytes": 169496,
+    "contentType": "image/webp",
+    "sha256": "641788e3483365666415f9454d8d057912154c9db34468496a27af17f36d4076"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-8.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-8.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-8.webp",
+    "bytes": 173638,
+    "contentType": "image/webp",
+    "sha256": "180e6e4d01074a9c3bc1182205c048ce247aec80d9d988a3dadf7008b1248dc6"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/10-downing-street/10-downing-street-franchise-gallery-9.webp",
+    "path": "/brands/10-downing-street/10-downing-street-franchise-gallery-9.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/10-downing-street/10-downing-street-franchise-gallery-9.webp",
+    "bytes": 195700,
+    "contentType": "image/webp",
+    "sha256": "ca224f0f8acd61caf56fac0a514b31460feda64bbf5fcae489d74e05ba023643"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/10-downing-street.pdf",
+    "path": "/brochures/10-downing-street.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/10-downing-street.pdf",
+    "bytes": 4868763,
+    "contentType": "application/pdf",
+    "sha256": "9305fb26556ef3a4ba0c4f7223d2e63d1fd2138184151bdd4d5a3418b56b07a0"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/freshco-goli-soda/freshco-goli-soda-franchise-logo.webp",
+    "path": "/brands/freshco-goli-soda/freshco-goli-soda-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/freshco-goli-soda/freshco-goli-soda-franchise-logo.webp",
+    "bytes": 39896,
+    "contentType": "image/webp",
+    "sha256": "342fc5b99a7fe71d163e4af5dc8e90cb10de065e9f3d9eb79fee74ef218e3e14"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-1.webp",
+    "path": "/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-1.webp",
+    "bytes": 238340,
+    "contentType": "image/webp",
+    "sha256": "b0e045dbdfa42ba2c1655f0210e30f6911f074988ae8b529ae8a636c99c56b0e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-2.webp",
+    "path": "/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-2.webp",
+    "bytes": 300680,
+    "contentType": "image/webp",
+    "sha256": "267018b027ad80fdb0f819106dae74051458b1b76f40684e66a427b8b6058b7f"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-3.webp",
+    "path": "/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-3.webp",
+    "bytes": 126170,
+    "contentType": "image/webp",
+    "sha256": "d126af401d809a9c685b2a2724c6ebf5165537495fcf0c836578757beb66197f"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-4.webp",
+    "path": "/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-4.webp",
+    "bytes": 259904,
+    "contentType": "image/webp",
+    "sha256": "b75718d5fd44f4204d3925aeafebd5931b1e833979125a46dcbe2e5948a3dd8b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-5.webp",
+    "path": "/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/freshco-goli-soda/freshco-goli-soda-franchise-gallery-5.webp",
+    "bytes": 259904,
+    "contentType": "image/webp",
+    "sha256": "b75718d5fd44f4204d3925aeafebd5931b1e833979125a46dcbe2e5948a3dd8b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brochures/freshco-goli-soda.pdf",
+    "path": "/brochures/freshco-goli-soda.pdf",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brochures/freshco-goli-soda.pdf",
+    "bytes": 2460425,
+    "contentType": "application/pdf",
+    "sha256": "105d15196c7740fa9a5717a0847844b650750f47d2502da4b943910034dbcb11"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-logo.webp",
+    "path": "/brands/emori/emori-franchise-logo.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-logo.webp",
+    "bytes": 27742,
+    "contentType": "image/webp",
+    "sha256": "d6b06376eebb650b250a79d26c4016590125741477fbc29c1a717f78962b9c59"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-gurgaon-1.webp",
+    "path": "/brands/emori/emori-franchise-gallery-gurgaon-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-gurgaon-1.webp",
+    "bytes": 240002,
+    "contentType": "image/webp",
+    "sha256": "332b7509bbf43d35fd80c49fdbfef4a1fe78c2756b635a437aec9ea5eeb23855"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-gurgaon-2.webp",
+    "path": "/brands/emori/emori-franchise-gallery-gurgaon-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-gurgaon-2.webp",
+    "bytes": 264452,
+    "contentType": "image/webp",
+    "sha256": "a3dcc5481aa8a4f0649a0e0bc585ebc47dd8fb1ef44afc60b1896aeffc40bbe8"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-gurgaon-3.webp",
+    "path": "/brands/emori/emori-franchise-gallery-gurgaon-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-gurgaon-3.webp",
+    "bytes": 293020,
+    "contentType": "image/webp",
+    "sha256": "b607f764825b85a7d9d593d51773047901e41648d4873a63b6653a0672252c17"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-gurgaon-4.webp",
+    "path": "/brands/emori/emori-franchise-gallery-gurgaon-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-gurgaon-4.webp",
+    "bytes": 114470,
+    "contentType": "image/webp",
+    "sha256": "248ef1a1cc0d15e5704d449dfab26328b6aecfd4366d19a55416d6bbacbd66c4"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-gurgaon-5.webp",
+    "path": "/brands/emori/emori-franchise-gallery-gurgaon-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-gurgaon-5.webp",
+    "bytes": 137590,
+    "contentType": "image/webp",
+    "sha256": "272292208267b1bcf0f5761f40fa7926214986c023db3d63466cf45b6d429972"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-gurgaon-6.webp",
+    "path": "/brands/emori/emori-franchise-gallery-gurgaon-6.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-gurgaon-6.webp",
+    "bytes": 100032,
+    "contentType": "image/webp",
+    "sha256": "d516c9e69a3ba9338153a79112f42da574eae90ae46f0df4067e1f4b3b86d0b3"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-gurgaon-7.webp",
+    "path": "/brands/emori/emori-franchise-gallery-gurgaon-7.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-gurgaon-7.webp",
+    "bytes": 131742,
+    "contentType": "image/webp",
+    "sha256": "3d9832631d3eec2f17f8ddfb9c287683a1f0a8be467e108856a3dd78aed6f10c"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-1.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-1.webp",
+    "bytes": 227956,
+    "contentType": "image/webp",
+    "sha256": "0b0566a6ef91497689cb3dfe235807fe8b0f9036306dd6472bc76245fb4bbdbe"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-2.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-2.webp",
+    "bytes": 196950,
+    "contentType": "image/webp",
+    "sha256": "434f3a7ba41082c6fa81a6e6075bfe194347736f26940c6fabfb6aa6b3a26cfa"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-3.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-3.webp",
+    "bytes": 183230,
+    "contentType": "image/webp",
+    "sha256": "bc2bbcde1df2fc2bda0a38aa48bfe7aadd288392c6b70b53c4a52d4f3fbfea41"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-4.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-4.webp",
+    "bytes": 125194,
+    "contentType": "image/webp",
+    "sha256": "a0d2f9dc634c55fa94c268af814372bf07e5dcbde7540a8b575d5c422c893e5f"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-5.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-5.webp",
+    "bytes": 114844,
+    "contentType": "image/webp",
+    "sha256": "33324202b5d6317fa7c26c91af35e35bccad6512b09ef096d9041eea8ff298b6"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-6.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-6.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-6.webp",
+    "bytes": 206992,
+    "contentType": "image/webp",
+    "sha256": "27e8d7ab241f56d65e7468696bb24f0e971a8cb19c147756810657d37f8bf7e1"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-7.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-7.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-7.webp",
+    "bytes": 106568,
+    "contentType": "image/webp",
+    "sha256": "dcfe69d55f108eff80dd09dd3475bfca6a722c33fdef128c7b3c71bcf9af5306"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-noida-8.webp",
+    "path": "/brands/emori/emori-franchise-gallery-noida-8.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-noida-8.webp",
+    "bytes": 174262,
+    "contentType": "image/webp",
+    "sha256": "086759156639ffc2065b33ce9c3ac139f3882a6105e997badc45709063ba5027"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-dwarka-1.webp",
+    "path": "/brands/emori/emori-franchise-gallery-dwarka-1.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-dwarka-1.webp",
+    "bytes": 168822,
+    "contentType": "image/webp",
+    "sha256": "fc0372f16df487f0b698d358143e5878cfa38e1f60f55007c0666dd4946d477b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-dwarka-2.webp",
+    "path": "/brands/emori/emori-franchise-gallery-dwarka-2.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-dwarka-2.webp",
+    "bytes": 47888,
+    "contentType": "image/webp",
+    "sha256": "d7391a891a6a9a29170b636fed43a53be2c2f663cef575abac5378618121e72e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-dwarka-3.webp",
+    "path": "/brands/emori/emori-franchise-gallery-dwarka-3.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-dwarka-3.webp",
+    "bytes": 123424,
+    "contentType": "image/webp",
+    "sha256": "cec65e42cf06a679433b972d6e9828c9517ff12e7843074909a647d71f9c3b6e"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-dwarka-4.webp",
+    "path": "/brands/emori/emori-franchise-gallery-dwarka-4.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-dwarka-4.webp",
+    "bytes": 57966,
+    "contentType": "image/webp",
+    "sha256": "10a622248c36cb81cbe47839cb333f7aa29a53133afd44f095ee0b16db53c248"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/brands/emori/emori-franchise-gallery-dwarka-5.webp",
+    "path": "/brands/emori/emori-franchise-gallery-dwarka-5.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/brands/emori/emori-franchise-gallery-dwarka-5.webp",
+    "bytes": 110010,
+    "contentType": "image/webp",
+    "sha256": "23c5421aa44c5b5b787c86402155b1511163bcede69ac8530aefe5821e161dd8"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/how-the-franchise-business-model-works.webp",
+    "path": "/images/how-the-franchise-business-model-works.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/how-the-franchise-business-model-works.webp",
+    "bytes": 51028,
+    "contentType": "image/webp",
+    "sha256": "6120e7144ac670e19bbbc8a8ee161b19015a5c44a46af805c0af74729b227d1d"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/how-to-evaluate-franchise-opportunity-india.webp",
+    "path": "/images/how-to-evaluate-franchise-opportunity-india.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/how-to-evaluate-franchise-opportunity-india.webp",
+    "bytes": 118848,
+    "contentType": "image/webp",
+    "sha256": "83427397614b444e2dd66ef80583e3472bb630fb4b1e4a51ae5ba6a90fe218f6"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/fofo-vs-fico-franchise-model-guide.webp",
+    "path": "/images/fofo-vs-fico-franchise-model-guide.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/fofo-vs-fico-franchise-model-guide.webp",
+    "bytes": 128448,
+    "contentType": "image/webp",
+    "sha256": "fd5f97eb0e6cbc8c5f0de539315628e55a616ac2bcb4c55dad7a99822898c43f"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/franchise-unit-economics-checklist.webp",
+    "path": "/images/franchise-unit-economics-checklist.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/franchise-unit-economics-checklist.webp",
+    "bytes": 94646,
+    "contentType": "image/webp",
+    "sha256": "b5facc9de1bd74a84272363e7ad9b537e36035152f6c853c2b4c31ee417bec43"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/franchise-demand-india-2026.webp",
+    "path": "/images/franchise-demand-india-2026.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/franchise-demand-india-2026.webp",
+    "bytes": 73418,
+    "contentType": "image/webp",
+    "sha256": "be7616ee3fe25ffa89aca078ca9ae935ff7d816104b50ca32f670d8e8ecf68d4"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/top-9-clothing-franchise-opportunities-india.webp",
+    "path": "/images/top-9-clothing-franchise-opportunities-india.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/top-9-clothing-franchise-opportunities-india.webp",
+    "bytes": 125332,
+    "contentType": "image/webp",
+    "sha256": "15e644f1f690545a9c901830020bfee528397495216d0fbd37101f154bb2a39b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/how-to-start-a-clothing-franchise-in-india.webp",
+    "path": "/images/how-to-start-a-clothing-franchise-in-india.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/how-to-start-a-clothing-franchise-in-india.webp",
+    "bytes": 130850,
+    "contentType": "image/webp",
+    "sha256": "d32ecc1bf41b23f6e9250f6613ca48ad11e7c90b82af0d77ee978f14f29b911d"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/franchise-business-model-flowchart.webp",
+    "path": "/images/franchise-business-model-flowchart.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/franchise-business-model-flowchart.webp",
+    "bytes": 92056,
+    "contentType": "image/webp",
+    "sha256": "0d22388571647cecb2365f28f29b95687f8aae46f60e033ee61dc0193f9d00fe"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/common-franchise-mistakes-to-avoid.webp",
+    "path": "/images/common-franchise-mistakes-to-avoid.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/common-franchise-mistakes-to-avoid.webp",
+    "bytes": 70620,
+    "contentType": "image/webp",
+    "sha256": "64b932a1787a36046267f7186f611830e2dc742cd1a035d725f53d6eb23f7ab3"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/franchise-opportunity-evaluation-path-india.webp",
+    "path": "/images/franchise-opportunity-evaluation-path-india.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/franchise-opportunity-evaluation-path-india.webp",
+    "bytes": 117238,
+    "contentType": "image/webp",
+    "sha256": "5656a603ee61243d16f6c8ac863bf22d4614b961dc532d32f33182ec77e6038a"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/kaira.webp",
+    "path": "/images/blog-clothing/kaira.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/kaira.webp",
+    "bytes": 10250,
+    "contentType": "image/webp",
+    "sha256": "097c513a6c73b9aa9cd30ae5710c95354857e895718fa55357ea6c03e51676b8"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/zudio.webp",
+    "path": "/images/blog-clothing/zudio.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/zudio.webp",
+    "bytes": 9164,
+    "contentType": "image/webp",
+    "sha256": "5103aa060244ae462c538b912254f3edbbf48a3db34808fb1a0b254e2cb922e2"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/pantaloons.webp",
+    "path": "/images/blog-clothing/pantaloons.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/pantaloons.webp",
+    "bytes": 6230,
+    "contentType": "image/webp",
+    "sha256": "84b117a82cbd8ef6d02651474958744d93969d12486220bbaabcf9a0f342dbaa"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/being-human.webp",
+    "path": "/images/blog-clothing/being-human.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/being-human.webp",
+    "bytes": 191114,
+    "contentType": "image/webp",
+    "sha256": "0b136a4354e0ee62c0eace664b5ffc302aec0b823de7d91591bccbd264218a08"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/van-heusen.webp",
+    "path": "/images/blog-clothing/van-heusen.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/van-heusen.webp",
+    "bytes": 3288,
+    "contentType": "image/webp",
+    "sha256": "9e6174d5f788f7900ff00ac281867b8a3b4b80cd11b2acc7819b1e5accd43db1"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/manyavar.webp",
+    "path": "/images/blog-clothing/manyavar.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/manyavar.webp",
+    "bytes": 14690,
+    "contentType": "image/webp",
+    "sha256": "e7fde3339350c5045984610a4a2db25a449b413cc77063f77d9fb7fcafda9f73"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/aramya.webp",
+    "path": "/images/blog-clothing/aramya.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/aramya.webp",
+    "bytes": 10486,
+    "contentType": "image/webp",
+    "sha256": "86e2004cd0b0cdbbd6ea23cd09ee83289f1b76663c1d63d962f1194ffb04210b"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/raymond.webp",
+    "path": "/images/blog-clothing/raymond.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/raymond.webp",
+    "bytes": 217654,
+    "contentType": "image/webp",
+    "sha256": "c0062274dacef3fca0e9527baab9cf519a5a1a7fa8ef61f96caa8050ca3986f6"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/blog-clothing/clothing-franchise-mistakes-to-avoid.webp",
+    "path": "/images/blog-clothing/clothing-franchise-mistakes-to-avoid.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/blog-clothing/clothing-franchise-mistakes-to-avoid.webp",
+    "bytes": 82112,
+    "contentType": "image/webp",
+    "sha256": "4030c3051b6064469e4837aa2443c7b5333bef6e254304a4bb1e3ff8791fca01"
+  },
+  {
+    "sourceUrl": "https://www.ifranchise.in/images/about-us.webp",
+    "path": "/images/about-us.webp",
+    "localPath": "/Users/abdulsyed/Documents/Codex/2026-10-18/i-want-you-to-help-me/work/source-audit/assets/images/about-us.webp",
+    "bytes": 68668,
+    "contentType": "image/webp",
+    "sha256": "485b709ef4c18696fdef21beda0bdcfd2258d54cd1396f8dcb5191f4b9de7c1d"
+  }
+]

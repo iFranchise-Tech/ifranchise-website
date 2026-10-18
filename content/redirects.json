@@ -1,0 +1,15 @@
+{
+  "/about": "/about-us",
+  "/contact": "/contact-us",
+  "/blog": "/blogs",
+  "/meet-the-team": "/team",
+  "/featured-opportunities": "/franchise-opportunities",
+  "/opportunities": "/franchise-opportunities",
+  "/for-brand-owners": "/list-your-brand",
+  "/brand-owners": "/list-your-brand",
+  "/terms": "/terms-and-conditions",
+  "/investor-guides": "/resources/knowledge-hub/investor",
+  "/brand-growth-guides": "/resources/knowledge-hub/brand",
+  "/success-stories": "/resources/knowledge-hub",
+  "/franchise-roi-calculator": "/resources/knowledge-hub/investor/franchise-roi-guide"
+}

@@ -1,0 +1,578 @@
+{
+  "overview": {
+    "title": "Discover Your Franchise Readiness Score",
+    "subtitle": "Assess your preparedness with a professional franchise evaluation framework.",
+    "completionMinutes": 4,
+    "investor": {
+      "questionCount": 6,
+      "stepCount": 5,
+      "categoriesEvaluated": [
+        "Investment Capacity",
+        "Risk Appetite",
+        "Business Experience",
+        "Industry Preference",
+        "Growth Goals"
+      ],
+      "resultTypes": [
+        "Beginner Investor",
+        "Growth Investor",
+        "Strategic Investor",
+        "Multi-Unit Investor"
+      ]
+    },
+    "brand": {
+      "questionCount": 6,
+      "stepCount": 6,
+      "categoriesEvaluated": [
+        "Business Foundation",
+        "Unit Economics",
+        "Operations Systems",
+        "Brand Strength",
+        "Scalability",
+        "Expansion Readiness"
+      ],
+      "resultTypes": [
+        "Not Ready",
+        "Early Stage",
+        "Growth Ready",
+        "Franchise Ready"
+      ]
+    }
+  },
+  "investorSteps": [
+    {
+      "id": 1,
+      "title": "Investment Capacity",
+      "questionIds": [
+        "capital"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Risk Appetite",
+      "questionIds": [
+        "risk"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Business Experience",
+      "questionIds": [
+        "experience",
+        "time"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Industry Preference",
+      "questionIds": [
+        "industry"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Growth Goals",
+      "questionIds": [
+        "goals"
+      ]
+    }
+  ],
+  "brandSteps": [
+    {
+      "id": 1,
+      "title": "Business Foundation",
+      "questionIds": [
+        "maturity"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Unit Economics",
+      "questionIds": [
+        "profitability"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Operations Systems",
+      "questionIds": [
+        "documentation"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Brand Strength",
+      "questionIds": [
+        "consistency"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Scalability",
+      "questionIds": [
+        "scalability"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Expansion Readiness",
+      "questionIds": [
+        "expansion"
+      ]
+    }
+  ],
+  "investorQuestions": [
+    {
+      "id": "capital",
+      "step": 1,
+      "stepTitle": "Investment Capacity",
+      "question": "What investment capacity can you allocate (including working capital)?",
+      "options": [
+        {
+          "label": "Under ₹15 lakhs — exploring entry options",
+          "score": 6
+        },
+        {
+          "label": "₹15L–₹50L with partial reserves",
+          "score": 14
+        },
+        {
+          "label": "₹50L–₹1Cr with working capital buffer",
+          "score": 20
+        },
+        {
+          "label": "₹1Cr+ with strong reserves for multi-unit",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "risk",
+      "step": 2,
+      "stepTitle": "Risk Appetite",
+      "question": "How would you describe your risk tolerance?",
+      "options": [
+        {
+          "label": "Very conservative — capital preservation first",
+          "score": 6
+        },
+        {
+          "label": "Moderate — balanced growth and safety",
+          "score": 14
+        },
+        {
+          "label": "Growth-oriented — accept calculated risk",
+          "score": 20
+        },
+        {
+          "label": "Aggressive — optimise for expansion returns",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "time",
+      "step": 3,
+      "stepTitle": "Business Experience",
+      "question": "How much time can you commit to the franchise?",
+      "options": [
+        {
+          "label": "Fully passive — no daily involvement",
+          "score": 8
+        },
+        {
+          "label": "Weekly oversight only",
+          "score": 14
+        },
+        {
+          "label": "Part-time — several days per week",
+          "score": 20
+        },
+        {
+          "label": "Full-time operator",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "step": 3,
+      "stepTitle": "Business Experience",
+      "question": "What is your business or management experience?",
+      "options": [
+        {
+          "label": "No prior business experience",
+          "score": 5
+        },
+        {
+          "label": "Corporate / employee background",
+          "score": 12
+        },
+        {
+          "label": "Small business or side venture",
+          "score": 18
+        },
+        {
+          "label": "Proven operating track record",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "industry",
+      "step": 4,
+      "stepTitle": "Industry Preference",
+      "question": "How clear is your industry preference?",
+      "options": [
+        {
+          "label": "No preference — still researching",
+          "score": 6
+        },
+        {
+          "label": "Broad category interest (e.g. F&B)",
+          "score": 14
+        },
+        {
+          "label": "Shortlisted 2–3 specific categories",
+          "score": 20
+        },
+        {
+          "label": "Clear category and brand criteria",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "goals",
+      "step": 5,
+      "stepTitle": "Growth Goals",
+      "question": "What are your expansion goals over 3–5 years?",
+      "options": [
+        {
+          "label": "Single unit — passive or side income",
+          "score": 8
+        },
+        {
+          "label": "One flagship unit — primary income",
+          "score": 14
+        },
+        {
+          "label": "2–3 units in one city/region",
+          "score": 20
+        },
+        {
+          "label": "Multi-city or multi-unit portfolio",
+          "score": 24
+        }
+      ]
+    }
+  ],
+  "brandQuestions": [
+    {
+      "id": "maturity",
+      "step": 1,
+      "stepTitle": "Business Foundation",
+      "question": "How mature is your business model?",
+      "options": [
+        {
+          "label": "Early stage — still proving concept",
+          "score": 5
+        },
+        {
+          "label": "1–2 outlets with inconsistent results",
+          "score": 12
+        },
+        {
+          "label": "3+ outlets with improving consistency",
+          "score": 18
+        },
+        {
+          "label": "Proven multi-outlet model",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "profitability",
+      "step": 2,
+      "stepTitle": "Unit Economics",
+      "question": "How profitable are your units on average?",
+      "options": [
+        {
+          "label": "Not yet consistently profitable",
+          "score": 5
+        },
+        {
+          "label": "Break-even to thin margins",
+          "score": 12
+        },
+        {
+          "label": "Stable margins at most units",
+          "score": 18
+        },
+        {
+          "label": "Strong, documented unit economics",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "documentation",
+      "step": 3,
+      "stepTitle": "Operations Systems",
+      "question": "How documented are your processes?",
+      "options": [
+        {
+          "label": "Mostly tribal knowledge",
+          "score": 5
+        },
+        {
+          "label": "Partial SOPs — incomplete",
+          "score": 12
+        },
+        {
+          "label": "Core processes documented",
+          "score": 18
+        },
+        {
+          "label": "Full operations manual and training",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "consistency",
+      "step": 4,
+      "stepTitle": "Brand Strength",
+      "question": "How consistent is brand delivery across locations?",
+      "options": [
+        {
+          "label": "High variation between outlets",
+          "score": 5
+        },
+        {
+          "label": "Moderate consistency with gaps",
+          "score": 12
+        },
+        {
+          "label": "Generally consistent with audits",
+          "score": 18
+        },
+        {
+          "label": "Highly standardised experience",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "scalability",
+      "step": 5,
+      "stepTitle": "Scalability",
+      "question": "How scalable are your operations today?",
+      "options": [
+        {
+          "label": "Founder-dependent for daily decisions",
+          "score": 5
+        },
+        {
+          "label": "Some systems — limited delegation",
+          "score": 12
+        },
+        {
+          "label": "Management layer emerging",
+          "score": 18
+        },
+        {
+          "label": "Ready to replicate with franchisees",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "id": "expansion",
+      "step": 6,
+      "stepTitle": "Expansion Readiness",
+      "question": "What is your expansion ambition in 24 months?",
+      "options": [
+        {
+          "label": "Exploring franchising — no timeline",
+          "score": 6
+        },
+        {
+          "label": "1–5 franchise units pilot",
+          "score": 14
+        },
+        {
+          "label": "Regional rollout (5–15 units)",
+          "score": 20
+        },
+        {
+          "label": "National expansion plan",
+          "score": 24
+        }
+      ]
+    }
+  ],
+  "investorResults": [
+    {
+      "id": "beginner",
+      "min": 0,
+      "max": 35,
+      "label": "Beginner Investor",
+      "summary": "You are in early discovery. Focus on education, budget clarity, and low-risk exposure before committing capital.",
+      "suggestedModels": [
+        "FOCO",
+        "FICO"
+      ],
+      "investmentCategories": [
+        "Entry-level F&B",
+        "Service retail",
+        "Education & training"
+      ],
+      "recommendations": [
+        "Complete the Investor Knowledge Hub modules on choosing franchises and due diligence.",
+        "Explore opportunities in the ₹10L–₹25L band to understand entry requirements.",
+        "Take time to define your involvement level — FOFO vs FOCO vs FICO.",
+        "Book a consultation to align goals with realistic investment bands."
+      ],
+      "ctaPath": "/franchise-opportunities",
+      "ctaLabel": "Explore Entry Opportunities"
+    },
+    {
+      "id": "growth",
+      "min": 36,
+      "max": 55,
+      "label": "Growth Investor",
+      "summary": "You have foundational clarity and capital awareness. Strengthen shortlisting and financial modelling before signing.",
+      "suggestedModels": [
+        "FOFO",
+        "FOCO"
+      ],
+      "investmentCategories": [
+        "QSR & café",
+        "Wellness & beauty",
+        "Specialty retail"
+      ],
+      "recommendations": [
+        "Run due diligence on 2–3 shortlisted brands using our checklist.",
+        "Compare investment pages by budget band on iFranchise.",
+        "Interview existing franchisees in your target city.",
+        "Review franchise agreement basics with legal counsel."
+      ],
+      "ctaPath": "/investment-under-50-lakhs",
+      "ctaLabel": "Browse Growth Opportunities"
+    },
+    {
+      "id": "strategic",
+      "min": 56,
+      "max": 75,
+      "label": "Strategic Investor",
+      "summary": "You are well-positioned to evaluate opportunities with structured research and advisor support.",
+      "suggestedModels": [
+        "FOFO",
+        "FOCO",
+        "Multi-unit FOFO"
+      ],
+      "investmentCategories": [
+        "Established F&B brands",
+        "Healthcare & wellness",
+        "Premium retail"
+      ],
+      "recommendations": [
+        "Shortlist brands aligned with your industry preference and ROI targets.",
+        "Model conservative and optimistic scenarios for payback period.",
+        "Schedule a growth consultation with iFranchise advisors.",
+        "Prepare financial documents for franchisor applications."
+      ],
+      "ctaPath": "/high-roi-franchise-opportunities",
+      "ctaLabel": "View High-ROI Listings"
+    },
+    {
+      "id": "multi-unit",
+      "min": 76,
+      "max": 100,
+      "label": "Multi-Unit Investor",
+      "summary": "You demonstrate strong capital, experience, and strategic intent — ideal for multi-unit or premium franchise pursuit.",
+      "suggestedModels": [
+        "FOCO",
+        "Multi-unit FOFO",
+        "Master franchise"
+      ],
+      "investmentCategories": [
+        "Premium F&B",
+        "National retail chains",
+        "Master franchise territories"
+      ],
+      "recommendations": [
+        "Explore FOCO and multi-unit strategies in the Knowledge Hub.",
+        "Evaluate premium and master franchise opportunities.",
+        "Negotiate multi-unit terms with shortlisted franchisors.",
+        "Engage legal and financial advisors before agreement signing."
+      ],
+      "ctaPath": "/premium-franchise-opportunities",
+      "ctaLabel": "Explore Premium Opportunities"
+    }
+  ],
+  "brandResults": [
+    {
+      "id": "not-ready",
+      "min": 0,
+      "max": 30,
+      "label": "Not Ready",
+      "summary": "Your business needs stronger unit economics and operational documentation before franchising is viable.",
+      "recommendations": [
+        "Stabilise profitability at existing outlets before franchising.",
+        "Begin documenting SOPs and training materials.",
+        "Read \"Is Your Business Franchise Ready?\" in the Brand Knowledge Hub.",
+        "Schedule a consultation to assess franchise feasibility."
+      ],
+      "ctaPath": "/list-your-brand",
+      "ctaLabel": "Schedule Consultation"
+    },
+    {
+      "id": "preparing",
+      "min": 31,
+      "max": 55,
+      "label": "Early Stage",
+      "summary": "You have momentum but need stronger systems, manuals, and pilot validation before awarding franchises.",
+      "recommendations": [
+        "Complete your operations manual and training curriculum.",
+        "Run a pilot franchise or additional company-owned unit.",
+        "Define territory planning and franchisee profile.",
+        "Prepare franchise legal agreements with specialised counsel."
+      ],
+      "ctaPath": "/resources/knowledge-hub/brand/operations-manual-guide",
+      "ctaLabel": "Operations Manual Guide"
+    },
+    {
+      "id": "growth-ready",
+      "min": 56,
+      "max": 80,
+      "label": "Growth Ready",
+      "summary": "Your brand shows solid foundations for franchising — focus on recruitment systems and phased rollout.",
+      "recommendations": [
+        "Build a franchise sales process and qualification scorecard.",
+        "List your brand on iFranchise for qualified investor leads.",
+        "Define city rollout sequence and model mix (FOFO/FOCO).",
+        "Invest in field support and training capacity."
+      ],
+      "ctaPath": "/list-your-brand",
+      "ctaLabel": "List Your Brand"
+    },
+    {
+      "id": "franchise-ready",
+      "min": 81,
+      "max": 100,
+      "label": "Franchise Ready",
+      "summary": "You demonstrate franchise-ready systems, profitability, and scalability — ideal for accelerated national expansion.",
+      "recommendations": [
+        "Launch structured franchise recruitment campaigns.",
+        "Leverage iFranchise for investor matching across India.",
+        "Scale regional operations and audit teams.",
+        "Book a strategic expansion consultation with iFranchise."
+      ],
+      "ctaPath": "/list-your-brand",
+      "ctaLabel": "Schedule Expansion Consultation"
+    }
+  ]
+}
