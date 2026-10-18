@@ -1,3 +1,4 @@
+import {editorialArticles} from './editorial';
 import pages from '../content/normalized-pages.json';
 import blogs from '../content/blogs.json';
 import knowledge from '../content/knowledge.json';
@@ -7,7 +8,7 @@ import cities from '../content/cities.json';
 import careerData from '../content/careers.json';
 import redirects from '../content/redirects.json';
 export {pages,blogs,knowledge,models,budgets,cities,careerData,redirects};
-export const articles=[...blogs.map(b=>({...b,path:'/blogs/'+b.slug,label:b.category})),...knowledge.map(b=>({...b,path:'/resources/knowledge-hub/'+b.audience+'/'+b.slug,label:b.audience==='brand'?'FOR BRANDS':'FOR INVESTORS'}))];
+export const articles=editorialArticles;
 export const editorialPages:Record<string,any>=Object.fromEntries(pages.map(p=>[p.path,p]));
 for(const m of models)editorialPages[m.path]={path:m.path,title:m.title,intro:m.subtitle,sections:[{heading:m.fullTitle,body:[m.explanation]},{heading:'How it works',bullets:m.howItWorks},{heading:'Potential advantages',bullets:m.advantages},{heading:'Challenges to consider',bullets:m.challenges},{heading:'Who it may suit',body:[m.idealInvestor]},{heading:'Investment considerations',bullets:m.investmentConsiderations}],faqs:m.faqs,sourceUrl:m.sourceUrl};
 for(const [path,b] of Object.entries(budgets))editorialPages[path]={path,title:b.title,intro:b.subtitle.replace('verified ','').replace('high ROI','commercial'),sections:b.educationalSections.map(s=>({...s,body:[s.body]})),budget:b};

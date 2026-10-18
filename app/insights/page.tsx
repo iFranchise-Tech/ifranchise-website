@@ -1,6 +1,0 @@
-import {Breadcrumb} from '../../components/ui';
-import {ArticleLibrary} from '../../components/article-library';
-import {articles} from '../../lib/content';
-import {guides} from '../../lib/site';
-export const metadata={title:'Insights & Resources — Franchise Guides, Articles & Checklists',description:'Explore franchise guides, articles and checklists covering investment, operating models, brand development and expansion.',alternates:{canonical:'/insights'}};
-export default function Insights(){const items=[...guides.map(g=>({path:'/guides/'+g.slug,title:g.title,excerpt:g.intro,label:g.label,kind:'Guide',audience:g.slug==='franchise-ready-brand'?'brand':'investor'})),...articles.map(a=>({...a,label:a.label==='FOR BRANDS'?'Brand development':a.label==='FOR INVESTORS'?'Franchise investment':a.label,kind:a.path.startsWith('/blogs/')?'Article':'Guide',audience:a.path.includes('/brand/')?'brand':a.path.includes('/investor/')?'investor':'all'}))];return <main id="main" className="insights-page"><section className="insights-hero"><div className="page-wrap"><Breadcrumb label="Insights & resources"/><h1>Insights & resources</h1><p>Guides, articles and practical checklists for franchise investors and business owners.</p></div></section><div className="section insights-library"><ArticleLibrary items={items} unified/></div></main>}

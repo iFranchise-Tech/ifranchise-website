@@ -9,4 +9,4 @@ for(const b of brands){assert(existsSync(new URL('../public'+b.logo,import.meta.
 const map=await(await fetch(root+'/sitemap.xml')).text();for(const p of routes.filter(p=>!(p in read('redirects'))))assert(map.includes('https://ifranchise-studio-2026.babbysyed.chatgpt.site'+(p==='/'?'':p)),'sitemap '+p);
 for(const [from,to]of Object.entries(read('redirects'))){const r=await fetch(root+from,{redirect:'manual'});assert.equal(r.status,308,from);assert.equal(r.headers.get('location'),to,from);}
 assert.equal((await fetch(root+'/not-an-existing-route')).status,404);assert.equal((await fetch(root+'/franchise/not-a-brand')).status,404);
-console.log('PASS '+routes.length+' server-rendered pages, 12 brands, 23 articles, migrated brand media, sitemap, '+Object.keys(read('redirects')).length+' redirects and 404s');
+console.log('PASS '+routes.length+' server-rendered pages, 12 brands, legacy article redirects, migrated brand media, sitemap, '+Object.keys(read('redirects')).length+' redirects and 404s');

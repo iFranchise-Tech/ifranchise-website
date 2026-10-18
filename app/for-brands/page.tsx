@@ -1,2 +1,2 @@
 import {permanentRedirect} from 'next/navigation';
-export default function ForBrands(){permanentRedirect('/franchise-solutions');}
+export default function ForBrands(){permanentRedirect('/list-your-brand');}
