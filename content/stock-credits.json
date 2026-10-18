@@ -1,0 +1,47 @@
+[
+  {
+    "filename": "consultation-ahmedabad.jpg",
+    "source_url": "https://www.pexels.com/photo/business-meeting-collaboration-in-ahmedabad-office-31786661/",
+    "photographer": "Fahad Puthawala",
+    "licence_url": "https://www.pexels.com/license/",
+    "description": "Two business professionals in an Ahmedabad office working together at a laptop; warm neutral tones, portrait composition.",
+    "width": 1200,
+    "height": 1799
+  },
+  {
+    "filename": "business-consultation.jpg",
+    "source_url": "https://www.pexels.com/photo/people-on-a-business-meeting-4345109/",
+    "photographer": "Edmond Dant\u00e8s",
+    "licence_url": "https://www.pexels.com/license/",
+    "description": "Two professionals seated together reviewing a laptop in a bright minimalist office, photographed from above.",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "filename": "team-strategy-meeting.jpg",
+    "source_url": "https://www.pexels.com/photo/people-having-a-meeting-in-the-office-7648222/",
+    "photographer": "RDNE Stock project",
+    "licence_url": "https://www.pexels.com/license/",
+    "description": "Three adult colleagues discussing work around a phone and papers in a light-filled meeting room.",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "filename": "consultant-planning.jpg",
+    "source_url": "https://www.pexels.com/photo/marketing-exit-office-technology-7414209/",
+    "photographer": "RDNE Stock project",
+    "licence_url": "https://www.pexels.com/license/",
+    "description": "Two professionals planning together at a table with papers, calculator, sticky notes and laptop.",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "filename": "entrepreneur-cafe-interior.jpg",
+    "source_url": "https://www.pexels.com/photo/cafe-owner-in-cozy-coffee-shop-interior-36729739/",
+    "photographer": "Vitaly Gariev",
+    "licence_url": "https://www.pexels.com/license/",
+    "description": "Adult caf\u00e9 proprietor wearing an apron, standing with arms folded in a warmly lit caf\u00e9 interior.",
+    "width": 1600,
+    "height": 900
+  }
+]
