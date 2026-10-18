@@ -43,3 +43,9 @@ city and state to "City, State" (maximum 120 characters) without adding an
 unsupported wire field. Brand identity mapping is unchanged. No new dedicated
 CRM state column is claimed. Local review keeps both values in the page while
 intake is off; neither value is sent or saved.
+
+Contact-page simplification
+Investor and brand journeys now use separate selectable single-page forms. The
+field names, existing interest_slug mappings, city/state location mapping and
+journey endpoints are preserved. The browser form selection does not submit
+anything. Local review remains the only action while intake is disabled.

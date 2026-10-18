@@ -1,45 +1,26 @@
-import {FAQ} from '../components/ui';
 import {Icon} from '../components/icons';
-import {HeroSculpture,JourneyExplorer,MotionControl} from '../components/experience';
-import {SITE,faqs} from '../lib/site';
+import {HeroSculpture,MotionControl} from '../components/experience';
+import {SITE} from '../lib/site';
 import {socialLinks} from '../lib/contact';
 export const metadata={alternates:{canonical:'/'}};
-const guides=[
- ['/guides/franchise-models','FOFO, FOCO and FICO explained','Compare who owns the outlet, who operates it and how responsibilities are divided.'],
- ['/guides/franchise-enquiry-checklist','Franchise investment checklist','Review setup costs, ongoing fees, operating responsibilities and the terms to ask about.'],
- ['/guides/franchise-ready-brand','Preparing your business for franchising','Assess your operations, documentation and capacity to support franchise partners.'],
-];
 export default function Home(){
- const schema={'@context':'https://schema.org','@graph':[{'@type':'Organization',name:'iFranchise',url:SITE.url,areaServed:'India',email:SITE.email,telephone:SITE.phone,logo:SITE.url+'/assets/wordmark.svg',sameAs:socialLinks.map(s=>s.href)},{'@type':'FAQPage',mainEntity:faqs.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}]};
- return <main id="main" className="bespoke-home">
+ const schema={'@context':'https://schema.org','@type':'Organization',name:'iFranchise',url:SITE.url,areaServed:'India',email:SITE.email,telephone:SITE.phone,logo:SITE.url+'/assets/wordmark.svg',sameAs:socialLinks.map(s=>s.href)};
+ return <main id="main" className="refined-home">
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>
   <section className="signature-hero">
    <HeroSculpture/>
    <div className="signature-content">
-    <h1>Franchise consulting<br/>for investors<br/><em>and brands.</em></h1>
-    <p className="hero-intro">We help you evaluate franchise investments and prepare your business for expansion across India.</p>
-    <div className="hero-actions"><a className="button light" href="/franchise-opportunities">Explore franchises <Icon name="arrow"/></a><a className="text-link on-dark" href="/for-brands">Services for brands <Icon name="arrow"/></a></div>
+    <h1>Start a franchise.<br/><em>Expand your<br/>business.</em></h1>
+    <p className="hero-intro">Compare franchise opportunities, understand the investment and plan your business expansion with iFranchise.</p>
+    <div className="hero-actions"><a className="button light" href="/franchise-opportunities">Explore franchises <Icon name="arrow"/></a><a className="text-link on-dark" href="/franchise-solutions">Franchise solutions <Icon name="arrow"/></a></div>
    </div>
-   <div className="hero-footnote"><a href="#your-next-step"><span className="scroll-symbol">↓</span> How we can help</a><MotionControl/></div>
+   <div className="hero-footnote"><span>Bengaluru-based. Working across India.</span><MotionControl/></div>
   </section>
-  <JourneyExplorer/>
-  <section className="section approach-section">
-   <div className="approach-heading"><h2>Franchise development<br/><span>and expansion services</span></h2><div><p>We work with business owners on the model, processes and partnerships needed to operate a franchise network.</p><a className="text-link" href="/services">View all services <Icon name="arrow"/></a></div></div>
-   <div className="approach-grid">
-    <a href="/services" className="approach-feature">
-     <div><h3>Franchise model development</h3><p>Define how the franchise will operate before introducing it to prospective partners.</p><dl className="model-scope"><div><dt>Investment structure</dt><dd>Setup costs and ongoing fees</dd></div><div><dt>Operating model</dt><dd>Ownership and responsibilities</dd></div><div><dt>Partner support</dt><dd>Training and operational assistance</dd></div></dl><span className="feature-link">View consulting services <Icon name="arrow"/></span></div>
-    </a>
-    <div className="approach-rows">{[['01','Operations and documentation','Document daily procedures, service standards and the training your franchise partners need.'],['02','Investor acquisition','Prepare your franchise presentation, plan outreach and evaluate prospective partner requirements.'],['03','Market and location planning','Prioritise expansion markets, property requirements and the sequence of new openings.']].map(([n,t,d])=><a href="/services" key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div><Icon name="arrow"/></a>)}</div>
-   </div>
+  <section className="section home-support">
+   <div className="home-support-photo"><img src="/stock/business-consultation.jpg" alt="Professionals reviewing business information together" width="1600" height="1067" loading="lazy"/></div>
+   <div className="home-support-copy"><h2>Support for investors<br/>and business owners</h2><p>Franchise decisions involve the business, the people running it and the terms of the partnership. We help you work through those details.</p><div className="home-audiences"><div><h3>For investors</h3><p>Compare business formats, review costs and clarify your involvement before choosing an opportunity.</p></div><div><h3>For brands</h3><p>Develop your franchise model, prepare partner information and plan how to support new locations.</p></div></div><a className="text-link" href="/about-us">About iFranchise <Icon name="arrow"/></a></div>
   </section>
-  <section className="people-story">
-   <div className="people-photo"><img src="/stock/consultation-ahmedabad.jpg" alt="Professionals reviewing business information in an office" width="1200" height="1799" loading="lazy"/></div>
-   <div className="people-copy"><h2>Discuss your<br/><span>franchise plans</span></h2><p>Tell us your preferred location, budget and level of involvement. If you own a brand, we can discuss your current operations and expansion requirements.</p><a className="button light" href="/contact-us">Contact our team <Icon name="arrow"/></a><a className="quiet-link" href="/about-us">About iFranchise <Icon name="arrow" width="16"/></a></div>
-  </section>
-  <section className="section perspective-section">
-   <div className="section-heading"><h2>Franchise guides</h2><a className="text-link" href="/blogs">Browse articles <Icon name="arrow"/></a></div>
-   <div className="perspective-grid">{guides.map(([href,title,copy])=><a href={href} className="perspective-card guide-text-card" key={href}><div className="perspective-copy"><h3>{title}</h3><p>{copy}</p></div><span className="guide-read">Read guide <Icon name="arrow"/></span></a>)}</div>
-  </section>
-  <FAQ/>
- </main>
+  <section className="home-process"><div className="section"><div className="home-section-heading"><h2>Our consulting process</h2><p>The scope depends on your business and where you are in the decision.</p></div><ol className="home-process-list">{[['Understand your requirements','We start with your preferred location, investment range and operating involvement, or your brand’s current operations and expansion plans.'],['Review the business and model','We work through the format, costs, responsibilities and information needed to assess the next step.'],['Prepare the next steps','We organise the questions, documentation and partner discussions relevant to your requirements.']].map(([title,copy],i)=><li key={title}><span>0{i+1}</span><h3>{title}</h3><p>{copy}</p></li>)}</ol></div></section>
+  <section className="section home-resources"><div><h2>Franchise guides<br/>and resources</h2><p>Read about operating models, investment planning and the preparation involved in franchising a business.</p><a className="text-link" href="/insights">Browse insights & resources <Icon name="arrow"/></a></div><ul>{[['Franchise models','How FOFO, FOCO and FICO divide ownership and operations.'],['Investor preparation','Questions to ask about costs, support and agreement terms.'],['Brand development','Documentation, operating standards and partner readiness.']].map(([title,copy])=><li key={title}><h3>{title}</h3><p>{copy}</p></li>)}</ul></section>
+ </main>;
 }

@@ -19,3 +19,6 @@ export const migratedPaths=[...new Set([...Object.keys(editorialPages),...Object
 
 editorialPages['/high-roi-franchise-opportunities'].title='Compare franchise commercial terms';
 editorialPages['/high-roi-franchise-opportunities'].intro='Look beyond projected returns. Compare costs, responsibilities and supporting evidence before selecting a franchise.';
+
+editorialPages['/about-us'].title='About iFranchise';
+editorialPages['/about-us'].intro='Bengaluru-based franchise consulting for investors and business owners across India. Learn about our work in selection, development and expansion.';

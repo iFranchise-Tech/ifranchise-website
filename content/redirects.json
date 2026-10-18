@@ -1,15 +1,19 @@
 {
   "/about": "/about-us",
   "/contact": "/contact-us",
-  "/blog": "/blogs",
+  "/blog": "/insights",
   "/meet-the-team": "/team",
   "/featured-opportunities": "/franchise-opportunities",
   "/opportunities": "/franchise-opportunities",
-  "/for-brand-owners": "/list-your-brand",
-  "/brand-owners": "/list-your-brand",
+  "/for-brand-owners": "/franchise-solutions#brand-listing",
+  "/brand-owners": "/franchise-solutions#brand-listing",
   "/terms": "/terms-and-conditions",
   "/investor-guides": "/resources/knowledge-hub/investor",
   "/brand-growth-guides": "/resources/knowledge-hub/brand",
   "/success-stories": "/resources/knowledge-hub",
-  "/franchise-roi-calculator": "/resources/knowledge-hub/investor/franchise-roi-guide"
+  "/franchise-roi-calculator": "/resources/knowledge-hub/investor/franchise-roi-guide",
+  "/services": "/franchise-solutions",
+  "/list-your-brand": "/franchise-solutions#brand-listing",
+  "/for-brands": "/franchise-solutions",
+  "/blogs": "/insights"
 }

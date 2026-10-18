@@ -1,0 +1,196 @@
+/* A smaller set of clear journeys, shared editorial layouts and single-page forms. */
+.direct-nav{gap:21px}
+.nav-direct-link{white-space:nowrap;font-size:12px}
+.header-inner{gap:22px}
+.refined-home{background:#f7f4f9}
+.refined-home .signature-hero{min-height:660px;padding-top:76px;padding-bottom:104px}
+.refined-home .signature-content{max-width:740px}
+.refined-home .signature-content h1{font-size:clamp(52px,5.4vw,78px);line-height:1.09;letter-spacing:-.055em;margin:0 0 26px}
+.refined-home .signature-content .hero-intro{font-size:15px;max-width:440px;line-height:1.85}
+.refined-home .hero-actions{gap:25px;flex-wrap:wrap}
+.refined-home .hero-footnote{border-color:#ffffff24;padding-top:15px}
+.refined-home .sculpture-plane{width:112%;height:118%;top:-9%;right:-16%;transform:none;transition:none}
+.refined-home .sculpture-plane>img{animation:home-camera 14s ease-in-out infinite;will-change:transform;transform-origin:70% 50%}
+.refined-home .sculpture-light{background:radial-gradient(ellipse at 73% 25%,#b894e680,transparent 48%);animation:home-light 10s ease-in-out infinite;mix-blend-mode:screen}
+.sculpture-reflection{position:absolute;inset:-30%;pointer-events:none;background:linear-gradient(112deg,transparent 30%,#e8d9ff00 43%,#e8d9ff25 48%,#e8d9ff00 54%,transparent 70%);mix-blend-mode:screen;animation:home-reflection 12s ease-in-out infinite}
+.refined-home .hero-sculpture:after{background:linear-gradient(90deg,#100a1bf5 0%,#100a1bb3 32%,#100a1b30 60%,transparent 80%),linear-gradient(0deg,#100a1b 0%,transparent 25%)}
+.hero-sculpture[data-visible='false'] *{animation-play-state:paused!important}
+@keyframes home-camera{0%,100%{transform:scale(1.04) translate3d(1%,0,0)}50%{transform:scale(1.14) translate3d(-3%,-1.5%,0)}}
+@keyframes home-light{0%,100%{opacity:.25;transform:translate3d(-6%,4%,0)}50%{opacity:.8;transform:translate3d(5%,-4%,0)}}
+@keyframes home-reflection{0%,100%{transform:translateX(-22%);opacity:0}20%{opacity:.55}70%{transform:translateX(24%);opacity:.35}85%{opacity:0}}
+.home-support{display:grid;grid-template-columns:1fr 1.1fr;gap:65px;align-items:center}
+.home-support-photo{height:430px;border-radius:4px;overflow:hidden}
+.home-support-photo img{width:100%;height:100%;object-fit:cover}
+.home-support-copy h2{font-size:39px;line-height:1.2;margin:0 0 20px;color:#321e43}
+.home-support-copy>p{font-size:14px;line-height:1.9;color:#7b6688;max-width:520px}
+.home-audiences{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin:27px 0}
+.home-audiences>div{border-top:1px solid #d9c9e3;padding-top:18px}
+.home-audiences h3{font-size:18px;line-height:1.4;margin:0 0 11px;letter-spacing:-.03em}
+.home-audiences p{font-size:12px;color:#806b8d;line-height:1.9}
+.home-support-copy>.text-link{font-size:12px}
+.home-process{background:linear-gradient(110deg,#eee5f4,#f4eff8);border-block:1px solid #e1d6e9}
+.home-section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:50px;margin-bottom:35px}
+.home-section-heading h2{font-size:39px;line-height:1.2;max-width:650px;margin:0}
+.home-section-heading>p{font-size:13px;color:#806a8d;max-width:340px;line-height:1.9;margin:0}
+.home-process-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin:0;padding:0}
+.home-process-list>li{padding-top:22px;border-top:1px solid #cdb8dc}
+.home-process-list>li>span,.solution-service-grid>article>span,.about-scope-grid>article>span{font-size:11px;color:#9b78b3;display:block;margin-bottom:21px}
+.home-process-list h3{font-size:23px;line-height:1.4;letter-spacing:-.04em;margin:0 0 14px}
+.home-process-list p{font-size:13px;line-height:1.9;color:#7b6588}
+.home-resources{display:grid;grid-template-columns:1fr 1fr;gap:85px;align-items:start}
+.home-resources h2{font-size:40px;line-height:1.2;margin:0 0 20px}
+.home-resources>div>p{font-size:14px;color:#7b6688;line-height:1.9;max-width:440px}
+.home-resources .text-link{font-size:12px;margin-top:25px}
+.home-resources>ul{list-style:none;padding:0;margin:0;border-top:1px solid #d8c8e1}
+.home-resources li{padding:22px 0;border-bottom:1px solid #e0d3e8}
+.home-resources h3{font-size:20px;line-height:1.4;margin:0 0 9px;letter-spacing:-.03em}
+.home-resources li p{font-size:12px;color:#826b8e;line-height:1.8}
+/* Company and consolidated solutions. */
+.about-page,.solutions-page{background:#f7f4f9}
+.editorial-hero{background:radial-gradient(ellipse at 92% 10%,#4e355f,#24162e 75%);color:#fff}
+.editorial-hero>.page-wrap{padding-bottom:40px}
+.editorial-hero .breadcrumb{color:#c1accf;padding:23px 0 29px}
+.editorial-hero .breadcrumb a{color:#e1d1eb}
+.editorial-hero-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:60px;align-items:center}
+.editorial-hero h1{font-size:clamp(40px,4.2vw,60px);font-weight:800;line-height:1.16;letter-spacing:-.055em;margin:0 0 22px}
+.editorial-hero h1 span{color:#c8aedb}
+.editorial-hero p{font-size:16px;line-height:1.9;color:#d2c0dd;max-width:550px;margin:0}
+.editorial-hero .editorial-hero-detail{font-size:13px;line-height:1.9;color:#ad96bc;margin-top:20px;max-width:480px}
+.editorial-hero figure{margin:0;height:360px;border-radius:4px;overflow:hidden;background:#4a3558}
+.editorial-hero figure>img{height:100%;width:100%;object-fit:cover;filter:saturate(.75)}
+.editorial-hero .button{margin-top:27px;font-size:12px}
+.editorial-hero .button>svg{height:49px;width:44px;padding:12px}
+.section-label{display:block;font-size:11px;font-weight:600;color:#9272a4;line-height:1.5;margin:0 0 14px}
+.about-overview,.solution-investors{display:grid;grid-template-columns:.95fr 1.1fr;gap:85px}
+.about-overview h2,.solution-investors h2,.about-approach h2{font-size:39px;line-height:1.2;margin:0;color:#342046}
+.about-overview p,.solution-investors>div>p{font-size:15px;line-height:1.95;color:#786285;margin:0 0 18px}
+.about-overview p:last-child{margin-bottom:0}
+.about-scope,.solution-services{background:linear-gradient(110deg,#ece3f2,#f1eaf6);border-block:1px solid #e2d5eb}
+.about-scope h2{font-size:37px;line-height:1.3;margin:0 0 32px}
+.about-scope-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:39px}
+.about-scope-grid>article{border-top:1px solid #c9b4d8;padding-top:22px}
+.about-scope-grid h3{font-size:25px;line-height:1.3;margin:0 0 16px}
+.about-scope-grid p{font-size:13px;line-height:1.9;color:#7b628a}
+.about-scope .text-link{font-size:12px;margin-top:34px}
+.about-approach{display:grid;grid-template-columns:.95fr 1.1fr;gap:85px}
+.about-approach>div>p{font-size:14px;line-height:1.9;color:#7f688c;margin-top:22px;max-width:380px}
+.about-approach article{display:flex;gap:18px;border-top:1px solid #d9c9e3;padding:22px 0}
+.about-approach article:first-child{padding-top:0;border-top:0}
+.about-approach article>svg{width:19px;height:19px;color:#9569b0;margin-top:3px}
+.about-approach article h3{font-size:22px;line-height:1.4;margin:0 0 10px}
+.about-approach article p{font-size:13px;line-height:1.9;color:#7f688c;margin:0}
+.about-leadership{display:grid;grid-template-columns:.95fr 1.1fr;gap:85px;padding-top:35px;padding-bottom:45px;border-top:1px solid #ddd0e6}
+.about-leadership h2{font-size:25px;line-height:1.4;margin:0 0 7px;letter-spacing:-.04em}
+.about-leadership>div>p{font-size:12px;color:#8b719a}
+.leadership-names{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.leadership-names h3{font-size:17px;line-height:1.5;letter-spacing:-.03em;margin:0 0 6px}
+.leadership-names p{font-size:11px;color:#8b719a;margin:0}
+.leadership-intro{padding:15px 0 25px}
+.plain-checks{list-style:none;margin:24px 0 0;padding:0}
+.plain-checks li{display:flex;gap:13px;font-size:13px;line-height:1.9;padding:9px 0;color:#725483}
+.plain-checks svg{width:17px;height:17px;color:#9874af;margin-top:3px}
+.solution-service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 37px}
+.solution-service-grid>article{border-top:1px solid #cdb7db;padding-top:20px}
+.solution-service-grid h3{font-size:23px;line-height:1.35;margin:0 0 14px}
+.solution-service-grid p{font-size:13px;line-height:1.9;color:#7c658b}
+.solution-listing{display:grid;grid-template-columns:1.1fr 1fr;gap:65px;align-items:center;scroll-margin-top:0}
+.solution-listing h2{font-size:37px;line-height:1.2;margin:0 0 21px}
+.solution-listing-intro>p{font-size:14px;color:#7b6588;line-height:1.9;max-width:520px}
+.solution-listing .button{margin-top:27px;font-size:12px}
+.solution-listing .button>svg{width:43px;height:49px;padding:12px}
+.listing-preparation{border:1px solid #ddcce7;background:#efe7f5;padding:29px;border-radius:4px}
+.listing-preparation h3{font-size:23px;line-height:1.3;margin:0 0 18px}
+.listing-preparation ul{list-style:none;margin:0;padding:0}
+.listing-preparation li{display:flex;gap:12px;font-size:12px;line-height:1.8;padding:12px 0;border-bottom:1px solid #dfcfe8;color:#6e527f}
+.listing-preparation li>svg{width:16px;height:16px;color:#9570ad;margin-top:3px}
+.listing-preparation>p{font-size:11px;line-height:1.9;color:#8c719c;margin:18px 0 0}
+.solution-process{padding-top:0}
+.solution-process h2{font-size:34px;margin:0 0 28px;line-height:1.3}
+.solution-process>ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin:0;padding:0}
+.solution-process li{display:flex;gap:17px;border-top:1px solid #dfd0e8;padding-top:20px}
+.solution-process li>span{font-size:10px;color:#9775ab;padding-top:5px}
+.solution-process h3{font-size:19px;line-height:1.4;letter-spacing:-.035em;margin:0 0 10px}
+.solution-process p{font-size:12px;line-height:1.9;color:#82698f}
+/* Contact form shares the compact brand-landing form treatment. */
+.refined-contact{background:#f7f4f9}
+.refined-contact>.page-wrap{padding-bottom:55px}
+.refined-contact .breadcrumb{padding:23px 0 25px;color:#9476a5}
+.contact-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:45px;margin:6px 0 35px}
+.contact-intro h1{font-size:48px;line-height:1.15;letter-spacing:-.055em;margin:0}
+.contact-intro>p{font-size:13px;line-height:1.9;color:#887093;max-width:370px;margin:0 0 2px}
+.contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
+.contact-information{grid-column:1;grid-row:1;padding:30px;background:linear-gradient(145deg,#2b1a39,#40254f);color:#f1e7f8;border:1px solid #523a60;border-radius:4px}
+.contact-information h2{font-size:27px;line-height:1.3;margin:0 0 14px}
+.contact-information>p{font-size:13px;line-height:1.8;color:#bda4ce;margin:0}
+.contact-methods{margin-top:23px}
+.contact-methods>a{display:flex;align-items:center;gap:14px;border-bottom:1px solid #71567f61;padding:19px 0;font-size:15px;font-weight:600}
+.contact-methods>a>svg{width:20px;height:20px;color:#b894d0}
+.contact-methods>a>svg:last-child{margin-left:auto;width:16px;height:16px}
+.contact-methods>a small{display:block;font-size:10px;font-weight:400;color:#b494c7;margin-bottom:5px}
+.contact-methods>a:hover{color:#d1b1e7}
+.contact-office{margin-top:30px}
+.contact-office h3,.contact-social h3{font-size:16px;line-height:1.5;margin:0 0 12px;letter-spacing:-.025em}
+.contact-office p{font-size:11px;line-height:1.95;color:#bea5cd;margin:0}
+.contact-office strong{font-size:10px;font-weight:600;color:#d3bddf}
+.contact-office>span{display:block;color:#aa88bc;font-size:10px;line-height:1.8;margin-top:17px}
+.contact-social{margin-top:29px}
+.contact-social .social-links{margin-top:15px;gap:9px;flex-wrap:wrap}
+.contact-social .social-links a{width:38px;height:38px;border:1px solid #7c5d8d;color:#c4a6d4;background:#ffffff04}
+.contact-social .social-links svg{width:18px;height:18px}
+.contact-form-panel{grid-column:2;grid-row:1;border:1px solid #d9cbe4;border-top:3px solid #6f4695;border-radius:4px;background:#fff;box-shadow:0 8px 35px #35224406;min-width:0}
+.contact-enquiry.enquiry-card{padding:27px 30px 23px;border:0;box-shadow:none;background:none;border-radius:0}
+.contact-enquiry .form-toggle{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#f2ecf6;border:1px solid #e3d6ec;border-radius:4px;padding:4px;margin:0 0 25px}
+.contact-enquiry .form-toggle>button{font-size:12px;line-height:1.4;padding:12px 10px;border-radius:3px;border:1px solid transparent;background:transparent;color:#8c729b;font-weight:600;min-height:44px}
+.contact-enquiry .form-toggle>button[aria-pressed=true]{background:#fff;color:#563078;border-color:#dfcee9;box-shadow:0 2px 6px #40284e08}
+.contact-form-heading h2{font-size:27px;line-height:1.25;letter-spacing:-.04em;margin:0 0 11px;color:#362047}
+.contact-form-heading p{font-size:12px;line-height:1.85;color:#887094;margin:0 0 17px}
+.contact-enquiry .paused-status{font-size:10px;line-height:1.6;background:#f0e9f6;color:#866298;border:0;border-radius:2px;margin:0 0 22px;padding:10px 12px}
+.enquiry-fieldset{border:0;min-width:0;padding:0;margin:0}
+.contact-enquiry .enquiry-fieldset+.enquiry-fieldset{border-top:1px solid #eadff0;margin-top:5px;padding-top:15px}
+.contact-enquiry .enquiry-fieldset legend{font-size:11px;font-weight:700;color:#78528f;padding:0 0 12px;line-height:1.5}
+.contact-enquiry .enquiry-fieldset+.enquiry-fieldset legend{padding-top:13px}
+.contact-enquiry .field-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.contact-enquiry .field{min-width:0;margin:0 0 15px}
+.contact-enquiry .field label{display:block;font-size:11px;font-weight:600;line-height:1.5;color:#765d86;margin-bottom:7px}
+.contact-enquiry .field input,.contact-enquiry .field select{height:44px;min-height:44px;border:1px solid #d9cae4;background:#fdfbfe;border-radius:3px;padding:10px 12px;color:#483151;width:100%;min-width:0;font-size:12px;outline-offset:2px}
+.contact-enquiry .field input::placeholder{color:#a08bae}
+.contact-enquiry .field input:focus-visible,.contact-enquiry .field select:focus-visible{outline:2px solid #b492cc;border-color:#9972b5}
+.contact-enquiry .checkbox-label{align-items:flex-start;gap:10px;margin:4px 0 18px;font-size:10px;line-height:1.8;color:#8c749a}
+.contact-enquiry .checkbox-label input{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:#68408a}
+.contact-enquiry .checkbox-label a{color:#643a82;text-decoration:underline;text-underline-offset:3px}
+.contact-enquiry .form-actions{display:block;margin:0}
+.contact-enquiry .form-actions .button{width:100%;justify-content:space-between;font-size:12px;min-height:47px;padding:0 0 0 18px;gap:12px}
+.contact-enquiry .form-actions .button>svg{width:46px;height:47px;padding:13px}
+.contact-enquiry .form-local-note{font-size:10px;color:#a28aaf;text-align:center;margin:10px 0 0;line-height:1.7}
+.contact-enquiry .form-message{font-size:12px;line-height:1.8;background:#f0e7f7;color:#67447e;padding:14px;border-radius:3px;margin:17px 0 0}
+.contact-enquiry .form-message.error{color:#7f2d47;background:#f9edf0}
+/* Resource hub includes the existing editorial and knowledge collections. */
+.insights-page{background:#f7f4f9}
+.insights-hero{color:#fff;background:radial-gradient(ellipse at 90% 10%,#51386a,#281733 75%)}
+.insights-hero .page-wrap{padding-bottom:37px}
+.insights-hero .breadcrumb{color:#b79cc9;padding:23px 0 27px}
+.insights-hero .breadcrumb a{color:#e0cdec}
+.insights-hero h1{font-size:49px;line-height:1.15;margin:0 0 20px}
+.insights-hero p{font-size:14px;color:#c2a9d3;line-height:1.9;max-width:620px}
+.insights-library{padding-top:32px}
+.unified-library .library-toolbar{grid-template-columns:1.8fr 1fr 1fr;padding:22px 24px;border:1px solid #ddcde7;background:#fff;border-radius:4px;gap:20px;align-items:center}
+.unified-library .search-field{background:#faf7fc;border:1px solid #ddcde7;border-radius:3px;min-height:46px}
+.unified-library .search-field input{font-size:12px}
+.unified-library .filter-field label{font-size:10px;color:#8c719c}
+.unified-library .filter-field select{font-size:12px;min-width:0}
+.unified-library .result-count{font-size:11px;margin:22px 0;color:#8c729b}
+.resource-topic{font-size:10px;color:#9b7bab;line-height:1.8;display:block;margin:0 0 13px}
+.unified-library .resource-grid{gap:23px}
+.unified-library .resource-card{border:1px solid #ddcee7;border-radius:4px;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.unified-library .resource-card>img{height:170px;width:100%;object-fit:cover}
+.unified-library .resource-copy{padding:25px;display:flex;flex-direction:column;flex:1}
+.unified-library .resource-copy h2{font-size:25px;line-height:1.25;margin:0 0 15px;font-weight:600}
+.unified-library .resource-copy>p{font-size:12px;line-height:1.8;color:#82698f;margin:0 0 24px}
+.unified-library .resource-copy>.text-link{margin-top:auto;padding-top:19px;border-top:1px solid #e8dcee;font-size:11px}
+@media(min-width:1500px){.nav-direct-link{font-size:12px}.direct-nav{gap:25px}.refined-home .signature-hero{min-height:700px}.refined-home .signature-content h1{font-size:84px}}
+@media(max-width:1200px){.direct-nav{gap:15px}.nav-direct-link{font-size:10px}.header-inner{gap:17px}.home-support{gap:38px}.home-support-copy h2{font-size:34px}.home-audiences{gap:20px}.home-support-photo{height:430px}.home-resources{gap:55px}.editorial-hero-grid{gap:38px}.editorial-hero h1{font-size:46px}.editorial-hero figure{height:340px}.about-overview,.solution-investors,.about-approach,.about-leadership{gap:50px}.contact-layout{gap:30px;grid-template-columns:.8fr 1.2fr}.contact-information{padding:27px}.contact-methods>a{font-size:13px}.contact-enquiry.enquiry-card{padding:25px}.contact-intro h1{font-size:44px}.solution-listing{gap:39px}.solution-service-grid{gap:30px}.solution-listing h2{font-size:34px}.home-section-heading h2{font-size:35px}}
+@media(max-width:1050px){.direct-nav{gap:0}.nav-direct-link{font-size:14px}.refined-home .signature-content h1{font-size:62px}.home-support{gap:32px;grid-template-columns:.9fr 1.1fr}.home-support-copy h2{font-size:31px}.home-audiences{grid-template-columns:1fr;gap:17px;margin:23px 0}.home-audiences>div{padding-top:14px}.home-support-photo{height:470px}.home-support-copy>p{font-size:13px}.home-section-heading{gap:32px}.home-process-list{gap:29px}.home-process-list h3{font-size:22px}.editorial-hero-grid{gap:30px}.editorial-hero h1{font-size:40px}.editorial-hero p{font-size:14px}.editorial-hero figure{height:330px}.about-scope-grid{gap:27px}.about-overview h2,.solution-investors h2,.about-approach h2{font-size:34px}.about-overview p,.solution-investors>div>p{font-size:14px}.about-scope-grid h3{font-size:22px}.contact-layout{grid-template-columns:.85fr 1.2fr;gap:25px}.contact-information{padding:24px}.contact-information h2{font-size:23px}.contact-methods>a{font-size:12px;gap:11px}.contact-methods>a>svg{width:18px;height:18px}.contact-enquiry.enquiry-card{padding:23px}.contact-enquiry .field input,.contact-enquiry .field select{padding:10px;font-size:11px}.contact-form-heading h2{font-size:25px}.contact-enquiry .field-row{gap:12px}.contact-intro h1{font-size:40px}.contact-intro>p{max-width:320px}.solution-service-grid{grid-template-columns:1fr 1fr;gap:28px 32px}}
+@media(max-width:800px){.refined-home .signature-hero{min-height:630px;padding-top:65px}.refined-home .signature-content h1{font-size:58px}.home-support{grid-template-columns:1fr;gap:30px}.home-support-photo{height:340px}.home-support-copy h2{font-size:36px}.home-support-copy>p{max-width:650px}.home-audiences{grid-template-columns:1fr 1fr;gap:28px}.home-section-heading{display:block}.home-section-heading>p{margin-top:17px;max-width:550px}.home-process-list{gap:24px}.home-process-list h3{font-size:20px}.home-process-list p{font-size:12px}.home-resources{gap:35px}.home-resources h2{font-size:33px}.editorial-hero-grid{gap:25px}.editorial-hero h1{font-size:36px}.editorial-hero p{font-size:13px}.editorial-hero figure{height:320px}.about-overview,.solution-investors,.about-approach{grid-template-columns:1fr;gap:26px}.about-overview h2 br,.solution-investors h2 br,.about-approach h2 br{display:none}.about-approach>div>p{max-width:600px;margin-top:16px}.about-scope-grid{gap:24px}.about-scope-grid h3{font-size:21px}.about-scope-grid p{font-size:12px}.about-leadership{grid-template-columns:.8fr 1.2fr;gap:25px}.leadership-names{gap:20px}.leadership-names h3{font-size:15px}.contact-intro{display:block;margin-bottom:28px}.contact-intro>p{max-width:560px;margin-top:17px}.contact-layout{display:flex;flex-direction:column;gap:29px}.contact-form-panel{order:0;width:100%}.contact-information{order:1;width:100%;padding:28px}.contact-methods>a{font-size:15px}.contact-enquiry.enquiry-card{padding:28px}.contact-enquiry .field input,.contact-enquiry .field select{font-size:13px}.contact-form-heading h2{font-size:29px}.contact-enquiry .field-row{gap:17px}.contact-enquiry .checkbox-label{font-size:11px}.contact-enquiry .form-local-note{font-size:11px}.solution-listing{gap:30px;grid-template-columns:1fr}.solution-listing-intro>p{max-width:660px}.solution-process>ol{gap:24px}.solution-process h3{font-size:18px}.unified-library .library-toolbar{grid-template-columns:1fr 1fr;gap:18px}.unified-library .search-field{grid-column:1/-1}}
+@media(max-width:650px){.refined-home .signature-hero{padding:43px 23px 300px;min-height:710px}.refined-home .signature-content h1{font-size:clamp(36px,9.5vw,55px);line-height:1.12;letter-spacing:-.05em;margin:0 0 22px}.refined-home .signature-content .hero-intro{font-size:13px;max-width:370px;line-height:1.85}.refined-home .hero-actions{gap:19px;margin-top:25px}.refined-home .hero-actions .button{font-size:11px}.refined-home .sculpture-plane{width:135%;height:330px;top:auto;bottom:20px;right:-4%;opacity:1}.refined-home .hero-sculpture:after{background:linear-gradient(0deg,#100a1b 0%,transparent 18%,transparent 35%,#100a1b 49%)}.refined-home .hero-footnote{font-size:8px;bottom:15px;gap:15px;padding-top:12px}.refined-home .motion-control{font-size:9px}.home-support{gap:27px}.home-support-photo{height:235px}.home-support-copy h2{font-size:31px;line-height:1.2;margin-bottom:18px}.home-support-copy>p{font-size:13px}.home-audiences{gap:22px;margin:23px 0}.home-audiences h3{font-size:17px;margin-bottom:10px}.home-audiences p{font-size:11px;line-height:1.9}.home-support-copy>.text-link{font-size:12px}.home-section-heading{margin-bottom:25px}.home-section-heading h2{font-size:31px}.home-section-heading>p{font-size:12px;margin-top:17px}.home-process-list{grid-template-columns:1fr;gap:25px}.home-process-list>li{padding-top:20px}.home-process-list>li>span{margin-bottom:13px}.home-process-list h3{font-size:23px;margin-bottom:11px}.home-process-list p{font-size:13px}.home-resources{grid-template-columns:1fr;gap:29px}.home-resources h2{font-size:32px;margin-bottom:19px}.home-resources>div>p{font-size:13px}.home-resources .text-link{margin-top:22px;font-size:12px}.home-resources li{padding:19px 0}.home-resources h3{font-size:21px}.home-resources li p{font-size:12px}.editorial-hero>.page-wrap{padding-bottom:27px}.editorial-hero .breadcrumb{padding:18px 0 25px;font-size:9px}.editorial-hero-grid{grid-template-columns:1fr;gap:27px}.editorial-hero h1{font-size:36px;line-height:1.18;margin-bottom:20px}.editorial-hero p{font-size:14px;line-height:1.9}.editorial-hero .editorial-hero-detail{font-size:12px;margin-top:17px}.editorial-hero figure{height:235px}.editorial-hero .button{margin-top:23px;font-size:12px}.section-label{font-size:10px;margin-bottom:12px}.about-overview,.solution-investors,.about-approach{gap:24px}.about-overview h2,.solution-investors h2,.about-approach h2{font-size:32px;line-height:1.2}.about-overview p,.solution-investors>div>p{font-size:13px;line-height:1.95}.about-scope h2{font-size:31px;margin-bottom:25px}.about-scope-grid{grid-template-columns:1fr;gap:25px}.about-scope-grid>article{padding-top:18px}.about-scope-grid>article>span{margin-bottom:14px}.about-scope-grid h3{font-size:25px;margin-bottom:12px}.about-scope-grid p{font-size:13px}.about-scope .text-link{margin-top:28px}.about-approach>div>p{font-size:13px}.about-approach article{gap:13px;padding:20px 0}.about-approach article h3{font-size:22px}.about-approach article p{font-size:12px}.about-leadership{grid-template-columns:1fr;gap:22px;padding-top:28px;padding-bottom:34px}.about-leadership h2{font-size:25px}.leadership-names{gap:23px}.leadership-names h3{font-size:15px}.leadership-names p{font-size:10px}.solution-service-grid{grid-template-columns:1fr;gap:25px}.solution-service-grid>article{padding-top:18px}.solution-service-grid>article>span{margin-bottom:14px}.solution-service-grid h3{font-size:24px;margin-bottom:12px}.solution-service-grid p{font-size:13px}.plain-checks{margin-top:20px}.plain-checks li{font-size:12px}.solution-listing h2{font-size:31px;margin-bottom:20px}.solution-listing-intro>p{font-size:13px}.listing-preparation{padding:23px}.listing-preparation h3{font-size:23px}.listing-preparation li{font-size:12px;padding:11px 0}.solution-process h2{font-size:29px;margin-bottom:24px}.solution-process>ol{grid-template-columns:1fr;gap:22px}.solution-process h3{font-size:22px}.solution-process p{font-size:12px}.refined-contact>.page-wrap{padding-bottom:35px}.refined-contact .breadcrumb{padding:18px 0 23px;font-size:9px}.contact-intro{margin:0 0 26px}.contact-intro h1{font-size:35px;line-height:1.2}.contact-intro>p{font-size:12px;margin-top:16px;line-height:1.9}.contact-enquiry.enquiry-card{padding:21px 19px}.contact-enquiry .form-toggle{margin-bottom:22px}.contact-enquiry .form-toggle>button{font-size:11px;padding:10px 6px;min-height:43px}.contact-form-heading h2{font-size:25px}.contact-form-heading p{font-size:12px;margin-bottom:16px}.contact-enquiry .paused-status{font-size:10px;margin-bottom:21px}.contact-enquiry .enquiry-fieldset legend{font-size:10px}.contact-enquiry .field-row{gap:11px}.contact-enquiry .field label{font-size:10px;margin-bottom:7px}.contact-enquiry .field input,.contact-enquiry .field select{font-size:12px;padding:10px 8px;min-height:45px;height:45px}.contact-enquiry .field{margin-bottom:15px}.contact-enquiry .checkbox-label{font-size:10px}.contact-enquiry .form-actions .button{min-height:48px}.contact-enquiry .form-actions .button>svg{height:48px}.contact-enquiry .form-local-note{font-size:10px}.contact-information{padding:26px 22px}.contact-information h2{font-size:27px}.contact-information>p{font-size:12px}.contact-methods>a{font-size:14px}.contact-office p{font-size:11px}.contact-social .social-links a{width:39px;height:39px}.insights-hero .page-wrap{padding-bottom:29px}.insights-hero .breadcrumb{padding:18px 0 25px;font-size:9px}.insights-hero h1{font-size:36px;line-height:1.2;margin-bottom:18px}.insights-hero p{font-size:12px}.insights-library{padding-top:23px}.unified-library .library-toolbar{padding:17px;gap:17px 12px}.unified-library .search-field input{font-size:11px}.unified-library .filter-field label{font-size:9px}.unified-library .filter-field select{font-size:11px}.unified-library .resource-copy{padding:24px}.unified-library .resource-copy h2{font-size:26px}.unified-library .resource-copy>p{font-size:13px}.unified-library .resource-card>img{height:190px}}
+@media(max-width:370px){.refined-home .signature-content h1{font-size:33px}.refined-home .signature-hero{min-height:700px;padding-top:35px}.refined-home .hero-actions{gap:17px}.home-audiences{grid-template-columns:1fr}.home-support-copy h2,.home-section-heading h2,.home-resources h2{font-size:29px}.editorial-hero h1{font-size:31px}.about-overview h2,.solution-investors h2,.about-approach h2{font-size:29px}.leadership-names{grid-template-columns:1fr;gap:20px}.contact-intro h1{font-size:31px}.contact-enquiry.enquiry-card{padding:20px 16px}.contact-enquiry .field-row{grid-template-columns:1fr;gap:0}.contact-form-heading h2{font-size:24px}.contact-methods>a{font-size:12px}.insights-hero h1{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.refined-home .sculpture-plane>img,.refined-home .sculpture-light,.sculpture-reflection{animation:none!important}html[data-motion='active'] .refined-home .sculpture-plane>img{animation:home-camera 14s ease-in-out infinite!important}html[data-motion='active'] .refined-home .sculpture-light{animation:home-light 10s ease-in-out infinite!important}html[data-motion='active'] .sculpture-reflection{animation:home-reflection 12s ease-in-out infinite!important}}
