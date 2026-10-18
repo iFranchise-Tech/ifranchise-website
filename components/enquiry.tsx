@@ -1,4 +1,5 @@
 'use client';
+import {PhoneField,EmailField} from './contact-fields';
 import {useEffect,useRef,useState} from 'react';
 import {brands} from '../lib/site';
 import {validateContact} from '../lib/enquiry.mjs';
@@ -27,7 +28,7 @@ export function EnquiryForm({brandSlug}:{brandSlug?:string}){
  async function send(e:React.FormEvent<HTMLFormElement>){
   e.preventDefault();setMessage('');setError(false);const fd=new FormData(e.currentTarget);
   try{
-   const contact=validateContact({name:fd.get('name'),phone:fd.get('phone'),email:fd.get('email'),city:fd.get('city'),state:fd.get('state'),website:fd.get('website'),contactPermission:fd.get('contactPermission')==='on'});
+   const contact=validateContact({name:fd.get('name'),phone:fd.get('phone'),phoneCountry:fd.get('phoneCountry'),email:fd.get('email'),city:fd.get('city'),state:fd.get('state'),website:fd.get('website'),contactPermission:fd.get('contactPermission')==='on'});
    if(journey==='brand'&&company.trim().length<2)throw Error('Enter your brand name.');
    if(!journeyConfig.intakeEnabled||!info?.accepting){setMessage((listing?'Your '+listing.name+' enquiry is ready to review. ':'Your enquiry is ready to review. ')+'Online intake is off. Nothing has been sent or saved to the CRM. You can contact us by phone or WhatsApp.');return;}
    setBusy(true);const result=await client.current.submit({contact,interestSlug:selectedBrand,companyName:company.trim(),companyWebsite:website,budget:journey==='investor'?budget:'Exploring',timeframe,challenge,source:getAttribution(window,readConsent(localStorage))});
@@ -45,13 +46,13 @@ export function EnquiryForm({brandSlug}:{brandSlug?:string}){
    <input type="hidden" name="interest_slug" value={selectedBrand}/>
    {!embedded&&<fieldset className="enquiry-fieldset"><legend>{journey==='investor'?'Your franchise preferences':'Your business'}</legend>{journey==='investor'?<><div className="field"><label htmlFor={id+'-brand'}>Brand of interest</label><select id={id+'-brand'} name="brand" value={brand} onChange={e=>setBrand(e.target.value)}><option value="">I’d like help exploring</option>{brands.map(b=><option key={b.slug} value={b.slug}>{b.name}</option>)}</select></div><div className="field-row">{budgetField}{timingField}</div></>:<><div className="field-row"><div className="field"><label htmlFor={id+'-company'}>Brand name *</label><input id={id+'-company'} name="company_name" required minLength={2} maxLength={120} value={company} onChange={e=>setCompany(e.target.value)} placeholder="Your brand" autoComplete="organization"/></div><div className="field"><label htmlFor={id+'-company-site'}>Brand website</label><input id={id+'-company-site'} name="company_website" type="url" maxLength={500} value={website} onChange={e=>setWebsite(e.target.value)} placeholder="https://" autoComplete="url"/></div></div>{timingField}</>}</fieldset>}
    <fieldset className="enquiry-fieldset contact-fields">{!embedded&&<legend>Contact & location</legend>}
-    <div className="field-row"><div className="field"><label htmlFor={id+'-name'}>Full name *</label><input id={id+'-name'} name="name" autoComplete="name" required minLength={2} maxLength={120} placeholder="Your name"/></div><div className="field"><label htmlFor={id+'-phone'}>Mobile number *</label><input id={id+'-phone'} name="phone" type="tel" autoComplete="tel" required placeholder="+91" maxLength={20}/></div></div>
-    <div className="field"><label htmlFor={id+'-email'}>Email address</label><input id={id+'-email'} name="email" type="email" autoComplete="email" maxLength={254} placeholder="you@example.com"/></div>
+    <div className="field-row"><div className="field"><label htmlFor={id+'-name'}>Full name *</label><input id={id+'-name'} name="name" autoComplete="name" required minLength={2} maxLength={120} placeholder="Your name"/></div><PhoneField id={id}/></div>
+    <EmailField id={id}/>
     <div className="field-row"><div className="field"><label htmlFor={id+'-state'}>{journey==='brand'?'State / UT':'Preferred state / UT'} *</label><select id={id+'-state'} name="state" required defaultValue="" autoComplete="address-level1"><option value="" disabled>Select state / UT</option>{indianStates.map(s=><option key={s}>{s}</option>)}</select></div><div className="field"><label htmlFor={id+'-city'}>{journey==='brand'?'Your city':'Preferred city'} *</label><input id={id+'-city'} name="city" required minLength={2} maxLength={70} autoComplete="address-level2" placeholder="Enter your city"/></div></div>
     {embedded&&<div className="field-row">{budgetField}{timingField}</div>}
    </fieldset>
    <div className="honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
-   <label className="checkbox-label"><input type="checkbox" name="contactPermission" required/><span>{info?.notice||'I agree to be contacted by iFranchise about this enquiry.'} <a href="/privacy-policy" target="_blank" rel="noreferrer">Privacy notice ↗</a></span></label><div ref={widget}/>
+   <label className="checkbox-label"><input type="checkbox" name="contactPermission" required/><span>{info?.notice||'I agree to be contacted by iFranchise about this enquiry.'} <a href="/privacy-and-terms#privacy" target="_blank" rel="noreferrer">Privacy notice ↗</a></span></label><div ref={widget}/>
    <div className="form-actions"><button className="button" type="submit" disabled={!ready||busy||(info?.accepting&&!challenge)}>{busy?'Checking connection…':info?.accepting?'Send enquiry':'Review enquiry'}<Icon name="arrow"/></button></div>
    {!info?.accepting&&<p className="form-local-note">Review only. Your details stay in this page.</p>}
    {message&&<p className={'form-message'+(error?' error':'')} role={error?'alert':'status'}>{message}</p>}

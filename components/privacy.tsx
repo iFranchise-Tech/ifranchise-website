@@ -29,7 +29,7 @@ export function Privacy(){
    <label className="privacy-category"><span><strong>Analytics</strong><span>Helps us understand which pages are useful and improve your experience.</span></span><input type="checkbox" checked={analytics} onChange={e=>setAnalytics(e.target.checked)} aria-label="Allow analytics cookies"/></label>
    <label className="privacy-category"><span><strong>Advertising</strong><span>Supports campaign measurement and relevant ads through advertising platforms.</span></span><input type="checkbox" checked={advertising} onChange={e=>setAdvertising(e.target.checked)} aria-label="Allow advertising cookies"/></label>
   </div>}
-  <p className="privacy-policy-link"><a href="/privacy-policy">Privacy & cookie policy</a><span>You can change your choice at any time in the footer.</span></p>
+  <p className="privacy-policy-link"><a href="/privacy-and-terms#cookies">Privacy & Terms</a><span>Change your choice through Privacy & Terms in the footer.</span></p>
   <div className="privacy-actions"><button type="button" className="cookie-choice" onClick={()=>save(false,false)}>Necessary cookies only</button><button type="button" className="cookie-choice" onClick={()=>save(true,true)}>Accept all cookies</button>{custom?<button type="button" className="cookie-manage" onClick={()=>save(analytics,advertising)}>Save my preferences</button>:<button type="button" className="cookie-manage" onClick={()=>setCustom(true)}>Manage preferences</button>}</div>
  </section>;
 }

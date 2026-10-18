@@ -45,5 +45,9 @@
   "/resources/knowledge-hub/brand/franchise-sales-process": "/blogs/franchise-marketing-and-lead-management",
   "/resources/knowledge-hub/investor": "/blogs/for-investors",
   "/resources/knowledge-hub/brand": "/blogs/for-brands",
-  "/resources/knowledge-hub": "/blogs"
+  "/resources/knowledge-hub": "/blogs",
+  "/privacy-policy": "/privacy-and-terms#privacy",
+  "/terms-and-conditions": "/privacy-and-terms#terms",
+  "/data-rights-request": "/privacy-and-terms#contact",
+  "/photo-credits": "/privacy-and-terms#terms"
 }
