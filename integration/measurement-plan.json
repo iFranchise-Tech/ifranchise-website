@@ -1,0 +1,19 @@
+{
+  "status": "configuration-required-disabled",
+  "installation": "One reviewed GTM container on the public marketing domain only. Do not install duplicate hardcoded pixels.",
+  "events": {
+    "ifranchise_page_view": {"purpose": "GA4 page performance", "consent": ["analytics_storage"]},
+    "ifranchise_brand_view": {"purpose": "Brand interest and remarketing audiences", "variables": ["brand_slug"], "consent": ["analytics_storage", "ad_storage", "ad_user_data", "ad_personalization"]},
+    "ifranchise_form_start": {"purpose": "Form drop-off", "variables": ["journey", "brand_slug"], "consent": ["analytics_storage"]},
+    "ifranchise_enquiry_received": {"purpose": "Confirmed enquiry only", "variables": ["event_id", "form_id"], "consent": ["ad_storage", "ad_user_data", "ad_personalization"]}
+  },
+  "destinations": [
+    {"provider": "GA4", "required": ["measurement ID"], "mapping": "ifranchise_enquiry_received to generate_lead only with analytics consent; disable duplicate automatic form measurement"},
+    {"provider": "Google Ads", "required": ["conversion ID", "conversion label", "linked account"], "mapping": "confirmed enquiry to conversion; event_id as transaction_id; qualified lead and won events use CRM offline conversion rules; avoid double-counting GA4 imports and direct Ads conversions"},
+    {"provider": "Meta Pixel", "required": ["pixel/dataset ID"], "mapping": "page views and consented brand views; confirmed enquiry to Lead with eventID from event_id"},
+    {"provider": "Meta CAPI", "required": ["reviewed CRM account", "server token", "approved conversion rules and consent"], "mapping": "Use the existing CRM sender. Pair browser/server Lead with identical event_name and event_id. Qualified and later events are distinct CRM business events, not duplicate Lead events."},
+    {"provider": "LinkedIn Insight Tag", "required": ["partner ID", "conversion ID"], "mapping": "Advertising consent only. Send confirmed enquiry to reviewed conversion rule; later CRM conversion events use existing server integration."}
+  ],
+  "safety": ["No contact details in dataLayer or URLs", "Do not put API tokens in client code", "Custom HTML tags must have explicit consent requirements; Google Consent Mode alone does not govern Meta or LinkedIn", "Basic consent mode: no container before optional consent", "Consent withdrawal reloads page after updating denied states", "CRM intake and conversion sending remain Off"],
+  "acceptance": ["No third-party marketing request before consent", "Analytics-only choice never loads Meta or LinkedIn", "Rejected or paused submission emits no conversion", "Repeated receipt produces no duplicate conversion", "Meta browser/server pair deduplicates in Test Events", "Verify GTM Preview, Google Tag Assistant, Meta Test Events and LinkedIn diagnostics", "Confirm qualified lead and won reporting with synthetic approved test data"]
+}

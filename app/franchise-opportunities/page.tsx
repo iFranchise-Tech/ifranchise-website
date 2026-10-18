@@ -1,0 +1,4 @@
+import {Catalogue} from '../../components/catalogue';
+import {Breadcrumb,CTA} from '../../components/ui';
+export const metadata={title:'Explore Franchise Opportunities in India',description:'Explore selected franchise opportunities in India. Compare sectors, starting investment and operating models, then begin a conversation with iFranchise.',alternates:{canonical:'/franchise-opportunities'}};
+export default function Opportunities(){return <main id="main"><div className="page-wrap"><Breadcrumb label="Franchise opportunities"/><div className="page-intro"><p className="eyebrow">FOR YOUR NEXT CHAPTER</p><h1>Possibilities.<br/>With your name on them.</h1><p>Start with what interests you. Explore selected franchise brands, understand the basics and take your questions to a real conversation.</p></div><Catalogue/></div><CTA/></main>}

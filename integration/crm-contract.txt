@@ -1,0 +1,52 @@
+iFranchise website → existing CRM
+Reviewed: 18 October 2026
+
+Source of truth reviewed locally:
+Build iFranchise CRM web app / sites/ifranchise-crm/lib/crm/acquisition.mjs
+and public/ifranchise-enquiry.mjs, lib/crm/conversions.mjs, lib/crm/tagging.mjs.
+The existing CRM is Vinext/React on Sites with Cloudflare D1 and a separate public intake relay.
+
+Existing gateway contract supported by lib/enquiry.mjs:
+GET  {relayOrigin}/forms/{formId} returns approved notice, Turnstile public key, form version, optional reviewed tagging configuration.
+POST {relayOrigin}/forms/{formId}/session with {} returns a short-lived token.
+POST {relayOrigin}/forms/{formId}/submit with:
+  token, name, phone, email, city, contact_permission, challenge,
+  website (empty honeypot), source, advertising_permission, tagging_version.
+source supports utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+gclid, gbraid, wbraid, fbclid, li_fat_id.
+The website sends only allowlisted values (max 512 chars), only with advertising consent.
+The browser keeps consented first/last campaign touch for the session; the current API receives the last available campaign. Full first/last touch, initial landing page and CRM qualification fields require an API extension.
+The CRM binds brand/model to the form configuration, checks exact Origin,
+validates Turnstile with action crm_enquiry, checks contact consent,
+normalizes identity, deduplicates, and owns the authoritative receipt.
+Only received:true + event_id is success. advertising_event_allowed controls conversion emission.
+Retries reuse the session token. The CRM disables advertising on replay.
+
+CURRENT STATE
+- All website integration configuration is empty and disabled.
+- No CRM records or source switches were changed by this build.
+- No API tokens were copied.
+- Browser form previews validate without sending or persisting contact details.
+- Existing CRM conversion integrations are reused conceptually; no second server-side CAPI pipeline was created.
+- Exact public relay origin, approved website form IDs, Turnstile domain, and GTM configuration still need connection and live verification.
+
+IMPORTANT BACKEND GAP
+Current website_forms requires an active brand_id; incoming contacts are processed as investor leads.
+There is no generic investor-desk route or brand-owner collaboration route in the reviewed endpoint.
+Do not configure an arbitrary brand to work around that requirement.
+The current preview keeps both journeys visible and disables delivery globally.
+To activate general enquiries, add an explicit CRM inquiry_type (investor / brand_partner),
+allow unassigned investor interest, and route brand partners to a separate business development workflow.
+Then support qualification fields deliberately, e.g. investment_band, preferred_sectors,
+launch_timeline, brand_name, company_website and current_outlets, with bounded validation,
+record-level access controls, contact deduplication and activity history.
+Do not silently discard form fields or insert them into the current strict source object.
+
+ACTIVATION ORDER
+1. Agree public destination and content; confirm the actual public domain with the owner.
+2. Extend/approve the CRM routes above in its own source; test migration and compatibility.
+3. Approve privacy/contact/ad-consent notices. Register form-specific routing and exact origins.
+4. Configure Turnstile. Connect a separate testing workspace and synthetic contacts first.
+5. Configure GTM/provider IDs; keep credentials in the existing CRM secret store.
+6. Verify paused, rejection, retry, duplicate and consent paths end-to-end.
+7. Only after explicit user instruction, enable the CRM main and per-source intake switches and approved conversion rules.

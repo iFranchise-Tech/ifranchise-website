@@ -1,0 +1,1 @@
+export default function NotFound(){return <main id="main" className="not-found"><p className="eyebrow">LET’S FIND YOUR WAY</p><h1>This page has moved<br/>out of view.</h1><p>Explore the opportunities or head back to the homepage.</p><a className="button" href="/">Back to iFranchise →</a></main>}
