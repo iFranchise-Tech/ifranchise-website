@@ -6,6 +6,7 @@ import './brand-landing.css';
 import './opportunities.css';
 import './site-refinement.css';
 import './editorial.css';
+import './privacy-refinement.css';
 import {Header,Footer,WhatsAppButton} from '../components/shell';
 import {Measurement} from '../components/measurement';
 import {Privacy} from '../components/privacy';
