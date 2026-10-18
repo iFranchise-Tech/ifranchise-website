@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import './visuals.css';
 import './bespoke.css';
+import './brand-landing.css';
 import {Header,Footer,WhatsAppButton} from '../components/shell';
 import {Measurement} from '../components/measurement';
 import {Privacy} from '../components/privacy';
