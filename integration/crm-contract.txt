@@ -34,3 +34,12 @@ Before later activation: configure real Turnstile keys for final hostnames,
 review notices and brand mappings, then explicitly authorize intake activation.
 Advertising activation additionally needs reviewed account/tagging configuration
 and separate consent. No Google/Meta/LinkedIn campaign is created or activated.
+
+Preferred state / UT — directory refinement
+All investor and brand enquiry forms include a required India state / union
+territory selector. The browser validates the selection from the shared list.
+The existing CRM contract has one city/location field: the journey adapter maps
+city and state to "City, State" (maximum 120 characters) without adding an
+unsupported wire field. Brand identity mapping is unchanged. No new dedicated
+CRM state column is claimed. Local review keeps both values in the page while
+intake is off; neither value is sent or saved.
