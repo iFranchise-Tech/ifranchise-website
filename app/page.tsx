@@ -1,3 +1,5 @@
+import {ExpansionBackground} from '../components/expansion-background';
+import {MotionControl} from '../components/experience';
 import {Icon} from '../components/icons';
 import {HomeExplainer} from '../components/home-explainer';
 import {SITE} from '../lib/site';
@@ -9,13 +11,14 @@ export default function Home(){
  const schema=[{'@context':'https://schema.org','@type':'Organization','@id':entity,name:'iFranchise',legalName:'IFRANCHISE SERVICES PRIVATE LIMITED',url:SITE.url,description:'Franchise consulting for your business investment and brand expansion across India.',areaServed:{'@type':'Country',name:'India'},email:SITE.email,telephone:SITE.phone,logo:SITE.url+'/assets/wordmark.svg',address:{'@type':'PostalAddress',streetAddress:'Innov 8 Mantri Commercio, Tower A, No 51, 5th floor, Bellandur',addressLocality:'Bengaluru',addressRegion:'Karnataka',postalCode:'560103',addressCountry:'IN'},sameAs:socialLinks.map(s=>s.href)}, {'@context':'https://schema.org','@type':'Service',name:'Franchise consulting in India',serviceType:'Franchise development, investor guidance and business expansion consulting',provider:{'@id':entity},areaServed:{'@type':'Country',name:'India'},url:SITE.url}, {'@context':'https://schema.org','@type':'FAQPage',mainEntity:homeQuestions.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}];
  return <main id="main" className="refined-home">
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>
-  <section className="editorial-hero">
-   <div className="editorial-hero-copy">
-    <h1>Franchise consulting <em>for investors and brands.</em></h1>
-    <p>Whether you’re choosing a franchise or preparing your business to expand, we help you assess your options, understand the requirements and plan your next steps.</p>
-    <div className="editorial-hero-actions"><a className="button" href="/franchise-opportunities">Explore franchises <Icon name="arrow"/></a><a className="text-link" href="/list-your-brand">List your Brand <Icon name="arrow"/></a></div>
+  <section className="expansion-hero" aria-labelledby="home-headline">
+   <ExpansionBackground/>
+   <div className="expansion-content">
+    <h1 id="home-headline">Start and grow your business <em>through franchising.</em></h1>
+    <p>From choosing a franchise to expanding into new locations, we help you work through the business model, investment and next steps.</p>
+    <div className="expansion-actions"><a className="button light" href="/franchise-opportunities">Explore franchises <Icon name="arrow"/></a><a className="text-link on-dark" href="/list-your-brand">List your Brand <Icon name="arrow"/></a></div>
    </div>
-   <div className="editorial-hero-photo"><img src="/stock/franchise-consulting-meeting.jpg" alt="Business professionals discussing a plan around a meeting table" width="1800" height="1200" fetchPriority="high"/><div className="hero-photo-edge" aria-hidden="true"/></div>
+   <div className="expansion-motion-control"><MotionControl/></div>
   </section>
   <section className="section home-support">
    <div className="home-support-photo"><img src="/stock/business-consultation.jpg" alt="Professionals reviewing a business plan and investment information" width="1600" height="1067" loading="lazy"/></div>
