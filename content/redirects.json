@@ -8,8 +8,8 @@
   "/for-brand-owners": "/list-your-brand#brand-listing",
   "/brand-owners": "/list-your-brand#brand-listing",
   "/terms": "/terms-and-conditions",
-  "/investor-guides": "/resources/knowledge-hub/investor",
-  "/brand-growth-guides": "/resources/knowledge-hub/brand",
+  "/investor-guides": "/blogs/for-investors",
+  "/brand-growth-guides": "/blogs/for-brands",
   "/success-stories": "/resources/knowledge-hub",
   "/franchise-roi-calculator": "/blogs/franchise-unit-economics",
   "/services": "/list-your-brand",
@@ -42,5 +42,8 @@
   "/resources/knowledge-hub/brand/franchise-recruitment": "/blogs/franchise-partner-selection",
   "/resources/knowledge-hub/brand/unit-economics": "/blogs/franchise-unit-economics",
   "/resources/knowledge-hub/brand/scaling-through-franchising": "/blogs/how-to-franchise-your-business",
-  "/resources/knowledge-hub/brand/franchise-sales-process": "/blogs/franchise-marketing-and-lead-management"
+  "/resources/knowledge-hub/brand/franchise-sales-process": "/blogs/franchise-marketing-and-lead-management",
+  "/resources/knowledge-hub/investor": "/blogs/for-investors",
+  "/resources/knowledge-hub/brand": "/blogs/for-brands",
+  "/resources/knowledge-hub": "/blogs"
 }
