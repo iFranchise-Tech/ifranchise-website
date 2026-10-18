@@ -1,10 +1,11 @@
 {
-  "format": "Original 2D vector motion graphics, 1280\u00d7720 at 24 fps",
-  "durationSeconds": 134.78,
+  "format": "Original 2D vector motion graphics, 1280×720 at 24 fps",
+  "durationSeconds": 134.38,
   "narration": "Runway-generated female voice; Indian English and calm delivery direction",
   "voice": "Leslie",
   "providerUsageRights": "https://help.runwayml.com/hc/en-us/articles/18927776141715-Usage-rights",
   "subtitleCues": 21,
-  "audioVerification": "Automatic speech recognition matches the script after normalising spelling and brand pronunciation. Accent naturalness has not been independently assessed by a human listener.",
-  "sha256": "442f570804b042a537c41f0c3ac080ab65490b5864e33ed86e34704e32f96e78"
+  "audioVerification": "Automatic speech recognition matched 99.5% of the script literally; differences were enquiries/inquiries spelling and domain-name formatting. No city-based positioning or spoken direction tags were detected. Accent naturalness has not been independently assessed by a human listener.",
+  "sha256": "0dfb6f72628fefdc8a7dce637d3c9a5406f13c3d2c8dfc321128f2e7015ba017",
+  "revision": "Direct viewer address; national service positioning; 14 revised speech clips and 7 unchanged clips."
 }

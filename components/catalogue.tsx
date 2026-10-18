@@ -33,6 +33,6 @@ export function Catalogue(){
   </div>
   <div className="opportunity-results"><p role="status" aria-live="polite"><strong>{result.length}</strong> {result.length===1?'opportunity':'opportunities'}{selected.length?' match your search':''}</p><div><label htmlFor="sort-brands">Sort by</label><select id="sort-brands" value={sort} onChange={e=>change('sort',e.target.value)}><option value="name">Name: A–Z</option><option value="investment">Investment: low to high</option></select></div></div>
   {result.length?<div className="opportunity-grid">{result.map((b:typeof brands[number])=><BrandCard brand={b} key={b.slug}/>)}</div>:<div className="opportunity-empty"><Icon name="search"/><h2>No matching opportunities</h2><p>Try a different sector, investment range or operating model.</p><button className="button" onClick={reset}>Reset filters <Icon name="arrow"/></button><a href="/contact-us?journey=investor">Get help choosing a franchise <Icon name="arrow"/></a></div>}
-  <p className="opportunity-note">Investments are indicative. Confirm the full cost, available locations and agreement terms with iFranchise.{budget!=='all'&&' Brands without a confirmed starting investment are excluded from this filter.'}</p>
+  <p className="opportunity-note">Investments are indicative. Ask us about the full cost, available locations and current terms.{budget!=='all'&&' Brands without a confirmed starting investment are excluded from this filter.'}</p>
  </section>;
 }

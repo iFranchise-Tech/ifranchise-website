@@ -22,4 +22,4 @@ editorialPages['/high-roi-franchise-opportunities'].title='Compare franchise com
 editorialPages['/high-roi-franchise-opportunities'].intro='Look beyond projected returns. Compare costs, responsibilities and supporting evidence before selecting a franchise.';
 
 editorialPages['/about-us'].title='About iFranchise';
-editorialPages['/about-us'].intro='Bengaluru-based franchise consulting for investors and business owners across India. Learn about our work in selection, development and expansion.';
+editorialPages['/about-us'].intro='Get to know our franchise consulting approach. We help you compare business opportunities and prepare your brand for expansion across India.';
