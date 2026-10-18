@@ -31,3 +31,14 @@ node tests/migration-smoke.mjs (local preview at http://127.0.0.1:3018)
 TypeScript and Sites build; desktop and mobile browser checks.
 
 Use the Sites workflow for future source synchronization and publication.
+
+OCTOBER 2026 UI REVAMP
+Solid purple/lime visual system; grouped desktop and mobile navigation; persistent
+contact CTA; user-confirmed Facebook, Instagram, LinkedIn, X and WhatsApp links.
+Full company address is shown on Contact and in the footer. Brand profiles have
+photo heroes, an investment summary, anchor navigation, galleries with a modal,
+a desktop enquiry sidebar and a mobile enquiry bar. Catalogue filters include
+sector, starting investment and model, with sorting/reset. Articles have search
+and topic filters. Motion supports reduced-motion preferences and does not loop.
+No account, CRM record, receiving switch or conversion setting is changed by UI.
+Additional verification: node --test tests/catalogue.test.mjs

@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {filterBrands} from '../lib/catalogue.mjs';
+const brands=JSON.parse(readFileSync(new URL('../content/brands.json',import.meta.url)));
+test('food investor with a 25 lakh starting budget sees three suitable catalogue entries',()=>{assert.deepEqual(filterBrands(brands,{sector:'Food & beverage',budget:'25'}).map(b=>b.slug),['biggies-burger','bigguys','freshco-goli-soda']);});
+test('unconfirmed investment is excluded from budget filters and sorted last',()=>{assert(!filterBrands(brands,{budget:'250'}).some(b=>b.slug==='lassi-n-cafe'));assert.equal(filterBrands(brands,{sort:'investment'}).at(-1).slug,'lassi-n-cafe');});
+test('model filters include mixed formats and normalize the published FOCO label',()=>{assert(filterBrands(brands,{model:'FOFO'}).some(b=>b.slug==='original-burger-co'));assert.deepEqual(filterBrands(brands,{model:'FOCO'}).map(b=>b.slug),['10-downing-street']);});
+test('a brand search ignores casing and surrounding spaces and does not mutate the catalogue',()=>{const first=brands[0].slug;assert.equal(filterBrands(brands,{query:'  EMORI  '})[0].slug,'emori');filterBrands(brands,{sort:'name'});assert.equal(brands[0].slug,first);});
+test('empty combinations can reset to the full 12-brand catalogue',()=>{assert.equal(filterBrands(brands,{sector:'Jewellery',budget:'25'}).length,0);assert.equal(filterBrands(brands).length,12);});
