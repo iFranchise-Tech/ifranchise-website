@@ -8,3 +8,77 @@
 
 @media(max-width:650px){.header-cta{display:inline-flex;padding:11px 13px!important;font-size:11px!important;gap:0!important}.header-cta .desktop-label,.header-cta>svg{display:none}.header-cta .mobile-label{display:inline}}
 @media(max-width:370px){.header-inner{padding:0 15px;gap:10px}.wordmark{width:100px}.header-cta{padding:10px 11px!important}.menu-button{width:36px;height:36px}}
+
+/* Compact navigation, neutral homepage and readable brand presentation. */
+.button{gap:12px;padding:14px 19px}.button.small{gap:12px;padding:12px 16px}
+.hero-actions{gap:12px;margin-top:26px}.hero-secondary{gap:8px;padding:14px 12px}
+.nav{gap:2px}.nav-group{position:relative}.nav-trigger{padding:13px 11px}
+.nav-panel{top:calc(100% + 19px);left:0;right:auto;width:330px;display:block;padding:8px;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px #211c311c}
+.nav-group:last-of-type .nav-panel{left:auto;right:0}
+.nav-links{display:flex;flex-direction:column;gap:2px;padding:0}
+.nav-links a{padding:12px;gap:10px;min-height:66px}
+.nav-links small{margin-top:4px;line-height:1.4}.nav-links strong{font-size:13px}
+.home-hero{min-height:0;padding-top:48px;padding-bottom:48px;gap:35px;align-items:center}
+.hero-copy{padding:18px 0}.hero-copy h1{margin:22px 0}.hero-note{margin-top:30px}
+.opportunity-art{min-width:0;padding:20px 0 0;animation:hero-enter .7s .1s ease-out both}
+.opportunity-art-label{font-size:9px;letter-spacing:.14em;color:#ded3fc;text-align:center}
+.opportunity-art>svg{display:block;width:100%;max-height:370px;margin:10px 0}
+.opportunity-art-caption{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #8368c5;padding:18px 8px 0;gap:15px;font-size:13px;line-height:1.6;color:#ded3fc}
+.opportunity-art-caption strong{font-weight:500;color:#fff}.opportunity-art-caption>span:last-child{font-size:9px;letter-spacing:.11em;text-align:right}
+.section{padding-top:60px;padding-bottom:60px}.page-wrap{padding-bottom:55px}.section-heading{margin-bottom:26px;gap:22px}
+.pathway{min-height:315px;padding:30px}.pathway h3{margin:22px 0 16px;font-size:38px}.path-bottom{margin-top:25px}
+.service-spotlight{max-width:1230px;margin:0 auto;border-radius:18px;overflow:hidden}
+.consulting-art{background:var(--lime);color:var(--purple);padding:42px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.consulting-art>div{display:flex;flex-direction:column;font-size:clamp(48px,5.5vw,76px);line-height:1.02;letter-spacing:-.055em;font-weight:650}
+.consulting-art>div>span:last-child{display:flex;align-items:center;gap:12px}.consulting-art>div svg{width:65px;height:65px}
+.consulting-art>p{font-size:13px;color:#4b533a}.consulting-art .eyebrow{font-size:9px}
+.spotlight-copy{padding:40px}.spotlight-copy h2{font-size:42px;margin:18px 0}.spotlight-copy>a:not(.button){padding:13px 0}.spotlight-copy>.button{margin-top:22px}
+.home-insights{padding-top:10px}.faq{padding-top:15px}.closing-cta{padding-top:48px;padding-bottom:48px;gap:30px}.closing-cta h2{font-size:clamp(35px,4vw,52px);margin-top:15px}
+.breadcrumb{padding:18px 0 22px}.catalogue-hero .page-wrap{padding-bottom:35px}.catalogue-heading h1{font-size:clamp(40px,4.5vw,60px);margin:15px 0}.catalogue-stamp{width:155px;height:155px;gap:13px}.catalogue-stamp>svg{width:50px;height:50px}
+.catalogue-wrap{padding-top:25px}.catalogue-toolbar{gap:14px;padding:18px}.sector-tabs{gap:8px;padding:18px 0}.sector-tabs button{padding:9px 14px}.results-toolbar{margin-bottom:18px}
+.brand-logo{overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-logo>svg{display:block;width:100%;height:100%;overflow:hidden}.brand-logo>img{width:100%;height:100%;object-fit:contain}
+.brand-card-logo{width:150px;height:80px;padding:12px;border:1px solid #211c3114;box-shadow:0 3px 12px #211c3114}
+.brand-info{padding:20px}.brand-spec{margin-top:15px;padding-top:14px}.brand-grid{gap:20px}
+.brand-detail-hero{grid-template-columns:1.1fr 1fr}
+.brand-detail-copy{padding:28px 32px;min-height:340px;justify-content:flex-start}
+.brand-detail-logo{width:164px;height:72px;padding:12px;margin-bottom:17px}
+.brand-detail-copy>.eyebrow{font-size:9px}.brand-detail-copy h1{font-size:clamp(34px,3.8vw,52px);margin:10px 0 12px;line-height:1.05}
+.brand-tagline{font-size:15px;line-height:1.5;margin-bottom:20px;max-width:none}
+.brand-hero-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:auto}
+.brand-hero-actions .button{font-size:12px;gap:8px;padding:12px 16px}
+.brand-hero-whatsapp{border-color:#796c88;background:transparent;color:#fff}.brand-hero-whatsapp:hover{background:#3a304b}
+.gallery-jump{padding:12px 15px;bottom:18px;left:18px;right:18px;font-size:12px}
+.brand-summary{padding:22px 0;gap:12px}.brand-summary>div{padding:0 18px}.brand-summary span{margin-bottom:7px;font-size:9px}.brand-summary strong{font-size:19px}
+.brand-anchor-nav{padding:15px max(5%,calc((100% - 1230px)/2));gap:28px;justify-content:flex-start;font-size:12px}
+.brand-body{padding-top:28px;gap:35px;grid-template-columns:minmax(0,1fr) 285px}
+.detail-section{padding-bottom:28px;margin-bottom:28px}.detail-section h2{font-size:31px;margin:10px 0 16px;line-height:1.15}.detail-section>.lead-copy{font-size:17px!important}.detail-section>p:not(.eyebrow){line-height:1.75;margin:12px 0}
+.spec-grid{gap:0 25px;margin-top:20px}.spec-grid>div{padding:15px 0}.investment-highlight{padding:24px;margin:20px 0;gap:9px}.investment-highlight strong{font-size:32px}
+.enquiry-sidebar{padding:22px;top:160px}.sidebar-symbol{display:none}.enquiry-sidebar h3{font-size:26px;margin:10px 0 12px}.enquiry-sidebar>p:not(.eyebrow){margin-bottom:16px}.enquiry-sidebar>.button{padding:13px 10px;margin-bottom:9px}.sidebar-contact{margin-top:18px;padding-top:18px}
+.related-brands{padding-top:5px}.form-actions{gap:10px;margin-top:20px}.form-actions .button{flex:initial;min-width:110px}
+.company-hero .page-wrap{padding-bottom:38px}.company-hero h1{font-size:clamp(40px,4.6vw,64px);margin:16px 0 20px}.company-art{min-height:280px}.service{padding:28px}.service h3{margin-top:22px}.listing-checklist{margin-top:15px;padding:32px;gap:30px}.service-process{padding-top:0}
+@media(max-width:1100px){
+ .home-hero{gap:28px}.service-spotlight{margin:0 35px}.spotlight-copy,.consulting-art{padding:30px}
+ .brand-detail-copy{padding:25px;min-height:320px}.brand-detail-copy h1{font-size:40px}.brand-summary strong{font-size:17px}.brand-body{grid-template-columns:minmax(0,1fr) 260px;gap:25px}.brand-summary>div{padding:0 10px}
+}
+@media(max-width:900px){
+ .nav-group{position:static}.nav-panel{position:static;width:auto;padding:4px 0 8px;border:0;border-radius:0;box-shadow:none}.nav-links{gap:0}.nav-links a{min-height:60px;padding:10px 15px}.nav-trigger{padding:15px 12px}
+ .home-hero{padding:35px}.hero-copy h1{font-size:48px}.hero-actions{flex-wrap:wrap}.opportunity-art-caption{font-size:12px}
+ .brand-detail-copy{padding:22px;min-height:0}.brand-detail-logo{width:148px;height:65px;margin-bottom:14px}.brand-detail-copy h1{font-size:36px}.brand-tagline{font-size:14px}.brand-hero-actions .button{font-size:11px;padding:11px 12px}
+ .brand-body{grid-template-columns:minmax(0,1fr) 240px;gap:24px}.enquiry-sidebar{padding:18px}.enquiry-sidebar h3{font-size:24px}.detail-section h2{font-size:29px}
+}
+@media(max-width:650px){
+ .button{padding:13px 17px;gap:10px}.button.small{gap:9px}.nav-panel{padding-bottom:5px}.nav-trigger{padding:14px 12px}.nav-links a{padding:10px 14px;min-height:59px}
+ .home-hero{padding:28px 23px 30px;gap:28px}.hero-copy{padding:6px 0 0}.hero-copy h1{font-size:49px;margin:19px 0}.hero-copy>p{font-size:15px}.hero-actions{gap:6px;flex-wrap:nowrap;margin-top:22px}.hero-actions .button{font-size:12px;padding:14px;gap:8px}.hero-secondary{font-size:11px;padding:14px 7px;gap:7px}.hero-note{margin-top:25px}
+ .opportunity-art{padding:8px 0 0}.opportunity-art>svg{max-height:270px;margin:10px auto}.opportunity-art-label{font-size:8px}.opportunity-art-caption{font-size:12px;padding-top:13px}.opportunity-art-caption>span:last-child{font-size:8px}
+ .section{padding-top:38px;padding-bottom:38px}.section-heading{margin-bottom:22px;gap:20px}.pathway{min-height:0;padding:25px}.pathway h3{font-size:36px;margin:18px 0 14px}.path-bottom{margin-top:22px}.pathway-grid{gap:16px}
+ .service-spotlight{margin:0 18px;border-radius:14px}.consulting-art{padding:28px;gap:24px}.consulting-art>div{font-size:55px}.consulting-art>div svg{width:48px;height:48px}.consulting-art>p{font-size:12px}.spotlight-copy{padding:28px}.spotlight-copy h2{font-size:36px}.spotlight-copy>a:not(.button){font-size:12px}.spotlight-copy>.button{font-size:12px}
+ .home-insights,.faq{padding-top:10px}.closing-cta{padding:38px 23px;gap:22px}.closing-cta h2{font-size:38px}.closing-cta p{margin-bottom:20px}.closing-whatsapp{margin-top:15px}
+ .breadcrumb{padding:17px 0 20px}.page-wrap{padding-bottom:38px}.catalogue-hero .page-wrap{padding-bottom:28px}.catalogue-heading h1{font-size:42px}.catalogue-wrap{padding-top:20px}.catalogue-toolbar{padding:15px;gap:12px}.sector-tabs{gap:7px;padding:16px 0}.sector-tabs button{font-size:10px;padding:8px 12px}
+ .brand-card-logo{width:150px;height:80px;padding:12px}.brand-grid{gap:20px}
+ .brand-detail-hero{padding:0 18px;grid-template-columns:1fr}.brand-detail-copy{padding:22px;min-height:0}.brand-detail-logo{width:164px;height:70px;margin-bottom:16px}.brand-detail-copy h1{font-size:37px;margin:10px 0}.brand-detail-copy>.eyebrow{font-size:8px}.brand-tagline{font-size:14px;margin-bottom:18px}.brand-hero-actions{gap:9px}.brand-hero-actions .button{font-size:12px;padding:12px 15px}.brand-detail-photo{height:215px}.gallery-jump{font-size:11px;left:14px;right:14px;bottom:14px;padding:11px 13px}
+ .brand-summary{padding:20px 0;gap:16px 10px;grid-template-columns:1.25fr 1fr}.brand-summary>div{padding:0 10px 0 0}.brand-summary strong{font-size:16px}.brand-summary span{font-size:8px}
+ .brand-anchor-nav{justify-content:space-between;gap:10px;padding:14px 18px;font-size:10px}.brand-body{grid-template-columns:1fr;gap:0;padding-top:24px}.detail-section{padding-bottom:24px;margin-bottom:24px}.detail-section h2{font-size:28px;margin:9px 0 15px}.detail-section>.lead-copy{font-size:16px!important}.detail-section>p:not(.eyebrow){font-size:14px;line-height:1.75}.spec-grid>div{padding:13px 0}.investment-highlight{padding:20px;margin:16px 0}.investment-highlight strong{font-size:29px}.related-brands{padding-top:0}
+ .company-hero .page-wrap{padding-bottom:30px}.company-hero-grid{gap:22px}.company-hero h1{font-size:42px}.company-art{min-height:200px}.service{padding:24px}.listing-checklist{padding:25px;gap:22px;margin-top:0}.service-process{padding-top:0}.enquiry-layout{gap:25px}.form-actions{gap:9px}.form-actions .button{flex:1;min-width:0}
+}
+@media(max-width:370px){.hero-copy h1{font-size:43px}.hero-actions .button{font-size:10px;padding:13px 10px}.hero-secondary{font-size:10px;padding:12px 6px}.hero-actions svg{width:16px}.brand-detail-copy{padding:20px}.brand-detail-copy h1{font-size:33px}.brand-hero-actions .button{font-size:11px;padding:12px}.brand-summary strong{font-size:15px}.brand-anchor-nav{font-size:9px;gap:8px}}
