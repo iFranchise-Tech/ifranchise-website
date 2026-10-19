@@ -1,4 +1,4 @@
-import {MotionIllustration} from '../components/motion-illustration';
+import {LiveBackground} from '../components/live-background';
 import {ExpansionBackground} from '../components/expansion-background';
 import {MotionControl} from '../components/experience';
 import {Icon} from '../components/icons';
@@ -21,8 +21,8 @@ export default function Home(){
    </div>
    <div className="expansion-motion-control"><MotionControl/></div>
   </section>
-  <section className="section home-support">
-   <div className="home-support-photo motion-art-slot"><MotionIllustration scene="consulting"/></div>
+  <section className="section home-support ambient-section">
+   <LiveBackground kind="support"/>
    <div className="home-support-copy"><h2>Support for your franchise investment or brand expansion</h2><p>Your plans are our starting point. We work with you on the investment, location, responsibilities and support you need to understand before taking the next step.</p><div className="home-audiences"><div><h3>Start a franchise business</h3><p>We help you compare opportunities against your budget, preferred location and day-to-day involvement, so you know what to ask each brand.</p></div><div><h3>Franchise your business</h3><p>We work with you to assess readiness, develop your franchise model and prepare the operations, training and support your partners will need.</p></div></div><a className="text-link" href="/about-us">About iFranchise <Icon name="arrow"/></a></div>
   </section>
   <HomeExplainer/>
