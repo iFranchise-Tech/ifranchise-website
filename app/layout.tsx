@@ -15,6 +15,7 @@ import './brand-colour-review.css';
 import './theme-controls.css';
 import './readability.css';
 import './dark-theme.css';
+import './motion-illustrations.css';
 import {DEFAULT_THEME,themeBootstrap} from '../lib/theme';
 import {Header,Footer,WhatsAppButton} from '../components/shell';
 import {Measurement} from '../components/measurement';
