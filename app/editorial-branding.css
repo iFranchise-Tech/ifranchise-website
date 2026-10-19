@@ -1,4 +1,4 @@
-/* The brandmark is integrated into the illustration asset, not overlaid on the cover. */
+/* The brandmark is integrated into the editorial image, not overlaid on the cover. */
 .editorial-cover,.audience-collections .editorial-cover{
   position:relative;display:block;isolation:isolate;width:100%;height:auto;aspect-ratio:3/2;
   min-width:0;overflow:hidden;margin:0;padding:0;

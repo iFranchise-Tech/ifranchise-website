@@ -1,0 +1,960 @@
+{
+  "mode": "built-in image generation",
+  "style": "photorealistic-natural",
+  "articles": {
+    "what-is-a-franchise": {
+      "title": "What is a franchise? A guide for investors in India",
+      "alt": "An aspiring business owner visits a working bakery with its operator to understand the franchise relationship.",
+      "scene": "Morning inside an independent neighbourhood bakery: a visiting Indian woman aspiring owner walks beside an experienced woman operator, watching a baker place bread in the display. Eye-level three-quarter documentary framing, foreground glass cabinet, real ovens and customers softly behind. The operator carries one small white clipboard with the reference purple emblem subtly printed on its lower edge.",
+      "sha256": "3f10ff2fdf2278d47a29227b0e8ca1d031732e7699331d439ca99cc846000c6b",
+      "image": "/art/natural/articles/what-is-a-franchise.webp"
+    },
+    "types-of-franchises": {
+      "title": "Types of franchises and expansion rights explained",
+      "alt": "A retail operator checks deliveries while another team member stocks the connected shop floor.",
+      "scene": "A business operator inspecting freshly delivered cartons in the receiving area of a small retail shop, with a second worker stocking the attached storefront visible through an open door. Wide oblique framing connects distribution and store operations in one real environment. Tiny reference emblem on a lavender delivery folder resting on a shelf.",
+      "sha256": "3d80b745c33a02f25b04f829e13c3294c5b589ac24dcedbfeb9e123901decbe3",
+      "image": "/art/natural/articles/types-of-franchises.webp"
+    },
+    "franchise-investment-costs": {
+      "title": "Franchise investment costs in India: planning your budget",
+      "alt": "A couple reviews setup estimates and measures an empty shop while planning their franchise investment.",
+      "scene": "An Indian couple measuring the bare floor of an empty leased shop while reviewing actual contractor estimates on a small folding table, tape measure extended along the wall. Late afternoon natural side light, wide interior shot with sockets and unfinished shelving. Small reference emblem on one white budget folder.",
+      "sha256": "026753181f97c156aa1b99fff87221ef39dc7490a4a363bef566085d1506decc",
+      "image": "/art/natural/articles/franchise-investment-costs.webp"
+    },
+    "how-to-franchise-your-business": {
+      "title": "How to franchise your business in India",
+      "alt": "A founder teaches two kitchen colleagues a repeatable food preparation method.",
+      "scene": "A founder in a working commercial kitchen teaching a younger outlet manager how to portion a dish, stainless counters and a trainee observing a written recipe card. Candid close-medium angle across the prep counter, natural Indian faces and believable hands. Tiny reference emblem on a closed white training binder on a dry shelf.",
+      "sha256": "2b96e65d22790e6c948427adbee830495b8701aaaf1d68c0ae24dcc4cc9642ea",
+      "image": "/art/natural/articles/how-to-franchise-your-business.webp"
+    },
+    "franchise-due-diligence-checklist": {
+      "title": "Franchise due diligence: a checklist before you invest",
+      "alt": "A prospective owner checks a café's operating evidence during a live store visit.",
+      "scene": "An Indian prospective franchise owner conducting an evidence-based visit to a small busy café, checking a clipboard while watching staff use the espresso equipment. Documentary shoulder-level framing with the person foreground-left, real customer service beyond. Tiny reference emblem at bottom of clipboard cover.",
+      "sha256": "5cf8dc32e340273799ad24b99af960011454df3c70e160cb90b4af5328e20ba1",
+      "image": "/art/natural/articles/franchise-due-diligence-checklist.webp"
+    },
+    "food-and-beverage-franchise-india": {
+      "title": "Food and beverage franchises in India: formats and costs",
+      "alt": "A restaurant team prepares plated meals and takeaway orders during service.",
+      "scene": "An Indian quick-service restaurant team preparing plated meals during ordinary service, one cook checking ingredients and another packing a takeaway order, pass counter and ventilation in background. Natural warm kitchen lighting and authentic activity, wide environmental photograph. Small purple reference emblem on a neutral recipe binder beside the pass, not on food.",
+      "sha256": "3be47d82ba3cf62bde1d194cbb09583a75d4df007fb2a7b4a5155a16080cf655",
+      "image": "/art/natural/articles/food-and-beverage-franchise-india.webp"
+    },
+    "fofo-foco-fico-models": {
+      "title": "FOFO, FOCO and FICO: ownership and operating responsibilities",
+      "alt": "A shop owner reviews responsibilities with a manager while the cashier serves a customer.",
+      "scene": "Inside a small retail outlet, an owner in everyday business clothes reviews stock notes with the store manager while a cashier serves a customer farther behind. One cohesive diagonal composition distinguishes their operating roles naturally. Small approved emblem on manager's white operations folder, no words.",
+      "sha256": "3217518b0f2834eca0a4d5cc243f09b9bcf7d30f5a0d982ada1b959de0e5d540",
+      "image": "/art/natural/articles/fofo-foco-fico-models.webp"
+    },
+    "franchise-operations-manual": {
+      "title": "Writing a franchise operations manual",
+      "alt": "A trainer and new barista follow an operating manual beside a coffee machine.",
+      "scene": "A café training lead and new barista consult a sturdy open operating binder beside a clean coffee machine, trainee matching a photographed procedure to the equipment. Close-medium candid view at counter height, natural window light. Tiny reference emblem on binder cover, pages use short indistinct lines only.",
+      "sha256": "123059019d9ea4b70b370c476a8989f632c89be22a53feea2042b688368c9ae2",
+      "image": "/art/natural/articles/franchise-operations-manual.webp"
+    },
+    "franchise-marketing-and-lead-management": {
+      "title": "Franchise marketing and lead management",
+      "alt": "A marketer photographs a café display while a colleague reviews customer enquiries.",
+      "scene": "An Indian marketing professional photographing a neutral café's takeaway display with a smartphone while a colleague at a nearby worktable reviews enquiries on a laptop. Candid environmental framing from behind the display; laptop interface defocused, no readable fake text. Small approved emblem on a purple notebook beside laptop.",
+      "sha256": "12eaed5b9e6c0aefe8a8dc3ffe23a4f1964505075097cecb1951ccaefcc6e961",
+      "image": "/art/natural/articles/franchise-marketing-and-lead-management.webp"
+    },
+    "franchise-agreement-india": {
+      "title": "Franchise agreements in India: clauses to review before signing",
+      "alt": "A business owner and legal adviser examine an agreement together before signing.",
+      "scene": "Close documentary photograph of an Indian business owner and female legal adviser seated at a wood desk reviewing a short agreement together before any signing. Focus on natural attentive faces, realistic hands, neatly aligned papers and a closed pen, bookshelf softly behind. Small reference emblem on a white legal document folder, not watermark.",
+      "sha256": "3f1b6e2f22c62ec70270fda6cb29b7e417708aca9e2e04cbedd8b17d77cb4e39",
+      "image": "/art/natural/articles/franchise-agreement-india.webp"
+    },
+    "franchise-unit-economics": {
+      "title": "Franchise unit economics: break-even, profit and cash flow",
+      "alt": "A café owner reconciles receipts and cash after closing.",
+      "scene": "A café owner alone after closing counts the till and checks a calculator beside the real receipt printer, empty seats and dim warm pendant lights behind. Intimate oblique tabletop framing showing the person and a coherent shop environment. Tiny approved emblem on a purple notebook by the receipts, no legible financial claims.",
+      "sha256": "fa38ee15e61adcdc34803bddef3f4c8849f38958b50a5cbf2cb2d2f95ad04c6e",
+      "image": "/art/natural/articles/franchise-unit-economics.webp"
+    },
+    "retail-franchise-india": {
+      "title": "Retail franchises in India: stock, location and margins",
+      "alt": "Retail staff count stock and scan clothing in an organised stockroom.",
+      "scene": "An Indian retail manager and staff member counting folded clothing on orderly stockroom shelves, one uses handheld scanner and other makes stock notes. Over-the-shoulder documentary photograph with doorway to bright retail floor. Small purple reference emblem on a clipboard attached to stock cart.",
+      "sha256": "d1a97c3c81acee55ad1042e7e2fd49e013ff06842356ea94dce02c13025a5f50",
+      "image": "/art/natural/articles/retail-franchise-india.webp"
+    },
+    "franchise-financing-india": {
+      "title": "Financing a franchise in India: preparing for a business loan",
+      "alt": "A business applicant presents a funding proposal to a bank relationship manager.",
+      "scene": "An Indian small-business applicant meeting a bank relationship manager in a modest modern branch consultation booth, handing over a tidy business-plan folder, engaged natural expressions. Medium-wide eye-level shot with glass partition and ordinary office daylight. Reference emblem small and subtle on white folder cover; no bank logos.",
+      "sha256": "9ed415545a18acc784a6dc5c6128a67031b7eecfe50476880b60a0b915752615",
+      "image": "/art/natural/articles/franchise-financing-india.webp"
+    },
+    "franchise-partner-selection": {
+      "title": "How to select franchise partners",
+      "alt": "A prospective franchise partner observes a supervisor handling everyday café operations.",
+      "scene": "A prospective operating partner shadows an experienced outlet supervisor in a real café, discussing a customer-service scenario beside the service station while the store works naturally behind them. Candid side angle, ordinary professional clothes. Tiny approved emblem on one slim white assessment folder.",
+      "sha256": "d96eb023d69847ff6e495c91666d7ace8ab104522c1c2341a9529199f2e2b801",
+      "image": "/art/natural/articles/franchise-partner-selection.webp"
+    },
+    "choosing-franchise-location": {
+      "title": "How to choose a franchise location: demand, access and occupancy costs",
+      "alt": "Two business owners assess a shop entrance and passing foot traffic.",
+      "scene": "Two Indian business owners inspecting an unbranded street-front shop from the pavement, one checking the entrance width with a compact laser measure while the other observes pedestrian movement. Late morning urban high street, wide low-oblique documentary frame, natural feet and perspective. Small approved emblem on a white site notebook.",
+      "sha256": "0f2a2a910be07c958b325e375f9e9a9da8496ef4908d5a36024f7ee9c4834b6e",
+      "image": "/art/natural/articles/choosing-franchise-location.webp"
+    },
+    "education-franchise-india": {
+      "title": "Education franchises in India: what to evaluate",
+      "alt": "A teacher demonstrates a science exercise while a learning-centre manager observes.",
+      "scene": "An Indian teacher at a bright practical learning centre demonstrating a small science exercise to three teenage students at a lab table, visiting centre manager observes quietly behind. Natural daylight, authentic classroom equipment, respectful candid wide shot. Tiny approved emblem on manager's closed lavender clipboard, no school logos.",
+      "sha256": "b2ba7b89147737386de8ca59fa48e02121f1043fdaaf07c0c629277b051d2f9d",
+      "image": "/art/natural/articles/education-franchise-india.webp"
+    },
+    "franchise-training-and-support": {
+      "title": "Franchise training and ongoing support",
+      "alt": "A service trainer helps a new employee prepare and check an appliance repair toolkit.",
+      "scene": "An experienced service trainer showing a new employee how to check and prepare an appliance repair toolkit at a training bench, two adults carefully practising rather than posing. Neutral workshop environment, medium side view, correct realistic hands and tools. Small approved emblem on white instruction binder on bench.",
+      "sha256": "a582afbb32e3ebcc4a07616b00107cbc43c2a3590bf81e7cb77a7c446aada13c",
+      "image": "/art/natural/articles/franchise-training-and-support.webp"
+    },
+    "franchise-vs-independent-business": {
+      "title": "Franchise or independent business: how to compare the two",
+      "alt": "An entrepreneur considers business proposals in a partly fitted workshop.",
+      "scene": "An Indian entrepreneur at a partly fitted small workshop studies two physical folders beside a workbench with tools and an unfinished storefront beyond, considering operating choices. Reflective candid profile, textured daylight, one coherent environment. One small purple reference emblem on a closed white folder; no split screen or labels.",
+      "sha256": "ad5a65651aa9e0514a588c001cdadcf2cbcd8366447582a57627e6b416b90bdd",
+      "image": "/art/natural/articles/franchise-vs-independent-business.webp"
+    },
+    "beauty-wellness-franchise-india": {
+      "title": "Beauty and wellness franchises in India",
+      "alt": "A salon owner checks hygiene preparation with a technician before service.",
+      "scene": "An Indian salon owner assessing a technician's hygiene preparation at a clean treatment station before a client arrives, neatly arranged tools, mirror and warm neutral interior. Wide documentary frame with real proportions and no exaggerated beauty styling. Tiny reference emblem on a subtle white service-check folder at reception.",
+      "sha256": "62b279de9ffc286ab57aae27a9cae45eb16b905254d2adbc396368e06b0e100f",
+      "image": "/art/natural/articles/beauty-wellness-franchise-india.webp"
+    },
+    "franchise-territory-expansion": {
+      "title": "Planning franchise territories and expansion",
+      "alt": "An expansion planner and field manager review neighbourhood catchments on a paper city map.",
+      "scene": "An Indian expansion planner in her forties and a grey-haired field manager stand at a large real paper city street map spread over a municipal coworking field-office table, marking prospective catchments with a few physical pins. Photographic high-oblique angle includes natural faces and hands, neutral daylight and windows showing ordinary neighbourhood buildings. One tiny approved emblem on a white field notebook.",
+      "sha256": "f8f0adb379fdbe039ccdab91bbb365894820d610c9c6376e70d62685c82c02a5",
+      "image": "/art/natural/articles/franchise-territory-expansion.webp"
+    },
+    "franchise-royalty-and-fees": {
+      "title": "Franchise royalties and fees: what to compare beyond the percentage",
+      "alt": "A shop owner reviews invoices and fee terms at a back-office desk.",
+      "scene": "A shop owner seated at the quiet back-office desk sorts three ordinary invoices beside a calculator and a slim fee agreement folder, attentive thoughtful expression. Candid close-medium framing from shoulder height, real shelving and evening light. Reference purple emblem small on folder corner, papers mostly unreadable rather than invented paragraphs.",
+      "sha256": "7c9937a6c6d0cd20da0523c95383c3bfd77da591e1f4b62e236a70ec11ff3565",
+      "image": "/art/natural/articles/franchise-royalty-and-fees.webp"
+    },
+    "service-franchise-india": {
+      "title": "Service franchises in India: formats and operating needs",
+      "alt": "A technician explains a completed appliance repair to a homeowner.",
+      "scene": "A home-services technician explains a completed appliance repair to an Indian homeowner in a real domestic utility area, both checking the appliance, toolkit neatly on the floor. Environmental documentary photograph, daylight and real domestic textures. Small reference emblem on technician's service clipboard, no company uniform logos.",
+      "sha256": "5346e0cdf866709696f7883858525eaedfef3c331a1f30ddbe9f574e7f2ce664",
+      "image": "/art/natural/articles/service-franchise-india.webp"
+    },
+    "buying-existing-franchise": {
+      "title": "Buying an existing franchise: due diligence for an outlet transfer",
+      "alt": "An outgoing bakery operator hands the shop keys to its incoming owner.",
+      "scene": "Inside an established independent bakery, the outgoing owner gives a labelled-neutral keyring to the incoming Indian owner while both examine the working equipment and existing counter. Calm genuine handover, medium-wide side angle, no ceremonial handshake. Tiny approved emblem on new owner's white acquisition folder.",
+      "sha256": "2717cded698ec503e4e6df48138b2cb63cef65ca42ba9f8cf989fdad68caba88",
+      "image": "/art/natural/articles/buying-existing-franchise.webp"
+    },
+    "franchise-launch-checklist": {
+      "title": "Franchise launch checklist: from agreement to opening",
+      "alt": "A café team checks equipment, payment systems and seating before opening.",
+      "scene": "A small café team completes a pre-opening readiness walk-through, manager checks the coffee station while another tests the payment terminal and a colleague aligns chairs. One natural coordinated scene in morning light. Wide photograph with real depth; tiny reference emblem on manager's white checklist clipboard.",
+      "sha256": "be6fc4e21995064b6b060838725878d144c3f998b16047c2e41b0fa0daa4d503",
+      "image": "/art/natural/articles/franchise-launch-checklist.webp"
+    },
+    "master-franchise-and-area-development": {
+      "title": "Master franchises and area development explained",
+      "alt": "A regional operator reviews distribution capacity with an outlet partner inside a warehouse.",
+      "scene": "An Indian regional business operator touring a modest distribution warehouse with a local outlet operator, looking over organised supplies destined for several stores. Wide documentary shot down real shelving with loading area visible, natural purposeful conversation. Reference emblem small on a white route-planning folder, no corporate logos.",
+      "sha256": "abadfd6fe44bced71cff301052b2c4a42eef77775d4bc08381b387b64ec12c6d",
+      "image": "/art/natural/articles/master-franchise-and-area-development.webp"
+    },
+    "franchise-renewal-transfer-and-exit": {
+      "title": "Franchise renewal, transfer and exit: what to plan for",
+      "alt": "A shop operator and adviser review renewal dates at a quiet store counter.",
+      "scene": "An Indian shop operator and adviser calmly review a lease-renewal calendar at a quiet closed shop counter, keys and a closed document folder resting between them, ordinary store shelves behind. Evening blue-hour window light, intimate side view. Tiny approved emblem embossed purple on white folder, no fake large text.",
+      "sha256": "b4eac883b4e22a9e759c7d8de4aaf7fd86c440fa7d8fa0b563077ee9d6a9386a",
+      "image": "/art/natural/articles/franchise-renewal-transfer-and-exit.webp"
+    },
+    "franchise-business-plan": {
+      "title": "How to write a franchise business plan",
+      "alt": "An aspiring owner writes a business plan at a library worktable.",
+      "scene": "An aspiring Indian business owner writing an outlet business plan at a community library worktable, real local market notes, calculator and an open laptop placed neatly in front, bookshelf setting. Candid side view with afternoon sunlight and natural thoughtful face. Tiny reference emblem on a white notebook cover, page text softly unreadable.",
+      "sha256": "8fc0e4eac69fb804256ba2f7ccec3fadca743ad057ef33e8900b9c5e1f070e61",
+      "image": "/art/natural/articles/franchise-business-plan.webp"
+    },
+    "healthcare-franchise-india": {
+      "title": "Healthcare franchises in India: formats and responsibilities",
+      "alt": "A laboratory technician and administrator verify a sample handover at a diagnostic centre.",
+      "scene": "A qualified Indian laboratory technician in proper gloves and coat checks a sealed labelled-neutral sample container at a clean diagnostic collection centre, a centre administrator verifies the handover log nearby. Calm ethical clinical setting, precise natural hands, medium environmental frame. Small reference emblem on administrator's clipboard only, no medical branding.",
+      "sha256": "73b29fc548f0dfb96e452543c1c787ca370a14f1f7ac368c6e24252d0c1e5136",
+      "image": "/art/natural/articles/healthcare-franchise-india.webp"
+    },
+    "automotive-franchise-india": {
+      "title": "Automotive franchises in India: workshops and dealerships",
+      "alt": "A workshop supervisor and technician inspect a vehicle's wheel assembly.",
+      "scene": "An Indian automotive workshop supervisor and technician inspecting a raised vehicle's wheel assembly, tools neatly arranged, safety-conscious postures in a real service bay. Wide low-oblique documentary shot with authentic machinery and natural faces. Tiny purple reference emblem on a closed inspection binder at the workbench.",
+      "sha256": "6d02c6d36816769438491d65ab9912cc13381774241698c00e6b2dabbc0f51f5",
+      "image": "/art/natural/articles/automotive-franchise-india.webp"
+    },
+    "hospitality-franchise-india": {
+      "title": "Hotel franchises in India: property, fees and operations",
+      "alt": "A hotel owner and housekeeping supervisor inspect a prepared guest room.",
+      "scene": "An Indian hotel owner and housekeeping supervisor inspect a freshly prepared guest room together, checking linen quality and maintenance notes, daylight across real fabrics and wood finishes. Candid doorway perspective, both adults naturally engaged rather than posing. Small approved emblem on supervisor's white inspection folder.",
+      "sha256": "86958b8909fba6e2fc3c9495e79934698ce01fdc74994af7bf26de9a10b16edc",
+      "image": "/art/natural/articles/hospitality-franchise-india.webp"
+    },
+    "franchise-personal-capital-boundary": {
+      "title": "How much personal capital can you commit to a franchise?",
+      "alt": "A couple reviews household commitments and available business savings at home.",
+      "scene": "An Indian couple at their dining table in a lived-in home calmly review household commitments and business savings, ordinary notebooks, a calculator and closed envelope, tea nearby. Warm evening natural practical light, candid three-quarter framing. Tiny approved emblem on one white planning notebook, no stacks of money or fake numbers.",
+      "sha256": "027bd76c6df05d9efdeb12608e5948d24d58048c4f7827edbbbc58ca30f5f479",
+      "image": "/art/natural/articles/franchise-personal-capital-boundary.webp"
+    },
+    "franchise-owner-operator-fit": {
+      "title": "Are you ready to be a franchise owner-operator?",
+      "alt": "A café owner prepares the entrance before the day's trading begins.",
+      "scene": "Early morning at an unbranded neighbourhood café: the Indian owner-operator unlocks the front door and lifts a small outdoor chair into place while the street wakes up. Full environmental shot, genuine working posture, soft dawn light. Small reference emblem on a white checklist notebook visible just inside counter.",
+      "sha256": "91cacf39ed85bb539ba0890969a713126f29b47e1766da4832b5439087bc6b08",
+      "image": "/art/natural/articles/franchise-owner-operator-fit.webp"
+    },
+    "franchise-working-professional": {
+      "title": "Buying a franchise while employed: plan the management arrangement",
+      "alt": "An employed professional reviews outlet staffing during an evening management call.",
+      "scene": "An employed Indian woman professional in her late thirties in a modest home study holds a scheduled voice-only phone call while reviewing a weekly staffing roster beside a closed work laptop. She holds a smartphone normally against her ear, with ONLY the solid matte black BACK of the phone visible to camera, no screen and no face displayed. Ordinary late-evening home setting, candid medium side angle, thoughtful natural expression, neatly tied hair and light grey blouse. One tiny approved emblem on a lavender management notebook. No floating UI, no collage.",
+      "sha256": "0828cd5ce08fed64cc135c6ca0fe911e5e07a7e91e973036dd7fb822c0112c66",
+      "image": "/art/natural/articles/franchise-working-professional.webp"
+    },
+    "franchise-family-business-roles": {
+      "title": "Running a franchise with family: agree roles before investing",
+      "alt": "Family members coordinate opening tasks in their bakery.",
+      "scene": "Three adult members of an Indian family-run bakery calmly divide opening tasks at the prep counter, older parent checks stock, adult daughter reviews roster, adult son prepares trays. Authentic intergenerational teamwork, wide morning documentary shot. Tiny approved emblem on a white role-planning binder, no uniform logos.",
+      "sha256": "1168ddcdd4905b2a233bd75e792dfdef33c50f1757db14fd171aaff2cebfb882",
+      "image": "/art/natural/articles/franchise-family-business-roles.webp"
+    },
+    "women-franchise-investors-support-plan": {
+      "title": "Women investing in franchises: evaluate the business and build support",
+      "alt": "A woman entrepreneur and adviser inspect stock and workflow at a hardware shop.",
+      "scene": "An Indian woman entrepreneur confidently inspecting stock and workflow in a small hardware retail shop with a female operations adviser, discussing shelves and customer access. Natural purposeful expressions, authentic mature adults, wide eye-level composition. Tiny approved emblem on a white business folder, avoid gender stereotypes.",
+      "sha256": "4628e8f024c5b0e9033e11afbe3055f5e53faf077eaba6fcc83ea9fbb42b3905",
+      "image": "/art/natural/articles/women-franchise-investors-support-plan.webp"
+    },
+    "franchise-comparison-scorecard": {
+      "title": "Compare franchise offers with an evidence-based scorecard",
+      "alt": "A business applicant compares franchise proposals and records an evidence-based scorecard.",
+      "scene": "An Indian business applicant seated by a quiet café window comparing three neatly separated proposal folders and making a simple handwritten scorecard, a pen and calculator, thoughtful face visible in profile. Close-medium high-oblique photographic view, warm honest materials. Reference emblem small on one purple notebook; no diagrams or invented readable text.",
+      "sha256": "ea8e0224f8b1919d33cab411579467c815d03bfe3e305f4b7b5748c12ba82af7",
+      "image": "/art/natural/articles/franchise-comparison-scorecard.webp"
+    },
+    "franchise-industry-shortlist": {
+      "title": "How to shortlist franchise industries before choosing a brand",
+      "alt": "A prospective entrepreneur observes different businesses along a neighbourhood high street.",
+      "scene": "An Indian prospective entrepreneur walking along a mixed-use neighbourhood high street, thoughtfully observing a grocer, small service shop and café with generic unlettered signs. Wide street documentary photograph, natural pedestrians and realistic perspective. The visitor carries a white research notebook with a tiny purple reference emblem.",
+      "sha256": "6ef076b6b52d749a79fb6c560ecfcf2b781b9d216f1c1b5ae81633eb2db1fb9b",
+      "image": "/art/natural/articles/franchise-industry-shortlist.webp"
+    },
+    "franchise-kiosk-format": {
+      "title": "Evaluating a kiosk franchise: small space, complete operating plan",
+      "alt": "A kiosk owner checks storage and access while staff prepare drinks.",
+      "scene": "A two-person Indian kiosk team preparing drinks at a compact mall kiosk while an owner checks the concealed storage and utility access behind the counter. Wide candid view from the service side with real mall circulation softly behind. Tiny approved emblem on owner's white inspection clipboard, no third-party signs.",
+      "sha256": "b13aafccc450a4be0e52f777466e366b5037f6614c95715344209c7b6d38da0c",
+      "image": "/art/natural/articles/franchise-kiosk-format.webp"
+    },
+    "home-based-franchise-evaluation": {
+      "title": "Home-based franchises: assess the business beyond the home address",
+      "alt": "A home-based business owner packs an order at a dedicated workbench.",
+      "scene": "An Indian home-based business owner carefully packs a customer's order at a dedicated tidy spare-room workbench, shelves, label printer and closed household door make the setting realistic. Natural side-window light, medium-wide candid framing with ordinary human proportions. Small approved emblem on a white workflow notebook at desk edge.",
+      "sha256": "c92b80e7766677ada31fe056e394b47f2df41be9fd67959ebfd1c247eefe247b",
+      "image": "/art/natural/articles/home-based-franchise-evaluation.webp"
+    },
+    "franchise-mobile-service-format": {
+      "title": "Mobile service franchises: evaluate routes, capacity and equipment",
+      "alt": "A mobile service technician prepares tools and checks appointments beside a service van.",
+      "scene": "An Indian mobile service technician preparing tools at the open rear of a clean unbranded service van parked safely outside a residential building, checking the day's appointment list. Early daylight, wide environmental angle, genuine working posture. Tiny reference emblem on a white route clipboard, no words on vehicle.",
+      "sha256": "a2f61cfb2b3938fc43501e930eb723512c0a2906ccc34814049471ff8aea3791",
+      "image": "/art/natural/articles/franchise-mobile-service-format.webp"
+    },
+    "franchise-second-outlet-readiness": {
+      "title": "Are you ready for a second franchise outlet?",
+      "alt": "An owner and manager inspect an empty site for a second outlet.",
+      "scene": "An Indian owner and newly promoted manager inspect an empty second shop unit, manager measures shelving positions while owner compares a floor plan, street visible through glass. Different wide corner perspective with warm late-afternoon sunlight. Small approved emblem on white expansion notebook, no generic office furniture.",
+      "sha256": "784b17a1df1c2f87fcdedc93ceb7d7619f331149ab5751531d69beb543c04da4",
+      "image": "/art/natural/articles/franchise-second-outlet-readiness.webp"
+    },
+    "franchise-remote-owner-oversight": {
+      "title": "How to oversee a franchise when you are not on site",
+      "alt": "A remote owner reviews an outlet report during a scheduled management call.",
+      "scene": "An Indian remote business owner in a quiet home workspace reviews an outlet's weekly exception report on a laptop during a scheduled call, natural face visible three-quarter angle, real notebook and receipts. Soft daylight, credible human moment, laptop screen angled away so no fake video faces. Tiny approved emblem on white management folder.",
+      "sha256": "7421b73c0554646f9bc341ade226bc3cc842f6325dec80c56fb809cb19bb52e7",
+      "image": "/art/natural/articles/franchise-remote-owner-oversight.webp"
+    },
+    "franchise-cash-runway": {
+      "title": "How to calculate cash runway for a new franchise",
+      "alt": "A business owner reviews payment dates and cash requirements in a bakery back room.",
+      "scene": "An Indian small-business owner at a bakery's back-room worktable lays out supplier invoices by payment date and checks a notebook while the stocked shop is seen through the door. Serious but calm candid medium-wide photograph, early morning light. Tiny approved emblem on purple cash-planning notebook, avoid money glamour.",
+      "sha256": "201fb9250848a5a6fec6e0980143f44d5cf36f1d022ac9382f095ac162c05cbf",
+      "image": "/art/natural/articles/franchise-cash-runway.webp"
+    },
+    "franchise-opening-delay-costs": {
+      "title": "What a delayed franchise opening does to your budget",
+      "alt": "A shop owner and contractor review a delay at an unfinished retail unit.",
+      "scene": "An Indian future shop owner and fit-out contractor inspecting an unfinished retail unit with neatly stacked construction materials, pointing naturally at delayed wiring while reviewing a schedule. Daylight, wide candid corner view, safe realistic site and natural hands. Small approved emblem on owner's white project clipboard, no dramatic distress.",
+      "sha256": "28e00cd57d28beb1c98e60e03b50e8bec0f10b487226036c0c05b2a40e2276cf",
+      "image": "/art/natural/articles/franchise-opening-delay-costs.webp"
+    },
+    "franchise-cash-conversion-cycle": {
+      "title": "Stock, supplier credit and collections: the franchise cash cycle",
+      "alt": "A shop owner checks a delivery against a receipt at a homewares store.",
+      "scene": "Morning in a small independent homewares store receiving bay. Three-quarter eye-level documentary photograph of a female shop owner checking a carton delivery against a modest receipt while a male supplier waits beside his hand trolley. Packed retail shelves recede into the shop and a card terminal rests on the counter, connecting stock arrivals with customer collections. Hands held naturally; one small white notebook with the approved purple brandmark lies at the receiving counter.",
+      "sha256": "c3db13abe4b15d7927a5ab680703b1f8f60d4535798f58dc78958841dbfa6687",
+      "image": "/art/natural/articles/franchise-cash-conversion-cycle.webp"
+    },
+    "franchise-loan-credit-report-preparation": {
+      "title": "Preparing your credit information for a franchise loan application",
+      "alt": "A prospective owner organises loan and credit documents at a home desk.",
+      "scene": "Quiet dining room of an Indian apartment used as a home office at early morning. A mature male aspiring entrepreneur sits alone organising neat lending documents into a file, laptop angled away and reading glasses nearby. Over-the-shoulder view shows orderly paper stacks without legible text, face visible in profile, soft window light and real domestic furnishings. A tiny approved purple mark on the file cover.",
+      "sha256": "d7f6aab1148852f402291fd1f729e18c417f993d52bcb86457cd53ba1b132b59",
+      "image": "/art/natural/articles/franchise-loan-credit-report-preparation.webp"
+    },
+    "franchise-security-deposit-review": {
+      "title": "Franchise and premises deposits: what to clarify before paying",
+      "alt": "A prospective tenant reviews deposit paperwork outside an empty shop.",
+      "scene": "Vacant street-front shop with clean bare plaster walls, rolled shutter and natural afternoon sunlight. Indian woman prospective tenant stands at a waist-high ledge carefully reviewing a deposit receipt with the building owner's representative; a single key rests beside a closed agreement folder. Wide environmental side view, no handshake. Tiny approved brandmark embossed purple on an ivory folder.",
+      "sha256": "398bbabccd23ae5cfda082b368bdb632d0bebd666c10e627fa16e4d21addd2fc",
+      "image": "/art/natural/articles/franchise-security-deposit-review.webp"
+    },
+    "franchise-insurance-review": {
+      "title": "Insurance for a franchise outlet: questions for your adviser",
+      "alt": "An adviser and cafe owner review equipment and insurance needs before opening.",
+      "scene": "Inside a neighbourhood cafe before opening, an Indian female insurance adviser and male operator inspect a genuine stainless-steel espresso machine and electrical panel from a safe distance. Adviser records assets in a small clipboard while owner indicates the machine with a restrained hand gesture. Wide angled environmental photo, warm wood, natural daylight. Small approved mark on adviser folder.",
+      "sha256": "8b06d9e0ae4f9fc17b6288e9640553ac6cac459d7ace3bdf80a0a961b76e5335",
+      "image": "/art/natural/articles/franchise-insurance-review.webp"
+    },
+    "franchise-supplier-due-diligence": {
+      "title": "Check franchise suppliers before the first order",
+      "alt": "A business owner checks product samples with a supplier in a warehouse.",
+      "scene": "Working artisanal packaged-food supplier warehouse. Indian store owner and supplier representative examine sealed sample containers on a sturdy steel inspection table while organised unbranded cartons sit behind them. Photograph from low table height, focused on thoughtful faces and natural hands checking one label turned away, real industrial materials. Tiny approved brandmark on an ivory document wallet.",
+      "sha256": "37357833901d2c24245fad9b2ac622d51a0a82d3ee1f4bfe4ddfa36983cab83d",
+      "image": "/art/natural/articles/franchise-supplier-due-diligence.webp"
+    },
+    "franchise-inventory-control": {
+      "title": "Inventory control for a franchise outlet: a practical weekly routine",
+      "alt": "Two outlet staff scan and record stock in an organised storeroom.",
+      "scene": "Evening at a compact retail stockroom. Indian woman outlet supervisor counts organised pantry products on an eye-level shelf with a handheld scanner while a coworker records quantities on a clipboard. Side-on medium-wide documentary framing, tidy shelves, realistic fluorescent and window light. Tiny approved purple mark on clipboard back; no readable stock labels.",
+      "sha256": "1cfb4bfb3cd5b0a57e9877bce0f52633c502001da2aee8b8202c959950011cf2",
+      "image": "/art/natural/articles/franchise-inventory-control.webp"
+    },
+    "franchise-hiring-outlet-manager": {
+      "title": "Hiring a franchise outlet manager: define the job before recruiting",
+      "alt": "An outlet owner interviews a management candidate beside the restaurant.",
+      "scene": "Outdoor covered terrace beside a restaurant at midmorning. Indian owner interviews an experienced prospective outlet manager across a small table; applicant explains a work example while owner listens, with the actual restaurant service area softly visible behind. Three-quarter profile composition, natural casual business clothes, no staged smiling at camera. Small branded ivory notebook.",
+      "sha256": "7a22696746cb4aa6d8bfd91c3f154706f2ea7126cfcea4632899f688a3a3580c",
+      "image": "/art/natural/articles/franchise-hiring-outlet-manager.webp"
+    },
+    "franchise-staffing-roster": {
+      "title": "Build a franchise staffing roster around the work",
+      "alt": "A cafe team arranges shift assignments on a staff noticeboard.",
+      "scene": "Top-down oblique photograph of a cafe shift supervisor and two employees beside a stainless preparation bench, physically arranging a few coloured blank shift cards on a cork noticeboard. The supervisor's face is visible in profile; work aprons and natural proportions. Real busy-work details, modest practical back room, no readable roster text. Small approved mark on a purple binder on the bench.",
+      "sha256": "5481db9ebb47c368abff1bf5c1f896b924800c5b13c7be569a96c6845efb67db",
+      "image": "/art/natural/articles/franchise-staffing-roster.webp"
+    },
+    "franchise-outlet-visit-checklist": {
+      "title": "What to observe when visiting an existing franchise outlet",
+      "alt": "A prospective owner observes customer service during a bakery outlet visit.",
+      "scene": "Indian woman prospective franchisee quietly observing the customer queue and service flow in a welcoming unbranded bakery. Environmental wide view from the doorway with observer foreground in profile, staff serving in midground and oven display in background, realistic customer spacing. She carries a small ivory notebook with approved purple mark.",
+      "sha256": "c23911e8a32869cb262b0f5bafad08f6170ceedfd3d7e34fcfce68f97b8230c6",
+      "image": "/art/natural/articles/franchise-outlet-visit-checklist.webp"
+    },
+    "franchise-existing-operator-interviews": {
+      "title": "Questions to ask existing franchisees before you invest",
+      "alt": "A prospective franchisee speaks with an existing operator outside his store.",
+      "scene": "Informal conversation between two mature Indian business owners on a bench just outside an operating retail shop. One existing operator in simple work clothes explains while the prospective operator listens with a small closed notebook. Candid late-afternoon street atmosphere, storefront window visible but no readable signs or logo. Approved mark subtle on the notebook corner, real single scene.",
+      "sha256": "300dd15b6d3e845410880da63188125e311de7c2096698151b37135cb7705f2b",
+      "image": "/art/natural/articles/franchise-existing-operator-interviews.webp"
+    },
+    "franchise-commercial-claims-validation": {
+      "title": "How to check franchise sales, profit and payback claims",
+      "alt": "An accountant and prospective owner check trading records at an office desk.",
+      "scene": "Accountant and Indian woman franchise candidate in a small professional accountancy office examine an actual folder of receipts and a sales ledger at a wooden desk. Close three-quarter view with faces, a calculator in foreground and laptop turned away, balanced morning light. No giant charts or readable claims. Tiny approved purple mark on one white folder.",
+      "sha256": "bfa4dea8a6a6459093df6971e1d7757f22dc0e15c491938ea0dcccfbb6b528db",
+      "image": "/art/natural/articles/franchise-commercial-claims-validation.webp"
+    },
+    "franchise-company-identity-verification": {
+      "title": "Verify the company behind a franchise offer",
+      "alt": "A prospective owner verifies company information using documents and a laptop.",
+      "scene": "Indian entrepreneur at a real cafe desk conducting company identity verification on a laptop, viewed across the table with a physical business-registration folder and phone beside it. Thoughtful middle-aged woman with glasses, phone rests untouched; screen softly blurred and not readable. Window reflections and street life in depth. Tiny approved purple mark on the document wallet.",
+      "sha256": "a8ef432757e042c7f782b3452c53a4ed3256fe2f53db0e6e69e57a61c62c6767",
+      "image": "/art/natural/articles/franchise-company-identity-verification.webp"
+    },
+    "franchise-commercial-lease-review": {
+      "title": "Commercial lease questions for a franchise outlet",
+      "alt": "A tenant and property adviser review a lease inside vacant commercial premises.",
+      "scene": "Sunlit empty commercial premises. Indian male tenant and female property lawyer inspect a lease bundle on a portable table while the tenant holds a single key. Camera from rear corner reveals full room, glazed frontage and genuine ceiling utilities, people naturally placed within space. Small approved purple mark on lawyer's ivory folder, no readable contract.",
+      "sha256": "f680248402202fb50e2be66fd5f5178c68973717b8fd95c4c9c0048bcd81487c",
+      "image": "/art/natural/articles/franchise-commercial-lease-review.webp"
+    },
+    "franchise-site-technical-feasibility": {
+      "title": "Check technical feasibility before committing to a franchise site",
+      "alt": "An engineer and business owner inspect electrical services at a proposed outlet.",
+      "scene": "Licensed engineer and Indian business owner on a retail fit-out site wearing normal safety helmets. Engineer checks a real wall-mounted electrical distribution board without touching live parts, owner looks at the measured service plan on clipboard. Wide architectural shot with exposed ceiling services, clean site and daylight. Tiny approved purple mark on clipboard; no hazards.",
+      "sha256": "1049d4f879bb91ff906cb098fb17e4794a2a7b16bbde099f6cd7a7036099fa61",
+      "image": "/art/natural/articles/franchise-site-technical-feasibility.webp"
+    },
+    "franchise-mall-or-high-street": {
+      "title": "Mall or high street: compare franchise locations on operating terms",
+      "alt": "A business owner and adviser compare retail premises along a shopping arcade.",
+      "scene": "Street-level photo from a covered pedestrian arcade, Indian business adviser and owner comparing a high-street storefront with the shopping-mall entrance visible farther along the same real streetscape. They pause beside the shop window, one holding a folded site brochure, dynamic perspective lines, naturally proportioned full figures. No montage or split view. Small approved mark on the brochure cover.",
+      "sha256": "f78d80268f8200466f874290e5432df8c02e10e1100a1be2fc48a9411b052683",
+      "image": "/art/natural/articles/franchise-mall-or-high-street.webp"
+    },
+    "franchise-local-catchment-research": {
+      "title": "Research a franchise catchment before choosing the site",
+      "alt": "A researcher observes shoppers and pedestrian movement near a proposed site.",
+      "scene": "Indian woman researcher at a lively mixed residential shopping street, standing discreetly near a pedestrian crossing making brief observations in a notebook. Different generations of shoppers naturally pass behind, small unbranded grocery frontage and apartment buildings in background, candid eye-level 35mm editorial composition. Tiny purple approved mark on the notebook.",
+      "sha256": "f9a9324fd66fc2aad08ff9a0c644b458348f81a5d5dea446b7edcfdf418e58ec",
+      "image": "/art/natural/articles/franchise-local-catchment-research.webp"
+    },
+    "franchise-delivery-led-format": {
+      "title": "Delivery-led franchises: evaluate channel costs and service quality",
+      "alt": "A kitchen team checks a packed order before handing it to a delivery rider.",
+      "scene": "Clean delivery-kitchen pickup counter during a quiet service period. Indian chef seals a paper food bag while female outlet owner checks the handover with a delivery rider standing on the public side of counter. Wide eye-level photo includes shelving, pass and safe spacing, realistic materials and natural hands. Tiny approved purple mark on owner's ivory clipboard, bags unbranded.",
+      "sha256": "10b3d01a85cd2d748944b07f54d247de5df5ea8b3c6468262c9515de25954d1d",
+      "image": "/art/natural/articles/franchise-delivery-led-format.webp"
+    },
+    "franchise-negotiation-preparation": {
+      "title": "Prepare for franchise negotiations with a clear issues list",
+      "alt": "An entrepreneur and adviser organise negotiation issues in a proposal folder.",
+      "scene": "Indian entrepreneur and legal adviser preparing for negotiations in a quiet library-like coworking nook. They stand beside a tall table sorting a small set of coloured issue tabs in a closed proposal folder, no other meeting participants. Side-window light, warm shelving, candid side view. Small approved purple mark on white folder; no legible body text.",
+      "sha256": "4dadb8947892669795daa1135142d2c7a0bdf5a67b2ab60dfed8f09ac8ddbf13",
+      "image": "/art/natural/articles/franchise-negotiation-preparation.webp"
+    },
+    "franchise-letter-of-intent": {
+      "title": "Letters of intent and booking payments: what franchise investors should check",
+      "alt": "A prospective owner reviews a letter of intent before signing at a shop counter.",
+      "scene": "At an unoccupied small-shop counter, Indian entrepreneur carefully reads a short intent letter before signing; pen stays placed on the table, her partner standing nearby with a thoughtful expression. Close environmental perspective including keys and a plain envelope, realistic afternoon light. Tiny approved purple mark on ivory envelope, no fake text.",
+      "sha256": "147303eeea00d7971ae669faae0cf04108dcc0a9ac999fb15f9e0dbb6a216278",
+      "image": "/art/natural/articles/franchise-letter-of-intent.webp"
+    },
+    "franchise-lease-term-alignment": {
+      "title": "Align the franchise term, lease and financing timeline",
+      "alt": "A project manager reviews agreement timelines while an outlet is fitted out.",
+      "scene": "Indian project manager in a practical construction site office reviews physical calendar pages and three document bundles on a desk, with an outlet fit-out visible through the open doorway. Over-shoulder medium-wide view, one hand resting naturally on the desk, no diagrams floating. Tiny purple approved brandmark on one binder, no readable date grids.",
+      "sha256": "738302bcac16be153a57053cc9eb21cad168a502bfc6fbb73444adc82fdbe405",
+      "image": "/art/natural/articles/franchise-lease-term-alignment.webp"
+    },
+    "franchise-bookkeeping-first-90-days": {
+      "title": "Bookkeeping for the first 90 days of a franchise outlet",
+      "alt": "A laundry proprietor sorts receipts and invoices during her closing routine.",
+      "scene": "A neighbourhood laundry service outlet after closing. Indian woman proprietor in a simple indigo work tunic reconciles receipt slips beside the register while sorting invoices into weekly envelopes. Cool-neutral fluorescent light, neat garment rails and washing equipment in the background, intimate documentary view from customer side of counter. One tiny approved purple mark on ivory bookkeeping notebook, no legible receipts.",
+      "sha256": "591b7f7ac9d9eb16c00ba300c2e471eed4d7115adf9271f2625cd4a0ee7854b6",
+      "image": "/art/natural/articles/franchise-bookkeeping-first-90-days.webp"
+    },
+    "franchise-monthly-business-review": {
+      "title": "Run a monthly franchise business review that leads to action",
+      "alt": "A fitness studio owner and manager review monthly performance before opening.",
+      "scene": "Early morning at an unbranded fitness studio before classes. An older Indian male owner with silver hair and female operations manager review a modest printed monthly report while sitting on a low bench beside neatly stored exercise equipment. Wide candid composition from the studio floor, soft cool window daylight. A single approved purple mark on a closed notebook, any printed chart blurred and incidental.",
+      "sha256": "0a935f3f66f9d4de1580242d8fb1075d389bdcade3bbd6d7330e17c869676541",
+      "image": "/art/natural/articles/franchise-monthly-business-review.webp"
+    },
+    "franchise-local-marketing-budget": {
+      "title": "Plan a local marketing budget for your franchise outlet",
+      "alt": "A boutique owner prepares a product display for a local marketing shoot.",
+      "scene": "Indian small-business owner and local photographer planning a modest marketing shoot inside an unbranded boutique. Owner arranges one product display while photographer checks camera framing; a handwritten budget notebook sits closed on nearby bench. Rich natural retail textures, 50mm eye-level candid image. Tiny approved purple mark on notebook, no banners or readable ads.",
+      "sha256": "094c48e135a05972e010ae99441ecf76346a0adc634cb8d0951a59cbb14d4719",
+      "image": "/art/natural/articles/franchise-local-marketing-budget.webp"
+    },
+    "franchise-google-business-profile": {
+      "title": "Google Business Profile for franchise outlets: accurate local information",
+      "alt": "A salon proprietor photographs her storefront for accurate local business listings.",
+      "scene": "Indian salon proprietor outside her real neighbourhood salon on a clear overcast morning photographing the entrance with her smartphone to update local business information. Camera view from across the pavement shows her full figure in three-quarter profile, straight storefront geometry and reflected trees. No logos or readable signage. One small ivory notebook with tiny approved purple mark tucked under her arm. Cool neutral light, clean blue-grey street tones.",
+      "sha256": "6dc8b8c204c95640e4587a66cfdb400c03dde343133151f9ecc6e987fe1ee964",
+      "image": "/art/natural/articles/franchise-google-business-profile.webp"
+    },
+    "franchise-customer-enquiry-follow-up": {
+      "title": "Follow up customer enquiries without overwhelming people",
+      "alt": "An education centre coordinator answers an enquiry and records the next step.",
+      "scene": "Quiet reception desk at an unbranded education centre. Indian female coordinator calmly answers a phone enquiry while noting one appointment in a small diary; empty chairs and classroom glass partition softly visible behind. Three-quarter medium composition, natural phone-to-ear hand and posture, professional but welcoming. Tiny approved purple brandmark on diary cover.",
+      "sha256": "d3b359d3394377e80a81452874eeb7b825dde27eda670d6eeacff7e24894f275",
+      "image": "/art/natural/articles/franchise-customer-enquiry-follow-up.webp"
+    },
+    "franchise-customer-complaint-recovery": {
+      "title": "Handle franchise customer complaints with clear ownership",
+      "alt": "A store manager listens to a customer and records a garment return concern.",
+      "scene": "Inside an unbranded clothing store, Indian female manager listens attentively to an adult customer returning a folded garment at a low service counter. Both calm and respectful, natural open expressions, no confrontation or exaggerated gestures. Side-angle editorial photo, daylight and neat clothing rails. Tiny approved mark on white incident notebook resting near register.",
+      "sha256": "4946fbf833db5637c024df3be9ca41d9e89e0c45020a369c33f5d9aeddddf8f7",
+      "image": "/art/natural/articles/franchise-customer-complaint-recovery.webp"
+    },
+    "franchise-vendor-quote-comparison": {
+      "title": "Compare franchise fit-out and equipment quotations properly",
+      "alt": "An owner compares refrigeration equipment with a technician in a showroom.",
+      "scene": "Indian cafe owner compares two unbranded commercial refrigeration units in a showroom with a technician. One holds a plain quotation folder while the technician opens the smaller unit to show internal shelving. Low wide perspective, reflective stainless steel, real physical space and correct proportions. Tiny approved purple mark on folder, no price labels or text.",
+      "sha256": "84fcb4f67cf80cea0c178d2ae1bc30c7ab88aef60aa72cbd64ab90fa897d2c5f",
+      "image": "/art/natural/articles/franchise-vendor-quote-comparison.webp"
+    },
+    "franchise-technology-pos-checklist": {
+      "title": "Choose franchise POS and operating software with a clear checklist",
+      "alt": "A bookstore owner watches a staff member test scanning and checkout software.",
+      "scene": "Indian retail owner tests an unbranded POS terminal with a staff member at a real small bookstore checkout, scanning a plain barcode on one book. Customer-side camera angle includes natural faces and hands, shelves in depth, soft indoor daylight. Screen unreadable; small approved purple mark on a closed training notebook beside till.",
+      "sha256": "4a93c8a2d502278b4318a89fd27ea2fc03dc668d4195948d8dd455e4495b2458",
+      "image": "/art/natural/articles/franchise-technology-pos-checklist.webp"
+    },
+    "franchise-partner-governance": {
+      "title": "Investing in a franchise with partners: agree how decisions work",
+      "alt": "Three business partners review their shared commitments at a courtyard table.",
+      "scene": "Three Indian business partners of different ages gathered informally at a round outdoor courtyard table reviewing a closed partnership folder and setting down keys together, not shaking hands. Warm natural light through plants, varied natural expressions and seating, tasteful contemporary casual clothing. Tiny approved purple mark on the white folder, no document text.",
+      "sha256": "623ee2b0e417042c828f90f4ad09298d2fc58bc6b62d25ce73146f978c698ae0",
+      "image": "/art/natural/articles/franchise-partner-governance.webp"
+    },
+    "franchise-downside-scenarios": {
+      "title": "Stress-test a franchise plan before committing capital",
+      "alt": "A workshop owner checks costs and cash needs after the working day.",
+      "scene": "An Indian male small-workshop entrepreneur alone after hours examining a calculator and invoices on a practical workbench, with silent sewing machines and neatly covered fabric stacks behind. Thoughtful calm expression, overhead oblique camera framing; practical cool task lighting and blue evening window light make a believable quiet planning scene. One tiny approved purple mark on ivory notebook; no readable numbers, no despair.",
+      "sha256": "9636f62747f458b01efe3d050a7a5134e04de39779a35bab425d884a58c2e7b2",
+      "image": "/art/natural/articles/franchise-downside-scenarios.webp"
+    },
+    "franchise-soft-launch-review": {
+      "title": "Use a soft launch to test the franchise operation",
+      "alt": "A cafe team observes a trial customer transaction during a controlled soft opening.",
+      "scene": "Small independent cafe during a controlled soft opening with just two invited customers. Indian owner observes as trainee barista carefully presents a coffee across the counter while colleague notes a service observation at the side. Wide candid view including dining seats and real equipment, natural warm daylight. Tiny approved mark on observation clipboard, no commercial logos.",
+      "sha256": "0945252d78ba5f3b263157ec14676ff534e31afa43a010e1781f0fb03877b132",
+      "image": "/art/natural/articles/franchise-soft-launch-review.webp"
+    },
+    "franchise-seasonality-planning": {
+      "title": "Plan for seasonal demand in a franchise business",
+      "alt": "A homewares team prepares seasonal stock and checks display quantities.",
+      "scene": "Neighbourhood gift and homewares shop in the weeks before a festive season. Indian owner and assistant prepare a measured small stock display with neutral gift packaging while unbranded storage cartons remain neatly stacked, no religious motifs or text. Diagonal environmental composition, warm afternoon light. Approved purple brandmark subtly on a white planning notebook.",
+      "sha256": "399a9c28e47910218c3420478ac0253a6a6df52781db2316e98ec6e2f7d97831",
+      "image": "/art/natural/articles/franchise-seasonality-planning.webp"
+    },
+    "franchise-food-waste-control": {
+      "title": "Control food waste without compromising safety or quality",
+      "alt": "A chef and manager weigh and record preparation waste in a commercial kitchen.",
+      "scene": "Clean cafe kitchen, Indian chef and outlet manager recording avoidable preparation waste using a small kitchen scale and a food-safe tray of vegetable trimmings. Manager holds clipboard at waist, chef uses gloved hands appropriately; real stainless surfaces, thoughtful expressions, no spoiled food. Side-angle documentary image with small approved purple mark on clipboard.",
+      "sha256": "c1694db744f63354e29e8e7a2bb6d664b5e4ea024d2d592fad890c819a0bc709",
+      "image": "/art/natural/articles/franchise-food-waste-control.webp"
+    },
+    "franchise-payment-fraud-prevention": {
+      "title": "Reduce payment-fraud risk during a franchise transaction",
+      "alt": "A business owner independently confirms payment instructions by phone.",
+      "scene": "Indian woman business owner at a modest office desk pauses before a bank transfer, independently calling a verified supplier while comparing an invoice with a closed company file. Laptop screen faces away, phone held naturally, serious calm expression, clear daylight and practical office setting. Tiny approved purple mark on file; no legible banking details.",
+      "sha256": "1ce638d7e5cb69b48f86e110f5ada51a94d09260e7a3134d71831eb5a83f4282",
+      "image": "/art/natural/articles/franchise-payment-fraud-prevention.webp"
+    },
+    "choose-franchise-consultant-india": {
+      "title": "How to choose a franchise consulting company in India",
+      "alt": "A prospective owner discusses franchise options with a consultant during a site walk.",
+      "scene": "Indian prospective business owner meeting an experienced franchise consultant during a walk through a quiet commercial arcade, discussing a slim folder while observing vacant and occupied retail units. Natural three-quarter full-body composition with architectural depth, no generic meeting table, soft morning light. Tiny approved mark on consultant's ivory folder; no other logos.",
+      "sha256": "36952708f4a4c12627186ade4101ba1a30d4f6f757b12377d4b37a418c29b4d2",
+      "image": "/art/natural/articles/choose-franchise-consultant-india.webp"
+    },
+    "founder-independence-audit": {
+      "title": "Can your business run without you? A founder independence audit",
+      "alt": "A founder observes his laundry team running daily work without his intervention.",
+      "scene": "Inside a functioning neighbourhood laundry outlet, female shift leader confidently coordinates the garment collection process while the older male founder watches quietly from near the doorway without intervening. One employee tags a bag and another retrieves a hanger. Candid wide view showing racks, service counter and normal work, natural human scale, cool clean daylight. One tiny approved purple mark on founder's closed ivory notebook, no wall text.",
+      "sha256": "2092c65a41b583ca458ed118f298bd63a146c51e3d5a782fb7ddc46539b77e40",
+      "image": "/art/natural/articles/founder-independence-audit.webp"
+    },
+    "franchise-demand-validation": {
+      "title": "How to validate demand before offering a franchise",
+      "alt": "A business team observes customer reactions during a small product demand test.",
+      "scene": "Pop-up tasting station in a pedestrian courtyard, Indian entrepreneur observes two potential customers sample a new packaged snack while a researcher notes reactions. Natural varied faces and gestures, small clean table, realistic soft afternoon light, candid waist-level camera. Unbranded packaging, tiny approved purple mark on research clipboard, no promotional text.",
+      "sha256": "3fae0d5e42deb1820ffa79b734fe117c8c24733c6f7fa696c3d80b0e80b6e7fc",
+      "image": "/art/natural/articles/franchise-demand-validation.webp"
+    },
+    "franchise-pilot-design": {
+      "title": "Designing a franchise pilot that answers the right questions",
+      "alt": "A trainer observes a new operator receiving stock at a pilot convenience outlet.",
+      "scene": "First pilot outlet of an unbranded convenience concept, Indian operations trainer observes a new operator receiving a small delivery and organising the counter. Wide doorway composition with actual shelving and workflow visible, soft morning daylight and natural materials. Trainer holds small ivory clipboard with approved purple mark, no diagrams or commercial logos.",
+      "sha256": "9df234b030fe5ce5e26e7dcac69b62db32a2bcdf8b837e82df3e6f64714a08f2",
+      "image": "/art/natural/articles/franchise-pilot-design.webp"
+    },
+    "normalising-franchise-pilot-economics": {
+      "title": "Normalising pilot outlet economics before franchise expansion",
+      "alt": "An accountant checks pilot outlet receipts while a studio operator completes routine work.",
+      "scene": "At an unbranded yoga and movement studio after a quiet session, Indian female accountant reviews actual receipt slips and calculator on a modest side desk while male operator tidies folded exercise mats in background. Foreground three-quarter close view of thoughtful accountant and evidence folder; one coherent deep scene, cool morning daylight, not a meeting table. One tiny approved mark on ivory folder, no readable spreadsheet.",
+      "sha256": "413a7ebd25bd96841877933499852da3d92ce1d734a3232319a77681a92f6238",
+      "image": "/art/natural/articles/normalising-franchise-pilot-economics.webp"
+    },
+    "franchise-readiness-evidence-pack": {
+      "title": "Building a franchise readiness evidence pack",
+      "alt": "A founder organises evidence files while a colleague reviews supporting records.",
+      "scene": "Indian founder organising a well-used evidence cabinet in her studio office, pulling one labelled but unreadable binder while a colleague checks documents at a nearby table. A few outlet photographs pinned discreetly in background, realistic paper and shelving textures, candid side angle. Tiny approved purple mark on selected ivory binder; no long text.",
+      "sha256": "1058d3f212847ef65437dc3a3c55ca920805d2795b35e6680cd987d4c8f7eab8",
+      "image": "/art/natural/articles/franchise-readiness-evidence-pack.webp"
+    },
+    "company-owned-or-franchise-expansion": {
+      "title": "How can I grow my brand? Company-owned and franchise expansion",
+      "alt": "An owner and area manager discuss expansion while observing an operating retail floor.",
+      "scene": "Indian business owner and area manager standing on a mezzanine overlooking a modest busy retail floor discussing expansion with a plain white folder. Environmental wide shot with railings, staff and displays in natural perspective, thoughtful expressions, afternoon window light. Approved purple brandmark small on folder; no diagrams, maps or readable signage.",
+      "sha256": "46987d8b1347fe725edf3ce192532dd6a17f53f99e1cb98704593f1d87433f96",
+      "image": "/art/natural/articles/company-owned-or-franchise-expansion.webp"
+    },
+    "franchise-cluster-expansion-roadmap": {
+      "title": "Building a franchise expansion roadmap by market cluster",
+      "alt": "An operations team reviews supply routes at a dispatch hub before planning expansion.",
+      "scene": "Indian regional operations team of two at a real dispatch hub reviewing delivery routes on a folded paper road map spread across a van bonnet, warehouses and local shop deliveries in background. Shot from beside the van at chest height, practical clothes, natural hands and faces. Tiny approved purple mark on ivory clipboard beside map; no readable map labels or vehicle logos.",
+      "sha256": "871c1349f7cc2996cc889661bfc7e5bcdd98034f398c05eb556238b0621c60e0",
+      "image": "/art/natural/articles/franchise-cluster-expansion-roadmap.webp"
+    },
+    "franchise-format-standardisation": {
+      "title": "Standardising a franchise format without overcomplicating it",
+      "alt": "An outlet team checks shelf dimensions against a standard retail format.",
+      "scene": "Inside a small product showroom, Indian brand operations specialist and outlet manager compare two neat modular counter setups while physically measuring a shelf with a tape. Wide architectural photo, accurate parallel lines and scale, natural daylight, restrained indigo accent fabrics. Tiny approved mark on a white specification folder, no text or diagrams.",
+      "sha256": "a1ee378d4a1af90cfe86a800bda258455aeb942951eacc2fb45a06520ff5f7ff",
+      "image": "/art/natural/articles/franchise-format-standardisation.webp"
+    },
+    "compact-franchise-format-feasibility": {
+      "title": "Testing a compact franchise format before offering it to partners",
+      "alt": "An adviser observes workflow and customer space during a compact kiosk trial.",
+      "scene": "A compact unbranded coffee kiosk being trialled in a bright indoor market. Indian barista works within the narrow counter while an operations adviser watches how two customers queue without blocking walkway. Wide three-quarter environmental photograph emphasises actual small footprint, realistic equipment, natural daylight and full coherent space. Tiny approved purple mark on adviser's ivory notebook.",
+      "sha256": "eb14b6dcbf7040168a4ebe8958268fff4255532705726f9b36ed381cb0c263ee",
+      "image": "/art/natural/articles/compact-franchise-format-feasibility.webp"
+    },
+    "franchise-brand-ip-audit": {
+      "title": "A brand IP audit before franchise recruitment",
+      "alt": "A brand owner reviews packaging and design ownership with an adviser in a workshop.",
+      "scene": "A brand owner and IP adviser in a small design workshop examine original packaging mockups and a fabric swatch book on a long workbench. Side-angle environmental shot, unbranded cartons and sample tags in the foreground, pinboard of abstract color samples behind. Adviser holds a thin folder.",
+      "sha256": "6657f5ea7571103d3d8bed904ce0b3fa77f396ea3c30b9c7b0b338a6b3b95508",
+      "image": "/art/natural/articles/franchise-brand-ip-audit.webp"
+    },
+    "franchise-confidential-knowhow": {
+      "title": "Sharing franchise know-how without losing control of it",
+      "alt": "A chef shares a recipe procedure with an operator in a bakery preparation room.",
+      "scene": "At a quiet bakery prep room, an experienced chef shows a new operator one printed recipe page while closing a separate purple binder; stainless counter, measured ingredients in small bowls, natural morning window light. Camera from doorway, genuine training moment, two adult people.",
+      "sha256": "0ba291e54f7cd0fa3a72e9c69804e5cd78a8fb5c964ffdee1c5bf50b21181d3a",
+      "image": "/art/natural/articles/franchise-confidential-knowhow.webp"
+    },
+    "franchise-offer-document": {
+      "title": "Writing a franchise offer document that answers investor questions",
+      "alt": "A founder checks a franchise information booklet at a print studio.",
+      "scene": "A woman founder at a print studio checks an open franchise information booklet on a sloped proofing desk; large printed pages show short unreadable lines and small photographs, printer in background, overhead three-quarter close environmental portrait. Plain purple folder beside booklet.",
+      "sha256": "fbb1be75e0c629db6fcd1d66314933b1d708be704ec94146985503095694d83f",
+      "image": "/art/natural/articles/franchise-offer-document.webp"
+    },
+    "pricing-initial-franchise-fee": {
+      "title": "How to set an initial franchise fee responsibly",
+      "alt": "An owner and adviser review the costs included in a franchise entry fee at a café counter.",
+      "scene": "In a simple café before opening, an owner arranges a calculator, training binder and fit-out quotation beside a sample menu while a financial adviser notes costs. Low diagonal view across wooden café counter, warm pendant light and empty stools behind.",
+      "sha256": "097c786f49b16cbaf30052fc97eb348b58c6bf76eade908503c4ccd2df8d8be4",
+      "image": "/art/natural/articles/pricing-initial-franchise-fee.webp"
+    },
+    "designing-franchise-royalty-structure": {
+      "title": "Designing a franchise royalty structure: questions for the brand",
+      "alt": "A shop owner compares recurring fees against trading records in the outlet back office.",
+      "scene": "A thoughtful small business owner seated in a shop back office compares two receipts and calculator beside a laptop, shelves of stock softly out of focus behind. Close side composition showing face and natural hands, afternoon daylight, no legible software interface.",
+      "sha256": "d7a01adca5b758cf4808605216ab0172f8184ad53f307000c358a20056c5bffe",
+      "image": "/art/natural/articles/designing-franchise-royalty-structure.webp"
+    },
+    "franchisor-support-budget": {
+      "title": "Budgeting for franchise support before the network grows",
+      "alt": "Support staff prepare travel and materials for franchise outlet visits.",
+      "scene": "Franchise field support coordinator packs a laptop and purple folder into an open carry-on beside a rail-station window, travel bag and discreet itinerary notes on seat, a colleague checks a small calendar. Candid wide environmental photograph, pale morning light.",
+      "sha256": "4c756baf77588b3f092adc166ec44cc58518fec8ca796abe35cef855c51bdf85",
+      "image": "/art/natural/articles/franchisor-support-budget.webp"
+    },
+    "responsible-franchise-financial-illustrations": {
+      "title": "Preparing franchise financial illustrations without overpromising",
+      "alt": "An analyst and café owner verify trading records before preparing financial illustrations.",
+      "scene": "A financial analyst stands at an actual café service counter comparing a paper tally with a small cash register, owner alongside counting receipts in a shallow tray. View from customer side, honest operational evidence and real materials, no big charts.",
+      "sha256": "ffdabf0413bf6d5eeabf2f3cf1c06d64e6a27d888b03e6c8a7d782b652d9b2e3",
+      "image": "/art/natural/articles/responsible-franchise-financial-illustrations.webp"
+    },
+    "ideal-franchisee-profile": {
+      "title": "Building an ideal franchisee profile around the work",
+      "alt": "A franchise candidate demonstrates shelf replenishment during a practical operating assessment.",
+      "scene": "In a working neighborhood shop, a candidate calmly restocks a shelf under an owner’s observation; both adult women, mid-action with ordinary packaged goods without labels. Wide aisle-level perspective, believable shelving, practical assessment instead of interview.",
+      "sha256": "75773b76ae0a0c3bbc2178516a357d5900de4824538b9037883393bbeb9500e5",
+      "image": "/art/natural/articles/ideal-franchisee-profile.webp"
+    },
+    "franchise-recruitment-channel-plan": {
+      "title": "Choosing franchise recruitment channels by candidate quality",
+      "alt": "A recruitment manager speaks with a visitor at a business exhibition.",
+      "scene": "At a modest business exhibition, a brand recruitment manager converses with an interested visitor at a simple stand, a small stack of brochures and tablet on counter, other stands softly out of focus. Eye-level candid photography, no readable signs or third-party logos.",
+      "sha256": "0f4936d3d495931a3bdef45c049319903f979038250618fefad4064f990f6d70",
+      "image": "/art/natural/articles/franchise-recruitment-channel-plan.webp"
+    },
+    "franchise-qualification-calls": {
+      "title": "Running a useful first franchise qualification call",
+      "alt": "A consultant records relevant notes during an introductory franchise enquiry call.",
+      "scene": "Indian woman consultant making a first enquiry call from a bright home workspace, wearing a discreet headset, one hand on notebook and looking at laptop, plant and window nearby. Side portrait with realistic desk objects and spacious home background, casual professional mood.",
+      "sha256": "ab7d41cc6a3036a4f03db8a46d74add3cfa4b46d45078dbf37e2a28e22abc7e4",
+      "image": "/art/natural/articles/franchise-qualification-calls.webp"
+    },
+    "franchise-discovery-day-agenda": {
+      "title": "Planning a franchise discovery day that supports a real decision",
+      "alt": "Prospective operators observe an ordinary café workflow during a discovery visit.",
+      "scene": "A small group of three adults visiting the back-of-house of a working café, owner demonstrates order workflow to two prospective operators. Camera from pass counter at shoulder height, ordinary staff equipment and cups, candid professional movement, no posing.",
+      "sha256": "44216ded5685cf7fca67ef45b731702a8465811b357f93f1d3e5a92533cc7997",
+      "image": "/art/natural/articles/franchise-discovery-day-agenda.webp"
+    },
+    "franchise-candidate-reference-checks": {
+      "title": "Checking franchise candidate references fairly and consistently",
+      "alt": "An adviser checks a candidate reference with a concise permission-based record.",
+      "scene": "A recruitment adviser in a quiet library-style office calls a reference while consulting a consent folder, shelves of professional books without readable titles and a large window behind. Three-quarter medium view, natural concerned concentration, one person.",
+      "sha256": "db667fc53b755617cb76c561f18fc7e6ac1a66d3282ed54af665002baeeaab4c",
+      "image": "/art/natural/articles/franchise-candidate-reference-checks.webp"
+    },
+    "franchise-crm-pipeline-stages": {
+      "title": "Designing CRM pipeline stages for franchise recruitment",
+      "alt": "Recruitment coordinators update opportunity records and next actions in their CRM.",
+      "scene": "Two recruitment coordinators in a practical small office at different desks update a shared work queue, foreground woman at laptop while colleague checks a short task notebook. Documentary shot through open doorway, ordinary uncluttered workspace, no floating graphics.",
+      "sha256": "d9ec94548923f509ed8b289cc7163e6d1479ff90a501f0560246202632322f34",
+      "image": "/art/natural/articles/franchise-crm-pipeline-stages.webp"
+    },
+    "franchise-enquiry-response-playbook": {
+      "title": "A franchise enquiry response playbook for small teams",
+      "alt": "A small support team routes and responds to franchise enquiries.",
+      "scene": "A customer support associate at a shopfront service desk responds to an enquiry on a laptop while a colleague sorts paper messages into two trays. Oblique elevated viewpoint, warm wood and natural daylight, compact real workplace.",
+      "sha256": "a59694f89fb142723d3d6a2c1187e68a28f0e725fd39e70b7c7794fc33f55464",
+      "image": "/art/natural/articles/franchise-enquiry-response-playbook.webp"
+    },
+    "franchise-proposal-version-control": {
+      "title": "Keeping franchise proposals, fees and promises in sync",
+      "alt": "A document controller compares proposal versions before issuing approved information.",
+      "scene": "Close environmental view of a document controller at a print-room table comparing two physical proposal folders, one open and one closed, colored version tabs and paper clips. Visible upper body and face, no oversized lettering, orderly practical review.",
+      "sha256": "597ad97120ef5b6a15fed1134dfe2b3e910af7e134a9272ac0ccaecf4484a482",
+      "image": "/art/natural/articles/franchise-proposal-version-control.webp"
+    },
+    "franchise-broker-relationship-management": {
+      "title": "Managing franchise broker and referral relationships",
+      "alt": "A brand manager clarifies a referral arrangement with an independent adviser.",
+      "scene": "A brand manager and independent adviser talk at a quiet outdoor café terrace with closed folders and two tea cups, candid side view and greenery, reviewing an introduction agreement rather than shaking hands. Natural relaxed professional posture.",
+      "sha256": "d2ccdd7f3792e2a6ec539744c45b498addf6450da43b19d9194b0e73923fa142",
+      "image": "/art/natural/articles/franchise-broker-relationship-management.webp"
+    },
+    "franchise-onboarding-handover": {
+      "title": "The franchise sales-to-operations handover",
+      "alt": "Sales and operations staff review the agreed opening details inside a new outlet.",
+      "scene": "At an unfinished but nearly ready store, a sales coordinator hands an open purple project folder to the operations lead while both inspect actual joinery behind counter. Wide interior shot, task lights and boxed supplies, realistic hands naturally supporting folder.",
+      "sha256": "a1c818bc872cb8f447192c1618e66667f8a8266b56857799e83c5bb3de483af7",
+      "image": "/art/natural/articles/franchise-onboarding-handover.webp"
+    },
+    "franchise-first-90-days": {
+      "title": "Supporting a franchise through its first 90 days",
+      "alt": "A mentor helps a new manager establish reliable opening routines.",
+      "scene": "A café mentor coaches a newly appointed manager during early morning opening; one checks the till while the other aligns cups and observes, daylight entering from front windows, candid behind-the-counter wide perspective.",
+      "sha256": "cd41dea9720fcaeffd8032a254b493071077deaa4e20c5e01c1493420396a019",
+      "image": "/art/natural/articles/franchise-first-90-days.webp"
+    },
+    "franchise-support-team-capacity": {
+      "title": "Planning the capacity of a franchise support team",
+      "alt": "A support team allocates visits and prepares equipment for a busy operating week.",
+      "scene": "In a field support dispatch room, team leader examines a wall calendar of plain blocks while two colleagues prepare equipment bags on a bench. Wide asymmetric composition, realistic office storage and travel tools, no diagrams or readable dates.",
+      "sha256": "7cc1e51ef6df230669455b62685d730095caf914650fa480b59623554a4b984c",
+      "image": "/art/natural/articles/franchise-support-team-capacity.webp"
+    },
+    "franchise-field-visit-planning": {
+      "title": "Making franchise field visits useful for the outlet",
+      "alt": "A field consultant and operator inspect a stock shelf during an outlet visit.",
+      "scene": "A field consultant and a retail operator kneel slightly beside a low stock shelf, examining replenishment labels and listening to each other; candid photograph at aisle height, warm ordinary store lighting, clearly practical coaching.",
+      "sha256": "4f0ae8fb7518470e0d20ec45188eb8b5334a4c0a79c3ea75bd76fe744719657d",
+      "image": "/art/natural/articles/franchise-field-visit-planning.webp"
+    },
+    "franchise-train-the-trainer": {
+      "title": "Designing a train-the-trainer programme for franchise networks",
+      "alt": "A senior trainer observes a junior trainer teaching a practical task.",
+      "scene": "An experienced trainer in a commercial training kitchen observes a junior trainer demonstrating a simple measuring task to one adult trainee. Three people, stainless bench, measuring cup and ingredients, eye-level wide frame, purposeful hands.",
+      "sha256": "d8d18d85d91eb3a50632ab73277d6409bed25e8f08f39e3597a0cc63aa07837a",
+      "image": "/art/natural/articles/franchise-train-the-trainer.webp"
+    },
+    "franchise-sop-usability-testing": {
+      "title": "Testing whether franchise SOPs can actually be used",
+      "alt": "A new employee tests a written procedure at a café packing station.",
+      "scene": "A new staff member follows a laminated step sheet while assembling a simple takeaway order at a café packing station; researcher observes quietly with notebook from opposite side. Over-shoulder view, natural workbench and clear ordinary objects.",
+      "sha256": "76ba161d80ad74765d4e0956bf4ef453b96ac58d80c63bfdfa36ab38f22b6976",
+      "image": "/art/natural/articles/franchise-sop-usability-testing.webp"
+    },
+    "franchise-quality-audit-design": {
+      "title": "Designing franchise quality audits around risk and evidence",
+      "alt": "An auditor checks food-storage evidence with an outlet manager.",
+      "scene": "Quality auditor wearing simple hair covering checks the seal on a food-storage container with outlet manager in a clean commercial pantry. Medium low side angle, stainless shelves and precise rectangular containers, natural interaction.",
+      "sha256": "cc701d3238d09d920cf1996a053e6432244fb1fb775845094ef66d5b8314c32d",
+      "image": "/art/natural/articles/franchise-quality-audit-design.webp"
+    },
+    "franchise-corrective-action-process": {
+      "title": "Closing corrective actions across a franchise network",
+      "alt": "A technician and manager verify a repair before closing a corrective action.",
+      "scene": "A technician and store manager verify a repaired refrigerator gasket in a small café utility area, technician kneeling naturally and manager holding checklist at side. Side-wide composition, realistic hinges, shelves and equipment, task lighting.",
+      "sha256": "32374d09b36a4ccd44b9905643e497c9852807feba0594a7459f7d1e416a7247",
+      "image": "/art/natural/articles/franchise-corrective-action-process.webp"
+    },
+    "franchise-supplier-approval-process": {
+      "title": "Approving suppliers for a franchise network",
+      "alt": "A procurement manager reviews product samples and delivery readiness at a supplier facility.",
+      "scene": "At a small supplier production facility, a procurement manager examines a carton of samples with a factory representative while a scale sits on the workbench. Warehouse daylight, medium-wide candid angle, genuine sample checking rather than a meeting.",
+      "sha256": "f774920060e4cc52d05a4e495855cf2b0fd722fb068d2125fcf280af0f8c5428",
+      "image": "/art/natural/articles/franchise-supplier-approval-process.webp"
+    },
+    "franchise-procurement-price-transparency": {
+      "title": "Making franchise procurement prices and charges clear",
+      "alt": "An outlet manager verifies delivered goods and charges with a supplier representative.",
+      "scene": "At an outlet receiving bay, a manager compares a delivery note with sealed cartons on a trolley while a supplier representative points to one parcel. Close diagonal view from trolley side, natural loading-area environment, no readable personal details.",
+      "sha256": "9838b9b8b382032e1a1eb8b632f140ddaaf5072966c38bf49ad0700cfdfe46b0",
+      "image": "/art/natural/articles/franchise-procurement-price-transparency.webp"
+    },
+    "franchise-inventory-replenishment": {
+      "title": "Designing inventory replenishment for franchise outlets",
+      "alt": "Stockroom staff check inventory and replenish shelves using actual stock information.",
+      "scene": "In a compact retail stockroom, two staff members replenish shelves, one scans an unbranded carton with a handheld scanner and another counts the remaining products. High three-quarter view from aisle end, clear accurate shelving and natural movements.",
+      "sha256": "01a3496d54bd451012d67df52a34423814e1963af11a555c38204bc26dcb82fe",
+      "image": "/art/natural/articles/franchise-inventory-replenishment.webp"
+    },
+    "franchise-menu-assortment-localisation": {
+      "title": "Localising a franchise menu or assortment without losing consistency",
+      "alt": "A chef and outlet owner test a proposed local menu addition.",
+      "scene": "A chef and a female outlet owner taste a small regional dish in a test kitchen, three tasting bowls arranged clearly, owner notes feedback in a purple notebook, broad window light and warm real ingredients. Candid close-medium tabletop perspective.",
+      "sha256": "462a86183909f66ed9ff83488b862d75d550f3fb38163e4b3243aec91efa8b09",
+      "image": "/art/natural/articles/franchise-menu-assortment-localisation.webp"
+    },
+    "franchise-territory-allocation-policy": {
+      "title": "Creating a clear franchise territory allocation policy",
+      "alt": "Expansion planners review a street map and local trading area.",
+      "scene": "A brand expansion planner and regional operator stand beside the window of a serviced office overlooking a commercial neighborhood, a real folded street map on the desk between them, camera behind one shoulder, discussing area boundaries with natural hands.",
+      "sha256": "439c809065d6d797108253a3af9b2c7031eb8c5b7e0efbd1b878004a6c5aa89f",
+      "image": "/art/natural/articles/franchise-territory-allocation-policy.webp"
+    },
+    "franchise-site-approval-scorecard": {
+      "title": "Building a franchise site approval scorecard",
+      "alt": "An assessor checks dimensions and access inside a proposed franchise site.",
+      "scene": "A property assessor uses a laser measure inside an empty shop while a business owner inspects doorway access, raw concrete floor and unfinished wall, afternoon sun across space. Wide corner view with correct architectural verticals and realistic body scale.",
+      "sha256": "2bab4f6f5835c1c53c74b5487f0029f818dd0b54a19c212ea72c8e5285c8a8d4",
+      "image": "/art/natural/articles/franchise-site-approval-scorecard.webp"
+    },
+    "franchise-rollout-capex-control": {
+      "title": "Controlling franchise fit-out and opening costs",
+      "alt": "A project lead reviews fit-out work and quoted scope with a contractor.",
+      "scene": "Construction project lead checks a completed shop counter against a paper quotation while a contractor measures a timber panel. Interior fit-out site, purposeful scene with safe equipment and visible full task area, documentary side angle, no staged handshake.",
+      "sha256": "67bff71ff5d22855c87d2b792e21ad911ad10504a2b46a4c18cee741c76e91a7",
+      "image": "/art/natural/articles/franchise-rollout-capex-control.webp"
+    },
+    "franchise-local-marketing-toolkit": {
+      "title": "Building a local marketing toolkit for franchisees",
+      "alt": "A store team prepares approved local promotional material around a product display.",
+      "scene": "A local store manager photographs a neatly arranged product display with a phone while a marketing colleague adjusts a small blank promotional tent card. Real shop window and street beyond, over-shoulder angle, accurate hands and phone, no fabricated copy.",
+      "sha256": "b2c76740f01f3048ae4e815a2761ab50bbe4aa1ebbf997a152214f7f9db40177",
+      "image": "/art/natural/articles/franchise-local-marketing-toolkit.webp"
+    },
+    "franchise-marketing-fund-governance": {
+      "title": "How to govern a franchise marketing fund transparently",
+      "alt": "Franchise representatives review shared campaign expenditure and proof materials.",
+      "scene": "Three franchise representatives at a modest cooperative office examine a small stack of campaign invoices and printed proof sheets, one woman stands beside table pointing naturally at one invoice, warm afternoon window light, no big conference room.",
+      "sha256": "2c4357fc711f90cf27f600225069983694cd4c73551492a5217795e26f10a205",
+      "image": "/art/natural/articles/franchise-marketing-fund-governance.webp"
+    },
+    "franchise-digital-asset-ownership": {
+      "title": "Who should control franchise websites, profiles and ad accounts?",
+      "alt": "An administrator helps an operator organise secure access to business accounts.",
+      "scene": "An IT administrator at a retail manager's desk helps the manager use a physical security key with a laptop, keys and purple account folder nearby, softly blurred shop floor behind. Close candid side view, exact simple hands, no fake computer interfaces.",
+      "sha256": "b80ac75934868d6636deda11753209bd200ba8459e537d7cca063685600de716",
+      "image": "/art/natural/articles/franchise-digital-asset-ownership.webp"
+    },
+    "franchise-local-seo-network": {
+      "title": "Local SEO for franchise networks: useful location pages and accurate profiles",
+      "alt": "A shop owner records an accurate storefront photo and opening information.",
+      "scene": "A shop owner stands just outside a neighborhood storefront taking a careful phone photo of its entrance while an assistant checks opening information on a clipboard. Street-level wide view, unbranded fascia, real urban details, morning light.",
+      "sha256": "6351d49f744fa784c9db9cfaaf5f4039bded32b3029361d2e81ee3e9b47b3a40",
+      "image": "/art/natural/articles/franchise-local-seo-network.webp"
+    },
+    "franchise-crm-data-retention": {
+      "title": "Managing franchise enquiry data: access, retention and deletion",
+      "alt": "A records administrator reviews enquiry files and access-controlled storage.",
+      "scene": "A records administrator in a quiet office separates a thin set of approved folders from archived files near a lockable cabinet while reviewing a laptop. Side environmental view, natural adult hands, simple paper records with unreadable lines, orderly atmosphere.",
+      "sha256": "b9f912c0b3621d141d9ec8b999b99af6025bf98e8863ce75b599f53d892974f3",
+      "image": "/art/natural/articles/franchise-crm-data-retention.webp"
+    },
+    "choosing-franchise-consultant-for-your-brand": {
+      "title": "How to choose a franchise consultant for your brand",
+      "alt": "A business owner compares consulting proposals and project plans at her studio desk.",
+      "scene": "A mature Indian female founder sits alone at a desk in her small furniture design studio, critically comparing three consulting proposal folders and a short project work plan. Three-quarter overhead view with face visible in profile; daylight from a high side window, timber material samples and completed chairs in the real background, desk kept practical rather than luxurious. She reads a page while the other hand rests naturally beside a pencil. Tiny approved brandmark on only one ivory folder; the other folders are plain. The focus is choosing professional help based on the deliverables, not a sales handshake.",
+      "sha256": "9e1362b765b8f9f2bed1e9be7cea7df9dd30934d056d5211cd329ffbd2f2dc19",
+      "image": "/art/natural/articles/choosing-franchise-consultant-for-your-brand.webp"
+    },
+    "franchise-conflict-escalation": {
+      "title": "Resolving franchise disagreements before they escalate",
+      "alt": "A mediator guides a calm discussion between a business owner and a franchise representative.",
+      "scene": "A calm mediated business discussion in a small neutral meeting room with acoustic wood panelling and cool daylight. Three adults seated at equal height around a round table: an older woman mediator listens attentively as a male outlet owner describes an issue and a female brand representative checks a few records. Wide environmental view from doorway, natural respectful expressions, open posture, no exaggerated anger, no pointing across table. One small purple approved mark on the mediator's closed cream notebook; unbranded carafe and glass, otherwise ordinary physical setting. Documents show subtle lines without legible prose.",
+      "sha256": "197555082c5aa4713363595ea8aa1a740c40c7a36ff60711ef03a14aef349468",
+      "image": "/art/natural/articles/franchise-conflict-escalation.webp"
+    },
+    "franchise-outlet-financial-reporting": {
+      "title": "Standardising financial reports across franchise outlets",
+      "alt": "An outlet manager reconciles printed sales records and receipts in a print-shop office.",
+      "scene": "A woman outlet finance manager working alone in the compact office of a print-and-copy service business, reconciling printed daily sales reports with receipts and a desktop calculator. Candid slightly high side angle shows her natural focused profile, one hand on calculator and one holding a receipt; printing machines and orderly paper stock are visible through an internal glass partition. Cooler clean daylight, neutral grey and natural plywood materials, real working office without fake charts floating in space. One small approved purple brandmark on an ivory report folder lying flat at the side of the desk.",
+      "sha256": "fbb8cf5226e388c5f9607831b169d4520011e89296ded02c0d8409f465b9e67e",
+      "image": "/art/natural/articles/franchise-outlet-financial-reporting.webp"
+    },
+    "franchise-underperformance-support": {
+      "title": "Supporting an underperforming franchise outlet",
+      "alt": "An advisor and a grocery operator review produce rotation and stock levels in a quiet shop.",
+      "scene": "An experienced advisor works alongside a neighbourhood grocery operator diagnosing slow-selling stock, inside a quiet clean produce store at midmorning. Eye-level side view down a real aisle: the operator lifts one shallow produce tray while the advisor checks dates and quantities on a handheld record sheet. Faces are natural and thoughtful, not gloomy; hands anatomically accurate, shelves evenly built, fresh produce in modest quantities, daylight at the shop entrance. The concrete action is improving stock rotation rather than discussing a generic chart. Exactly one tiny approved mark on the advisor's slim ivory clipboard.",
+      "sha256": "2f47d8d8e3c7da88a204cbde2a82bc1f69cd0cc385f9958accdfcc586cd3e0ca",
+      "image": "/art/natural/articles/franchise-underperformance-support.webp"
+    },
+    "multi-unit-operator-assessment": {
+      "title": "Assessing whether a franchise partner is ready for multiple outlets",
+      "alt": "A multi-outlet owner observes a store manager coaching staff in an eyewear shop.",
+      "scene": "Wide natural editorial photograph inside a bright independent eyewear retail store before opening. A mature Indian female business owner stands slightly back near the entrance, observing a store manager coach two adult staff members on checking a display tray and organising customer appointments. Show delegation through other people, not the owner doing all tasks. Eye-level wide view includes neatly constructed display shelves, natural shop lighting, human-scale counter, and clear lifelike faces. The owner holds one slim ivory assessment folder with a single tiny approved purple mark; all other surfaces unbranded. Staff use simple grounded gestures; avoid mirrors, duplicated bodies, readable fake signage.",
+      "sha256": "a5a609e713de6732a87634620c1f4bb2b0c6d8522881e672f238e406be96e20e",
+      "image": "/art/natural/articles/multi-unit-operator-assessment.webp"
+    },
+    "franchise-renewal-review-process": {
+      "title": "Planning franchise renewal before the agreement ends",
+      "alt": "A repair-shop owner reviews a renewal agreement and calendar before the next operating period.",
+      "scene": "A mature Indian man who runs a shoe-repair service reviews a renewal agreement at a compact standing counter beside his workshop. Medium environmental side angle with a physical wall calendar and a simple key ring beside the opened file; the craftsman's working bench with shoe forms and organised tools is in the background. Cool morning daylight through a small front window, cream plaster, real wood textures, normal clothes and apron. He thoughtfully checks the document, one hand resting on the page and other holding reading glasses. One tiny approved purple emblem on an ivory file tab. Calendar is small and peripheral with unobtrusive grid, no invented prominent words or numbers.",
+      "sha256": "4589761e7a3433ba23c77be768e8ce2238838b55405f6c8da1d4c6d532ebad8e",
+      "image": "/art/natural/articles/franchise-renewal-review-process.webp"
+    },
+    "franchise-exit-debranding-handover": {
+      "title": "Managing a franchise exit and brand handover",
+      "alt": "An outgoing operator packs manuals while a colleague removes a window decal from a closed outlet.",
+      "scene": "A calm orderly handover at a closed small service-shop premises in daylight. Wide shot from inside: an outgoing operator carefully packs a few operating manuals into a cardboard archive box on the counter, while a colleague at the glass storefront peels off a simple solid purple rectangular window decal. Both adults shown in natural three-quarter profile, standing comfortably on the floor, no ladders or unsafe tools. No distress or broken shop; the premises are clean, chairs stacked, keys and a plain terminal on the counter. One small approved purple brandmark is on just one cream manual entering the box. Other decal has no lettering or logo. Realistic removable-vinyl peeling, realistic hands, coherent natural light, no floating objects.",
+      "sha256": "733c5cfa220d6ddb1d59e359ea6c04ee67824b424c0d8ef439bcadf9a3cb8c9d",
+      "image": "/art/natural/articles/franchise-exit-debranding-handover.webp"
+    },
+    "scaling-service-franchise-operations": {
+      "title": "How to scale a service business through franchising",
+      "alt": "A service supervisor checks job assignments as technicians prepare toolkits beside their vans.",
+      "scene": "A real appliance-service dispatch yard in early-morning neutral daylight, wide candid environmental photograph. A female field supervisor checks the day's job assignments with two male adult technicians who are placing organised tool cases into two modest plain white service vans. Different natural poses: one technician checks a toolkit at the open van rear, the other listens to supervisor near a workbench; realistic human proportions, detailed natural faces for foreground, normal grounded hands. Brick workshop and garage doors in background, believable clean working surroundings, no branded vans or logos on uniforms. One tiny approved purple brandmark on the supervisor's ivory clipboard. Emphasise repeatable local field-service operations, no posed handshake or corporate office.",
+      "sha256": "af804a8e7993fd30657f49fd0b4139bf837f0b84015796c0da39ddb791c6e203",
+      "image": "/art/natural/articles/scaling-service-franchise-operations.webp"
+    }
+  },
+  "collections": {
+    "for-investors": {
+      "title": "for-investors",
+      "alt": "A prospective business owner and advisor inspect a retail unit and its street frontage.",
+      "scene": "A thoughtful prospective business owner and an experienced advisor stand just inside an empty corner retail unit during a genuine site inspection. Wide candid photograph from slightly behind and to one side, showing both adults in natural three-quarter profile, sunlight from floor-to-ceiling street-facing windows, tiled floor, exposed utility points and a rolled floor plan on an existing counter. The woman advisor holds a small neutral clipboard at normal waist level, the man examines the frontage and pavement foot traffic beyond the glass. The clipboard bears the tiny approved purple brandmark. One coherent setting, no handshake or posed smiling toward camera. Convey evaluating a place before investing.",
+      "sha256": "ec69b8dcc802f66485d6c61ae34e79bdddd1d7a05a261a2073760ec625c3c2d7",
+      "image": "/art/natural/collections/for-investors.webp"
+    },
+    "for-brands": {
+      "title": "for-brands",
+      "alt": "A bakery owner and operations lead review their production kitchen before expanding.",
+      "scene": "An established bakery business owner and her operations lead walk together through a real working production kitchen, discussing preparations for another outlet. Medium-wide candid photograph at eye level: stainless preparation tables, cooling racks of bread, clean tiled floor, warm daylight, blurred staff working naturally in distance. Both wear plain aprons over professional clothes, natural attentive faces, one holds a slim expansion folder with tiny approved purple brandmark against her body. They are examining an orderly workflow, not posed at a conference table. Convey a business preparing to replicate its operations.",
+      "sha256": "76fa266352169a54aa532f5a1099f6eef78790ec62a920df7ceb4d52707446a8",
+      "image": "/art/natural/collections/for-brands.webp"
+    },
+    "franchise-basics": {
+      "title": "franchise-basics",
+      "alt": "An experienced café operator explains the point-of-sale system to a new owner.",
+      "scene": "An experienced café operator teaches a new adult owner how the counter service system works before opening. Candid medium-wide view from the customer side of a beautifully kept small neighbourhood café: the operator demonstrates the plain point-of-sale terminal while the new owner listens and takes a note in a small notebook. Coffee machine, reusable cups and pastry display form a coherent working counter, warm timber, daylight through front windows, a few neatly placed stools. Quiet focused expressions, natural gestures, not looking into camera. One white operations binder lies closed beside the terminal with the tiny approved purple brandmark on its spine. Show the practical transfer of a business system, no office conference meeting.",
+      "sha256": "b0dcc62f28c9c3f1c96c9e3ca6547a037ce7d4a8671c8c4ddc949e6c33375cb3",
+      "image": "/art/natural/collections/franchise-basics.webp"
+    },
+    "industries": {
+      "title": "industries",
+      "alt": "Two business professionals explore a courtyard with retail, food and learning businesses.",
+      "scene": "A walkable contemporary Indian mixed-use business courtyard in late-afternoon daylight. One coherent wide architectural street photograph with natural scale: an unbranded café terrace, a small clothing shop and a discreet learning centre along the same frontage. Foreground a female business advisor and a prospective operator walk slowly through the courtyard discussing the different premises; the advisor carries a slim neutral tote with a tiny embroidered approved purple brandmark. Midground café staff tend tables, a customer browses a shop window. Adults have realistic proportions and ordinary natural poses, clear face details for foreground only. Framing includes the whole courtyard context with plants, stone paving and real facades, no facsimile brand logos, no legible invented shop names, no staged lineup of stores, no floating symbols.",
+      "sha256": "c02432e68d103acf848252b224ac5e2b37a2e3b9a9b70920489991886c816251",
+      "image": "/art/natural/collections/industries.webp"
+    }
+  }
+}

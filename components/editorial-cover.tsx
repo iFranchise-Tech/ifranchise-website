@@ -2,16 +2,12 @@ type EditorialCoverProps = {
  src:string; alt?:string; loading?:'eager'|'lazy'; priority?:boolean;
 };
 
-/** Each original scene has a palette for each appearance; the composition is unchanged. */
+/** Full editorial scenes retain their natural colours and framing in both themes. */
 export function EditorialCover({src,alt='',loading,priority=false}:EditorialCoverProps){
- const original=src.match(/^\/art\/human\/(articles|collections)\/(?:light|dark)\/([a-z0-9-]+)\.webp$/);
- const theme=src.match(/\/art\/editorial(?:-light)?-integrated\/([a-z-]+)\.webp$/)?.[1];
- const props={alt,width:1200,height:800,loading,fetchPriority:priority?'high' as const:undefined};
- return <span className="editorial-cover">{original?<>
-  <img className="editorial-cover-image cover-dark" src={`/art/human/${original[1]}/dark/${original[2]}.webp`} {...props}/>
-  <img className="editorial-cover-image cover-light" src={`/art/human/${original[1]}/light/${original[2]}.webp`} {...props}/>
- </>:theme?<>
-  <img className="editorial-cover-image cover-dark" src={'/art/editorial-integrated/'+theme+'.webp'} {...props}/>
-  <img className="editorial-cover-image cover-light" src={'/art/editorial-light-integrated/'+theme+'.webp'} {...props}/>
- </>:<img className="editorial-cover-image" src={src} {...props}/>}</span>;
+ const natural=src.startsWith('/art/natural/');
+ return <span className="editorial-cover"><img className="editorial-cover-image" src={src}
+  srcSet={natural?`${src.replace('.webp','.small.webp')} 600w, ${src} 1200w`:undefined}
+  sizes={natural?'(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 600px':undefined}
+  alt={alt} width={1200} height={800} loading={loading} decoding="async"
+  fetchPriority={priority?'high':undefined}/></span>;
 }
