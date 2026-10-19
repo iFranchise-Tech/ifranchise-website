@@ -1,0 +1,1095 @@
+{
+  "version": 1,
+  "style": "Detailed editorial people and individually authored topic scenes",
+  "brandmark": "Approved vector geometry, integrated within each topic object",
+  "compositions": [
+    {
+      "slug": "what-is-a-franchise",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "b45719d66b00a10f6f6d59df6b8d8f42c96c105df1346da6014a513fe27695c1",
+      "alt": "Two business professionals discuss a plan at a round table. An operating manual and a carefully drawn shop elevation explain the system and outlet in a franchise."
+    },
+    {
+      "slug": "types-of-franchises",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": true,
+      "sceneHash": "4a5504560252c8035632e679f905225bf0cdb5c5bad532db9ecc248fc2b0f352",
+      "alt": "A business owner holds her planning folder. Three aligned panels show a single outlet, a group of outlets and development rights across a territory."
+    },
+    {
+      "slug": "franchise-investment-costs",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "d9f864cc355d7233c363e29194c110d0fb539bfa943800164d2bd154c7d6d701",
+      "alt": "A business analyst reviews financial records at her desk. A clear opening budget itemises the franchise fee, fit-out, stock and working capital beside a calculator."
+    },
+    {
+      "slug": "how-to-franchise-your-business",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "4d2d7a250e4b580c4e4c98270177bc7698de4c628f689ace64433f116fdd2681",
+      "alt": "Two professionals discuss a business plan at a desk. A proven shop, an operating system and a small expansion network form three ordered stages of franchise development."
+    },
+    {
+      "slug": "franchise-due-diligence-checklist",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "730fc5bb015e11e4a7d486879bf8be45859c73cc795b29f8eb284e74b2dfc34d",
+      "alt": "A business analyst reviews financial records at her desk. A due diligence record lists evidence checks beside an open evidence file and magnifying lens."
+    },
+    {
+      "slug": "food-and-beverage-franchise-india",
+      "kind": "articles",
+      "cast": "cafe-operator",
+      "right": false,
+      "sceneHash": "b261b45b1ca079dbdc18832dda06a721979e4ad854c27a01d7edf49e67c9b89d",
+      "alt": "A café operator stands beside her coffee counter. A food service counter presents café equipment, a kitchen station and packed delivery orders."
+    },
+    {
+      "slug": "fofo-foco-fico-models",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "ab49cf5987add5588737f0fbddc1e1909eae043b7dc54510aae60147f3a846bf",
+      "alt": "Two business professionals discuss a plan at a round table. A readable model comparison separates who owns a franchise from who operates it."
+    },
+    {
+      "slug": "franchise-operations-manual",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": false,
+      "sceneHash": "d666bacdb7a4c2f682eeb9f48274c39cdc1786bab3fb2ff3785591acf4ede943",
+      "alt": "Two operations professionals review a checklist. An open operations manual pairs a process diagram with ordered checks and a controlled revision record."
+    },
+    {
+      "slug": "franchise-marketing-and-lead-management",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "2346352f0eb497a05efa2ef1fc1992b75f3bd602a395f5c7c26ef65ead682ff2",
+      "alt": "A business owner holds her planning folder. A structured CRM board tracks incoming enquiries through qualification and follow-up."
+    },
+    {
+      "slug": "franchise-agreement-india",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "59cf5c8c7bea6996ce18b2edc90fdf33bda32a625273d0e2b334fd1b913deb42",
+      "alt": "Two business professionals discuss a plan at a round table. A franchise agreement with a signature line is set beside balanced scales and a pen."
+    },
+    {
+      "slug": "franchise-unit-economics",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "3cf61ca0b8d88dbb8a5aed430e24a5420e9f4488aa673743f7d7dce4af528958",
+      "alt": "A business analyst reviews financial records at her desk. A precise break-even chart distinguishes revenue and costs, with a separate cash flow record."
+    },
+    {
+      "slug": "retail-franchise-india",
+      "kind": "articles",
+      "cast": "retail-review",
+      "right": false,
+      "sceneHash": "101ab3bbe289a6308a5fe2b77b1af59cb1c5de3022d6d78084567b910f7feeee",
+      "alt": "A shop owner and advisor examine a retail product. A retail shop elevation is paired with ordered shelves and a stock replenishment record."
+    },
+    {
+      "slug": "franchise-financing-india",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "1300cdc2a51bc9b00e21bc672c46728f7c5d497cdede4a1964554a9207f29317",
+      "alt": "An advisor and business owner review a folder together. A bank façade and a prepared funding file illustrate lending evidence and repayment planning."
+    },
+    {
+      "slug": "franchise-partner-selection",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "fb863c74e5111b56cbd23641aed14aa09c87c3797a94b1c81674269e2f64d40b",
+      "alt": "Two professionals discuss a business plan at a desk. Two partner records are evaluated against a shared assessment covering capability, funding and expectations."
+    },
+    {
+      "slug": "choosing-franchise-location",
+      "kind": "articles",
+      "cast": "location-planning",
+      "right": false,
+      "sceneHash": "6e00c7e8ac4faf247d97e2fd214794ff4e5a31ec2c9a880c58366d6529d97266",
+      "alt": "A business owner and advisor examine a site plan. An organised street map highlights a proposed outlet, its customer catchment and access routes."
+    },
+    {
+      "slug": "education-franchise-india",
+      "kind": "articles",
+      "cast": "learning-session",
+      "right": true,
+      "sceneHash": "a8563b99d433589b9b103040a1b311ec9e62cb03fbf95fa26f3f26ad170d994e",
+      "alt": "A trainer and adult learner work through a notebook. An education workspace shows a teaching board, learning materials and an assessment sheet."
+    },
+    {
+      "slug": "franchise-training-and-support",
+      "kind": "articles",
+      "cast": "learning-session",
+      "right": false,
+      "sceneHash": "65493935327a9a348508f1daa94ff88d5c2649686d376a815369fc7610fc79a3",
+      "alt": "A trainer and adult learner work through a notebook. Three substantial training panels separate demonstration, practice and ongoing support."
+    },
+    {
+      "slug": "franchise-vs-independent-business",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "d6bf04051422ee3f0196351c339f06187e651151f1095cdd8b190cabc697dc5f",
+      "alt": "Two business professionals discuss a plan at a round table. Two comparable shop elevations contrast a supplied franchise system with an independently developed business."
+    },
+    {
+      "slug": "beauty-wellness-franchise-india",
+      "kind": "articles",
+      "cast": "customer-conversation",
+      "right": false,
+      "sceneHash": "0441846c0c53a942f68aae6fb6f7f65b4bc5d4f6125dbb9e31c1f03346fdba7e",
+      "alt": "A business professional speaks with a customer. A neatly arranged salon station combines a full mirror, service chair, treatment cabinet and appointment record."
+    },
+    {
+      "slug": "franchise-territory-expansion",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": true,
+      "sceneHash": "146257108be0524e6dfd7186702408e55b9cdb1743a9d004c8a26439777c7849",
+      "alt": "Two operations professionals review a checklist. Three carefully defined catchments connect a core outlet to two planned expansion locations."
+    },
+    {
+      "slug": "franchise-royalty-and-fees",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "88d1bdf5aab82b28d109917eccb9ed5495a315677f81af370bdd0997aa88e42b",
+      "alt": "A business owner holds her planning folder. An outlet sales ledger is linked to a recurring fee schedule with separate royalty, marketing and service charges."
+    },
+    {
+      "slug": "service-franchise-india",
+      "kind": "articles",
+      "cast": "service-professional",
+      "right": false,
+      "sceneHash": "baeed11aaf94e1aec0f19b2a9b6cc0cf05b16e9a3e902d554280ea012910f94b",
+      "alt": "A service professional reviews a work record. An organised service bench pairs a toolkit and job record with a completed work check."
+    },
+    {
+      "slug": "buying-existing-franchise",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "6b009b4f3f160ea7782ea721407a6215bacdbf59075628bb9e2c05ae46c389b3",
+      "alt": "A business analyst reviews financial records at her desk. A trading outlet is shown with a key and a transfer record listing assets, lease and approval."
+    },
+    {
+      "slug": "franchise-launch-checklist",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "91df428102c8bea31b341545d372e964b21ae8d6f813b3d56b259b1322efca4a",
+      "alt": "Two business professionals discuss a plan at a round table. A shop ready for opening is accompanied by a launch checklist and an orderly three-stage readiness schedule."
+    },
+    {
+      "slug": "master-franchise-and-area-development",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": true,
+      "sceneHash": "679ba5759b89cae446a74335d110d3ac0d1c776807f40cd9d00d7be0dfce06c6",
+      "alt": "A business analyst reviews financial records at her desk. Two clean organisation diagrams distinguish recruiting sub-franchisees from directly developing several outlets."
+    },
+    {
+      "slug": "franchise-renewal-transfer-and-exit",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "f1b9b401aca2f75f6c73e1c1177cd83e7a5afb5614c251e9540292d449b99c3a",
+      "alt": "An advisor and business owner review a folder together. A contract term branches into renewal, transfer and a planned exit, each with its own record."
+    },
+    {
+      "slug": "franchise-business-plan",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "5c6d4e7482e21181660733ad484218672fef8bb2cadaf86cde428ad9852fe3a0",
+      "alt": "Two professionals discuss a business plan at a desk. A business planning board combines market evidence, operating milestones and a cash forecast."
+    },
+    {
+      "slug": "healthcare-franchise-india",
+      "kind": "articles",
+      "cast": "healthcare-advisor",
+      "right": false,
+      "sceneHash": "ec00ea93c66ce08aefd5bdf74172d074a7f770d6edd447bb69a60b271cf9c463",
+      "alt": "A healthcare professional and business manager discuss their work. A healthcare workstation pairs orderly patient records with secure information handling and clinical supplies."
+    },
+    {
+      "slug": "automotive-franchise-india",
+      "kind": "articles",
+      "cast": "service-professional",
+      "right": false,
+      "sceneHash": "64f47e402e5fe0efcc341f3d36a553bf796c599bba2bf66bf6dff07c66b815b5",
+      "alt": "A service professional reviews a work record. A correctly proportioned car sits on a service lift beside an organised tool cabinet and workshop record."
+    },
+    {
+      "slug": "hospitality-franchise-india",
+      "kind": "articles",
+      "cast": "hospitality-manager",
+      "right": true,
+      "sceneHash": "56e57473e7e48690efa48c0668d2b3229cdbee1dbf89f94721626145514c3941",
+      "alt": "A hospitality manager reviews a reception record. A hotel façade and a clean guest-room elevation are paired with an operating record."
+    },
+    {
+      "slug": "franchise-personal-capital-boundary",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "0bc4ebe9bcdb3c27d77741669ee4c0ae86e58fab8418140c4fc257bb83722df8",
+      "alt": "Two business professionals discuss a plan at a round table. Household reserves and business funds are separated into two clear financial compartments."
+    },
+    {
+      "slug": "franchise-owner-operator-fit",
+      "kind": "articles",
+      "cast": "customer-conversation",
+      "right": true,
+      "sceneHash": "2a535098887c6762141cd7b21e6845e4357ea705bf0400adefb448772c0556e6",
+      "alt": "A business professional speaks with a customer. A practical daily rota is paired with a shop and the decisions required to operate it."
+    },
+    {
+      "slug": "franchise-working-professional",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": true,
+      "sceneHash": "d9fb8bb85a20e7263c8dbddd8ebef0ced4cb032c9597bdb88f73e7facde30adf",
+      "alt": "A business owner holds her planning folder. A weekly planner visibly separates employment commitments from scheduled outlet reviews."
+    },
+    {
+      "slug": "franchise-family-business-roles",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "5ac1e12cd9e19036772aa685df3cb60b996a8bbeea36b508e88b542d9392d2c7",
+      "alt": "A business owner holds her planning folder. A shared family business agreement connects distinct ownership, management and financial responsibilities."
+    },
+    {
+      "slug": "women-franchise-investors-support-plan",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "696c952b384b82873a0e57c329045d4ae889f12b4bd782768efab1cd8c009911",
+      "alt": "Two professionals discuss a business plan at a desk. An investment planning workspace brings together financial control, operating preparation and a practical support network."
+    },
+    {
+      "slug": "franchise-comparison-scorecard",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "5ba0102a52da8f91fbd99145b9748fd319489aeb632ad5b320c281963e4be4d3",
+      "alt": "A business analyst reviews financial records at her desk. A consistently aligned comparison matrix records costs, support, demand and contractual evidence for three offers."
+    },
+    {
+      "slug": "franchise-industry-shortlist",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": true,
+      "sceneHash": "beb070805ca8cf0a14fa5f5bd88cf7b2f79148b830ac5c213a1f7ebdaecc0ccd",
+      "alt": "A business owner holds her planning folder. Food, retail and service formats are presented on three equal panels for a capability-based industry shortlist."
+    },
+    {
+      "slug": "franchise-kiosk-format",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "087aa72f4f9b49be673c52ed0359a1ced5daa4eb7a237df0d1fed49512249444",
+      "alt": "A business owner holds her planning folder. A compact kiosk elevation makes its counter, storage, equipment and customer access legible."
+    },
+    {
+      "slug": "home-based-franchise-evaluation",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "d21e5b8ab549c112346c838a817df425473484ac7ce64c2cb67231e0f0498d73",
+      "alt": "A business analyst reviews financial records at her desk. A home-office cutaway separates a dedicated workstation from secure records and business stock."
+    },
+    {
+      "slug": "franchise-mobile-service-format",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "0373a92dd4ec2e6ce7533a4e7fd6a17d8e341988af440369070d7d6fc2c3e6c0",
+      "alt": "Two professionals discuss a business plan at a desk. A well-proportioned service van is linked to customer stops on a simple scheduled route."
+    },
+    {
+      "slug": "franchise-second-outlet-readiness",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "16e98506c19d2d298814e8b8fc86dfd2980cf7339986cd7943b2781d58b89328",
+      "alt": "Two business professionals discuss a plan at a round table. Two shop elevations are separated by a readiness checkpoint for team capability, cash and systems."
+    },
+    {
+      "slug": "franchise-remote-owner-oversight",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "3db5178ad67fd952eeed983a8c8bacd2ed96a9ebe3e27a06fce0c8a721da0d81",
+      "alt": "Two professionals discuss a business plan at a desk. A remote reporting screen connects to an outlet and a structured review record."
+    },
+    {
+      "slug": "franchise-cash-runway",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "6e21270b79d32fdce85ee471bdda7b5003fe4e654fd6f9b098758f42e5630fbb",
+      "alt": "A business owner holds her planning folder. A four-month cash runway chart shows the reserve declining as operating costs are paid."
+    },
+    {
+      "slug": "franchise-opening-delay-costs",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "57144f8eb6edd958e557576b1a48a4a8cb4a75a0f62a8ac6ed8ca70003c5b3d2",
+      "alt": "A business analyst reviews financial records at her desk. An unfinished shop remains behind a fit-out barrier while a calendar and cost record track the delay."
+    },
+    {
+      "slug": "franchise-cash-conversion-cycle",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "9f728bad62fc695b8fc2dc665833bbf6ab8c8950a777adb0a9b1d91b5f437639",
+      "alt": "An advisor and business owner review a folder together. An inventory parcel, supplier terms and collected revenue form a measured cash cycle."
+    },
+    {
+      "slug": "franchise-loan-credit-report-preparation",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "a62d7b421fe2fda3a7ba52d81cd7dc63f5cdbfdc88f25cd017c9b76e5ae197d8",
+      "alt": "A business analyst reviews financial records at her desk. A large credit report is paired with an organised lending records file."
+    },
+    {
+      "slug": "franchise-security-deposit-review",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "fb64ec895f12661a61c0ebceac9a3ce7777c72e4997a99440ed3c63500911e51",
+      "alt": "Two business professionals discuss a plan at a round table. Three deposit ledgers separate premises, equipment and franchise commitments."
+    },
+    {
+      "slug": "franchise-insurance-review",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "1ee9345ba8fabcb0935187c1dace79d209a64e2877ddcd49c9fec49969b7302b",
+      "alt": "A business owner holds her planning folder. An insurance policy is set beside a protected storefront outline."
+    },
+    {
+      "slug": "franchise-supplier-due-diligence",
+      "kind": "articles",
+      "cast": "logistics-team",
+      "right": false,
+      "sceneHash": "f4dd947a6de7d463669c4e0c92d3d44f30bb97dcce796aa18f1d2ebd9b237205",
+      "alt": "An operations team reviews an organised delivery. A supplier sample is checked against a clear quality and delivery checklist."
+    },
+    {
+      "slug": "franchise-inventory-control",
+      "kind": "articles",
+      "cast": "logistics-team",
+      "right": false,
+      "sceneHash": "f1c2c387d146a148201aff4f966930c414e7f3f52979cee51843b12983f2143f",
+      "alt": "An operations team reviews an organised delivery. A shelving unit holds counted inventory beside a reconciled stock ledger."
+    },
+    {
+      "slug": "franchise-hiring-outlet-manager",
+      "kind": "articles",
+      "cast": "team-coaching",
+      "right": false,
+      "sceneHash": "784f668f8447582229f53d76844a7bbd27324fd398f987470722ff0f7f0cf245",
+      "alt": "Three colleagues discuss their work around a table. A manager role brief sits beside a structured interview scorecard."
+    },
+    {
+      "slug": "franchise-staffing-roster",
+      "kind": "articles",
+      "cast": "team-coaching",
+      "right": false,
+      "sceneHash": "9756af909c9acd6f966a456e97d29d284a23ca2cf57eb3f631c0d5ab63d92927",
+      "alt": "Three colleagues discuss their work around a table. A full weekly schedule aligns opening, peak service and closing shifts."
+    },
+    {
+      "slug": "franchise-outlet-visit-checklist",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "7ad187d807942792de467575b7384d4074b4a54dcdf66196ee0a783e7c5a6f03",
+      "alt": "A business owner holds her planning folder. A cutaway floor plan marks customer, counter and stock zones beside an observation checklist."
+    },
+    {
+      "slug": "franchise-existing-operator-interviews",
+      "kind": "articles",
+      "cast": "team-coaching",
+      "right": false,
+      "sceneHash": "79b4a55b8701806fa5c5ed25bb019ff2bda57b193c3a28ee2b69629b9f003942",
+      "alt": "Three colleagues discuss their work around a table. Two open response sheets compare questions about operating costs and ongoing support."
+    },
+    {
+      "slug": "franchise-commercial-claims-validation",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "10283caf164e07cec90a9bcf17423dc44be5abe0db3c6ac7aaeedfcad3d77745",
+      "alt": "Two professionals discuss a business plan at a desk. A performance claim is compared with documented trading evidence."
+    },
+    {
+      "slug": "franchise-company-identity-verification",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "8ae39db2845c4be61d2dbbb63489499e5d7f0f7564d961d0047cf54cd713cc79",
+      "alt": "Two professionals discuss a business plan at a desk. A company record and bank details are matched against an authorised signatory."
+    },
+    {
+      "slug": "franchise-commercial-lease-review",
+      "kind": "articles",
+      "cast": "location-planning",
+      "right": false,
+      "sceneHash": "e3d540dc8ed53a9828a240758ccafbf445a95d1169f51e5b7670ad0502625a35",
+      "alt": "A business owner and advisor examine a site plan. A commercial doorway, premises key and lease terms are arranged on a clear review surface."
+    },
+    {
+      "slug": "franchise-site-technical-feasibility",
+      "kind": "articles",
+      "cast": "location-planning",
+      "right": false,
+      "sceneHash": "bbe311e625a65016dbe690f60bead4e658d4807fb3c972075d8b24df0b661114",
+      "alt": "A business owner and advisor examine a site plan. A precise premises plan checks power, ventilation and water before a fit-out."
+    },
+    {
+      "slug": "franchise-mall-or-high-street",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "a1bf97e1a2caacce09d14d3eb78f033e3e3f1cdf94565d2325c63f546ad9bc96",
+      "alt": "A business owner holds her planning folder. A shopping-centre facade and a street-front outlet appear at equal visual scale."
+    },
+    {
+      "slug": "franchise-local-catchment-research",
+      "kind": "articles",
+      "cast": "location-planning",
+      "right": false,
+      "sceneHash": "d4fad0e3936d70476915770d07b270e945d88b73caab41bbbcca698830eaf627",
+      "alt": "A business owner and advisor examine a site plan. A neighbourhood map plots an outlet, nearby households and its practical catchment."
+    },
+    {
+      "slug": "franchise-delivery-led-format",
+      "kind": "articles",
+      "cast": "logistics-team",
+      "right": false,
+      "sceneHash": "233256b2b4a9aeacc4ddc2c0a51df448bfdb3aa10561459706f0ae792f344380",
+      "alt": "An operations team reviews an organised delivery. An order ticket and sealed delivery parcel sit beside a channel-cost calculation."
+    },
+    {
+      "slug": "franchise-negotiation-preparation",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "47112bff6682df1e21b003b3cb2ba914b0ed275e3071193d6b98da24ea9c9f13",
+      "alt": "Two business professionals discuss a plan at a round table. Three issue boards group priorities, clarification points and agreed terms."
+    },
+    {
+      "slug": "franchise-letter-of-intent",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "3ea7c529d57a311fc6facf88908b62b83c571afd0176ae149ee8bc6fb54a32ee",
+      "alt": "A business owner holds her planning folder. An initial letter is separated from a final agreement by a clear set of conditions."
+    },
+    {
+      "slug": "franchise-lease-term-alignment",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": true,
+      "sceneHash": "46fb2d8b3e27380433e8c27053abf5005a3a71d23acbe0f79a553417c259cd41",
+      "alt": "Two operations professionals review a checklist. Franchise, lease and finance timelines are compared on a shared date axis."
+    },
+    {
+      "slug": "franchise-bookkeeping-first-90-days",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "f5516baf246b262bec7c263e08bd8a53fa386146a4fce09d01b31804a2d93bd2",
+      "alt": "Two business professionals discuss a plan at a round table. An open bookkeeping ledger is paired with receipts and a reconciliation checklist."
+    },
+    {
+      "slug": "franchise-monthly-business-review",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "184f778efbf8fb43324cbfb86ff08da88d289b6657ff8c31c62fb9893dd99132",
+      "alt": "A business owner holds her planning folder. A monthly dashboard compares finances, customers, people and cash before setting actions."
+    },
+    {
+      "slug": "franchise-local-marketing-budget",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "2dc795c2a58e9a9ad177a2af819e04e04d1049cd8add2668afd246bd98c4c530",
+      "alt": "Two professionals discuss a business plan at a desk. A marketing budget wheel is paired with line items for reach, enquiries and events."
+    },
+    {
+      "slug": "franchise-google-business-profile",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": true,
+      "sceneHash": "ebd4c174e888e26a3378618294c63ca62610010000f5ee182239dbc5b645059f",
+      "alt": "A business analyst reviews financial records at her desk. A clean local-business profile displays its name, address, hours and customer rating."
+    },
+    {
+      "slug": "franchise-customer-enquiry-follow-up",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "a9a0bfaace687d23fab98f383b43b49fc87716578387452f78262a6cb6391a10",
+      "alt": "Two professionals discuss a business plan at a desk. Three distinct communication cards show an enquiry, a useful answer and an agreed next step."
+    },
+    {
+      "slug": "franchise-customer-complaint-recovery",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "db3e8454dc1be9ae9cec2b850c3d0ce546053ed570e3ea8c8e9de406ff2c7a52",
+      "alt": "Two professionals discuss a business plan at a desk. A service issue moves through acknowledgement, resolution and learning on a clear case record."
+    },
+    {
+      "slug": "franchise-vendor-quote-comparison",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "509bc79ab9f56bf09fe3836602be336477dcfa9be464e7867ddda14b738edd56",
+      "alt": "Two business professionals discuss a plan at a round table. Three quotations use matching rows to compare the same scope and specification."
+    },
+    {
+      "slug": "franchise-technology-pos-checklist",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "24606bf907207dfd665fa8cc8594558891e83aee6acad0809f4598f57e8b3892",
+      "alt": "Two professionals discuss a business plan at a desk. A point-of-sale display, card terminal and receipt printer form an orderly checkout station."
+    },
+    {
+      "slug": "franchise-partner-governance",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "acb4374ca57571bbc98da6d4bf4996c49cd6763ddcb5b9fc41e0b9e3537c0822",
+      "alt": "A business owner holds her planning folder. A partnership charter is supported by three equal sections for contributions, decisions and reporting."
+    },
+    {
+      "slug": "franchise-downside-scenarios",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "6ce12d9cff2c56275aadfc98bb1b97140813bb91f5706c07c5396d6c70013e18",
+      "alt": "A business owner holds her planning folder. Three cash-flow paths compare a base plan, lower sales and cost pressure."
+    },
+    {
+      "slug": "franchise-soft-launch-review",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "e8dcced2c0441c6c7da3d67f4dfbfb6852f95d3354091f36b17e8961fdb3b12a",
+      "alt": "A business owner holds her planning folder. A test-ready storefront is paired with a checklist covering service, systems and team readiness."
+    },
+    {
+      "slug": "franchise-seasonality-planning",
+      "kind": "articles",
+      "cast": "financial-review",
+      "right": false,
+      "sceneHash": "da11dfc5ac76286105a0c5dfdc55637b13b529321874375e7aa95aebfeb76782",
+      "alt": "A business analyst reviews financial records at her desk. A seasonal demand chart sits above planned stock levels for four trading periods."
+    },
+    {
+      "slug": "franchise-food-waste-control",
+      "kind": "articles",
+      "cast": "cafe-operator",
+      "right": true,
+      "sceneHash": "1a8a58c559e2e2476394d3ced242e64f7241c8fe09fd76eab32ab0ba9e297281",
+      "alt": "A café operator stands beside her coffee counter. Preparation scales, an ingredient tray and a daily waste record sit on one work surface."
+    },
+    {
+      "slug": "franchise-payment-fraud-prevention",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": false,
+      "sceneHash": "aeef57be524831f3769fc4d753700ee6ed4ce44d82284fb6013bbe93bda072bf",
+      "alt": "Two operations professionals review a checklist. Recipient details are verified before a payment reaches a bank account."
+    },
+    {
+      "slug": "choose-franchise-consultant-india",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "54a480c37f3552ba79b74434fa5d3a46eaf27affa079aeed704d8888dbba5177",
+      "alt": "Two business professionals discuss a plan at a round table. An adviser proposal is compared through scope, outputs and fee records."
+    },
+    {
+      "slug": "founder-independence-audit",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "d69f7ed2d533ae620c68b39c94721a99b4e1b5150de698efc2fcce53ee2fc2c5",
+      "alt": "Two business professionals discuss a plan at a round table. A process manual sits beside assigned decisions, customer relationships and operations."
+    },
+    {
+      "slug": "franchise-demand-validation",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "4dfa3c5d06fdf18cd415594a7eefd58c7f4ca793132562af7b953d7ca62e8727",
+      "alt": "Two professionals discuss a business plan at a desk. A pilot storefront is evaluated using repeat visits and paid-order evidence."
+    },
+    {
+      "slug": "franchise-pilot-design",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": false,
+      "sceneHash": "900ff97669633ca86a427cef2b5a25ebd7d73989a59ea3b1591595aa36a5cd56",
+      "alt": "Two operations professionals review a checklist. One pilot outlet is framed by a measurement plan and a test record."
+    },
+    {
+      "slug": "normalising-franchise-pilot-economics",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "67ba5db9e9fe3a50c13f51a6d4ef7c47c9b604a1a4f233e745c630252e894345",
+      "alt": "An advisor and business owner review a folder together. Three adjustments separate recurring operating results from pilot-specific costs."
+    },
+    {
+      "slug": "franchise-readiness-evidence-pack",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": true,
+      "sceneHash": "538bee9917218fe1f472548c0c06882393207c4a1d8849f40044578b807e3f09",
+      "alt": "A business owner holds her planning folder. An expanding folder contains clearly separated pilot, procedures, cost and questions documents."
+    },
+    {
+      "slug": "company-owned-or-franchise-expansion",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "3bfe11a8e9d6cb25b9a178e0f116e13bfb0563d72f010326f6f66d8e78d7d097",
+      "alt": "Two professionals discuss a business plan at a desk. A single operating outlet is considered through company-owned and franchise expansion routes."
+    },
+    {
+      "slug": "franchise-cluster-expansion-roadmap",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "7c389a59bc35726189dbe8f431a695f4086d990feffd39d41a76045e88cc1bbd",
+      "alt": "Two professionals discuss a business plan at a desk. Three outlet clusters are arranged around a planned supply and support route."
+    },
+    {
+      "slug": "franchise-format-standardisation",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "e5e0f0b688f3bfa5e56ed25377a25c759ed50164c93fe0565db41e608050da1e",
+      "alt": "Two business professionals discuss a plan at a round table. Two operating formats share one clearly defined master specification."
+    },
+    {
+      "slug": "compact-franchise-format-feasibility",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "f8544ced63fc8e9f9e800835ada135ed825521299dee2cb0c684def13c28cd68",
+      "alt": "Two professionals discuss a business plan at a desk. A compact kiosk is paired with a measured layout for counter capacity, storage and movement."
+    },
+    {
+      "slug": "franchise-brand-ip-audit",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": false,
+      "sceneHash": "8083908e5a54b1118e2b82bb1e0f1a5d85d2ec523cadf7a79dd44b3945aa13c2",
+      "alt": "Two operations professionals review a checklist. A brand rights register brings together trademark, design and operating manual records with completed ownership checks."
+    },
+    {
+      "slug": "franchise-confidential-knowhow",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "380593a5de04ddb79340a3b038ace46e8cb2d1c7b2ba1136867a73065420f2a2",
+      "alt": "An advisor and business owner review a folder together. An operating manual is stored in a locked knowledge cabinet with three clearly defined access levels."
+    },
+    {
+      "slug": "franchise-offer-document",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "9835c4216a0b042aa586d93983a7ccbb892c871e8811d281af0d77ccd4273c7c",
+      "alt": "Two business professionals discuss a plan at a round table. An open offer brochure shows the business format on one page and investment, support and responsibilities on the facing page."
+    },
+    {
+      "slug": "pricing-initial-franchise-fee",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "9568cfbb0be72093e6b44959ad14ea67aa227e2d99f155022ff186f45f23abc7",
+      "alt": "A business owner holds her planning folder. An itemised initial fee worksheet separates brand rights, training and opening support before the total."
+    },
+    {
+      "slug": "designing-franchise-royalty-structure",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "c3635c0a5ab5820eb5fa549c684c68475be693180167133677d37b5cc556d726",
+      "alt": "An advisor and business owner review a folder together. A royalty statement records the sales basis and reporting period beside a monthly calendar and an operating outlet."
+    },
+    {
+      "slug": "franchisor-support-budget",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": true,
+      "sceneHash": "a5dda0f84da814d93baa1d6f666de3c5e95c4f952d352086d171884e39aea5d0",
+      "alt": "An advisor and business owner review a folder together. A support budget divides planned expenditure among team capacity, field visits, systems and training."
+    },
+    {
+      "slug": "responsible-franchise-financial-illustrations",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "c33953b6286f71e903125514bf1fe639e6cb3ddfcdda9344be6e64c4d90893e1",
+      "alt": "Two business professionals discuss a plan at a round table. A financial chart distinguishes recorded results from a shaded illustrative range and lists the assumptions underneath."
+    },
+    {
+      "slug": "ideal-franchisee-profile",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "28de800c2e70a6c13b763e330b5a998d09c266a6d8f418a28c7eaaf2486b9e4a",
+      "alt": "Two business professionals discuss a plan at a round table. A franchise operator profile scores practical skills, available time, financial readiness and operating responsibility."
+    },
+    {
+      "slug": "franchise-recruitment-channel-plan",
+      "kind": "articles",
+      "cast": "customer-conversation",
+      "right": true,
+      "sceneHash": "1dc9fb4d9b3ccbf9d6dd36730c87d091c00751b037e33b6bef733377b5827146",
+      "alt": "A business professional speaks with a customer. Website, events and referrals feed a source comparison table that separates total enquiries from qualified candidates."
+    },
+    {
+      "slug": "franchise-qualification-calls",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "ccab6d24e21f530fa8fdeae0e8187f8a19aded09793cbcb664dc159c6fe4ff5b",
+      "alt": "Two professionals discuss a business plan at a desk. A telephone enquiry and a structured call record identify the business fit, unanswered questions and an agreed next step."
+    },
+    {
+      "slug": "franchise-discovery-day-agenda",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": true,
+      "sceneHash": "93d6454f1d4c0a316341c1d0d462c6e42a6a7c996628c325cb729231b0c1266e",
+      "alt": "A business owner holds her planning folder. A discovery visit floor plan identifies the outlet counter, operations area and review space beside a three-step visit agenda."
+    },
+    {
+      "slug": "franchise-candidate-reference-checks",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": true,
+      "sceneHash": "cebbf78f95677043b16f802792b18fb6d8f06cc82da4025bfe320e570ef006e2",
+      "alt": "Two operations professionals review a checklist. Two reference records are compared against one permission-based candidate review with matching questions."
+    },
+    {
+      "slug": "franchise-crm-pipeline-stages",
+      "kind": "articles",
+      "cast": "customer-conversation",
+      "right": false,
+      "sceneHash": "2b9fdcd65dbfca87ec8187edc95b69c4412e9f9f2ea4ebec7161a3614376d56e",
+      "alt": "A business professional speaks with a customer. A recruitment board organises candidate cards into enquiry, review, meeting and agreement stages."
+    },
+    {
+      "slug": "franchise-enquiry-response-playbook",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "9f2e346725f84dca6fbc81d80c20c60a095d115bfe8dea7f6e557c3af8f49917",
+      "alt": "Two professionals discuss a business plan at a desk. An incoming enquiry is paired with a response guide that sets ownership, a useful answer and a follow-up time."
+    },
+    {
+      "slug": "franchise-proposal-version-control",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "0c528fd1d7d24955d588ba23a327947d71a783c2303a49aed2cc37252da62920",
+      "alt": "Two professionals discuss a business plan at a desk. Two earlier proposals are kept behind the approved current proposal, with a visible version record."
+    },
+    {
+      "slug": "franchise-broker-relationship-management",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "718fd33dbba60c431cd4b093d3bf2ba0668241be1d0f8c21142482597e2aa9f7",
+      "alt": "An advisor and business owner review a folder together. A referral agreement records brand, intermediary and candidate responsibilities alongside approved claims and fee terms."
+    },
+    {
+      "slug": "franchise-onboarding-handover",
+      "kind": "articles",
+      "cast": "learning-session",
+      "right": false,
+      "sceneHash": "892b220b61a2e00d19016e22423b692c2be4496ad5d5178c090a9b8959507d16",
+      "alt": "A trainer and adult learner work through a notebook. A handover folder holds the signed commitments, opening schedule and unresolved items for the operations team."
+    },
+    {
+      "slug": "franchise-first-90-days",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "0b3df07ddef89936239d30533417ee9344d3e0621583fedb2d349614e1681895",
+      "alt": "A business owner holds her planning folder. A 90-day opening programme is organised into routines, operating reviews and issue resolution, alongside the new outlet."
+    },
+    {
+      "slug": "franchise-support-team-capacity",
+      "kind": "articles",
+      "cast": "team-coaching",
+      "right": false,
+      "sceneHash": "71a1943b4946255919a01d973e3b89120d22243d99a4c8dd8a3f1941315b7493",
+      "alt": "Three colleagues discuss their work around a table. A weekly support capacity board allocates time for field work, training and systems support across five days."
+    },
+    {
+      "slug": "franchise-field-visit-planning",
+      "kind": "articles",
+      "cast": "location-planning",
+      "right": false,
+      "sceneHash": "b7cffc2607e295eec7162034066891a8489859cc84ab06f2274f5b36cd98ee39",
+      "alt": "A business owner and advisor examine a site plan. A field visit checklist is paired with an outlet plan and three mapped observation points."
+    },
+    {
+      "slug": "franchise-train-the-trainer",
+      "kind": "articles",
+      "cast": "learning-session",
+      "right": false,
+      "sceneHash": "427637b9ddc9e584f7c662816605d8b973e5555ad1a0d92ffb304f6a655c6172",
+      "alt": "A trainer and adult learner work through a notebook. A training master workbook is replicated into a local practice workbook and an assessment record."
+    },
+    {
+      "slug": "franchise-sop-usability-testing",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": false,
+      "sceneHash": "08fc7d2063b1c4a281135d71c1dd077918dcbaebd9a0f89ccd8fa95e69200ba6",
+      "alt": "Two operations professionals review a checklist. A work instruction is tested against a three-step task, with an unclear step marked for revision."
+    },
+    {
+      "slug": "franchise-quality-audit-design",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "2c5611cd956e9367317501da7aa100bd39a520a800bf727ca42b74f1e3e85aae",
+      "alt": "A business owner holds her planning folder. A quality audit risk matrix highlights critical requirements beside an evidence checklist."
+    },
+    {
+      "slug": "franchise-corrective-action-process",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "b3037be860056dddf5c2b29b150a0f689a73989949ed2ff18fc5e27381f97650",
+      "alt": "Two professionals discuss a business plan at a desk. An action record tracks a problem through its cause, corrective work and verified closure with an evidence field."
+    },
+    {
+      "slug": "franchise-supplier-approval-process",
+      "kind": "articles",
+      "cast": "logistics-team",
+      "right": true,
+      "sceneHash": "2df4a20a931a2690d9aba2b2f56e503f5ad339044362b0b471a8d5638bef433f",
+      "alt": "An operations team reviews an organised delivery. A supplier review pairs an identified sample with documented product specification, capacity and delivery checks."
+    },
+    {
+      "slug": "franchise-procurement-price-transparency",
+      "kind": "articles",
+      "cast": "retail-review",
+      "right": true,
+      "sceneHash": "65676e833fc258c09df4ba859c97338e345e1148923e9cf503af852c1ec2d809",
+      "alt": "A shop owner and advisor examine a retail product. An itemised delivered-cost invoice separates the product price, freight and other charges beside the shipment."
+    },
+    {
+      "slug": "franchise-inventory-replenishment",
+      "kind": "articles",
+      "cast": "retail-review",
+      "right": true,
+      "sceneHash": "01174a5e7878336eaabc0729d22227823b1b64be952e7d833827276599577a9c",
+      "alt": "A shop owner and advisor examine a retail product. A stock-level chart crosses a reorder threshold beside neatly arranged stock shelves and an incoming delivery."
+    },
+    {
+      "slug": "franchise-menu-assortment-localisation",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "91aa6d4b5b594f9ebd91b84835d32afc4c2ab3dafb3998e9ed1f1a9426e7e6a6",
+      "alt": "Two professionals discuss a business plan at a desk. A consistent core offer is shown next to a separately defined local test with feedback and approval checks."
+    },
+    {
+      "slug": "franchise-territory-allocation-policy",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "3810a368a49687643c6a0853d46ae12ae973d8d25efe0d5c38ea9b0e402e245c",
+      "alt": "A business owner holds her planning folder. A planning map defines three separate territories and links each boundary to clear location and channel rules."
+    },
+    {
+      "slug": "franchise-site-approval-scorecard",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "efe21444b7d775428d0ba5bc980666ba094619e7b05e10ff65b1b1b83745ded6",
+      "alt": "A business owner holds her planning folder. A measured premises plan is reviewed against access, services, demand and lease constraints."
+    },
+    {
+      "slug": "franchise-rollout-capex-control",
+      "kind": "articles",
+      "cast": "quality-review",
+      "right": true,
+      "sceneHash": "9c8ac836fc3ac3d7623e9217e53c301fff4135c8ed87e6756e5b9d0d6d39abee",
+      "alt": "Two operations professionals review a checklist. A fit-out drawing, comparable quotations and an approved budget are arranged as a coordinated opening-cost review."
+    },
+    {
+      "slug": "franchise-local-marketing-toolkit",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "453fc13bf896c46da96cee26db1cf511260d26d776918e362be80903bda68608",
+      "alt": "Two professionals discuss a business plan at a desk. A coordinated local marketing kit combines a branded opening poster, mobile content template and editable promotional sheet."
+    },
+    {
+      "slug": "franchise-marketing-fund-governance",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "bba9ef3ce282db461725876000816fdf4a34cc26d047520cd376b8d9c994dacb",
+      "alt": "Two professionals discuss a business plan at a desk. A pooled marketing fund ledger shows outlet contributions, allocated activity and a transparent reporting record."
+    },
+    {
+      "slug": "franchise-digital-asset-ownership",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "b766402a6db175c133f0c616297fd55954d9ca547337ad97c52d997909cb9551",
+      "alt": "A business owner holds her planning folder. Website, local profile and advertising accounts sit in an ownership register with assigned access and handover checks."
+    },
+    {
+      "slug": "franchise-local-seo-network",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "0b3a91b5fd99f97039ad27736815d7d8541745a050b1ef9f2ad0a63fc7e67d41",
+      "alt": "A business owner holds her planning folder. A local search page displays useful business details beside a map of distinct outlet locations."
+    },
+    {
+      "slug": "franchise-crm-data-retention",
+      "kind": "articles",
+      "cast": "strategy-session",
+      "right": true,
+      "sceneHash": "6d0968f3f272ed91a84cf89aaa8361f135b28a2e0f0498e76b0eba8e2d32bbf5",
+      "alt": "Two professionals discuss a business plan at a desk. A secured enquiry archive has a review date and a documented retention decision, including deletion when no longer needed."
+    },
+    {
+      "slug": "choosing-franchise-consultant-for-your-brand",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "6ccf5000463d8af8818e2bb6989ae994d5303ec9a7ad606733288774310f1276",
+      "alt": "A business owner holds her planning folder. A consultant comparison worksheet reviews scope, deliverables, responsibilities and fees across three proposals."
+    },
+    {
+      "slug": "franchise-conflict-escalation",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "8c72283fa2fc2f63290ace6fc54b2e6542f22652fc266f3a2dfd3836123f1b0e",
+      "alt": "A business owner holds her planning folder. A shared issue record sits between two sets of observations and follows a documented route to resolution."
+    },
+    {
+      "slug": "franchise-outlet-financial-reporting",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "6a3893a67f25ee2a9cc6dc7fce51e8041cab627efca5ffa47d3e5ebb92ec2dba",
+      "alt": "Two business professionals discuss a plan at a round table. Comparable outlet records feed a network report that distinguishes sales, profit and cash in the same reporting period."
+    },
+    {
+      "slug": "franchise-underperformance-support",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": false,
+      "sceneHash": "89a14ebac03954da98f7f382bdcf33beec6ccb7783d269660f9f7618ebe0ff3c",
+      "alt": "A business owner holds her planning folder. A performance review identifies a falling trend and pairs the evidence with a targeted support plan and review checkpoints."
+    },
+    {
+      "slug": "multi-unit-operator-assessment",
+      "kind": "articles",
+      "cast": "team-coaching",
+      "right": false,
+      "sceneHash": "45a9ea58e00b609d620d24ba465640b1fa6e3220703933b2f0751cf3aa02a557",
+      "alt": "Three colleagues discuss their work around a table. An existing outlet and two additional locations are connected to an assessment of people, cash and operating controls."
+    },
+    {
+      "slug": "franchise-renewal-review-process",
+      "kind": "articles",
+      "cast": "consultation",
+      "right": true,
+      "sceneHash": "051ccec69171a48f6b4e2e36b332714f417831d88eac4a1831be0bf03ffa07d8",
+      "alt": "Two business professionals discuss a plan at a round table. A franchise agreement is checked against operating history, future investment and the next renewal deadline."
+    },
+    {
+      "slug": "franchise-exit-debranding-handover",
+      "kind": "articles",
+      "cast": "legal-advice",
+      "right": false,
+      "sceneHash": "f2ea6fe276f0959d521daf59cb80331705e3346cd2bb7550f735535818595aff",
+      "alt": "An advisor and business owner review a folder together. A storefront has a plain replacement sign while the removed branded sign and a handover record are placed beside it."
+    },
+    {
+      "slug": "scaling-service-franchise-operations",
+      "kind": "articles",
+      "cast": "business-owner",
+      "right": true,
+      "sceneHash": "9c3480292196ce2fb526686a8c5232cfe086e1c10fe7f426ff55629850ac3a4e",
+      "alt": "A business owner holds her planning folder. A service dispatch board assigns appointment times and routes to a branded service vehicle and distinct customer stops."
+    },
+    {
+      "slug": "for-investors",
+      "kind": "collections",
+      "cast": "consultation",
+      "right": false,
+      "sceneHash": "cf8d6dc3e8e02bc1d7abf909449445cee2fb27d1c14f91248f897ba6b32b92d3",
+      "alt": "Two business professionals discuss a plan at a round table. A carefully arranged franchise investment plan with a budget, calculator and location review."
+    },
+    {
+      "slug": "for-brands",
+      "kind": "collections",
+      "cast": "strategy-session",
+      "right": false,
+      "sceneHash": "ff8b8c109f0cfa0df503d0859952d0ae131c80fc8de2b323360aa8847974168e",
+      "alt": "Two professionals discuss a business plan at a desk. A franchise expansion plan connects a proven central outlet with new locations and an operating handbook."
+    },
+    {
+      "slug": "franchise-basics",
+      "kind": "collections",
+      "cast": "learning-session",
+      "right": true,
+      "sceneHash": "6e8f20401c3ebf8090e5deb8956459478eb6e1adf9431fe6c278aa760fded994",
+      "alt": "A trainer and adult learner work through a notebook. An open franchise handbook with an outlet elevation, agreement, key and ownership diagram."
+    },
+    {
+      "slug": "industries",
+      "kind": "collections",
+      "cast": "retail-review",
+      "right": true,
+      "sceneHash": "0943bb6fc92aeab0eb84475022fa1b2fc770bdd9267041b014fed629d9a0fe61",
+      "alt": "A shop owner and advisor examine a retail product. Four precise storefront elevations show café, retail, education and healthcare franchise formats."
+    }
+  ]
+}
