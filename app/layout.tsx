@@ -16,6 +16,7 @@ import './theme-controls.css';
 import './readability.css';
 import './dark-theme.css';
 import './live-backgrounds.css';
+import './home-redesign.css';
 import {DEFAULT_THEME,themeBootstrap} from '../lib/theme';
 import {Header,Footer,WhatsAppButton} from '../components/shell';
 import {Measurement} from '../components/measurement';
