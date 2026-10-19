@@ -5,10 +5,9 @@ type EditorialCoverProps = {
   priority?: boolean;
 };
 
-/** Preserve the approved vector brandmark as a subtle, non-interactive cover signature. */
+/** Shared sizing for article artwork with branding integrated into its illustrated surfaces. */
 export function EditorialCover({src,alt='',loading,priority=false}:EditorialCoverProps) {
-  const theme=src.split('/').pop()?.split('.')[0];
-  return <span className="editorial-cover" data-cover={theme}>
+  return <span className="editorial-cover">
     <img className="editorial-cover-image" src={src} alt={alt} width="1536" height="1024" loading={loading} fetchPriority={priority?'high':undefined}/>
   </span>;
 }

@@ -1,20 +1,10 @@
-/* Reuse the approved mark without redrawing it or changing either illustration palette. */
+/* The brandmark is integrated into the illustration asset, not overlaid on the cover. */
 .editorial-cover,.audience-collections .editorial-cover{
   position:relative;display:block;isolation:isolate;width:100%;height:100%;
   min-width:0;overflow:hidden;margin:0;padding:0;
 }
 .editorial-cover>img.editorial-cover-image{
   display:block;width:100%;height:100%;max-height:none;object-fit:cover;border-radius:0;
-}
-.editorial-cover::after{
-  content:"";position:absolute;right:4%;bottom:4%;width:7%;min-width:16px;max-width:44px;
-  aspect-ratio:507/455;opacity:.30;background:#32159B;pointer-events:none;z-index:1;
-  -webkit-mask:url('/assets/brandmark-purple.svg') center/contain no-repeat;
-  mask:url('/assets/brandmark-purple.svg') center/contain no-repeat;
-}
-/* Keep the signature in the open sky, away from the shops and people. */
-.editorial-cover[data-cover="industries"]::after{
-  top:4%;bottom:auto;left:50%;right:auto;transform:translateX(-50%);
 }
 .collection-heading>.editorial-cover{height:auto;aspect-ratio:3/2;max-height:275px;border-radius:3px}
 @media(max-width:600px){.collection-heading>.editorial-cover{max-height:190px}}
