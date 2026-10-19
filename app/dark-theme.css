@@ -1,0 +1,225 @@
+/* Dark appearance uses dark reading surfaces throughout. Photography and supplied
+   brand artwork retain their original pixels and colours. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --dark-page: #140e21;
+  --dark-surface: #20162e;
+  --dark-raised: #2a1e39;
+  --dark-input: #191124;
+  --dark-border: #594564;
+  --dark-text: #f5eefb;
+  --dark-copy: #d5c8e1;
+  --dark-muted: #bcaacb;
+  --dark-link: #d4b4f2;
+  --ink: var(--dark-text);
+  --muted: var(--dark-muted);
+  --paper: var(--dark-page);
+  --lavender: var(--dark-surface);
+  --line: var(--dark-border);
+  --purple: var(--dark-link);
+  background: var(--dark-page);
+  color: var(--dark-text);
+}
+
+html[data-theme="dark"] :is(body, main, .refined-home, .about-page,
+  .solutions-page, .franchise-page, .opportunities-page, .refined-contact,
+  .contact-page, .insights-page, .blogs-page, .editorial-detail, .privacy-page,
+  .faq-page, .job-page, .brand-detail-page) {
+  background: var(--dark-page);
+  color: var(--dark-text);
+}
+
+/* Section backgrounds, panels and reading areas. */
+html[data-theme="dark"] :is(.home-process, .home-questions, .about-scope,
+  .solution-services, .listing-preparation, .journey-section, .service-pane,
+  .service, .founder-card, .listing-checklist, .catalogue-note, .investment-highlight,
+  .enquiry-sidebar, .article-header, .article-answer, .article-sidebar,
+  .article-related, .article-highlight, .guide-card, .guide-text-card,
+  .audience-collections>a, .franchise-investment, .opportunity-help,
+  .policy-current, .job-compensation, .faq) {
+  background: var(--dark-surface);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+html[data-theme="dark"] :is(.editorial-card, .resource-card,
+  .resource-card:not(:has(>img)), .opportunity-card, .brand-card,
+  .editorial-feature, .opportunity-filters, .opportunity-empty,
+  .contact-form-panel, .brand-enquiry-panel, .enquiry-card, .job-sidebar,
+  .catalogue-toolbar, .unified-library .library-toolbar, .library-toolbar,
+  .privacy-panel, .cookie-banner, .cookie-dialog, .country-picker) {
+  background: var(--dark-surface);
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+  box-shadow: 0 12px 32px #07030e24;
+}
+html[data-theme="dark"] :is(.contact-enquiry.enquiry-card,
+  .listing-enquiry.enquiry-card, .editorial-library .library-toolbar) {
+  background: transparent;
+  box-shadow: none;
+}
+html[data-theme="dark"] :is(.franchise-nav, .brand-anchor-nav,
+  .franchise-mobile-cta, .mobile-brand-cta) {
+  background: #20162ef5;
+  color: var(--dark-copy);
+  border-color: var(--dark-border);
+}
+
+/* Content colours must follow the dark surface, including older page templates. */
+html[data-theme="dark"] main :is(h1,h2,h3,h4,strong,dd,summary) {
+  color: var(--dark-text);
+}
+html[data-theme="dark"] main :is(p,li,dt,label,address),
+html[data-theme="dark"] :is(.privacy-panel p, .privacy-category p,
+  .privacy-category>span>span) {
+  color: var(--dark-copy);
+}
+html[data-theme="dark"] :is(.section-label, .section-kicker, .article-category,
+  .editorial-read, .resource-topic, .opportunity-category, .enquiry-context,
+  .franchise-category, .content-category, .job-department,
+  .home-process-list>li>span, .solution-service-grid>article>span,
+  .about-scope-grid>article>span, .solution-process li>span) {
+  color: var(--dark-link);
+}
+html[data-theme="dark"] :is(.breadcrumb, .breadcrumb span, .article-breadcrumb,
+  .article-breadcrumb span, .job-breadcrumb, .job-breadcrumb span,
+  .article-byline, .article-byline span, .editorial-card-meta,
+  .editorial-card-meta>span, .article-scope, .franchise-facts>div>span,
+  .franchise-investment>span, .franchise-disclaimer, .franchise-section-heading>span,
+  .franchise-next-steps>div>span, .franchise-brochure small, .opportunity-note,
+  .opportunity-results, .opportunity-results label, .library-results,
+  .field-optional, .field-hint, .form-local-note, .paused-status,
+  .enquiry-card .consent, .enquiry-card .consent span, .country-trigger span,
+  .privacy-intro>span, .privacy-policy-link span, .policy-navigation>strong) {
+  color: var(--dark-muted);
+}
+html[data-theme="dark"] main :is(.text-link, .breadcrumb a,
+  .article-breadcrumb a, .job-breadcrumb a, .article-sidebar a,
+  .article-directory a, .article-body a:not(.button), .policy-body a,
+  .policy-navigation a, .policy-inline-button, .job-back,
+  .job-apply a:not(.button), .brand-direct-contact a, .brand-sources a,
+  .franchise-brochure>a, .franchise-nav a, .brand-anchor-nav a,
+  .library-results button, .opportunity-filter-heading>a,
+  .opportunity-reset, .guide-read, .checkbox-label a,
+  .audience-collections span, .franchise-highlights svg, .plain-checks svg) {
+  color: var(--dark-link);
+}
+html[data-theme="dark"] .landing-page .detail-section>.lead-copy {
+  color: var(--dark-copy) !important;
+}
+html[data-theme="dark"] :is(.editorial-card, .resource-card, .opportunity-card,
+  .audience-collections>a):hover {
+  border-color: #ae88cc;
+  box-shadow: 0 12px 28px #07030e40;
+}
+html[data-theme="dark"] :is(.job-row:hover, .guide-text-card:hover) {
+  background: var(--dark-raised);
+}
+html[data-theme="dark"] :is(.home-process-list>li, .home-audiences>div,
+  .home-resources li, .about-scope-grid>article, .solution-service-grid>article,
+  .solution-process li, .job-row, .job-facts, .job-body section,
+  .job-sidebar dl>div, .article-byline, .article-body section,
+  .article-body .content-faq details, .home-questions details,
+  .franchise-facts, .franchise-specs>div, .opportunity-card-facts,
+  .editorial-card-meta, .editorial-read, .policy-body section,
+  .enquiry-fieldset legend, .privacy-category) {
+  border-color: var(--dark-border);
+}
+
+/* Search, filters and every enquiry share the same dark control treatment. */
+html[data-theme="dark"] :is(.field input, .field select, .field textarea,
+  .phone-control, .search-field, .filter-field, .filter-field select,
+  .opportunity-field select, .opportunity-field input, .country-search) {
+  background: var(--dark-input);
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+}
+html[data-theme="dark"] :is(.search-field input, .country-options button,
+  .country-options strong, .country-empty, .opportunity-results select,
+  .results-toolbar select) {
+  color: var(--dark-text);
+}
+html[data-theme="dark"] :is(.field label, .enquiry-fieldset legend,
+  .filter-field label, .opportunity-field label) {color: var(--dark-copy);}
+html[data-theme="dark"] :is(.field input, .field textarea, .search-field input,
+  .opportunity-search input, .opportunity-field input)::placeholder {
+  color: var(--dark-muted);
+  opacity: 1;
+}
+html[data-theme="dark"] .field .phone-control>input {
+  background: transparent;
+}
+html[data-theme="dark"] :is(.phone-control .country-trigger, .form-toggle,
+  .paused-status, .preview-note, .form-message, .privacy-panel .privacy-status,
+  .privacy-panel .cookie-manage, .privacy-panel .privacy-close,
+  .privacy-category .always-on, .opportunity-selections button,
+  .sector-tabs button, .content-tabs a, .round-arrow) {
+  background: var(--dark-raised);
+  border-color: var(--dark-border);
+  color: var(--dark-copy);
+}
+html[data-theme="dark"] .form-toggle>button {color: var(--dark-copy);}
+html[data-theme="dark"] :is(.country-active, .country-options>[aria-selected=true],
+  .country-options button:hover) {background:#3d2a50;}
+html[data-theme="dark"] :is(.form-toggle>button[aria-pressed=true],
+  .form-toggle>button[aria-selected=true], .sector-tabs button[aria-pressed=true],
+  .content-tabs a[aria-current=page], .blogs-hero .collection-nav>a[aria-current]) {
+  background:#65408b;
+  color:#fff;
+  border-color:#b491ce;
+}
+html[data-theme="dark"] :is(.field input[aria-invalid=true],
+  .phone-control.field-invalid, .form-message.error) {
+  background:#3b1b2c;
+  color:#ffd6df;
+  border-color:#ed899b !important;
+}
+html[data-theme="dark"] .field .field-error {color:#ffacbc;}
+html[data-theme="dark"] :is(input,select,textarea):focus-visible,
+html[data-theme="dark"] .phone-control:focus-within {
+  outline-color:#d4b4f2;
+  border-color:#d4b4f2;
+}
+html[data-theme="dark"] input[type="checkbox"] {accent-color:#b68bdc;}
+html[data-theme="dark"] option {background:var(--dark-input);color:var(--dark-text);}
+
+/* Clear calls to action, without bright panel-sized backgrounds. */
+html[data-theme="dark"] :is(.button, .opportunity-details,
+  .privacy-panel .cookie-choice) {
+  background:#68408f;
+  color:#fff;
+  border-color:#a17cbd;
+}
+html[data-theme="dark"] :is(.button:hover, .opportunity-details:hover,
+  .privacy-panel .cookie-choice:hover) {background:#7950a1;color:#fff;}
+html[data-theme="dark"] :is(.button.light, .button.white, .button.lime,
+  .button.outline, .opportunity-enquire, .policy-preferences,
+  .franchise-hero-photo>a) {
+  background:var(--dark-raised);
+  color:var(--dark-text);
+  border-color:#9c7ab7;
+}
+html[data-theme="dark"] :is(.button.light:hover, .button.white:hover,
+  .button.lime:hover, .button.outline:hover, .opportunity-enquire:hover,
+  .policy-preferences:hover, .privacy-panel .cookie-manage:hover,
+  .privacy-panel .privacy-close:hover) {background:#3d2a50;color:#fff;}
+html[data-theme="dark"] .button>svg {border-color:#ffffff35;}
+html[data-theme="dark"] :is(.privacy-panel h2,.privacy-category strong) {
+  color:var(--dark-text);
+}
+html[data-theme="dark"] :is(.privacy-policy-link a,.privacy-panel .privacy-status,
+  .franchise-hero-photo>a>small) {color:var(--dark-copy);}
+
+/* Media remain unmodified. Only the frame behind them follows the theme. */
+html[data-theme="dark"] :is(.editorial-card-art, .article-hero-grid figure,
+  .editorial-cover, .explainer-player, .opportunity-card-photo) {background:var(--dark-surface);border-color:var(--dark-border);}
+html[data-theme="dark"] .skip-link {background:var(--dark-raised);color:var(--dark-text);}
+html[data-theme="dark"] .article-body .content-faq summary {color:var(--dark-text);}
+html[data-theme="dark"] .home-questions summary span {color:var(--dark-link);}
+html[data-theme="dark"] .opportunity-card-identity {border-color:var(--dark-raised);}
+html[data-theme="dark"] .policy-body code {color:var(--dark-link);}
+html[data-theme="dark"] :is(.company-photo, .gallery-stage,
+  .franchise-page .gallery-open>img, .gallery-dialog) {background:var(--dark-surface);}
+html[data-theme="dark"] :is(.gallery-controls, .gallery-open>span,
+  .gallery-close, .gallery-jump) {background:var(--dark-raised);color:var(--dark-text);}
+html[data-theme="dark"] .gallery-controls>button:hover {background:#65408b;}
+html[data-theme="dark"] .job-heading>p:last-of-type {color:var(--dark-copy);}
