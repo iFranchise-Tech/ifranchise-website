@@ -1,0 +1,42 @@
+/* Foreground colours follow the surface they sit on, independently of appearance. */
+html .blogs-hero .article-breadcrumb,
+html .blogs-hero .article-breadcrumb a,
+html .blogs-hero .article-breadcrumb span,
+html .blogs-hero .collection-count { color:#eee8fa; }
+html .blogs-hero .article-breadcrumb a:hover { color:#fff; text-decoration:underline; text-underline-offset:4px; }
+html .blogs-hero .collection-nav>a {color:#fff;border-color:#b8a4d2;background:transparent;}
+html .blogs-hero .collection-nav>a:hover {background:#ffffff16;border-color:#fff;}
+html .blogs-hero .collection-nav>a[aria-current] {background:#fff;color:#32159b;border-color:#fff;}
+html .blogs-hero .collection-nav>a:focus-visible {outline-color:#fff;}
+html .blogs-hero .collection-count {font-size:12px;line-height:1.75;}
+html[data-theme="light"] .closing-cta .closing-whatsapp {color:#32159b;}
+html[data-theme="light"] .home-explainer h2 {color:#fff;}
+html[data-theme="light"] .home-explainer .explainer-credit {color:#e9e2fc;}
+html[data-theme="light"] .company-hero .company-hero-content>p,
+html[data-theme="light"] .company-hero p,
+html[data-theme="light"] .contact-information .contact-link small,
+html[data-theme="light"] .article-body .article-next-step p {color:#eee8fa;}
+html .explainer-player {color:#21104f;}
+html[data-theme="dark"] .closing-cta {background:linear-gradient(115deg,#432451,#5b3971);}
+html[data-theme="dark"] .closing-cta p,
+html[data-theme="dark"] .closing-cta .closing-whatsapp {color:#f4eef9;}
+/* Light reading surfaces are retained in the original dark design. */
+html[data-theme="dark"] :is(.home-audiences p,.home-section-heading>p,.home-process-list p,.home-resources p,.about-scope p,.about-leadership p,.solution-service-grid p,.listing-preparation p,.solution-process p) {color:#62506e;}
+html[data-theme="dark"] :is(.section-label,.home-process-list>div>span,.about-scope-grid>div>span,.solution-service-grid>div>span,.solution-process span) {color:#684b7a;}
+html[data-theme="dark"] :is(.opportunity-results p,.opportunity-category,.opportunity-card-facts dt,.opportunity-note,.listing-form-heading p,.brand-direct-contact p,.franchise-investment>span,.franchise-investment p,.franchise-specs dt,.franchise-disclaimer,.franchise-section-heading>span,.franchise-next-steps span,.brand-sources summary) {color:#62506e;}
+html[data-theme="dark"] :is(.article-header .article-breadcrumb,.article-header .article-breadcrumb span,.article-byline,.article-byline span,.article-sidebar a,.article-body .article-scope,.editorial-card-meta,.editorial-card-meta>span,.editorial-library .filter-field label) {color:#62506e;}
+html[data-theme="dark"] :is(.contact-heading>p,.contact-page>.page-wrap>.breadcrumb,.contact-page>.page-wrap>.breadcrumb span,.contact-enquiry .form-toggle>button:not([aria-pressed=true]),.contact-enquiry-heading p,.listing-form-heading p,.field-optional,.form-local-note,.contact-enquiry .form-local-note,.paused-status,.enquiry-card .consent,.enquiry-card .consent span,.country-trigger span) {color:#62506e;}
+html[data-theme="dark"] :is(.privacy-page .breadcrumb,.privacy-page .breadcrumb span,.privacy-intro>span,.faq-page .breadcrumb,.faq-page .breadcrumb span) {color:#62506e;}
+html .field input::placeholder,html .field textarea::placeholder,
+html .editorial-library .search-field input::placeholder,
+html .opportunity-search input::placeholder {color:#6c5a78;opacity:1;}
+html[data-theme="dark"] :is(.home-process-list>*>span,.about-scope-grid>*>span,.solution-service-grid>*>span,.contact-intro>p,.contact-form-heading>p,.enquiry-card .checkbox-label>span,.brand-sources p) {color:#62506e;}
+html[data-theme="dark"] .home-explainer .home-section-heading>p {color:#e9e2f2;}
+html[data-theme="dark"] .page-wrap>.breadcrumb {color:#62506e;}
+html[data-theme="dark"] :is(.company-hero,.editorial-hero,.franchise-hero,.opportunities-hero) .breadcrumb,
+html[data-theme="dark"] :is(.company-hero,.editorial-hero,.franchise-hero,.opportunities-hero) .breadcrumb a {color:#e9e2f2;}
+html[data-theme="light"] .contact-information .contact-methods small {color:#eee8fa;}
+html[data-theme="dark"] :is(.opportunity-results label,.job-breadcrumb,.job-breadcrumb span,.job-page dt) {color:#62506e;}
+html[data-theme="dark"] .blogs-hero .breadcrumb,
+html[data-theme="dark"] .blogs-hero .breadcrumb span,
+html[data-theme="dark"] .blogs-hero .breadcrumb a {color:#eee8fa;}
