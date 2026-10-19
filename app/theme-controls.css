@@ -1,0 +1,19 @@
+/* A single, reachable appearance control at every screen size. */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 11px;flex:none;border:1px solid #746082;border-radius:4px;background:transparent;color:#eee8f8;font-size:12px;font-weight:600;line-height:1;white-space:nowrap}
+.theme-toggle:hover{background:#ffffff10;border-color:#bea4d6}.theme-toggle:focus-visible{outline:2px solid #c6a9e7;outline-offset:4px}
+html[data-theme="light"] .theme-toggle{color:#32159B;border-color:#d8cff1;background:#fff}
+html[data-theme="light"] .theme-toggle:hover{background:#f3f0ff;border-color:#32159B}
+html[data-theme="light"] .theme-toggle:focus-visible{outline-color:#32159B}
+.editorial-cover>img.cover-light{display:none}
+html[data-theme="light"] .editorial-cover>img.cover-dark{display:none}
+html[data-theme="light"] .editorial-cover>img.cover-light{display:block}
+.header-inner{gap:18px}
+@media(min-width:1051px) and (max-width:1320px){
+ .direct-nav{display:none}.direct-nav.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:14px 25px 25px;background:#1b102b;max-height:calc(100dvh - 88px);overflow:auto;border-bottom:1px solid #57406c}
+ .direct-nav .nav-direct-link{font-size:14px;padding:15px 4px}.nav-direct-link:after{bottom:5px}
+ .menu-button{display:flex;align-items:center;justify-content:center;background:none;border:1px solid #655078;color:#eee1f7;width:42px;height:42px;flex:none}
+ .header-cta{margin-left:auto}.direct-nav.open .mobile-contact{display:flex;margin-top:14px}
+}
+@media(max-width:650px){.theme-toggle{width:40px;min-height:40px;padding:0}.theme-toggle>span{display:none}}
+@media(max-width:520px){.header-inner{gap:8px;padding:0 20px}.theme-toggle{margin-left:auto}.site-header .menu-button{margin-left:0;min-width:40px}.site-header .identity-lockup>.identity-master{width:235px}.site-header .identity-lockup{min-width:0;flex-shrink:1}}
+@media(max-width:360px){.header-inner{padding:0 16px;gap:6px}.site-header .identity-lockup>.identity-master{width:210px}}
