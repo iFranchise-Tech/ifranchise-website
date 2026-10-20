@@ -2,8 +2,13 @@ import {hydrateBrand} from './catalogue-fields.mjs';
 import {db,CmsError} from './auth';
 import {baseline,defaults} from './defaults';
 export function recordFromRow(r:any){return {id:r.id,kind:r.kind,slug:r.slug,draft:r.kind==='franchises'?hydrateBrand(JSON.parse(r.draft)):JSON.parse(r.draft),live:r.live?JSON.parse(r.live):null,status:r.status,intent:r.intent,version:r.version,updatedBy:r.updated_by,submittedBy:r.submitted_by,updatedAt:r.updated_at};}
-export async function getRecord(id:string){const row=await db().prepare('SELECT * FROM cms_records WHERE id=?').bind(id).first();if(row)return recordFromRow(row);const [kind,slug]=id.split(':');return baseline(kind,slug);}
-export async function allRecords(kind:string){const map=new Map((defaults[kind]||[]).map(d=>[d.slug,baseline(kind,d.slug)!]));const rows=await db().prepare('SELECT * FROM cms_records WHERE kind=?').bind(kind).all();for(const row of rows.results){const r=recordFromRow(row);map.set(r.slug,r);}return [...map.values()];}
+// Compatibility backfill runs in application storage, outside schema migrations.
+async function preserveLegacyFaq(){await db().batch([
+ db().prepare("INSERT OR IGNORE INTO cms_records (id,kind,slug,draft,live,status,intent,version,updated_by,submitted_by,updated_at,mutation) SELECT 'faqs:general','faqs','general',json_set(draft,'$.slug','general'),CASE WHEN live IS NULL THEN NULL ELSE json_set(live,'$.slug','general') END,status,intent,version,updated_by,submitted_by,updated_at,mutation FROM cms_records WHERE id='pages:faqs'"),
+ db().prepare("UPDATE cms_events SET record_id='faqs:general' WHERE record_id='pages:faqs' AND EXISTS (SELECT 1 FROM cms_records WHERE id='faqs:general')")
+]);}
+export async function getRecord(id:string){if(id==='pages:faqs')id='faqs:general';if(id==='faqs:general')await preserveLegacyFaq();const row=await db().prepare('SELECT * FROM cms_records WHERE id=?').bind(id).first();if(row)return recordFromRow(row);const [kind,slug]=id.split(':');return baseline(kind,slug);}
+export async function allRecords(kind:string){if(kind==='faqs')await preserveLegacyFaq();const map=new Map((defaults[kind]||[]).map(d=>[d.slug,baseline(kind,d.slug)!]));const rows=await db().prepare('SELECT * FROM cms_records WHERE kind=?').bind(kind).all();for(const row of rows.results){const r=recordFromRow(row);if(kind==='pages'&&r.slug==='faqs')continue;map.set(r.slug,r);}return [...map.values()];}
 export function summary(r:any){return {id:r.id,kind:r.kind,slug:r.slug,title:r.draft.name||r.draft.title,subtitle:r.draft.category||r.draft.dept||'',image:r.draft.logo||r.draft.image||'',status:r.status,intent:r.intent,version:r.version,live:!!r.live,updatedBy:r.updatedBy,submittedBy:r.submittedBy,updatedAt:r.updatedAt};}
 export async function writeRecord(record:any,expected:number,actor:string,action:string,note=''){
  const mutation=crypto.randomUUID(),now=new Date().toISOString(),next={...record,version:expected+1,updatedAt:now,updatedBy:actor};
