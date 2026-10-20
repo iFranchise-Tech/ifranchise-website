@@ -1,6 +1,6 @@
 import {checkMedia} from '../../../lib/cms/media-permissions';
 import {adminIdentity,assertOrigin,boundedBody,CmsError,db,failure,getMembers,memberFromRow,response} from '../../../lib/cms/auth';
-import {canView,canEdit,canApprove,scopeFor,SCOPES,ROLES,validateHierarchy,workEmail} from '../../../lib/cms/policy.mjs';
+import {canView,canEdit,canPublish,canApprove,scopeFor,SCOPES,ROLES,validateHierarchy,workEmail} from '../../../lib/cms/policy.mjs';
 import {getRecord,allRecords,summary,writeRecord} from '../../../lib/cms/store';
 import {validPayload} from '../../../lib/cms/validation';
 import {blank} from '../../../lib/cms/defaults';
@@ -25,37 +25,45 @@ export async function POST(req:Request){try{
  if(typeof body.slug!=='string'||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(body.slug))throw new CmsError(422,'Invalid URL slug.');
  const id=kind+':'+body.slug;let r:any=await getRecord(id);
  if(r&&r.version!==body.version||!r&&body.version!==0)throw new CmsError(409,'Someone changed this item. Reload it before saving.');
- const note=typeof body.note==='string'?body.note.trim().slice(0,2000):'';
- if(action==='save'){
+ const note=typeof body.note==='string'?body.note.trim().slice(0,2000):'';let event=action;
+ if(action==='save'||action==='save-publish'){
+  if(action==='save-publish'&&!canPublish(me,kind))throw new CmsError(403,'You cannot publish this section.');
   if(r?.status==='review')throw new CmsError(409,'Withdraw this submission before editing it.');
+  if(r?.status==='archived')throw new CmsError(409,'Restore this item before editing it.');
   if(kind==='pages'&&!r||kind==='placements'&&body.slug!=='franchises')throw new CmsError(422,'This page cannot be created.');
   const draft=validPayload(kind,body.payload);await checkMedia(me,draft);if(draft.slug!==body.slug)throw new CmsError(422,'The URL slug cannot change after creation.');
   r={...(r||{id,kind,slug:body.slug,live:null}),draft,status:'draft',intent:'publish',submittedBy:null};
+  if(action==='save-publish'){r=await publishedRecord(me,r);event='publish';}
  }else{
   if(!r)throw new CmsError(404,'Item not found.');
   if(action==='submit'){
    if(!['draft','changes'].includes(r.status))throw new CmsError(409,'Save a draft before submitting it.');
-   if(r.intent!=='archive')r.draft=validPayload(kind,r.draft,true);
-   if(kind==='placements'){const brands=await allRecords('franchises');if(r.draft.ids.some((s:string)=>!brands.some(b=>b.slug===s)))throw new CmsError(422,'The order contains an unknown brand.');}
-   if(me.role!=='super_admin'){const team=await getMembers();if(!team.some(m=>canApprove(m,{...r,submittedBy:me.email},team)))throw new CmsError(422,'No approver is assigned for this section. Contact your Super Admin.');}
-   r={...r,status:'review',submittedBy:me.email};
+   if(canPublish(me,kind)){r=await publishedRecord(me,r);event=r.status==='archived'?'archive':'publish';}
+   else {await validatePublication(me,r);const team=await getMembers();if(!team.some(m=>canApprove(m,{...r,submittedBy:me.email},team)))throw new CmsError(422,'No approver is assigned for this section. Contact your Super Admin.');r={...r,status:'review',submittedBy:me.email};}
   }else if(action==='publish'||action==='reject'){
-   if(r.status!=='review')throw new CmsError(409,'This item is not awaiting review.');
-   if(!canApprove(me,r,await getMembers()))throw new CmsError(403,'This approval is assigned to a reporting manager.');
+   if(!canPublish(me,kind))throw new CmsError(403,'You cannot publish this section.');
+   if(r.status==='review'){if(!canApprove(me,r,await getMembers()))throw new CmsError(403,'This approval is assigned to a reporting manager.');}
+   else if(action==='reject'||!['draft','changes'].includes(r.status))throw new CmsError(409,'This item has no changes ready to publish.');
    if(action==='reject'){if(!note)throw new CmsError(422,'Add a review note.');r={...r,status:'changes'};}
-   else {if(r.intent!=='archive')r.draft=validPayload(kind,r.draft,true);r={...r,live:r.intent==='archive'?null:r.draft,status:r.intent==='archive'?'archived':'published'};}
+   else {r=await publishedRecord(me,r);if(r.status==='archived')event='archive';}
   }else if(action==='withdraw'){
    if(r.status!=='review'||me.email!==r.submittedBy&&me.role!=='super_admin')throw new CmsError(403,'Only the submitter or Super Admin can withdraw this submission.');r={...r,status:'draft',submittedBy:null};
   }else if(action==='archive'){
-   if(['pages','placements'].includes(kind))throw new CmsError(422,'This section cannot be archived.');if(r.status==='review')throw new CmsError(409,'Withdraw this submission first.');r={...r,status:'draft',intent:'archive',submittedBy:null};
+   if(['pages','placements'].includes(kind))throw new CmsError(422,'This section cannot be archived.');if(r.status==='review')throw new CmsError(409,'Withdraw this submission first.');if(r.status==='archived')throw new CmsError(409,'This item is already archived.');r={...r,status:'draft',intent:'archive',submittedBy:null};if(canPublish(me,kind))r=await publishedRecord(me,r);
   }else if(action==='restore'){
    if(r.status!=='archived')throw new CmsError(409,'Only archived items can be restored.');r={...r,status:'draft',intent:'publish',submittedBy:null};
   }else if(action==='revert'){
    if(r.status==='review')throw new CmsError(409,'Withdraw this submission first.');const rev:any=await db().prepare('SELECT snapshot FROM cms_events WHERE id=? AND record_id=?').bind(body.revision,id).first();if(!rev?.snapshot)throw new CmsError(404,'Revision not found.');const snapshot=validPayload(kind,JSON.parse(rev.snapshot));await checkMedia(me,snapshot);r={...r,draft:snapshot,status:'draft',intent:'publish',submittedBy:null};
   }else throw new CmsError(400,'Unknown action.');
  }
- return response({record:await writeRecord(r,body.version,me.email,action,note)});
+ return response({record:await writeRecord(r,body.version,me.email,event,note)});
  }catch(e){return failure(e)}}
+async function validatePublication(me:any,r:any){
+ if(r.intent==='archive')return;
+ r.draft=validPayload(r.kind,r.draft,true);await checkMedia(me,r.draft);
+ if(r.kind==='placements'){const brands=await allRecords('franchises');if(r.draft.ids.some((s:string)=>!brands.some(b=>b.slug===s)))throw new CmsError(422,'The order contains an unknown brand.');}
+}
+async function publishedRecord(me:any,r:any){await validatePublication(me,r);return {...r,live:r.intent==='archive'?null:r.draft,status:r.intent==='archive'?'archived':'published'};}
 async function changeMember(me:any,b:any){
  if(me.role!=='super_admin')throw new CmsError(403,'Only a Super Admin can manage employees.');
  const p=b.payload,email=p?.email?.trim().toLowerCase();if(!workEmail(email))throw new CmsError(422,'Enter a valid iFranchise email address.');

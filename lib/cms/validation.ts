@@ -18,7 +18,7 @@ export function validPayload(kind:string,p:any,complete=false){
  if(kind==='placements'&&new Set(v.ids).size!==v.ids.length)throw new CmsError(422,'Each brand must appear once.');
  if(complete){
  const fields=kind==='franchises'?['name','category','budget','model','description','overview','logo']:kind==='articles'?['title','excerpt','category','image','imageAlt','introHighlight']:kind==='jobs'?['title','dept','type','location','aboutRole']:kind==='pages'&&v.slug==='homepage'?['headline','intro']:[];
- const missing=fields.find(k=>!v[k]?.trim());if(missing)throw new CmsError(422,'Complete '+missing+' before submitting.');
+ const missing=fields.find(k=>!v[k]?.trim());if(missing)throw new CmsError(422,'Complete '+missing+' before publishing or submitting.');
  if(kind==='articles'&&v.sections.some((s:any)=>!s.heading.trim()||!s.body.some((b:string)=>b.trim())))throw new CmsError(422,'Every article section needs a heading and body.');
  if(kind==='jobs'&&(!v.responsibilities.length||!v.requirements.length))throw new CmsError(422,'Add the role responsibilities and requirements.');
  if(kind==='pages'&&v.slug==='faqs'&&v.questions.some((q:any)=>!q.q.trim()||!q.a.trim()))throw new CmsError(422,'Complete each question and answer.');

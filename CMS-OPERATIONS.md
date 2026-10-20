@@ -4,8 +4,8 @@ Portal: `/admin`. Hosted authentication is provided by Sites. Only verified `@if
 
 ## Roles
 
-- Super Admin: all sections, team administration and approvals.
-- Approver: view/edit assigned sections and approve submissions in their reporting chain; cannot approve their own submissions.
+- Super Admin: all sections, team administration, direct publishing and approvals.
+- Approver: view/edit and publish assigned sections directly; approve submissions in their reporting chain. Own changes never require a separate approval. Existing self-submissions can be published directly.
 - Editor: create/edit/submit assigned sections.
 - Viewer: read assigned content and previews.
 
@@ -15,7 +15,7 @@ The portal creates access invitations and provides a prefilled email through the
 
 ## Publishing
 
-Franchises, jobs, articles, homepage copy, FAQs, and franchise display order use the same workflow: draft → submit → review → publish/request changes. Published snapshots remain unchanged while drafts are edited. Removal is a reviewed archive action; archived content can be restored as a new draft. URL slugs stay stable after creation. Revision restore never publishes automatically.
+Franchises, jobs, articles, homepage copy, FAQs, and franchise display order share permission-aware publishing. Super Admins and Approvers with edit access to the affected section use Publish / Save changes to save and publish atomically. Their removal actions archive immediately. Save draft remains an explicit optional action. Editors without approval permission use draft → submit → manager review → publish/request changes, including removal requests. Old clients submitting as an authorised publisher are processed directly instead of queued. Reporting-chain restrictions still apply when reviewing another employee’s submission. Published snapshots remain unchanged while explicit drafts are edited. Archived content and previous revisions can be restored as a draft before publishing. URL slugs stay stable after creation.
 
 Content and membership writes use optimistic version checks. Membership edits also guard against concurrent hierarchy changes. Immutable audit events accompany transactional content mutations. Original imported content is captured in history on its first edit. Previews and API responses are protected and are not cacheable. Public routes read published records only. Built-in content provides the initial catalogue until a database override exists; tombstones prevent archived built-in entries reappearing.
 

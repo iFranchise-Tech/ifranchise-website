@@ -7,8 +7,8 @@ const image=await readFile('public/art/natural/articles/what-is-a-franchise.webp
 assert.equal((await fetch(base+m.url)).status,404);assert.equal((await fetch(base+m.url,{headers:h})).status,200);
 async function api(path='',body){const res=await fetch(base+'/api/admin'+path,{method:body?'POST':'GET',headers:{...h,'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});const d=await res.json();assert.equal(res.status,200,JSON.stringify(d));return d;}
 let r=(await api('?id=articles:what-is-a-franchise')).record,old=r.draft;
-for(const action of ['save','submit','publish'])r=(await api('',{action,kind:r.kind,slug:r.slug,version:r.version,...(action==='save'?{payload:{...old,image:m.url}}:{})})).record;
+for(const action of ['save-publish'])r=(await api('',{action,kind:r.kind,slug:r.slug,version:r.version,...(action==='save-publish'?{payload:{...old,image:m.url}}:{})})).record;
 assert.equal((await fetch(base+m.url)).status,200);
-for(const action of ['save','submit','publish'])r=(await api('',{action,kind:r.kind,slug:r.slug,version:r.version,...(action==='save'?{payload:old}:{})})).record;
+for(const action of ['save-publish'])r=(await api('',{action,kind:r.kind,slug:r.slug,version:r.version,...(action==='save-publish'?{payload:old}:{})})).record;
 assert.equal((await fetch(base+m.url)).status,404);
 console.log('PASS: bounded uploads, active-content rejection, protected draft files, published media availability, removal of public file access after unpublishing.');
