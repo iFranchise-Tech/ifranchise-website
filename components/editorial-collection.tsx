@@ -1,9 +1,11 @@
+import {published} from '../lib/cms/public';
 import {ArticleLibrary} from './article-library';
 import {EditorialCover} from "./editorial-cover";
-import {editorialArticles,articleCards} from '../lib/editorial';
+import {articleCards} from '../lib/editorial';
 import {editorialCollections} from '../lib/editorial-collections';
 import {SITE} from '../lib/site';
-export function EditorialCollection({slug}:{slug:string}){
+export async function EditorialCollection({slug}:{slug:string}){
+ const editorialArticles=await published('articles');
  const c=editorialCollections.find(c=>c.slug===slug)!;
  const items=editorialArticles.filter(a=>a.audience===c.audience&&(!c.category||a.category===c.category));
  const topics=[...new Set(items.map(a=>a.category))];

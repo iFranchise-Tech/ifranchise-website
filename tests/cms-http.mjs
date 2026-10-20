@@ -1,0 +1,33 @@
+// Runs only against a disposable local preview database.
+import assert from 'node:assert/strict';
+const base=process.env.CMS_TEST_ORIGIN||'http://127.0.0.1:3027';if(!/^http:\/\/127\.0\.0\.1:\d+$/.test(base))throw new Error('Local preview only');
+const testSlug='cms-qa-role-'+Date.now();
+const auth={'Cookie':'__sites_local_auth=1','Origin':base,'Content-Type':'application/json'};
+async function api(path='',body,expected=200,headers=auth){const r=await fetch(base+'/api/admin'+path,{method:body?'POST':'GET',headers,body:body?JSON.stringify(body):undefined});const raw=await r.text();let d;try{d=JSON.parse(raw)}catch{d={error:raw.slice(0,500)}};assert.equal(r.status,expected,JSON.stringify(d));return d;}
+await api('',undefined,401,{});await api('',{action:'save'},403,{'Cookie':auth.Cookie,'Origin':'https://evil.test','Content-Type':'application/json'});
+const overview=await api();assert.equal(overview.me.role,'super_admin');
+const original=(await api('?id=franchises:odette')).record;
+let r=(await api('',{action:'save',kind:'franchises',slug:original.slug,version:original.version,payload:{...original.draft,description:original.draft.description+' Local test.'}})).record;
+assert.equal(r.live.description,original.live.description);assert.equal(r.status,'draft');
+await api('',{action:'save',kind:'franchises',slug:r.slug,version:original.version,payload:r.draft},409);
+r=(await api('',{action:'submit',kind:r.kind,slug:r.slug,version:r.version})).record;assert.equal(r.status,'review');
+await api('',{action:'save',kind:r.kind,slug:r.slug,version:r.version,payload:r.draft},409);
+r=(await api('',{action:'reject',kind:r.kind,slug:r.slug,version:r.version,note:'Check the description.'})).record;assert.equal(r.status,'changes');
+r=(await api('',{action:'save',kind:r.kind,slug:r.slug,version:r.version,payload:original.draft})).record;
+r=(await api('',{action:'submit',kind:r.kind,slug:r.slug,version:r.version})).record;
+r=(await api('',{action:'publish',kind:r.kind,slug:r.slug,version:r.version})).record;assert.equal(r.live.description,original.draft.description);
+const jobTemplate=(await api('?kind=jobs')).blank;
+let job=(await api('',{action:'save',kind:'jobs',slug:testSlug,version:0,payload:{...jobTemplate,slug:testSlug,title:'Local CMS QA role',dept:'Testing',location:'Remote',aboutRole:'Local test only',responsibilities:['Test publishing'],requirements:['Test restores']}})).record;
+let page=await fetch(base+'/careers/'+testSlug);assert.equal(page.status,404);
+for(const action of ['submit','publish'])job=(await api('',{action,kind:job.kind,slug:job.slug,version:job.version})).record;
+page=await fetch(base+'/careers/'+testSlug);assert.equal(page.status,200);assert.match(await page.text(),/Local CMS QA role/);
+for(const action of ['archive','submit','publish'])job=(await api('',{action,kind:job.kind,slug:job.slug,version:job.version})).record;
+assert.equal(job.status,'archived');page=await fetch(base+'/careers/'+testSlug);assert.equal(page.status,404);
+job=(await api('',{action:'restore',kind:job.kind,slug:job.slug,version:job.version})).record;assert.equal(job.status,'draft');assert.equal(job.live,null);
+let order=(await api('?id=placements:franchises')).record;const ids=[...order.draft.ids].reverse();
+for(const action of ['save','submit','publish'])order=(await api('',{action,kind:order.kind,slug:order.slug,version:order.version,...(action==='save'?{payload:{...order.draft,ids}}:{})})).record;
+const catalogue=await (await fetch(base+'/franchise-opportunities')).text();const first=catalogue.indexOf('opportunity-card');assert.ok(catalogue.slice(first,first+800).includes('/franchise/'+ids[0]));
+const badMember={name:'Personal email',email:'bad@gmail.com',role:'editor',scopes:['articles'],manager:overview.me.email,status:'invited'};
+await api('',{action:'member',version:0,payload:badMember},422);
+const invited=await api('',{action:'member',version:0,payload:{...badMember,name:'Local QA editor',email:testSlug+'@ifranchise.in'}});assert.equal(invited.members.find(m=>m.email===testSlug+'@ifranchise.in').status,'invited');
+console.log('PASS: authentication, CSRF, draft isolation, edit conflicts, review locking, changes requested, publish, archive, restore, public pages, brand order, work email invitations.');

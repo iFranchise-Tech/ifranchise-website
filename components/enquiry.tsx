@@ -1,13 +1,14 @@
 'use client';
 import {PhoneField,EmailField} from './contact-fields';
 import {useEffect,useRef,useState} from 'react';
-import {brands} from '../lib/site';
+
 import {validateContact} from '../lib/enquiry.mjs';
 import {journeyConfig,createJourneyClient,budgetOptions,timeframeOptions} from '../lib/journey-client.mjs';
 import {readConsent,getAttribution,track,trackReceipt} from '../lib/measurement.mjs';
 import {Icon} from './icons';
 import {indianStates} from '../lib/locations.mjs';
-export function EnquiryForm({brandSlug}:{brandSlug?:string}){
+export function EnquiryForm({brandSlug,items=[]}:{brandSlug?:string;items?:any[]}){
+ const brands=items;
  const listing=brands.find(b=>b.slug===brandSlug),embedded=Boolean(listing),id='enquiry-'+(listing?.slug||'contact');
  const [journey,setJourney]=useState('investor'),[brand,setBrand]=useState(listing?.slug||''),[company,setCompany]=useState(''),[website,setWebsite]=useState(''),[budget,setBudget]=useState('Exploring'),[timeframe,setTimeframe]=useState('Exploring'),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[error,setError]=useState(false),[receipt,setReceipt]=useState(false),[info,setInfo]=useState<any>(null),[challenge,setChallenge]=useState(''),[ready,setReady]=useState(false);
  const client=useRef<any>(null),widget=useRef<HTMLDivElement>(null),started=useRef(false);

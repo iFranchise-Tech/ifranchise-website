@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {canView,canEdit,canApprove,validateHierarchy,workEmail,assetUrl} from '../lib/cms/policy.mjs';
+const owner={email:'owner@ifranchise.in',role:'super_admin',scopes:[],status:'active',manager:null};
+const manager={email:'manager@ifranchise.in',role:'approver',scopes:['articles'],status:'active',manager:owner.email};
+const editor={email:'editor@ifranchise.in',role:'editor',scopes:['articles'],status:'active',manager:manager.email};
+const hr={email:'hr@ifranchise.in',role:'approver',scopes:['jobs'],status:'active',manager:owner.email};
+const viewer={...editor,email:'viewer@ifranchise.in',role:'viewer'};
+const team=[owner,manager,editor,hr,viewer];
+test('exact work domain only',()=>{for(const e of ['x@gmail.com','x@ifranchise.in.attacker.test','x@fakeifranchise.in',' x@ifranchise.in','x@@ifranchise.in'])assert.equal(workEmail(e),false);assert.equal(workEmail('Abdul@ifranchise.in'),true)});
+test('role and section boundaries',()=>{assert.equal(canEdit(viewer,'articles'),false);assert.equal(canView(viewer,'articles'),true);assert.equal(canEdit(editor,'jobs'),false);assert.equal(canEdit(hr,'articles'),false);assert.equal(canEdit(owner,'placements'),true);assert.equal(canEdit({...owner,status:'suspended'},'articles'),false)});
+test('approval follows reporting hierarchy and rejects self approval',()=>{const r={kind:'articles',submittedBy:editor.email};assert.equal(canApprove(manager,r,team),true);assert.equal(canApprove(owner,r,team),true);assert.equal(canApprove(editor,r,team),false);assert.equal(canApprove(hr,r,team),false);assert.equal(canApprove(manager,{...r,submittedBy:manager.email},team),false);assert.equal(canApprove({...manager,email:'other@ifranchise.in'},r,team),false)});
+test('hierarchy prevents cycles, missing managers and unsupported scope',()=>{assert.equal(validateHierarchy(editor,team),null);assert.match(validateHierarchy({...editor,manager:editor.email},team),/manager|cycle/i);assert.match(validateHierarchy({...manager,manager:manager.email},team),/cycle/i);assert.match(validateHierarchy({...editor,scopes:['jobs']},team),/every assigned section/);assert.match(validateHierarchy({...editor,manager:null},team),/Choose/);assert.match(validateHierarchy({...owner,manager:manager.email},team),/cannot/)});
+test('asset URLs reject script, data and protocol-relative URLs',()=>{for(const u of ['javascript:alert(1)','data:text/html,test','//attacker.test/x','http://bad.test/x'])assert.equal(assetUrl(u),false);for(const u of ['/media/123.png','https://example.com/image.png'])assert.equal(assetUrl(u),true)});

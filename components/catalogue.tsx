@@ -1,18 +1,19 @@
 'use client';
 import {useEffect,useState} from 'react';
-import {brands} from '../lib/site';
+
 import {filterBrands} from '../lib/catalogue.mjs';
 import {BrandCard} from './ui';
 import {Icon} from './icons';
-const sectors=[...new Set(brands.map(b=>b.category))];
+
 const budgets=[['25','Up to ₹25 lakh'],['50','Up to ₹50 lakh'],['100','Up to ₹1 crore'],['250','Up to ₹2.5 crore'],['500','Up to ₹5 crore'],['1000','Up to ₹10 crore']];
 const models=[['FOFO','FOFO'],['FOCO','FOCO'],['FICO','FICO'],['UNIT FRANCHISE','Unit franchise']];
-const defaults={query:'',sector:'all',budget:'all',model:'all',sort:'name'};
-export function Catalogue(){
+const defaults={query:'',sector:'all',budget:'all',model:'all',sort:'featured'};
+export function Catalogue({brands}:{brands:any[]}){
+ const sectors=[...new Set(brands.map(b=>b.category))];
  const [filters,setFilters]=useState(defaults),[ready,setReady]=useState(false);
  const {query,sector,budget,model,sort}=filters;
  useEffect(()=>{
-  const restore=()=>{const p=new URLSearchParams(location.search);setFilters({query:(p.get('q')||'').slice(0,120),sector:sectors.includes(p.get('sector')||'')?p.get('sector')!:'all',budget:budgets.some(([v])=>v===p.get('budget'))?p.get('budget')!:'all',model:models.some(([v])=>v===p.get('model'))?p.get('model')!:'all',sort:p.get('sort')==='investment'?'investment':'name'});setReady(true);};
+  const restore=()=>{const p=new URLSearchParams(location.search);setFilters({query:(p.get('q')||'').slice(0,120),sector:sectors.includes(p.get('sector')||'')?p.get('sector')!:'all',budget:budgets.some(([v])=>v===p.get('budget'))?p.get('budget')!:'all',model:models.some(([v])=>v===p.get('model'))?p.get('model')!:'all',sort:['investment','name'].includes(p.get('sort')||'')?p.get('sort')!:'featured'});setReady(true);};
   restore();window.addEventListener('popstate',restore);return()=>window.removeEventListener('popstate',restore);
  },[]);
  useEffect(()=>{if(!ready)return;const u=new URL(location.href);for(const [key,value] of Object.entries(filters)){const param=key==='query'?'q':key;if(value===defaults[key as keyof typeof defaults])u.searchParams.delete(param);else u.searchParams.set(param,value);}history.replaceState(history.state,'',u.pathname+u.search+u.hash);},[filters,ready]);
@@ -31,7 +32,7 @@ export function Catalogue(){
    </div>
    {selected.length>0&&<div className="opportunity-selections" aria-label="Active filters">{selected.map(f=><button key={f.key} onClick={()=>change(f.key,defaults[f.key])} aria-label={'Remove '+f.label+' filter'}>{f.label}<Icon name="close"/></button>)}<button className="opportunity-reset" onClick={reset}>Clear all</button></div>}
   </div>
-  <div className="opportunity-results"><p role="status" aria-live="polite"><strong>{result.length}</strong> {result.length===1?'opportunity':'opportunities'}{selected.length?(result.length===1?' matches your search':' match your search'):''}</p><div><label htmlFor="sort-brands">Sort by</label><select id="sort-brands" value={sort} onChange={e=>change('sort',e.target.value)}><option value="name">Name: A–Z</option><option value="investment">Investment: low to high</option></select></div></div>
+  <div className="opportunity-results"><p role="status" aria-live="polite"><strong>{result.length}</strong> {result.length===1?'opportunity':'opportunities'}{selected.length?(result.length===1?' matches your search':' match your search'):''}</p><div><label htmlFor="sort-brands">Sort by</label><select id="sort-brands" value={sort} onChange={e=>change('sort',e.target.value)}><option value="featured">Recommended order</option><option value="name">Name: A–Z</option><option value="investment">Investment: low to high</option></select></div></div>
   {result.length?<div className="opportunity-grid">{result.map((b:typeof brands[number])=><BrandCard brand={b} key={b.slug}/>)}</div>:<div className="opportunity-empty"><Icon name="search"/><h2>No matching opportunities</h2><p>Try a different sector, investment range or operating model.</p><button className="button" onClick={reset}>Reset filters <Icon name="arrow"/></button><a href="/contact-us?journey=investor">Get help choosing a franchise <Icon name="arrow"/></a></div>}
   <p className="opportunity-note">Investments are indicative. Ask us about the full cost, available locations and current terms.{budget!=='all'&&' Brands without a confirmed starting investment are excluded from this filter.'}</p>
  </section>;

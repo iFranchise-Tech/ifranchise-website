@@ -1,3 +1,4 @@
+export const dynamic='force-dynamic';
 import {EditorialCollection} from '../../../components/editorial-collection';
 import {editorialCollections} from '../../../lib/editorial-collections';
 const c=editorialCollections.find(x=>x.slug==='industries')!;

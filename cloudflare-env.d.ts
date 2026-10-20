@@ -4,3 +4,5 @@ declare namespace Cloudflare {
     BUCKET?: R2Bucket;
   }
 }
+
+interface ImportMeta { readonly env: { readonly DEV: boolean }; }
