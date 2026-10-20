@@ -1,0 +1,29 @@
+{
+  "created": "2026-10-20",
+  "images": [
+    {
+      "slug": "store-visit",
+      "provider": "OpenAI built-in image_gen",
+      "asset": "public/images/blogs/store-visit.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium franchise consulting website blog cover, landscape 3:2. A thoughtful Indian woman entrepreneur in her early 30s is touring the back-of-house of a contemporary independent neighbourhood cafe with a female store manager. We see organised shelves, a receiving counter, practical equipment and a connected cafe visible through an open doorway. The visitor is observing quietly, not posing. Three-quarter medium-wide eye-level composition, coherent interior perspective, full natural upper bodies and correctly proportioned arms, believable expressive faces. No paperwork in their hands. Editorial photography, sophisticated natural colour, high detail, soft realistic light, natural skin texture, attractive but authentic. People integrated with surroundings. No visible brand names, no generated logos, no captions, no watermark, no collage, no dramatic gradients, no exaggerated limbs, no extra fingers. Leave a small subtle plain violet object as colour continuity; do not invent a logo."
+    },
+    {
+      "slug": "founder-independent",
+      "provider": "OpenAI built-in image_gen",
+      "asset": "public/images/blogs/founder-independent.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium franchise consulting website blog cover, landscape 3:2. A mature Indian woman business founder is at the doorway of a tastefully designed independent homeware shop, watching her two staff members confidently serve a customer and arrange products without her intervention. Natural candid scene with varied poses and real human proportions, no handshake or posed meeting. Wide eye-level photograph, full coherent retail environment, warm wood, ceramic products, shelves, natural daylight. The founder holds no documents. Editorial photography, sophisticated natural colour, high detail, soft realistic light, natural skin texture, attractive but authentic. People integrated with surroundings. No visible brand names, no generated logos, no captions, no watermark, no collage, no dramatic gradients, no exaggerated limbs, no extra fingers. Leave a small subtle plain violet object as colour continuity; do not invent a logo."
+    },
+    {
+      "slug": "franchise-brief",
+      "provider": "OpenAI built-in image_gen",
+      "asset": "public/images/blogs/franchise-brief.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium franchise consulting website blog cover, landscape 3:2. Close wide over-the-shoulder editorial photograph of an Indian couple at a home dining table thoughtfully planning a possible small business, one writing a short checklist in a notebook, the other viewing a laptop with abstract unreadable spreadsheet. Warm natural home interior, morning window light, credible hands and anatomically correct proportions. One small violet notebook, no readable interface or text. Candid perspective, not a corporate boardroom. Editorial photography, sophisticated natural colour, high detail, soft realistic light, natural skin texture, attractive but authentic. People integrated with surroundings. No visible brand names, no generated logos, no captions, no watermark, no collage, no dramatic gradients, no exaggerated limbs, no extra fingers. Leave a small subtle plain violet object as colour continuity; do not invent a logo."
+    },
+    {
+      "slug": "operating-day",
+      "provider": "OpenAI built-in image_gen",
+      "asset": "public/images/blogs/operating-day.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium franchise consulting website blog cover, landscape 3:2. An Indian cafe manager hands over a shift to another manager beside a well-organised service counter at early evening, a staff member preparing coffee behind them and an actual customer at the other end. The two managers are talking naturally, one lightly indicating the till screen. Natural faces, correctly proportioned arms and hands, believable perspective. A contemporary independent cafe, warm timber, white stone, subtle violet details, no documents or folders. Editorial photography, sophisticated natural colour, high detail, soft realistic light, natural skin texture, attractive but authentic. People integrated with surroundings. No visible brand names, no generated logos, no captions, no watermark, no collage, no dramatic gradients, no exaggerated limbs, no extra fingers. Leave a small subtle plain violet object as colour continuity; do not invent a logo."
+    }
+  ]
+}

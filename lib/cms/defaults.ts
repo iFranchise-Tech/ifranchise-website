@@ -2,6 +2,7 @@ import {hydrateBrand} from './catalogue-fields.mjs';
 import brands from '../../content/brands.json';
 import research from '../../content/brand-research.json';
 import careers from '../../content/careers.json';
+import starterBlogs from '../../content/cms-blogs.json';
 import {editorialArticles} from '../editorial';
 import {homeQuestions} from '../search-content';
 export const pageDefaults=[
@@ -10,7 +11,7 @@ export const pageDefaults=[
 ];
 export const defaults:Record<string,any[]>={
  franchises:brands.map(b=>hydrateBrand({...b,overview:(research as any)[b.slug]?.overview||b.about,highlights:(research as any)[b.slug]?.highlights||[]})),
- jobs:careers.jobs.map(j=>({...j,slug:j.id,aboutRole:j.aboutRole||j.about,requirements:j.requirements||j.keySkills||[],applyNote:j.applyNote||'Send your CV and the role title.',experience:j.experience||'',tagline:j.tagline||''})),articles:editorialArticles,blogs:[],videos:[],pages:pageDefaults,
+ jobs:careers.jobs.map(j=>({...j,slug:j.id,aboutRole:j.aboutRole||j.about,requirements:j.requirements||j.keySkills||[],applyNote:j.applyNote||'Send your CV and the role title.',experience:j.experience||'',tagline:j.tagline||''})),articles:editorialArticles,blogs:starterBlogs,videos:[],pages:pageDefaults,
  industries:[...new Set(brands.map(b=>b.category))].map(title=>({slug:title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''),title})),
  faqs:[{slug:'general',title:'General FAQs',questions:homeQuestions},{slug:'homepage',title:'Homepage FAQs',questions:homeQuestions.slice(0,4)},{slug:'opportunities',title:'Franchise opportunities FAQs',questions:[{q:'How do I compare franchise opportunities?',a:'Start with your budget, preferred location and operating involvement. Compare the complete investment and the responsibilities set out in each brand’s current proposal.'},{q:'Are the listed investments the final cost?',a:'Figures are indicative. Ask for a current cost sheet covering setup, fees, stock, deposits, taxes and working capital before making a decision.'}]},{slug:'list-your-brand',title:'List your Brand FAQs',questions:[{q:'What do I need before listing my brand?',a:'Prepare your business profile, current locations, proposed franchise model, investment details, logo and outlet photographs. We can discuss the areas that still need development.'},{q:'Can you help prepare my franchise model?',a:'Yes. We work with you on business readiness, operating responsibilities, commercial structure, training and the support your franchise partners will need.'}]},{slug:'contact-us',title:'Contact page FAQs',questions:[{q:'How can I speak with your team?',a:'Call, email or message us on WhatsApp using the contact details on this page.'}]}],
  placements:[{slug:'franchises',title:'Franchise display order',ids:[...brands].sort((a,b)=>a.name.localeCompare(b.name)).map(b=>b.slug)}],
