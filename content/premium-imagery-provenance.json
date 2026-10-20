@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-10-20",
+  "purpose": "Original illustrative editorial imagery for the iFranchise public-site redesign. These scenes do not depict actual iFranchise team members, premises or partners.",
+  "tool": "Built-in image generation",
+  "assets": [
+    {
+      "name": "retail",
+      "path": "public/images/revamp/retail.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium franchise consulting website full-bleed hero, widescreen 16:9. Create an original editorial architectural photograph of a refined contemporary pedestrian retail street in an Indian metropolitan setting, no identifiable location. Beautiful connected street-level storefronts with tall glass, warm stone, dark bronze frames, a cafe terrace and tasteful greenery, sense of an expanding business district. Early morning sunlight, crisp natural material detail, a few distant shoppers with normal human proportions. Camera at human eye level, tasteful magazine photography, subtle warm ivory and deep aubergine tones. Architecture fills the right two-thirds, quieter shaded building surface and clear pavement on the left for text overlay. Realistic, calm, sophisticated, not futuristic or glossy CGI. No signs with writing, no visible logos, no watermarks, no overlays, no large foreground people."
+    },
+    {
+      "name": "advisory",
+      "path": "public/images/revamp/advisory.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: about page editorial photography, landscape 4:3. Original candid photograph of three Indian business professionals, two women and one man in their 30s-40s, discussing a retail floor plan around a beautiful oak table in a naturally lit contemporary workplace. Side-on documentary composition, wider environment visible, no one looks at camera. Laptops closed, one simple printed floor plan on the table, subtle ceramic coffee cups. Smart casual charcoal and ivory clothing, one muted plum shirt. Natural faces, accurate hands, normal human proportions and realistic posture; keep gestures simple resting on table. Warm stone architecture, daylight and fine wood textures. Expensive architectural magazine art direction, realistic photographic grain. No branding, no legible text, no staged handshakes, no corporate stock-photo smiles, no watermark."
+    },
+    {
+      "name": "expansion",
+      "path": "public/images/revamp/expansion.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: business expansion website feature, widescreen 16:9. Original sophisticated editorial photograph of a contemporary unbranded neighbourhood cafe and retail frontage seen through tall glazing, warm timber counter, natural travertine walls, bronze frames, inviting daylight, subtle greenery, beautifully ordered physical business space ready for operation. Composition from outside at a slight diagonal, repeating architectural bays suggest multiple locations. One distant staff member naturally arranging cups, normal proportions, not a portrait. Precise straight architectural geometry, realistic materials and lighting, high-end architectural magazine photography. No logos, no words or signage, no watermark, not CGI, not an empty corporate skyscraper."
+    }
+  ]
+}

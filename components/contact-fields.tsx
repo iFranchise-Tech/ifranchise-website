@@ -18,7 +18,7 @@ export function PhoneField({id}:{id:string}){
   <label htmlFor={id+'-phone'}>Mobile number *</label>
   <div className={'phone-control'+(invalid?' field-invalid':'')}>
    <button ref={trigger} type="button" className="country-trigger" aria-label={'Country code: '+selected.name+' '+selected.dial} aria-haspopup="dialog" aria-expanded={open} aria-controls={id+'-country-dialog'} onClick={show}><span>{selected.code}</span><strong>{selected.dial}</strong><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5"/></svg></button>
-   <input ref={input} id={id+'-phone'} name="phone" type="tel" inputMode="tel" autoComplete="tel-national" required maxLength={25} value={value} placeholder={country==='IN'?'10-digit mobile number':'Mobile number'} aria-invalid={invalid||undefined} aria-describedby={id+'-phone-help'} onChange={e=>setValue(e.target.value)} onBlur={()=>setTouched(true)} onInvalid={()=>setTouched(true)}/>
+   <input ref={input} id={id+'-phone'} name="phone" type="tel" inputMode="tel" autoComplete="tel-national" required maxLength={25} value={value} placeholder="Mobile number" aria-invalid={invalid||undefined} aria-describedby={invalid?id+'-phone-help':undefined} onChange={e=>setValue(e.target.value)} onBlur={()=>setTouched(true)} onInvalid={()=>setTouched(true)}/>
   </div>
   <input type="hidden" name="phoneCountry" value={country}/>
   {open&&<div id={id+'-country-dialog'} className="country-picker" role="dialog" aria-label="Select a calling country" onKeyDown={keys}>
@@ -27,7 +27,7 @@ export function PhoneField({id}:{id:string}){
    <ul id={id+'-country-options'} className="country-options" role="listbox" aria-label="Countries">{filtered.map((c,i)=><li key={c.code} id={id+'-country-'+c.code} role="option" aria-selected={country===c.code} className={active===i?'country-active':''} onPointerMove={()=>setActive(i)}><button tabIndex={-1} type="button" onMouseDown={e=>e.preventDefault()} onClick={()=>choose(c.code)}><span>{c.name}</span><strong>{c.dial}</strong></button></li>)}</ul>
    {!filtered.length&&<p className="country-empty">No matching country. Try a name or calling code.</p>}
   </div>}
-  <span id={id+'-phone-help'} className={invalid?'field-error':'field-hint'} aria-live="polite">{invalid?error:country==='IN'?'10 digits, starting with 6, 7, 8 or 9.':selected.name+' · '+selected.dial+' is added automatically.'}</span>
+  {invalid&&<span id={id+'-phone-help'} className="field-error" aria-live="polite">{error}</span>}
  </div>;
 }
 export function EmailField({id}:{id:string}){

@@ -1,0 +1,4 @@
+'use client';
+import {useEffect,useRef} from 'react';
+import {usePathname} from 'next/navigation';
+export function PremiumMotion({children}:{children:React.ReactNode}){const root=useRef<HTMLDivElement>(null),path=usePathname();useEffect(()=>{const media=matchMedia('(prefers-reduced-motion: reduce)');if(media.matches||!root.current)return;const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('p-wait');observer.unobserve(e.target)}})},{threshold:.08});root.current.querySelectorAll('[data-reveal]').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight*.95){el.classList.add('p-wait');observer.observe(el)}});const reset=()=>root.current?.querySelectorAll('.p-wait').forEach(el=>el.classList.remove('p-wait'));media.addEventListener('change',reset);return()=>{observer.disconnect();reset();media.removeEventListener('change',reset)}},[path]);return <div className="p-site" ref={root}>{children}</div>}

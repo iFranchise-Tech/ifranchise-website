@@ -4,7 +4,7 @@ import careers from '../../content/careers.json';
 import {editorialArticles} from '../editorial';
 import {homeQuestions} from '../search-content';
 export const pageDefaults=[
- {slug:'homepage',title:'Homepage',headline:'Start and grow your business',accent:'through franchising.',intro:'From choosing a franchise to expanding into new locations, we help you work through the business model, investment and next steps.',overviewTitle:'What would you like to do next?',overviewIntro:'Your plans are our starting point. We work through the costs, responsibilities and preparation with you, so you can understand what comes next.'},
+ {slug:'homepage',title:'Homepage',headline:'Franchise consulting',accent:'for business growth.',intro:'Explore a franchise opportunity or prepare your business for more locations. We help you assess the options, work through the details and plan what comes next.',overviewTitle:'How we support your plans',overviewIntro:'Whether you are choosing a business or developing a franchise network, our work begins with your priorities.'},
  {slug:'faqs',title:'Franchising FAQs',questions:homeQuestions},
 ];
 export const defaults:Record<string,any[]>={

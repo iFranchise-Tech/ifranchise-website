@@ -13,7 +13,7 @@ for(const brand of brands){
  for(const anchor of ['overview','investment','gallery','questions','enquire'])assert(html.includes('id="'+anchor+'"'),brand.slug+' '+anchor);
  assert(html.includes('href="#enquire"'),brand.slug+' enquiry CTAs stay on-page');
  assert(!html.includes('form-toggle'),brand.slug+' cannot switch enquiry journeys');
- assert(html.includes('Online enquiries are paused.'),brand.slug+' indicates paused intake');
- assert(html.includes('landing-brand-logo'),brand.slug+' uses the larger logo');
+ assert(html.includes('Online enquiries are currently paused.'),brand.slug+' indicates paused intake');
+ assert(html.includes('p-detail-logo'),brand.slug+' uses the larger logo');
 }
 console.log('PASS all 12 landing pages: dedicated forms, brand mappings, inline CTA anchors, full enquiry fields and paused intake.');
