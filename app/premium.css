@@ -36,3 +36,7 @@ html[data-theme="dark"] .p-header .identity-lockup .identity-master,html[data-th
 
 @media(max-width:767px){.p-header .theme-toggle,.p-menu-button{width:44px;height:44px;min-width:44px}.p-site .p-enquiry .country-trigger{min-width:96px;padding-inline:10px;gap:5px}}
 @media(max-width:370px){.p-header .identity-lockup{width:178px}.p-header-tools{gap:0}}
+
+/* Keep supplied brand artwork and article covers intact at every ratio. */
+.p-brand-main-image>img{inset:18px 18px 88px;width:calc(100% - 36px);height:calc(100% - 106px);object-fit:contain}.p-brand-main-image>span{background:var(--p-bg);color:var(--p-brand)}.p-reading-card>div{background:var(--p-surface)}.p-reading-card img{object-fit:contain}
+@media(max-width:767px){.p-brand-main-image>img{inset:12px 12px 73px;width:calc(100% - 24px);height:calc(100% - 85px)}.p-brand-main-image>span{bottom:12px;left:12px;right:12px;padding:14px}}
