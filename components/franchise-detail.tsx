@@ -24,7 +24,7 @@ export function FranchiseDetail({brand:b,brands}:{brand:any;brands:any[]}){
   </header>
   <nav className="dossier-nav" aria-label="On this brand page"><div className="p-container"><a href="#gallery">Gallery</a><a href="#overview">Overview</a><a href="#investment">Investment & format</a>{questions.length>0&&<a href="#questions">FAQs</a>}<a href="#enquire">Enquire<ArrowUpRight size={15}/></a></div></nav>
   <div className="p-container dossier-layout">
-   <section id="gallery" className="dossier-media" aria-label={b.name+' gallery'}>{images.length>0?<BrandShowcase name={b.name} images={images}/>:<div className="dossier-image-fallback"><BrandLogo brand={b}/></div>}</section>
+   <section id="gallery" className="dossier-media" aria-label={b.name+' gallery'}>{images.length>0?<BrandShowcase key={b.slug} name={b.name} images={images}/>:<div className="dossier-image-fallback"><BrandLogo brand={b}/></div>}</section>
    <aside className="dossier-summary" aria-label="Opportunity at a glance">
     <div className="dossier-investment"><span>Indicative investment</span><strong>{b.budget}</strong></div>
     <dl className="dossier-key-facts"><div><dt>Operating model</dt><dd className="dossier-models">{models.map((m:string)=><span key={m}>{m}</span>)}</dd></div><div><dt>Space requirement</dt><dd>{space.includes('\n')?'Varies by format':space}</dd></div></dl>
