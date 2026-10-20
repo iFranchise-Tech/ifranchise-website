@@ -6,10 +6,10 @@ import {BrandCard} from './ui';
 import {Icon} from './icons';
 
 const budgets=[['25','Up to ₹25 lakh'],['50','Up to ₹50 lakh'],['100','Up to ₹1 crore'],['250','Up to ₹2.5 crore'],['500','Up to ₹5 crore'],['1000','Up to ₹10 crore']];
-const models=[['FOFO','FOFO'],['FOCO','FOCO'],['FICO','FICO'],['UNIT FRANCHISE','Unit franchise']];
+const models=['FOFO','FOCO','FICO','COCO','Unit Franchise','Master Franchise','Area Development'].map(v=>[v.toUpperCase(),v]);
 const defaults={query:'',sector:'all',budget:'all',model:'all',sort:'featured'};
-export function Catalogue({brands}:{brands:any[]}){
- const sectors=[...new Set(brands.map(b=>b.category))];
+export function Catalogue({brands,industries=[]}:{brands:any[];industries?:any[]}){
+ const sectors=[...new Set([...industries.map(i=>i.title),...brands.map(b=>b.category)])].sort();
  const [filters,setFilters]=useState(defaults),[ready,setReady]=useState(false);
  const {query,sector,budget,model,sort}=filters;
  useEffect(()=>{

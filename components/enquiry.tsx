@@ -8,10 +8,13 @@ import {readConsent,getAttribution,track,trackReceipt} from '../lib/measurement.
 import {Icon} from './icons';
 import {ArrowRight,ArrowLeft,Check} from 'lucide-react';
 import {indianStates} from '../lib/locations.mjs';
-export function EnquiryForm({brandSlug,items=[],journeyType}:{brandSlug?:string;items?:any[];journeyType?:'brand'|'investor'}){
+export function EnquiryForm({brandSlug,items=[],journeyType,brochure=false}:{brandSlug?:string;items?:any[];journeyType?:'brand'|'investor';brochure?:boolean}){
  const brands=items;
  const listing=brands.find(b=>b.slug===brandSlug),embedded=Boolean(listing),id='enquiry-'+(listing?.slug||'contact');
  const [journey,setJourney]=useState(journeyType||'investor'),[brand,setBrand]=useState(listing?.slug||''),[company,setCompany]=useState(''),[website,setWebsite]=useState(''),[budget,setBudget]=useState('Exploring'),[timeframe,setTimeframe]=useState('Exploring'),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[error,setError]=useState(false),[receipt,setReceipt]=useState(false),[info,setInfo]=useState<any>(null),[challenge,setChallenge]=useState(''),[ready,setReady]=useState(false);
+ const [downloadRequested,setDownloadRequested]=useState(false),[downloadUrl,setDownloadUrl]=useState('');
+ useEffect(()=>{const click=(e:MouseEvent)=>{if((e.target as HTMLElement).closest('[data-brochure-request]'))setDownloadRequested(true)};document.addEventListener('click',click);return()=>document.removeEventListener('click',click)},[]);
+ useEffect(()=>()=>{if(downloadUrl)URL.revokeObjectURL(downloadUrl)},[downloadUrl]);
  const [step,setStep]=useState(0);const formRef=useRef<HTMLFormElement>(null),previousStep=useRef(0);
  useEffect(()=>{if(previousStep.current===step)return;previousStep.current=step;formRef.current?.closest('.p-enquiry')?.scrollIntoView({block:'start',behavior:'auto'});formRef.current?.querySelector<HTMLInputElement>('[data-step="'+step+'"] input:not([type="hidden"]),[data-step="'+step+'"] select')?.focus({preventScroll:true});},[step]);
  const client=useRef<any>(null),widget=useRef<HTMLDivElement>(null),started=useRef(false);
@@ -36,14 +39,15 @@ export function EnquiryForm({brandSlug,items=[],journeyType}:{brandSlug?:string;
   try{
    const contact=validateContact({name:fd.get('name'),phone:fd.get('phone'),phoneCountry:fd.get('phoneCountry'),email:fd.get('email'),city:fd.get('city'),state:fd.get('state'),website:fd.get('website'),contactPermission:fd.get('contactPermission')==='on'});
    if(journey==='brand'&&company.trim().length<2)throw Error('Enter your brand name.');
-   if(!journeyConfig.intakeEnabled||!info?.accepting){setMessage('Your details are ready to review. Nothing has been sent. Please call or message us to continue.');return;}
-   setBusy(true);const result=await client.current.submit({contact,interestSlug:selectedBrand,companyName:company.trim(),companyWebsite:website,budget:journey==='investor'?budget:'Exploring',timeframe,challenge,source:getAttribution(window,readConsent(localStorage))});
-   if(journeyConfig.conversionSending)trackReceipt(window,result,info.form_id);setReceipt(true);setMessage(result.message);
+   if(!journeyConfig.intakeEnabled||!info?.accepting){setMessage(downloadRequested?'Online enquiries and brochure downloads are currently paused. Nothing has been sent. Please contact our team.':'Your details are ready to review. Nothing has been sent. Please call or message us to continue.');return;}
+   setBusy(true);const result=await client.current.submit({contact,interestSlug:selectedBrand,companyName:company.trim(),companyWebsite:website,budget:journey==='investor'?budget:'Exploring',timeframe,challenge,brochureSlug:brochure&&downloadRequested?selectedBrand:undefined,source:getAttribution(window,readConsent(localStorage))});
+   if(result.file)setDownloadUrl(URL.createObjectURL(result.file));
+   if(journeyConfig.conversionSending)trackReceipt(window,result,info.form_id);setReceipt(true);setMessage(result.message||'Your enquiry has been received.');
   }catch(e){setError(true);setMessage((e as Error).message);}finally{setBusy(false);}
  }
  const budgetField=<div className="field"><label htmlFor={id+'-budget'}>Investment range</label><select id={id+'-budget'} name="budget" value={budget} onChange={e=>setBudget(e.target.value)}>{budgetOptions.map(v=><option key={v}>{v}</option>)}</select></div>;
  const timingField=<div className="field"><label htmlFor={id+'-timeframe'}>{journey==='brand'?'Expansion timeframe':'When would you start?'}</label><select id={id+'-timeframe'} name="timeframe" value={timeframe} onChange={e=>setTimeframe(e.target.value)}>{timeframeOptions.map(v=><option key={v}>{v}</option>)}</select></div>;
- if(receipt)return <div className="enquiry-card"><h2>Thank you for your enquiry.</h2><p role="status">{message}</p><a className="text-link" href="/">Back to iFranchise →</a></div>;
+ if(receipt)return <div className="enquiry-card"><h2>Thank you for your enquiry.</h2><p role="status">{message}</p><>{downloadUrl&&<a className="p-button" href={downloadUrl} download={selectedBrand+'-brochure.pdf'}>Download brochure</a>}</><a className="text-link" href="/">Back to iFranchise →</a></div>;
  return <div className={'enquiry-card p-enquiry '+(embedded?'listing-enquiry':'contact-enquiry')} data-brand-slug={listing?.slug}>
   {!embedded&&!journeyType&&<div className="p-form-switch" aria-label="Enquiry type">{[['investor','Explore a franchise'],['brand','Expand a business']].map(([value,label])=><button key={value} type="button" aria-pressed={journey===value} onClick={()=>chooseJourney(value)}>{label}</button>)}</div>}
   <div className="p-form-heading"><h2 id={id+'-heading'}>{embedded?'Request franchise details':journey==='investor'?'Your franchise enquiry':'Your brand enquiry'}</h2><span>{step+1} / 2</span></div>
@@ -58,7 +62,8 @@ export function EnquiryForm({brandSlug,items=[],journeyType}:{brandSlug?:string;
     {!embedded&&(journey==='investor'?<div className="field"><label htmlFor={id+'-brand'}>Brand of interest</label><select id={id+'-brand'} name="brand" value={brand} onChange={e=>setBrand(e.target.value)}><option value="">Help me explore</option>{brands.map(b=><option key={b.slug} value={b.slug}>{b.name}</option>)}</select></div>:<div className="field-row"><div className="field"><label htmlFor={id+'-company'}>Brand name *</label><input id={id+'-company'} name="company_name" required minLength={2} maxLength={120} value={company} onChange={e=>setCompany(e.target.value)} placeholder="Business name" autoComplete="organization"/></div><div className="field"><label htmlFor={id+'-company-site'}>Website</label><input id={id+'-company-site'} name="company_website" type="url" maxLength={500} value={website} onChange={e=>setWebsite(e.target.value)} placeholder="https://" autoComplete="url"/></div></div>)}
     <div className="field-row"><div className="field"><label htmlFor={id+'-state'}>{journey==='brand'?'State / UT':'Preferred state / UT'} *</label><select id={id+'-state'} name="state" required defaultValue="" autoComplete="address-level1"><option value="" disabled>Select state / UT</option>{indianStates.map(s=><option key={s}>{s}</option>)}</select></div><div className="field"><label htmlFor={id+'-city'}>{journey==='brand'?'City':'Preferred city'} *</label><input id={id+'-city'} name="city" required minLength={2} maxLength={70} autoComplete="address-level2" placeholder="City"/></div></div>
     <div className="field-row">{journey==='investor'&&budgetField}{timingField}</div>
-    <label className="checkbox-label"><input type="checkbox" name="contactPermission" required/><span>{info?.notice||'I agree to be contacted about this enquiry.'} <a href="/privacy-and-terms#privacy" target="_blank" rel="noreferrer">Privacy policy</a></span></label><div ref={widget}/>
+    {brochure&&<label className="checkbox-label"><input type="checkbox" checked={downloadRequested} onChange={e=>setDownloadRequested(e.target.checked)}/><span>Send me the brochure after my enquiry</span></label>}
+    <label className="checkbox-label"><input type="checkbox" name="contactPermission" required/><span>{info?.notice||'I agree to be contacted about this enquiry.'} <a href="/privacy-policy#privacy" target="_blank" rel="noreferrer">Privacy policy</a></span></label><div ref={widget}/>
    </fieldset>
    <div className="honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
    <div className="p-form-actions">{step===1&&<button className="p-form-back" type="button" onClick={()=>{setStep(0);setMessage('')}}><ArrowLeft size={18}/>Back</button>}<button className="p-button" type="submit" disabled={!ready||busy||(step===1&&info?.accepting&&!challenge)}>{step===0?'Continue':busy?'Sending…':info?.accepting?'Send enquiry':'Review enquiry'}<ArrowRight size={18}/></button></div>

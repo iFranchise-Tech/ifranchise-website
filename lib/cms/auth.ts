@@ -3,7 +3,7 @@ import {getChatGPTUser} from '../../app/chatgpt-auth';
 import {workEmail} from './policy.mjs';
 export class CmsError extends Error{constructor(public status:number,message:string){super(message)}}
 export function db(){if(!env.DB)throw new CmsError(503,'The content service is unavailable.');return env.DB;}
-export function memberFromRow(r:any){return {...r,userId:r.user_id,scopes:JSON.parse(r.scopes),expiresAt:r.expires_at,updatedAt:r.updated_at};}
+export function memberFromRow(r:any){return {...r,userId:r.user_id,scopes:Array.isArray(JSON.parse(r.scopes))?JSON.parse(r.scopes):Object.keys(JSON.parse(r.scopes)).filter(k=>JSON.parse(r.scopes)[k].view),permissions:Array.isArray(JSON.parse(r.scopes))?undefined:JSON.parse(r.scopes),expiresAt:r.expires_at,updatedAt:r.updated_at};}
 export async function getMembers(){return (await db().prepare('SELECT * FROM cms_members ORDER BY name').all()).results.map(memberFromRow);}
 export async function adminIdentity(){
  let user=await getChatGPTUser();

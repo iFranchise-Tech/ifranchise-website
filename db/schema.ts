@@ -19,3 +19,5 @@ export const media=sqliteTable('cms_media',{
  id:text('id').primaryKey(),name:text('name').notNull(),mime:text('mime').notNull(),size:integer('size').notNull(),
  scope:text('scope').notNull(),uploadedBy:text('uploaded_by').notNull(),createdAt:text('created_at').notNull(),
 });
+
+export const previews=sqliteTable('cms_previews',{id:text('id').primaryKey(),kind:text('kind').notNull(),payload:text('payload').notNull(),createdBy:text('created_by').notNull(),expiresAt:text('expires_at').notNull()});

@@ -1,0 +1,10 @@
+import {Questions} from './premium';
+import {published} from '../lib/cms/public';
+import {EnquiryForm} from './enquiry';
+import {Crumb} from './premium';
+import {ArrowUpRight,Phone,Mail} from 'lucide-react';
+import {Icon} from './icons';
+import {SocialLinks} from './shell';
+import {whatsappUrl} from '../lib/contact';
+export const metadata={title:'Contact iFranchise',description:'Talk to iFranchise about choosing a franchise, developing your franchise programme or planning business expansion.',alternates:{canonical:'/contact-us'}};
+export function ContactPage({brands,faqs=[]}:{brands:any[];faqs?:any[]}){return <main id="main" className="p-page p-contact"><div className="p-container"><Crumb label="Contact us"/><div className="p-contact-layout"><section className="p-contact-copy"><h1>Contact<br/><span>iFranchise.</span></h1><p className="p-lead">Let’s discuss what you’re planning.</p></section><section className="p-contact-form" aria-label="Contact enquiry"><EnquiryForm items={brands}/></section><section className="p-contact-details" aria-label="Contact details"><div className="p-contact-methods"><a href="tel:+919129130303"><Phone size={21}/><span><small>Call</small>+91 91291 30303</span><ArrowUpRight size={21}/></a><a href="mailto:contact@ifranchise.in"><Mail size={21}/><span><small>Email</small>contact@ifranchise.in</span><ArrowUpRight size={21}/></a><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp"/><span><small>WhatsApp</small>Message our team</span><ArrowUpRight size={21}/></a></div></section></div></div><section className="p-container p-section p-faq-section"><div><h2>Frequently asked questions</h2></div><Questions items={faqs}/></section></main>}

@@ -11,4 +11,9 @@ for(const action of ['save-publish'])r=(await api('',{action,kind:r.kind,slug:r.
 assert.equal((await fetch(base+m.url)).status,200);
 for(const action of ['save-publish'])r=(await api('',{action,kind:r.kind,slug:r.slug,version:r.version,...(action==='save-publish'?{payload:old}:{})})).record;
 assert.equal((await fetch(base+m.url)).status,404);
+const pdf='%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\ntrailer<</Root 1 0 R>>\n%%EOF';const mPdf=await upload(new File([pdf],'qa-brochure.pdf',{type:'application/pdf'}),200);
+let brand=(await api('?id=franchises:odette')).record,original=brand.draft;
+brand=(await api('',{action:'save-publish',kind:'franchises',slug:brand.slug,version:brand.version,payload:{...original,brochure:mPdf.url,brochureEnabled:true}})).record;
+assert.equal((await fetch(base+mPdf.url)).status,404,'published PDFs must remain protected');assert.equal((await fetch(base+mPdf.url,{headers:h})).status,200);
+await api('',{action:'save-publish',kind:'franchises',slug:brand.slug,version:brand.version,payload:original});
 console.log('PASS: bounded uploads, active-content rejection, protected draft files, published media availability, removal of public file access after unpublishing.');

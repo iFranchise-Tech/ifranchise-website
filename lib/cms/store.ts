@@ -1,6 +1,7 @@
+import {hydrateBrand} from './catalogue-fields.mjs';
 import {db,CmsError} from './auth';
 import {baseline,defaults} from './defaults';
-export function recordFromRow(r:any){return {id:r.id,kind:r.kind,slug:r.slug,draft:JSON.parse(r.draft),live:r.live?JSON.parse(r.live):null,status:r.status,intent:r.intent,version:r.version,updatedBy:r.updated_by,submittedBy:r.submitted_by,updatedAt:r.updated_at};}
+export function recordFromRow(r:any){return {id:r.id,kind:r.kind,slug:r.slug,draft:r.kind==='franchises'?hydrateBrand(JSON.parse(r.draft)):JSON.parse(r.draft),live:r.live?JSON.parse(r.live):null,status:r.status,intent:r.intent,version:r.version,updatedBy:r.updated_by,submittedBy:r.submitted_by,updatedAt:r.updated_at};}
 export async function getRecord(id:string){const row=await db().prepare('SELECT * FROM cms_records WHERE id=?').bind(id).first();if(row)return recordFromRow(row);const [kind,slug]=id.split(':');return baseline(kind,slug);}
 export async function allRecords(kind:string){const map=new Map((defaults[kind]||[]).map(d=>[d.slug,baseline(kind,d.slug)!]));const rows=await db().prepare('SELECT * FROM cms_records WHERE kind=?').bind(kind).all();for(const row of rows.results){const r=recordFromRow(row);map.set(r.slug,r);}return [...map.values()];}
 export function summary(r:any){return {id:r.id,kind:r.kind,slug:r.slug,title:r.draft.name||r.draft.title,subtitle:r.draft.category||r.draft.dept||'',image:r.draft.logo||r.draft.image||'',status:r.status,intent:r.intent,version:r.version,live:!!r.live,updatedBy:r.updatedBy,submittedBy:r.submittedBy,updatedAt:r.updatedAt};}

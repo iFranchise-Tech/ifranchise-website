@@ -1,0 +1,46 @@
+{
+  "original-burger-co.pdf": {
+    "slug": "original-burger-co",
+    "sha256": "f5fbc38cbb00e99283a8a2973c51986b9ca19f5bee1b00d04b16dc5933e4c807"
+  },
+  "biggies-burger.pdf": {
+    "slug": "biggies-burger",
+    "sha256": "3324cced6866c3c488f8853ca16a19390e5ee6c5f256450663f06357fa9614b8"
+  },
+  "10-downing-street.pdf": {
+    "slug": "10-downing-street",
+    "sha256": "9305fb26556ef3a4ba0c4f7223d2e63d1fd2138184151bdd4d5a3418b56b07a0"
+  },
+  "freshco-goli-soda.pdf": {
+    "slug": "freshco-goli-soda",
+    "sha256": "105d15196c7740fa9a5717a0847844b650750f47d2502da4b943910034dbcb11"
+  },
+  "franco.pdf": {
+    "slug": "franco",
+    "sha256": "6a81b922683e4440a1f275a2b2707382009a3c4d4dd8cb5f7cb7051c6862d2cc"
+  },
+  "fusion-pizza-big-burger.pdf": {
+    "slug": "fusion-pizza-big-burger",
+    "sha256": "e203c53d696ba13f37b1ed27752f55f16b2368cc50e7aae103788cb3c1da3cd4"
+  },
+  "kasturi-creations.pdf": {
+    "slug": "kasturi-creations",
+    "sha256": "803581c8d9ee4f978626d13fe651934c1a4e41d2535a3df682edf328a7045786"
+  },
+  "odette.pdf": {
+    "slug": "odette",
+    "sha256": "2f501608eb29f6cf33bdf4da1e85aa065a11cea86d0dd903768f2966ab4c5966"
+  },
+  "brand-avenue.pdf": {
+    "slug": "brand-avenue",
+    "sha256": "bfe4988a1ef7ffc8c398af6acb78bbdf56dcb2a692d9566fcb07b90f262f3e0e"
+  },
+  "lassi-n-cafe.pdf": {
+    "slug": "lassi-n-cafe",
+    "sha256": "9a934cda1cc7f74bc5fafdeb2da520dc68625d00481b264815fdd1c3d72054fe"
+  },
+  "bigguys.pdf": {
+    "slug": "bigguys",
+    "sha256": "ed0141338022417fb1825aece2d7e2d8b3e16616af1b85a937b8711694b5b37e"
+  }
+}
