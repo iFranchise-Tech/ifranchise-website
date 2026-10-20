@@ -9,11 +9,13 @@ for(const brand of brands){
  assert(html.includes('data-brand-slug="'+brand.slug+'"'),brand.slug+' has its dedicated enquiry');
  assert.match(html,new RegExp('name="interest_slug" value="'+brand.slug+'"'),brand.slug+' preserves the CRM interest mapping');
  assert.equal((html.match(/<form\b/g)||[]).length,1,brand.slug+' has one embedded form');
- for(const field of ['name','phone','city','state','budget','timeframe','contactPermission'])assert(html.includes('name="'+field+'"'),brand.slug+' '+field);
+ for(const field of ['name','email','phone','city','state','budget','timeframe','contactPermission'])assert(html.includes('name="'+field+'"'),brand.slug+' '+field);
  for(const anchor of ['overview','investment','gallery','questions','enquire'])assert(html.includes('id="'+anchor+'"'),brand.slug+' '+anchor);
  assert(html.includes('href="#enquire"'),brand.slug+' enquiry CTAs stay on-page');
  assert(!html.includes('form-toggle'),brand.slug+' cannot switch enquiry journeys');
  assert(html.includes('Online enquiries are currently paused.'),brand.slug+' indicates paused intake');
- assert(html.includes('p-detail-logo'),brand.slug+' uses the larger logo');
+ assert(html.includes('dossier-logo'),brand.slug+' uses the brand identity header');
+ assert(html.includes('href="/franchise-opportunities"'),brand.slug+' links back to the catalogue');
+ if(brand.brochure&&brand.brochureEnabled!==false)assert(html.includes('data-brochure-request'),brand.slug+' brochure opens the enquiry form');
 }
 console.log('PASS all 12 landing pages: dedicated forms, brand mappings, inline CTA anchors, full enquiry fields and paused intake.');
