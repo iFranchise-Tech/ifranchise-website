@@ -242,3 +242,12 @@ html[data-theme=light] .p-expansion-next{color:#32159b;background:#ffffffeb;padd
  .journal-meta{gap:10px;align-items:flex-start}
  .journal-meta>span:last-child{white-space:nowrap}
 }
+
+/* About us: a paired statement of direction and purpose. */
+.p-about-purpose{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding-bottom:90px}
+.p-purpose-panel{padding:36px 40px 40px;border:1px solid var(--p-line);border-radius:12px;background:var(--p-surface);scroll-margin-top:120px}
+.p-purpose-panel>svg{display:block;color:var(--p-brand);margin-bottom:24px}
+.p-page .p-purpose-panel h2{font-size:clamp(26px,3vw,34px);line-height:1.25;letter-spacing:-.04em;margin:0 0 18px}
+.p-page .p-purpose-panel p{font-size:16px;line-height:1.85;margin:0;max-width:540px;color:var(--p-copy)}
+@media(max-width:1023px){.p-about-purpose{gap:20px;padding-bottom:68px}.p-purpose-panel{padding:30px}}
+@media(max-width:650px){.p-about-purpose{grid-template-columns:1fr;gap:18px;padding-bottom:52px}.p-purpose-panel{padding:27px 25px;scroll-margin-top:96px}.p-purpose-panel>svg{margin-bottom:20px}.p-page .p-purpose-panel p{font-size:15px}}
