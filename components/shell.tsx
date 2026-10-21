@@ -7,7 +7,7 @@ import {socialLinks,whatsappUrl} from '../lib/contact';
 import {Icon} from './icons';
 import {BrandIdentity} from './brand-identity';
 import {ThemeToggle} from './theme-toggle';
-const menus={company:{label:'Company',links:[['/about-us','About us'],['/careers','Careers']]},resources:{label:'Resources',links:[['/resources','All resources'],['/resources/blogs','Blogs'],['/resources/articles','Articles'],['/resources/faqs','FAQs'],['/resources/videos','Videos']]}};
+const menus={company:{label:'Company',links:[['/about-us','About us'],['/careers','Careers']]},resources:{label:'Resources',links:[['/resources','All resources'],['/resources/blogs','Blogs'],['/resources/articles','Articles'],['/resources/faqs','FAQs'],['/resources/videos','Videos'],['/resources/saved','Saved resources']]}};
 export function SocialLinks({label=false}:{label?:boolean}){return <div className="social-links" aria-label="iFranchise social media">{socialLinks.map(s=><a href={s.href} key={s.name} target="_blank" rel="noopener noreferrer" aria-label={'iFranchise on '+s.name} title={s.name}><Icon name={s.icon}/>{label&&<span>{s.name}</span>}</a>)}</div>}
 export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]=useState<string|null>(null),root=useRef<HTMLElement>(null),toggle=useRef<HTMLButtonElement>(null),path=usePathname();
  useEffect(()=>{setMobile(false);setOpen(null)},[path]);

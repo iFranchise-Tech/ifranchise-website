@@ -10,7 +10,7 @@ export function ResourceCard({item:a}:{item:any}){
   <div className="journal-card-copy">
    <div className="journal-meta"><span>{a.type||'Article'}</span><span>{a.minutes?`${a.minutes} min read`:a.category||''}</span></div>
    <h2>{a.title}</h2><p>{a.excerpt}</p>
-   <span className="journal-card-action">{a.type==='Video'?'Watch video':a.type==='FAQs'?'Explore answers':a.type==='Blog'?'Read blog':'Read article'}<ArrowUpRight size={19}/></span>
+   <span className="journal-card-action">{a.actionLabel||(a.type==='Video'?'Watch video':a.type==='FAQs'?'Explore answers':a.type==='Blog'?'Read blog':'Read article')}<ArrowUpRight size={19}/></span>
   </div>
  </a>;
 }
