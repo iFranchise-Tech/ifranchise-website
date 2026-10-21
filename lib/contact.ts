@@ -5,4 +5,4 @@ export const socialLinks=[
  {name:'X',icon:'x',href:'https://x.com/iFranchiseIN'},
  {name:'WhatsApp',icon:'whatsapp',href:whatsappUrl()},
 ] as const;
-export function whatsappUrl(brand?:string){return 'https://wa.me/919129130303?text='+encodeURIComponent(brand?`Hello, I’m interested in the ${brand} franchise opportunity. Could you share more about the investment, available locations and next steps?`:'Hello, I’m interested in your franchise consulting services. Could we arrange a conversation to discuss my requirements?');}
+export function whatsappUrl(brand?:string){return 'https://wa.me/919129130303?text='+encodeURIComponent(brand?`Hi, I’m interested in the ${brand} franchise. Please share details.`:'Hi, I’d like to discuss franchising.');}
