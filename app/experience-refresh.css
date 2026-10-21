@@ -221,3 +221,24 @@ html[data-theme=light] .p-expansion-next{color:#32159b;background:#ffffffeb;padd
 @media(prefers-reduced-motion:reduce){
  .p-site .journal-card,.p-site a.p-brand-card,.reading-progress>span,.careers-job-arrow{transition:none;transform:none}
 }
+
+/* Categories share one taxonomy across blogs, articles and the editorial CMS. */
+.resource-categories{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0}
+.resource-categories button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 17px;border:1px solid var(--p-line);border-radius:7px;background:var(--p-bg);color:var(--p-copy);font:600 13px Manrope,sans-serif;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.resource-categories button span{font-size:11px;font-weight:500;opacity:.8}
+.resource-categories button:hover{border-color:var(--p-brand);color:var(--p-brand)}
+.resource-categories button[aria-pressed=true]{background:var(--p-brand);border-color:var(--p-brand);color:var(--p-bg)}
+.resource-categories button:focus-visible,.resource-results button:focus-visible{outline:2px solid var(--p-brand);outline-offset:4px}
+.resource-categories+.resource-tools{margin-top:22px}
+.resource-library .resource-results{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:28px}
+.resource-results button{border:0;padding:5px 0;background:none;font:600 12px Manrope,sans-serif;color:var(--p-brand);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.reading-classification{flex-wrap:wrap}
+.reading-classification a{color:var(--p-brand);text-decoration:none}
+.reading-classification a:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:650px){
+ .resource-categories{gap:8px;margin-top:22px}
+ .resource-categories button{padding:10px 12px;font-size:12px;gap:7px}
+ .resource-categories+.resource-tools{margin-top:20px}
+ .journal-meta{gap:10px;align-items:flex-start}
+ .journal-meta>span:last-child{white-space:nowrap}
+}
