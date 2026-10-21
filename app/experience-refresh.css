@@ -251,3 +251,8 @@ html[data-theme=light] .p-expansion-next{color:#32159b;background:#ffffffeb;padd
 .p-page .p-purpose-panel p{font-size:16px;line-height:1.85;margin:0;max-width:540px;color:var(--p-copy)}
 @media(max-width:1023px){.p-about-purpose{gap:20px;padding-bottom:68px}.p-purpose-panel{padding:30px}}
 @media(max-width:650px){.p-about-purpose{grid-template-columns:1fr;gap:18px;padding-bottom:52px}.p-purpose-panel{padding:27px 25px;scroll-margin-top:96px}.p-purpose-panel>svg{margin-bottom:20px}.p-page .p-purpose-panel p{font-size:15px}}
+
+/* Compact header wordmark; preserve the original outline artwork and tagline. */
+.p-header .identity-lockup.identity-wordmark{width:180px}
+@media(max-width:767px){.p-header .identity-lockup.identity-wordmark{width:168px}}
+@media(max-width:370px){.p-header .identity-lockup.identity-wordmark{width:150px}}
