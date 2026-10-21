@@ -41,7 +41,7 @@ The portal manages franchise opportunities, careers, editorial content, FAQs, vi
 
 ## Branding
 
-The public website header uses the approved wordmark with tagline, without the brandmark. The header adapts to the website theme. The favicon uses the original blue brandmark (`#32159B`) in every website and device theme. Its SVG, PNG, ICO and Apple touch icon are under `public/`; metadata is in `lib/favicon.ts`.
+The public website header uses the approved wordmark with tagline, without the brandmark. The header adapts to the website theme. The favicon uses the original blue brandmark (`#32159B`) on a transparent background in every website and device theme. Its SVG, PNG, ICO and Apple touch icon are under `public/`; metadata is in `lib/favicon.ts`.
 
 ## Publishing
 
