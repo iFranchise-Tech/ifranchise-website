@@ -162,3 +162,12 @@
  .showcase-dialog-header{font-size:12px}
  .showcase-full-image{height:65dvh}
 }
+
+.dossier-returns-summary{grid-column:1/-1}
+.dossier-returns-summary dd{font-size:13px;white-space:pre-line}
+.dossier-returns-summary a{display:inline-flex;align-items:center;gap:8px;color:var(--p-brand)}
+.dossier-specs>div.dossier-returns{grid-column:1/-1;border-right:0;border-top:1px solid var(--p-line);border-bottom:0;background:var(--p-brand-soft)}
+.dossier-specs>div:has(+.dossier-returns){border-bottom:0}
+.dossier-specs>div:has(+.dossier-returns):nth-child(odd){grid-column:1/-1;border-right:0}
+.dossier-specs>div.dossier-returns dt{color:var(--p-brand);font-weight:600}
+@media(min-width:768px){.dossier-specs>div:has(+div+.dossier-returns):nth-child(odd){border-bottom:0}}

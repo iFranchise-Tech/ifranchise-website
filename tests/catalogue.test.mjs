@@ -8,3 +8,20 @@ test('unconfirmed investment is excluded from budget filters and sorted last',()
 test('model filters include mixed formats and normalize the published FOCO label',()=>{assert(filterBrands(brands,{model:'FOFO'}).some(b=>b.slug==='original-burger-co'));assert.deepEqual(filterBrands(brands,{model:'FOCO'}).map(b=>b.slug),['10-downing-street']);});
 test('a brand search ignores casing and surrounding spaces and does not mutate the catalogue',()=>{const first=brands[0].slug;assert.equal(filterBrands(brands,{query:'  EMORI  '})[0].slug,'emori');filterBrands(brands,{sort:'name'});assert.equal(brands[0].slug,first);});
 test('empty combinations can reset to the full 12-brand catalogue',()=>{assert.equal(filterBrands(brands,{sector:'Jewellery',budget:'25'}).length,0);assert.equal(filterBrands(brands).length,12);});
+
+import {brandReturns} from '../lib/cms/catalogue-fields.mjs';
+test('franchise return terms preserve the supplied conditions and model-specific lines',()=>{
+ for(const slug of ['kasturi-creations','emori','brand-avenue']){
+  const b=brands.find(b=>b.slug===slug);
+  assert.equal(brandReturns(b),b.facts.returns);
+ }
+});
+test('company revenue descriptions cannot be presented as investor returns',()=>{
+ for(const slug of ['bigguys','biggies-burger'])assert.equal(brandReturns(brands.find(b=>b.slug===slug)),'Available on request');
+ assert.equal(brandReturns({facts:{returns:'  '}}),'Available on request');
+ assert.equal(brandReturns({}),'Available on request');
+});
+test('an edited brand return replaces the old unavailable value',()=>{
+ const b=brands.find(b=>b.slug==='bigguys');
+ assert.equal(brandReturns({...b,facts:{...b.facts,returns:'Terms supplied in a revised proposal'}}),'Terms supplied in a revised proposal');
+});
