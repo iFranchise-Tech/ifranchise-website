@@ -21,7 +21,7 @@
 .dossier-nav a:last-child{margin-left:auto;color:var(--p-brand)}
 .dossier-layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;column-gap:50px;row-gap:45px;padding-top:32px;padding-bottom:65px;align-items:start}
 .dossier-media{grid-column:1;grid-row:1;min-width:0}
-.dossier-summary{grid-column:2;grid-row:1/span 4;position:sticky;top:172px;align-self:start;max-height:calc(100dvh - 192px);overflow-y:auto;overscroll-behavior:contain;padding:28px;border:1px solid var(--p-line);border-radius:12px;background:var(--p-surface)}
+.dossier-summary{grid-column:2;grid-row:1;position:static;align-self:start;padding:28px;border:1px solid var(--p-line);border-radius:12px;background:var(--p-surface)}
 .dossier-investment>span{display:block;font-size:12px;color:var(--p-copy);margin-bottom:9px}
 .brand-dossier .dossier-investment>strong{display:block;font-family:Sora,sans-serif;font-size:31px;line-height:1.25;letter-spacing:-.045em;font-weight:600}
 .dossier-key-facts{display:grid;gap:21px;margin:27px 0 18px}
@@ -30,11 +30,11 @@
 .dossier-models{display:flex;flex-wrap:wrap;gap:6px}
 .dossier-models>span{padding:5px 10px;border-radius:4px;background:var(--p-brand-soft);color:var(--p-brand);font-size:12px;font-weight:600}
 .dossier-requirements-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--p-brand)}
-.dossier-summary-actions{display:grid;gap:10px;border-top:1px solid var(--p-line);padding-top:24px;margin-top:24px}
+.dossier-summary-actions{display:grid;gap:18px;border-top:1px solid var(--p-line);padding-top:24px;margin-top:24px}
 .dossier-summary-actions .p-button{width:100%;min-width:0;justify-content:space-between;min-height:51px;padding:0 18px;font-size:13px;border-radius:5px}
 .dossier-brochure{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;border:1px solid var(--p-line);padding:0 18px;border-radius:5px;font-size:13px;font-weight:600;color:var(--p-brand);background:var(--p-bg)}
 .dossier-brochure:hover{border-color:var(--p-brand)}
-.dossier-phone{display:flex;align-items:center;justify-content:center;gap:9px;color:var(--p-copy);font-size:12px;margin-top:22px}
+.dossier-phone{display:flex;align-items:center;justify-content:center;gap:9px;color:var(--p-copy);font-size:12px;margin:0}
 .showcase-stage{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--p-surface)}
 .showcase-stage>img{display:block;width:100%;height:100%;object-fit:contain}
 .showcase-enlarge,.showcase-controls{position:absolute;bottom:16px;display:flex;align-items:center;border:1px solid #ffffff90;background:#fffffff0;color:#211b31;border-radius:7px;box-shadow:0 2px 14px #0001;backdrop-filter:blur(8px)}
@@ -66,7 +66,7 @@
 .dossier-highlights li{display:flex;align-items:flex-start;gap:10px;color:var(--p-copy);font-size:13px;line-height:1.75}
 .dossier-highlights svg{color:var(--p-brand);flex-shrink:0;margin-top:3px}
 .dossier-requirements{grid-column:1;grid-row:3}
-/* Shared commercial details: compact facts with a separate long-form returns panel. */
+/* Shared commercial details, including the full returns description. */
 .dossier-commercial{padding:24px 28px;border:1px solid var(--p-line);border-radius:12px;background:var(--p-bg)}
 .dossier-investment-total{padding-bottom:22px;border-bottom:1px solid var(--p-line)}
 .dossier-investment-total>span{display:block;font-size:12px;color:var(--p-copy);margin-bottom:8px}
@@ -76,26 +76,25 @@
 .dossier-specs>div{min-width:0}
 .dossier-specs dt{font-size:12px;color:var(--p-muted);margin-bottom:6px}
 .dossier-specs dd{font-size:14px;font-weight:500;color:var(--p-ink);line-height:1.7;white-space:pre-line;overflow-wrap:anywhere;margin:0}
-.dossier-returns{margin-top:16px;padding:22px 28px;border:1px solid var(--p-line);border-left:3px solid var(--p-brand);border-radius:0 10px 10px 0;background:var(--p-brand-soft)}
-.brand-dossier .dossier-returns h3{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:-.015em;color:var(--p-brand);margin:0 0 10px}
-.brand-dossier .dossier-returns p{font-size:14px;line-height:1.85;white-space:pre-line;overflow-wrap:anywhere;color:var(--p-ink);margin:0}
+.dossier-specs>.dossier-specs-returns{grid-column:1/-1;padding-top:20px;border-top:1px solid var(--p-line)}
 .dossier-notes{margin-top:19px}
 .brand-dossier .dossier-notes p{font-size:11px;line-height:1.7;color:var(--p-muted);margin:7px 0 0}
 .dossier-questions{grid-column:1;grid-row:4}
 .brand-dossier .dossier-questions .p-questions summary{font-size:15px;line-height:1.6;padding:21px 0}
 .brand-dossier .dossier-questions .p-questions p{font-size:14px;line-height:1.85}
-.dossier-enquiry{background:var(--p-surface);border-top:1px solid var(--p-line);border-bottom:1px solid var(--p-line)}
-.dossier-enquiry-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,560px);justify-content:center;max-width:1040px;gap:64px;align-items:start;padding-top:56px;padding-bottom:56px}
-.brand-dossier .dossier-enquiry-intro h2{margin:0 0 23px;font-size:clamp(32px,3.5vw,44px);line-height:1.25;letter-spacing:-.04em}
-.brand-dossier .dossier-enquiry-intro>p{color:var(--p-copy);font-size:15px;line-height:1.8;max-width:340px}
-.dossier-direct{display:grid;gap:19px;padding:30px 0 35px}
-.dossier-direct>a{display:flex;align-items:center;gap:12px;color:var(--p-ink);font-size:14px;width:fit-content}
-.dossier-direct svg{width:19px;height:19px;color:var(--p-brand)}
-.dossier-enquiry-intro>.p-link{font-size:12px}
-.dossier-enquiry-grid>.enquiry-card{margin:0;width:100%;max-width:560px;min-width:0;justify-self:center}
-.p-site .dossier-enquiry-grid>.p-enquiry{padding:30px;border-radius:12px}
-.p-site .dossier-enquiry-grid .p-form-heading h2{font-size:22px;line-height:1.4}
-.dossier-enquiry-intro{padding-top:8px}
+.dossier-enquiry{padding:56px 0;background:var(--p-surface);border-top:1px solid var(--p-line);border-bottom:1px solid var(--p-line)}
+.dossier-enquiry-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);max-width:960px;gap:0;align-items:stretch;border:1px solid var(--p-line);border-radius:14px;background:var(--p-raised);box-shadow:var(--p-shadow)}
+.dossier-enquiry-intro{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:34px;background:var(--p-bg);border-right:1px solid var(--p-line);border-radius:14px 0 0 14px}
+.brand-dossier .dossier-enquiry-intro h2{margin:0 0 18px;font-size:30px;line-height:1.3;letter-spacing:-.035em;overflow-wrap:anywhere}
+.brand-dossier .dossier-enquiry-intro>p{color:var(--p-copy);font-size:14px;line-height:1.8;margin:0;max-width:310px}
+.dossier-direct{display:grid;gap:18px;padding:28px 0}
+.dossier-direct>a{display:flex;align-items:center;gap:10px;color:var(--p-ink);font-size:13px;width:fit-content}
+.dossier-direct svg{width:18px;height:18px;flex-shrink:0;color:var(--p-brand)}
+.dossier-enquiry-intro>.p-link{font-size:12px;margin-top:auto;padding-top:20px;gap:10px}
+.dossier-enquiry-grid>.enquiry-card{margin:0;width:100%;max-width:none;min-width:0;align-self:stretch}
+.p-site .dossier-enquiry-grid>.enquiry-card{padding:34px;border:0;border-radius:0 14px 14px 0;box-shadow:none}
+.dossier-enquiry-grid .p-form-progress{margin-bottom:28px}
+.p-site .dossier-enquiry-grid .field{margin-bottom:18px}
 .brand-dossier .dossier-related{padding-top:65px;padding-bottom:65px}
 @media(min-width:1280px){.dossier-heading h1{max-width:650px}}
 @media(max-width:1279px){
@@ -103,27 +102,27 @@
  .brand-dossier .dossier-logo{flex-basis:120px;width:120px;height:70px}
  .brand-dossier .dossier-logo.brand-logo-compact{flex-basis:76px;width:76px}
  .dossier-layout{grid-template-columns:minmax(0,1fr) 315px;column-gap:32px}
- .dossier-summary{padding:23px;top:161px;max-height:calc(100dvh - 181px)}
+ .dossier-summary{padding:23px}
  .dossier-nav{top:81px}
- .dossier-enquiry-grid{gap:50px}
 }
 @media(max-width:1023px){
  .dossier-heading{grid-template-columns:1fr;gap:21px}
  .brand-dossier .dossier-description{max-width:680px}
  .dossier-layout{grid-template-columns:minmax(0,1fr);row-gap:38px}
- .dossier-summary{grid-column:1;grid-row:2;position:static;max-height:none;display:grid;grid-template-columns:1fr 1fr;column-gap:35px}
- .dossier-key-facts{grid-column:2;grid-row:1/span 2;margin:0;gap:16px}
- .dossier-requirements-link{margin-top:14px}
- .dossier-summary-actions{grid-column:1/-1;grid-template-columns:1fr 1fr;margin-top:24px;padding-top:20px}
- .dossier-phone{grid-column:1/-1;margin-top:18px}
+ .dossier-summary{grid-column:1;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px 28px;padding:26px}
+ .dossier-key-facts{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:0;padding-top:22px;border-top:1px solid var(--p-line)}
+ .dossier-summary .dossier-returns-summary{grid-column:auto}
+ .dossier-requirements-link{grid-column:2;grid-row:1;margin:0;align-self:center}
+ .dossier-summary-actions{grid-column:1/-1;grid-row:3;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0;padding-top:22px}
+ .dossier-summary-actions .p-button{width:auto;min-width:220px}
  .dossier-overview{grid-row:3}
  .dossier-requirements{grid-row:4}
  .dossier-questions{grid-row:5}
  .showcase-stage{aspect-ratio:3/2}
- .dossier-enquiry-grid{grid-template-columns:minmax(0,1fr);max-width:620px;gap:30px}
- .dossier-enquiry-grid>.enquiry-card{max-width:none}
- .dossier-enquiry-intro>p{max-width:100%}
- .dossier-direct{grid-template-columns:max-content max-content;gap:30px;padding:15px 0 24px}
+ .dossier-enquiry-intro{padding:28px}
+ .p-site .dossier-enquiry-grid>.enquiry-card{padding:28px}
+ .brand-dossier .dossier-enquiry-intro h2{font-size:27px}
+
 }
 @media(max-width:767px){
  .brand-dossier [id]{scroll-margin-top:150px}
@@ -149,12 +148,14 @@
  .showcase-thumbnails button{flex-basis:68px;width:68px;height:50px}
  .dossier-summary{display:block;padding:23px;border-radius:9px}
  .brand-dossier .dossier-investment>strong{font-size:30px}
- .dossier-key-facts{grid-template-columns:1fr 1fr;gap:20px;margin:24px 0 0}
+ .dossier-key-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:20px 0 0;padding-top:20px}
+ .dossier-summary .dossier-returns-summary{grid-column:1/-1}
  .dossier-key-facts dd{font-size:13px}
  .dossier-models>span{font-size:11px}
  .dossier-requirements-link{margin-top:20px}
- .dossier-summary-actions{grid-template-columns:1fr;margin-top:22px}
- .dossier-phone{margin-top:19px}
+ .dossier-summary-actions{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px}
+ .dossier-summary-actions .p-button{flex:1;min-width:180px}
+ .dossier-phone{margin:0}
  .brand-dossier .dossier-section h2{font-size:24px;margin-bottom:18px}
  .brand-dossier .dossier-overview>p{font-size:14px;line-height:1.9}
  .dossier-highlights{grid-template-columns:1fr;gap:14px;margin-top:22px;padding-top:21px}
@@ -162,13 +163,15 @@
  .dossier-investment-total>strong{font-size:25px}
  .dossier-specs{gap:20px 24px}
  .dossier-specs dd{font-size:14px}
- .dossier-returns{padding:20px}
- .p-site .dossier-enquiry-grid>.p-enquiry{padding:23px}
- .p-site .dossier-enquiry-grid .p-form-heading h2{font-size:20px}
  .brand-dossier .dossier-questions .p-questions summary{font-size:14px;padding:19px 0}
- .dossier-enquiry-grid{padding-top:42px;padding-bottom:42px}
- .brand-dossier .dossier-enquiry-intro h2{font-size:32px}
- .dossier-direct{grid-template-columns:1fr;gap:18px;padding:18px 0 27px}
+ .dossier-enquiry{padding:36px 0}
+ .dossier-enquiry-grid{grid-template-columns:minmax(0,1fr);max-width:580px}
+ .dossier-enquiry-intro{padding:24px;border-right:0;border-bottom:1px solid var(--p-line);border-radius:14px 14px 0 0}
+ .brand-dossier .dossier-enquiry-intro h2{font-size:26px;margin-bottom:12px}
+ .brand-dossier .dossier-enquiry-intro>p{max-width:none}
+ .dossier-direct{display:flex;flex-wrap:wrap;gap:16px 24px;padding:20px 0 0}
+ .dossier-enquiry-intro>.p-link{padding-top:20px;margin:0}
+ .p-site .dossier-enquiry-grid>.enquiry-card{padding:26px 24px;border-radius:0 0 14px 14px}
  .brand-dossier .dossier-related{padding-top:42px;padding-bottom:42px}
  .showcase-dialog{width:calc(100% - 24px);padding:12px;max-height:calc(100dvh - 24px)}
  .showcase-dialog-header{font-size:12px}
@@ -182,6 +185,9 @@
  .dossier-specs{grid-template-columns:minmax(0,1fr);gap:0;margin-top:4px}
  .dossier-specs>div{padding:15px 0;border-bottom:1px solid var(--p-line)}
  .dossier-specs>div:last-child{padding-bottom:0;border-bottom:0}
- .brand-dossier .dossier-enquiry-intro h2{font-size:29px}
- .p-site .dossier-enquiry-grid>.p-enquiry{padding:22px 18px}
+ .dossier-specs>.dossier-specs-returns{padding-top:15px;border-top:0}
+ .p-site .dossier-enquiry-grid>.enquiry-card{padding:24px 20px}
+ .dossier-enquiry-intro{padding:24px 20px}
+ .dossier-summary-actions{flex-direction:column;align-items:stretch}
+ .dossier-summary-actions .p-button{width:100%}
 }

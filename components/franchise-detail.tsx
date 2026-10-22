@@ -28,17 +28,15 @@ export function FranchiseDetail({brand:b,brands}:{brand:any;brands:any[]}){
     <div className="dossier-investment"><span>Indicative investment</span><strong>{b.budget}</strong></div>
     <dl className="dossier-key-facts"><div><dt>Operating model</dt><dd className="dossier-models">{models.map((m:string)=><span key={m}>{m}</span>)}</dd></div><div><dt>Space requirement</dt><dd>{space.includes('\n')?'Varies by format':space}</dd></div><div className="dossier-returns-summary"><dt>Returns</dt><dd>{returns.length>140?<a href="#returns">View return details<ArrowUpRight size={14}/></a>:returns}</dd></div></dl>
     <a className="dossier-requirements-link" href="#investment">View all requirements<ArrowUpRight size={15}/></a>
-    <div className="dossier-summary-actions"><PremiumLink href="#enquire">Request details</PremiumLink></div>
-    <a className="dossier-phone" href="tel:+919129130303"><Phone size={16}/>+91 91291 30303</a>
+    <div className="dossier-summary-actions"><PremiumLink href="#enquire">Request details</PremiumLink><a className="dossier-phone" href="tel:+919129130303"><Phone size={16}/>+91 91291 30303</a></div>
    </aside>
    <section className="dossier-overview dossier-section" id="overview"><h2>About {b.name}</h2><p>{b.overview||b.about||b.description}</p>{b.highlights?.length>0&&<ul className="dossier-highlights">{b.highlights.map((h:string)=><li key={h}><Check size={17}/><span>{h}</span></li>)}</ul>}</section>
    <section className="dossier-requirements dossier-section" id="investment">
     <h2>Investment & format</h2>
     <div className="dossier-commercial">
      <div className="dossier-investment-total"><span>Indicative investment</span><strong>{b.budget}</strong>{f.investmentNote&&<p>{f.investmentNote}</p>}</div>
-     <dl className="dossier-specs">{specs.map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+     <dl className="dossier-specs">{specs.map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}<div id="returns" className="dossier-specs-returns"><dt>Returns</dt><dd>{returns}</dd></div></dl>
     </div>
-    <section id="returns" className="dossier-returns" aria-labelledby="returns-heading"><h3 id="returns-heading">Returns</h3><p>{returns}</p></section>
     <div className="dossier-notes">{b.slug==='lassi-n-cafe'&&<p>The proposal contains different investment figures. Request a confirmed cost sheet.</p>}{b.slug==='original-burger-co'&&<p>Unit and master franchise proposals have separate investment and territory terms.</p>}<p>Confirm costs, fees and return terms in the latest written proposal from the brand.</p></div>
    </section>
    {questions.length>0&&<section className="dossier-questions dossier-section" id="questions"><h2>Questions about {b.name}</h2><Questions items={questions}/></section>}
