@@ -17,3 +17,5 @@ test('Google receiver verifies signatures, rejects tampering and deduplicates ro
  function post(data,tamper=false){const body=JSON.stringify(data),signature=createSign('RSA-SHA256').update(body).sign(privateKey).toString('base64url');return context.doPost({postData:{contents:JSON.stringify({body:tamper?body+' ':body,signature})}})}
  const row=Array(16).fill('');row[0]='IF-'+crypto.randomUUID();row[2]='=HYPERLINK("https://example.invalid")';const data={tab:'General Enquiries',row,timestamp:Date.now()};assert.equal(post(data,true).ok,false);assert.equal(post({...data,timestamp:Date.now()-400000}).ok,false);assert.equal(post(data).ok,true);assert.equal(rows.length,2);assert(rows[1][2].startsWith("'="));assert.equal(post(data).duplicate,true);assert.equal(rows.length,2);assert.equal(post({...data,tab:'Other'}).ok,false);
 });
+
+test('brochure flags from older clients cannot enable a download',()=>{assert.equal(validateIntake({...payloads[0],brochureRequested:true}).brochureRequested,false)});

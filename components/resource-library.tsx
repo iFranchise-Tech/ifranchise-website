@@ -1,13 +1,12 @@
 'use client';
 import {useEffect,useState} from 'react';
-import Link from 'next/link';
 import {ArrowUpRight,Search,FileText} from 'lucide-react';
 import {ResourceCard} from './resource-card';
 import {resourceCategories,filterResources} from '../lib/resource-categories.mjs';
 
 const tabs=[['all','All resources','/resources'],['blogs','Blogs','/resources/blogs'],['articles','Articles','/resources/articles'],['faqs','FAQs','/resources/faqs'],['videos','Videos','/resources/videos'],['saved','Saved resources','/resources/saved']];
 export function ResourceTabs({mode,category='all'}:{mode:string;category?:string}){
- return <nav className="resource-tabs" aria-label="Resource types">{tabs.map(([key,label,href])=><Link href={href+(category!=='all'&&['all','blogs','articles'].includes(key)?'?category='+category+'#resource-library':'')} key={key} aria-current={mode===key?'page':undefined}>{label}</Link>)}</nav>;
+ return <nav className="resource-tabs" aria-label="Resource types">{tabs.map(([key,label,href])=><a href={href+(category!=='all'&&['all','blogs','articles'].includes(key)?'?category='+category+'#resource-library':'')} key={key} aria-current={mode===key?'page':undefined}>{label}</a>)}</nav>;
 }
 
 export function ResourceLibrary({items,mode='all',questions=[],initialCategory='all'}:{items:any[];mode?:string;questions?:any[];initialCategory?:string}){

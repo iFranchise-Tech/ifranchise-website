@@ -1,0 +1,9 @@
+# Reuse unchanged public artwork and typography between page visits.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/images/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/brands/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

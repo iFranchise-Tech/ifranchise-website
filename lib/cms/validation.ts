@@ -30,7 +30,7 @@ export function validPayload(kind:string,p:any,complete=false){
  if(kind==='jobs'&&(!v.responsibilities.length||!v.requirements.length))throw new CmsError(422,'Add the role responsibilities and requirements.');
  if((v.questions||v.faqs||[]).some((q:any)=>!q.q.trim()||!q.a.trim()))throw new CmsError(422,'Complete each question and answer.');
  if(kind==='franchises'&&!v.faqs.length)throw new CmsError(422,'Add at least one brand FAQ.');
- if(kind==='franchises'&&v.brochureEnabled&&!v.brochure)throw new CmsError(422,'Upload a brochure or turn brochure access off.');
+
  }
  if(kind==='jobs'){v.id=v.slug;v.active=true;}
  if(complete)for(const k of ['highlights','gallery','responsibilities','requirements','keySkills','relatedSlugs'])if(Array.isArray(v[k]))v[k]=v[k].filter((x:any)=>typeof x!=='string'||x.trim());

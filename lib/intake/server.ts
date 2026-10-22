@@ -42,7 +42,7 @@ export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Arr
  if(existing){if(existing.id!==p.id)throw new CmsError(409,'This form has already been submitted.');if(existing.sheet_status!=='synced')await finishDelivery(deliver(existing,new URL(req.url).origin));return existing;}
  if(Date.now()-session.created_at<1500)throw new CmsError(429,'Please review your details before sending.');
  await limit(req,'submit',12);
- if(data.kind==='investor'&&data.brandSlug){const brand=(await published('franchises')).find(b=>b.slug===data.brandSlug);if(!brand)throw new CmsError(422,'Select an available franchise.');data.brandName=brand.name;if(data.brochureRequested&&(!brand.brochure||brand.brochureEnabled===false))throw new CmsError(422,'This brochure is unavailable.');}
+ if(data.kind==='investor'&&data.brandSlug){const brand=(await published('franchises')).find(b=>b.slug===data.brandSlug);if(!brand)throw new CmsError(422,'Select an available franchise.');data.brandName=brand.name;}
  if(data.kind==='job'){const job=(await published('jobs')).find(j=>(j.slug===data.jobSlug||j.id===data.jobSlug)&&j.active!==false);if(!job)throw new CmsError(422,'This role is no longer accepting applications.');data.jobTitle=job.title;if(!resume)throw new CmsError(422,'Upload your résumé as a PDF.');}
  const resumeKey=resume?'applications/'+p.id+'/resume.pdf':null;
  if(resume){if(resume.bytes.length>MAX_RESUME||new TextDecoder().decode(resume.bytes.slice(0,5))!=='%PDF-')throw new CmsError(422,'Upload a PDF résumé up to 5 MB.');if(!env.BUCKET)throw new CmsError(503,'File uploads are unavailable.');await env.BUCKET.put(resumeKey!,resume.bytes,{httpMetadata:{contentType:'application/pdf'}});}
@@ -53,6 +53,5 @@ export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Arr
  return row;
 }
 export async function receipt(record:any,token:string){
- const data=JSON.parse(record.payload);
- return response({received:true,reference:record.reference,event_id:record.id,message:record.kind==='job'?'Your application has been received.':'Your enquiry has been received.',...(data.brochureRequested?{brochureUrl:'/api/intake/brochure/'+record.id}:{}),token});
+ return response({received:true,reference:record.reference,event_id:record.id,message:record.kind==='job'?'Your application has been received.':'Your enquiry has been received.',token});
 }
