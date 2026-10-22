@@ -21,3 +21,11 @@ export const media=sqliteTable('cms_media',{
 });
 
 export const previews=sqliteTable('cms_previews',{id:text('id').primaryKey(),kind:text('kind').notNull(),payload:text('payload').notNull(),createdBy:text('created_by').notNull(),expiresAt:text('expires_at').notNull()});
+
+export const intakeSessions=sqliteTable('intake_sessions',{id:text('id').primaryKey(),ipHash:text('ip_hash').notNull(),createdAt:integer('created_at').notNull(),expiresAt:integer('expires_at').notNull()});
+export const submissions=sqliteTable('website_submissions',{
+ id:text('id').primaryKey(),reference:text('reference').notNull().unique(),sessionId:text('session_id').notNull().unique(),
+ kind:text('kind').notNull(),payload:text('payload').notNull(),resumeKey:text('resume_key'),resumeName:text('resume_name'),
+ createdAt:text('created_at').notNull(),sheetStatus:text('sheet_status').notNull().default('pending'),syncedAt:text('synced_at'),attempts:integer('attempts').notNull().default(0),
+},t=>[index('website_submissions_pending').on(t.sheetStatus,t.createdAt)]);
+export const intakeLimits=sqliteTable('intake_limits',{id:text('id').primaryKey(),count:integer('count').notNull(),expiresAt:integer('expires_at').notNull()});

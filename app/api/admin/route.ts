@@ -1,6 +1,6 @@
 import {checkMedia} from '../../../lib/cms/media-permissions';
 import {adminIdentity,assertOrigin,boundedBody,CmsError,db,failure,getMembers,memberFromRow,response} from '../../../lib/cms/auth';
-import {canView,canEdit,canPublish,canReview,canApprove,scopeFor,SCOPES,ROLES,validateHierarchy,workEmail} from '../../../lib/cms/policy.mjs';
+import {canView,canEdit,canPublish,canReview,canApprove,scopeFor,SCOPES,PERMISSION_SCOPES,ROLES,validateHierarchy,workEmail} from '../../../lib/cms/policy.mjs';
 import {getRecord,allRecords,summary,writeRecord} from '../../../lib/cms/store';
 import {validPayload} from '../../../lib/cms/validation';
 import {blank} from '../../../lib/cms/defaults';
@@ -72,12 +72,12 @@ async function publishedRecord(me:any,r:any){await validatePublication(me,r);ret
 async function changeMember(me:any,b:any){
  if(me.role!=='super_admin')throw new CmsError(403,'Only a Super Admin can manage employees.');
  const p=b.payload,email=p?.email?.trim().toLowerCase();if(!workEmail(email))throw new CmsError(422,'Enter a valid iFranchise email address.');
- if(!p.name?.trim()||p.name.length>120||!ROLES.includes(p.role)||!Array.isArray(p.scopes)||p.scopes.some((s:string)=>!SCOPES.includes(s)))throw new CmsError(422,'Complete the employee details.');
+ if(!p.name?.trim()||p.name.length>120||!ROLES.includes(p.role)||!Array.isArray(p.scopes)||p.scopes.some((s:string)=>!PERMISSION_SCOPES.includes(s)))throw new CmsError(422,'Complete the employee details.');
  const members=await getMembers(),old=members.find(m=>m.email===email);if(old&&b.version!==old.version||!old&&b.version!==0)throw new CmsError(409,'This employee changed. Reload the team list.');
  if(!['invited','active','suspended'].includes(p.status))throw new CmsError(422,'Invalid status.');
  if(!old&&p.status!=='invited'||old&&!old.userId&&p.status==='active')throw new CmsError(422,'The employee must accept their invitation by signing in.');
  if(email===me.email&&(p.role!=='super_admin'||p.status!=='active'))throw new CmsError(422,'You cannot remove your own Super Admin access.');
- if(p.permissions){if(typeof p.permissions!=='object'||Array.isArray(p.permissions)||Object.keys(p.permissions).some(k=>!SCOPES.includes(k)))throw new CmsError(422,'Invalid permissions.');for(const v of Object.values(p.permissions) as any[]){if(!v||['view','edit','approve'].some(k=>typeof v[k]!=='boolean')||(!v.view&&(v.edit||v.approve)))throw new CmsError(422,'Editing and approval require view access.');}p.scopes=Object.keys(p.permissions).filter(k=>p.permissions[k].view);}
+ if(p.permissions){if(typeof p.permissions!=='object'||Array.isArray(p.permissions)||Object.keys(p.permissions).some(k=>!PERMISSION_SCOPES.includes(k)))throw new CmsError(422,'Invalid permissions.');for(const v of Object.values(p.permissions) as any[]){if(!v||['view','edit','approve'].some(k=>typeof v[k]!=='boolean')||(!v.view&&(v.edit||v.approve)))throw new CmsError(422,'Editing and approval require view access.');}p.scopes=Object.keys(p.permissions).filter(k=>p.permissions[k].view);}
  const candidate={...p,email,name:p.name.trim(),scopes:p.role==='super_admin'?[]:[...new Set(p.scopes)],manager:p.role==='super_admin'?null:p.manager||null};
  if(p.role!=='super_admin'&&!p.scopes.length)throw new CmsError(422,'Assign at least one section.');
  const proposed=[...members.filter(m=>m.email!==email),candidate];
