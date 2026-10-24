@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5173';
-const base={name:'Integration Test – Not a Lead',phone:'+14155552671',phoneCountry:'US',email:'test@example.invalid',city:'Bengaluru',state:'Karnataka',consent:true,sourcePage:'/contact-us',trap:''};
+const base={name:'Integration Test',phone:'+14155552671',phoneCountry:'US',email:'test@example.invalid',city:'Bengaluru',state:'Karnataka',consent:true,sourcePage:'/contact-us',trap:''};
 const headers={'Content-Type':'application/json',Origin:origin};
 async function request(path,body){return fetch(origin+path,{method:'POST',headers,body:JSON.stringify(body)})}
 async function session(){const r=await fetch(origin+'/api/intake/session',{method:'POST',headers:{Origin:origin}});const d=await r.json();assert.equal(r.status,200,JSON.stringify(d));return d.token}

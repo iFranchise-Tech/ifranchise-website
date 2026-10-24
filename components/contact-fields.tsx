@@ -36,3 +36,10 @@ export function EmailField({id}:{id:string}){
  useEffect(()=>{input.current?.setCustomValidity(error);},[error]);
  return <div className="field"><label htmlFor={id+'-email'}>Email address *</label><input ref={input} id={id+'-email'} name="email" type="email" required autoComplete="email" autoCapitalize="none" spellCheck={false} maxLength={254} value={value} placeholder="you@example.com" aria-invalid={invalid||undefined} aria-describedby={invalid?id+'-email-error':undefined} onChange={e=>setValue(e.target.value)} onBlur={()=>setTouched(true)} onInvalid={()=>setTouched(true)}/>{invalid&&<span id={id+'-email-error'} className="field-error" aria-live="polite">{error}</span>}</div>;
 }
+
+export function NameField({id}:{id:string}){
+ const [value,setValue]=useState(''),[touched,setTouched]=useState(false),input=useRef<HTMLInputElement>(null);
+ const error=contactFieldError('name',value),invalid=touched&&!!error;
+ useEffect(()=>{input.current?.setCustomValidity(error)},[error]);
+ return <div className="field"><label htmlFor={id+'-name'}>Full name *</label><input ref={input} id={id+'-name'} name="name" autoComplete="name" required minLength={2} maxLength={120} value={value} aria-invalid={invalid||undefined} aria-describedby={invalid?id+'-name-error':undefined} onChange={e=>{setValue(e.target.value);setTouched(true)}} onBlur={()=>{setValue(v=>v.trim().replace(/\s+/gu,' '));setTouched(true)}} onInvalid={()=>setTouched(true)}/>{invalid&&<span id={id+'-name-error'} className="field-error" aria-live="polite">{error}</span>}</div>;
+}

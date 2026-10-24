@@ -1,0 +1,202 @@
+/* Shared layout and interaction corrections from the October website review. */
+:root{--site-gutter:40px;--site-header-height:80px;--site-width:1320px}
+html{scroll-padding-top:calc(var(--site-header-height) + 24px)}
+.p-site{overflow:clip}
+.p-site :is(.p-container,.page-wrap,.job-wrap),.p-header-inner{width:min(var(--site-width),calc(100% - var(--site-gutter)*2));margin-inline:auto}
+.p-site :is(.page-wrap,.job-wrap){padding-inline:0}
+.p-header{height:var(--site-header-height)}
+.p-header-inner{height:100%;gap:24px}
+.p-header-tools{gap:12px}
+.p-contact-button{min-height:44px;padding:12px 20px}
+.p-nav-group:after{content:'';position:absolute;top:100%;left:-18px;right:-18px;height:18px}
+.p-dropdown{top:calc(100% + 12px)}
+.p-button.p-button-centered{justify-content:center;text-align:center}
+.p-section-action{display:flex;justify-content:center;margin-top:34px}
+.p-section-action .p-button svg{transition:transform .2s}
+.p-section-action .p-button:hover svg{transform:translate(2px,-2px)}
+.p-photo-hero .p-scroll-link{justify-content:center;gap:10px;min-height:42px;padding:10px 16px;border:1px solid var(--p-line);border-radius:24px;background:var(--p-header);line-height:1.4}
+.p-solutions .p-photo-hero .p-scroll-link{left:50%;transform:translateX(-50%);white-space:nowrap}
+.p-solutions .p-scroll-link svg{animation:section-nudge 2.3s ease-in-out infinite}
+@keyframes section-nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+.p-process.p-container{min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;border:0;background:var(--p-bg)}
+.p-process-image{border-radius:12px;overflow:hidden;min-height:0;height:auto;align-self:stretch;border:0}
+.p-process-image img{width:100%;height:100%;object-fit:cover;border:0}
+.p-process-copy{padding:0;max-width:none;display:flex;flex-direction:column;justify-content:center}
+.p-process-copy ol{margin:24px 0}
+.p-process-copy li{padding-block:18px}
+.p-process-copy>.p-link{align-self:flex-end;margin-top:0}
+.p-section-heading{align-items:center}
+.p-solutions .p-section-heading>div:last-child{max-width:610px}
+.p-deliverables{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.p-deliverables article{height:100%;padding:24px;border:1px solid var(--p-line);border-radius:10px;background:var(--p-bg)}
+.p-deliverables h3{font-size:20px}
+.p-deliverables p{font-size:14px}
+.opportunities-intro{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;gap:50px;padding:8px 0 32px}
+.opportunities-intro h1{font-size:clamp(34px,3.65vw,51px);line-height:1.17}
+.opportunities-intro>p{font-size:15px;line-height:1.8;max-width:510px;margin:0}
+.opportunity-filters,.resource-filter-bar,.careers-search-tools{position:sticky;top:var(--site-header-height);z-index:40;background:var(--p-bg);box-shadow:0 8px 16px -14px #211b3155;border-bottom:1px solid var(--p-line)}
+.p-site .opportunity-filters{padding:16px 20px;border-radius:10px}
+.opportunity-filter-heading{margin-bottom:12px;align-items:center}
+.opportunity-filter-heading h2{font-size:17px}
+.opportunity-filter-fields{gap:14px}
+.p-site .opportunity-field label{font-size:11px;margin-bottom:6px}
+.p-site .opportunity-field select,.p-site .opportunity-search>div,.p-site .opportunity-search input{min-height:44px!important;height:44px;font-size:13px}
+.opportunity-selections{margin-top:10px}
+.filter-toggle{display:none}
+.dossier-nav,.reader-toolbar{top:var(--site-header-height)}
+.brand-dossier [id]{scroll-margin-top:calc(var(--site-header-height) + 80px)}
+.dossier-summary{position:sticky;top:calc(var(--site-header-height) + 76px);grid-row:1 / span 4;max-height:none;overflow:visible}
+.dossier-summary-actions .p-button{justify-content:center}
+.dossier-phone svg{animation:phone-ring 4s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes phone-ring{0%,12%,100%{transform:rotate(0)}2%,6%,10%{transform:rotate(-12deg)}4%,8%{transform:rotate(12deg)}}
+.dossier-specs{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 24px}
+.dossier-specs>div{padding:0;border:0}
+.dossier-specs dt{line-height:1.5}
+.dossier-specs>.dossier-specs-returns{grid-column:1/-1;border-top:1px solid var(--p-line);padding-top:20px}
+.whatsapp-float.whatsapp-compact{width:54px;height:54px;min-width:54px;min-height:54px;padding:0;border:0;border-radius:50%;display:flex;align-items:center;justify-content:center;gap:0;background:#087d42;color:#fff;bottom:calc(22px + env(safe-area-inset-bottom));right:24px;box-shadow:0 5px 20px #071e2524;transition:width .25s,border-radius .25s}
+.whatsapp-compact>svg{flex-shrink:0;width:25px;height:25px}
+.whatsapp-compact>span{display:none;white-space:nowrap;font-size:13px;font-weight:600}
+.whatsapp-compact.is-intro{width:160px;border-radius:28px;gap:10px}
+.whatsapp-compact.is-intro>span{display:block}
+.resource-filter-bar{padding:0 0 14px;margin-bottom:20px}
+.resource-filter-bar .resource-tabs{gap:28px}
+.resource-filter-bar .resource-tabs a{font-size:13px;padding:13px 0}
+.resource-filter-bar .resource-categories{margin:12px 0;gap:8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+.resource-filter-bar .resource-categories button{padding:7px 12px;white-space:nowrap;font-size:11px;flex-shrink:0}
+.resource-filter-bar .resource-tools{margin:12px 0 0;gap:12px;flex-direction:row}
+.resource-filter-bar .resource-search{min-height:42px;width:min(100%,540px)}
+.resource-filter-bar .resource-search input{font-size:14px;padding-block:9px!important}
+.resource-filter-bar .resource-tools select{min-height:42px;padding:9px 36px 9px 12px;font-size:13px}
+.p-site .journal-card h2{min-height:0;margin:12px 0 0}
+.p-site .journal-card-copy>p{margin:14px 0 20px}
+.reading-masthead{padding-top:24px;padding-bottom:32px}
+.reading-title-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:64px}
+.p-page .reading-masthead h1{font-size:clamp(30px,3.25vw,46px);line-height:1.2;max-width:none;margin:0;letter-spacing:-.04em}
+.reading-title-row .reading-deck{max-width:none;margin:0;font-size:17px;line-height:1.8;color:var(--p-copy)}
+.reading-byline{display:flex;align-items:center;gap:22px;margin-top:28px;padding-top:20px;border-top:1px solid var(--p-line);font-size:12px}
+.reading-author{display:flex;align-items:center;gap:12px;margin-right:auto}
+.reading-author-mark{display:block;flex-shrink:0;background-image:url(/favicon.svg)!important;background-position:center!important;background-repeat:no-repeat!important;background-size:26px!important;padding:7px;width:42px;height:42px;border-radius:50%;background:#f2effa;border:1px solid var(--p-line)}
+.reading-author>div{display:grid;gap:4px}
+.reading-author strong{font-size:13px;color:var(--p-ink);font-weight:650}
+.reading-author span{font-size:11px;color:var(--p-muted)}
+.reading-byline time,.reading-byline>span{display:flex;align-items:center;gap:7px}
+.reading-byline>span{border-left:1px solid var(--p-line);padding-left:22px}
+.p-editorial-heading{align-items:center;padding:20px 0 40px;gap:64px}
+.p-editorial-heading h1{font-size:clamp(48px,4.8vw,68px)}
+.p-editorial-heading>div{display:flex;flex-direction:column;align-items:flex-start}
+.p-editorial-heading>div>.p-button{align-self:center;margin-top:14px}
+.p-about-photo.p-container{height:440px;border-radius:14px;overflow:hidden}
+.p-service-rows>a{padding:26px 20px;border-radius:8px;transition:background .2s,color .2s}
+.p-service-rows>a:hover{padding:26px 20px;background:var(--p-brand);color:var(--p-bg)}
+:root[data-theme=light] .p-service-rows>a:hover :is(h3,p,svg){color:#fff}
+.careers-search-tools{padding:14px 0;margin-bottom:24px}
+.careers-search-tools :is(input,select){font-size:14px}
+.careers-job-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.careers-job{display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:24px;padding:26px;border:1px solid var(--p-line);border-radius:12px;background:var(--p-bg);align-items:start}
+.careers-job:hover{padding:26px;border-color:var(--p-brand);background:var(--p-surface)}
+.careers-job-title{grid-column:1/-1}
+.careers-job-title h3{font-size:24px}
+.careers-job-title p{font-size:14px;max-width:none}
+.careers-job-meta{display:flex;flex-wrap:wrap;align-self:end;gap:12px 18px;font-size:12px}
+.careers-job-meta>span{display:flex;gap:7px;align-items:center}
+.careers-job-meta svg{flex-shrink:0;color:var(--p-brand)}
+.careers-job-arrow{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--p-line);color:var(--p-brand);align-self:end}
+.location-field{position:relative;min-width:0}
+.location-control{position:relative}
+.p-site .location-control>input{width:100%;padding-right:34px}
+.location-control>svg{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--p-muted);pointer-events:none}
+.location-menu{position:absolute;top:100%;left:0;right:0;z-index:65;background:var(--p-raised);border:1px solid var(--p-line);border-radius:8px;box-shadow:var(--p-shadow);padding:5px}
+.location-menu ul{list-style:none;padding:0;margin:0;max-height:230px;overflow-y:auto;scrollbar-width:thin}
+.location-menu li button{width:100%;padding:10px 12px;background:none;border:0;border-radius:4px;color:var(--p-ink);text-align:left;font:inherit;font-size:13px;cursor:pointer}
+.location-menu li.is-active button,.location-menu li[aria-selected=true] button{background:var(--p-brand-soft);color:var(--p-brand)}
+.location-menu p{padding:8px 10px;font-size:12px;margin:0;line-height:1.6}
+.location-menu p button{background:none;color:var(--p-brand);border:0;text-decoration:underline;cursor:pointer}
+.candidate-form input[type=file]{font-size:13px;padding:7px;background:var(--p-bg)}
+.candidate-form input[type=file]::file-selector-button{border:0;border-radius:5px;padding:10px 14px;margin-right:12px;background:var(--p-brand-soft);color:var(--p-brand);font:inherit;cursor:pointer}
+.resume-field label{font-size:14px;gap:8px;flex-wrap:nowrap}
+.resume-field small{font-size:11px;white-space:nowrap}
+@media(max-width:1279px){
+ :root{--site-gutter:32px;--site-header-height:76px}
+ .p-navigation{top:calc(var(--site-header-height) - 1px);left:calc(-1*var(--site-gutter));right:calc(-1*var(--site-gutter));max-height:calc(100dvh - var(--site-header-height));padding-inline:var(--site-gutter)}
+ .p-nav-group:after{display:none}
+ .p-dropdown{position:static}
+ .p-process.p-container{gap:36px}
+ .p-process-copy{padding:0}
+ .reading-title-row{gap:36px}
+}
+@media(max-width:1023px){
+ .dossier-summary{position:static;grid-row:2;top:auto}
+ .p-deliverables{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .p-process.p-container{gap:30px}
+ .opportunities-intro{gap:32px}
+ .opportunities-intro h1{font-size:36px}
+ .reading-title-row{grid-template-columns:1fr;gap:20px}
+ .reading-title-row .reading-deck{max-width:760px}
+ .p-about-photo.p-container{height:370px}
+}
+@media(max-height:680px) and (min-width:1024px){.dossier-summary{position:static}}
+@media(max-width:767px){
+ :root{--site-gutter:24px;--site-header-height:72px}
+ .p-header-inner{gap:12px}
+ .p-header-tools{gap:4px}
+ .p-process.p-container{grid-template-columns:1fr;gap:28px}
+ .p-process-image{height:310px}
+ .p-process-copy{padding:0}
+ .p-process-copy>.p-link{align-self:flex-end}
+ .p-section-action{margin-top:26px}
+ .p-section-action .p-button{min-width:220px}
+ .p-deliverables{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .p-deliverables article{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:18px}
+ .p-deliverables article h3{font-size:17px;margin:0}
+ .p-deliverables article p{font-size:13px;margin:0}
+ .opportunities-intro{display:grid;grid-template-columns:1fr;gap:20px}
+ .opportunities-intro h1{font-size:36px}
+ .opportunities-intro>p{font-size:14px;margin:0}
+ .p-site .opportunity-filters{padding:12px;border-radius:8px}
+ .opportunity-filter-heading{margin:0 0 10px;display:flex}
+ .opportunity-filter-heading>a{display:none}
+ .filter-toggle{display:flex;align-items:center;gap:6px;background:var(--p-surface);border:1px solid var(--p-line);border-radius:5px;padding:6px 10px;color:var(--p-brand);font-size:12px}
+ .p-site .opportunity-filter-fields{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}
+ .p-site .opportunity-filter-fields>.opportunity-field{grid-column:auto!important}
+ .p-site .opportunity-filter-fields>.opportunity-search{grid-column:1/-1!important}
+ .opportunity-filter-fields:not(.is-expanded)>.opportunity-field:not(.opportunity-search){display:none}
+ .p-site .opportunity-field select,.p-site .opportunity-search>div,.p-site .opportunity-search input{min-height:40px!important;height:40px;font-size:12px}
+ .opportunity-selections{max-height:64px;overflow:auto}
+ .dossier-specs{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 14px;margin-top:20px}
+ .dossier-specs dt{font-size:11px}
+ .dossier-specs dd{font-size:12px;line-height:1.6}
+ .dossier-specs>div{padding:0;border:0}
+ .dossier-commercial{padding:20px 16px}
+ .resource-filter-bar .resource-tabs{gap:20px}
+ .resource-filter-bar .resource-tabs a{font-size:12px;padding:11px 0}
+ .resource-filter-bar .resource-categories{margin:10px 0;gap:6px}
+ .resource-filter-bar .resource-categories button{padding:6px 10px;font-size:10px}
+ .resource-filter-bar .resource-tools{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:8px;margin-top:10px}
+ .resource-filter-bar .resource-tools:has(>.resource-search:only-child){grid-template-columns:1fr}
+ .resource-filter-bar .resource-tools select{min-width:0;width:100%;font-size:12px;padding-right:25px}
+ .resource-filter-bar .resource-search{padding-inline:10px;gap:8px}
+ .resource-filter-bar .resource-search input{font-size:13px}
+ .reading-masthead{padding-block:20px 26px}
+ .p-page .reading-masthead h1{font-size:32px}
+ .reading-title-row .reading-deck{font-size:15px}
+ .reading-byline{flex-wrap:wrap;gap:14px;font-size:11px;margin-top:22px}
+ .reading-author{width:100%}
+ .reading-byline>span{padding-left:14px}
+ .p-editorial-heading{grid-template-columns:1fr;gap:24px;padding:15px 0 32px}
+ .p-editorial-heading h1{font-size:52px}
+ .p-about-photo.p-container{height:290px;border-radius:10px}
+ .p-service-rows>a,.p-service-rows>a:hover{padding:22px 16px;gap:14px}
+ .p-service-rows h3{font-size:21px}
+ .careers-search-tools{gap:10px;padding:12px 0}
+ .careers-search-tools .career-search{min-width:0;flex:1}
+ .careers-search-tools select{min-width:0;width:155px}
+ .careers-job-list{grid-template-columns:1fr;gap:18px}
+ .careers-job,.careers-job:hover{padding:22px;gap:20px}
+ .whatsapp-float.whatsapp-compact{right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:50px;height:50px;min-width:50px;min-height:50px}
+ .whatsapp-compact.is-intro{width:154px}
+ .reader-toolbar{top:auto}
+ body:has(.reader-toolbar) .whatsapp-float.whatsapp-compact{bottom:calc(87px + env(safe-area-inset-bottom))}
+ body:has(.reader-resume) .whatsapp-float.whatsapp-compact{bottom:calc(121px + env(safe-area-inset-bottom))}
+}
+@media(max-width:370px){:root{--site-gutter:18px}.dossier-specs{gap:18px 10px}.resource-filter-bar .resource-tools{grid-template-columns:1fr 112px}.resume-field{padding:14px}.resume-field label{gap:5px}.resume-field small{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.p-solutions .p-scroll-link svg,.dossier-phone svg{animation:none}.whatsapp-float.whatsapp-compact,.p-section-action .p-button svg{transition:none}}

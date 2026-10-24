@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
-import {indianStates} from '../lib/locations.mjs';
+export {LocationFields} from './location-fields';
 import {getAttribution,readConsent} from '../lib/measurement.mjs';
 export function useIntake(){
  const id=useRef(''),session=useRef<Promise<string>|null>(null);const [ready,setReady]=useState(false);
@@ -12,6 +12,5 @@ export function useIntake(){
  }
  return {ready,payload};
 }
-export function LocationFields({id,preferred=false}:{id:string;preferred?:boolean}){return <div className="field-row"><div className="field"><label htmlFor={id+'-state'}>{preferred?'Preferred state / UT':'State / UT'} *</label><select id={id+'-state'} name="state" required defaultValue="" autoComplete="address-level1"><option value="" disabled>Select state / UT</option>{indianStates.map(s=><option key={s}>{s}</option>)}</select></div><div className="field"><label htmlFor={id+'-city'}>{preferred?'Preferred city':'City'} *</label><input id={id+'-city'} name="city" required minLength={2} maxLength={120} autoComplete="address-level2"/></div></div>}
-export function IntakeConsent({job=false}:{job?:boolean}){return <><label className="checkbox-label"><input type="checkbox" name="consent" required/><span>{job?'I agree to the use of my details and résumé for this application.':'I agree to be contacted about this enquiry.'} <a href="/privacy-policy#privacy" target="_blank" rel="noreferrer">Privacy policy</a></span></label><div className="honeypot" aria-hidden="true"><label>Leave this empty<input name="trap" tabIndex={-1} autoComplete="off"/></label></div></>}
+export function IntakeConsent({job=false}:{job?:boolean}){return <><label className="checkbox-label"><input type="checkbox" name="consent" required/><span>{job?'I agree to the use of my details and resume for this application.':'I agree to be contacted about this enquiry.'} <a href="/privacy-policy#privacy" target="_blank" rel="noreferrer">Privacy policy</a></span></label><div className="honeypot" aria-hidden="true"><label>Leave this empty<input name="trap" tabIndex={-1} autoComplete="off"/></label></div></>}
 export async function readReceipt(r:Response){const d:any=await r.json();if(!r.ok||d.received!==true)throw Error(d.error||'Your submission could not be confirmed. Please try again.');return d;}

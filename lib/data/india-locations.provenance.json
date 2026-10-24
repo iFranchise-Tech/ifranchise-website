@@ -1,0 +1,490 @@
+{
+  "dataset": "india-locations.json",
+  "generatedAt": "2026-10-24",
+  "license": "ODbL-1.0",
+  "attribution": "Contains information from Countries States Cities Database, made available under the Open Database License (ODbL) v1.0.",
+  "upstream": {
+    "name": "Countries States Cities Database",
+    "repository": "https://github.com/dr5hn/countries-states-cities-database",
+    "commit": "8e1ef729a8bab462697b540de202586bfe138996",
+    "commitDate": "2026-10-23T16:45:47Z",
+    "path": "json/countries+states+cities.json",
+    "downloadUrl": "https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/8e1ef729a8bab462697b540de202586bfe138996/json/countries%2Bstates%2Bcities.json",
+    "sha256": "401f2db487336d00bbfd027b2080a4a393e8443f498ccfc675a67b52e08dd75a",
+    "indiaSourceRecords": 4335
+  },
+  "output": {
+    "sha256": "b616503e16a570b8da989f6a3bb7c172d59c033f55ff6a5b49d4d9cfb9e0db18",
+    "states": 28,
+    "unionTerritories": 8,
+    "cityTownLocalityNames": 4290,
+    "aliases": 54,
+    "bytes": 676480,
+    "countByState": {
+      "Andaman and Nicobar Islands": 3,
+      "Andhra Pradesh": 173,
+      "Arunachal Pradesh": 23,
+      "Assam": 88,
+      "Bihar": 138,
+      "Chandigarh": 1,
+      "Chhattisgarh": 77,
+      "Dadra and Nagar Haveli and Daman and Diu": 5,
+      "Delhi": 25,
+      "Goa": 50,
+      "Gujarat": 309,
+      "Haryana": 84,
+      "Himachal Pradesh": 53,
+      "Jammu and Kashmir": 54,
+      "Jharkhand": 89,
+      "Karnataka": 249,
+      "Kerala": 150,
+      "Ladakh": 3,
+      "Lakshadweep": 1,
+      "Madhya Pradesh": 285,
+      "Maharashtra": 538,
+      "Manipur": 19,
+      "Meghalaya": 17,
+      "Mizoram": 15,
+      "Nagaland": 9,
+      "Odisha": 111,
+      "Puducherry": 6,
+      "Punjab": 124,
+      "Rajasthan": 196,
+      "Sikkim": 8,
+      "Tamil Nadu": 392,
+      "Telangana": 89,
+      "Tripura": 19,
+      "Uttar Pradesh": 574,
+      "Uttarakhand": 61,
+      "West Bengal": 252
+    }
+  },
+  "schema": {
+    "states": "Alphabetical array. state.name matches the existing location selector; code is an app short code and is not presented as a certified current ISO list.",
+    "cities": "Alphabetical array per state. name is the stored canonical display value; aliases supports legacy-name search. id is one upstream ID; sourceIds preserves IDs combined for identical labels within a state. Distinct places sharing the same city name and state are intentionally one form option.",
+    "search": "Compare both name and aliases after Unicode normalization and case folding. Return city.name as the canonical value. Reject city/state combinations absent from that state."
+  },
+  "transformations": [
+    "Extracted only India from the pinned upstream file.",
+    "Kept all 28 states and 8 union territories, including merged Dadra and Nagar Haveli and Daman and Diu.",
+    "Removed coordinates, populations, unrelated country fields, and county IDs; preserved source city IDs.",
+    "Fixed six state assignments using government sources.",
+    "Removed explicit District/Division records and other unmistakable administrative-only or generic labels. This is conservative, not a full gazetteer classification.",
+    "Collapsed duplicate display labels within a state and the duplicate Prayagraj label.",
+    "Normalized selected renamed cities and added common legacy-name search aliases.",
+    "Sorted states and city labels alphabetically."
+  ],
+  "stateAssignmentCorrections": [
+    {
+      "sourceId": 132852,
+      "originalState": "Kerala",
+      "originalName": "Mahe",
+      "state": "Puducherry",
+      "name": "Mahe"
+    },
+    {
+      "sourceId": 134424,
+      "originalState": "Andhra Pradesh",
+      "originalName": "Yanam",
+      "state": "Puducherry",
+      "name": "Yanam"
+    },
+    {
+      "sourceId": 133361,
+      "originalState": "Andhra Pradesh",
+      "originalName": "Parlakimidi",
+      "state": "Odisha",
+      "name": "Paralakhemundi"
+    },
+    {
+      "sourceId": 147497,
+      "originalState": "Uttar Pradesh",
+      "originalName": "Kausani",
+      "state": "Uttarakhand",
+      "name": "Kausani"
+    },
+    {
+      "sourceId": 147520,
+      "originalState": "Uttar Pradesh",
+      "originalName": "Mukteshwar",
+      "state": "Uttarakhand",
+      "name": "Mukteshwar"
+    },
+    {
+      "sourceId": 147522,
+      "originalState": "Uttar Pradesh",
+      "originalName": "Munsyari",
+      "state": "Uttarakhand",
+      "name": "Munsiyari"
+    }
+  ],
+  "normalizedNames": [
+    {
+      "state": "Karnataka",
+      "sourceId": 132016,
+      "originalName": "Kalaburgi",
+      "name": "Kalaburagi"
+    },
+    {
+      "state": "Karnataka",
+      "sourceId": 133872,
+      "originalName": "Shimoga",
+      "name": "Shivamogga"
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 57765,
+      "originalName": "Aurangabad",
+      "name": "Chhatrapati Sambhajinagar"
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 133305,
+      "originalName": "Osmanabad",
+      "name": "Dharashiv"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 57640,
+      "originalName": "Prayagraj (Allahabad)",
+      "name": "Prayagraj"
+    }
+  ],
+  "mergedNames": [
+    {
+      "state": "Bihar",
+      "name": "Munger",
+      "sourceId": 133032,
+      "intoId": 132991
+    },
+    {
+      "state": "Chhattisgarh",
+      "name": "Janjgir",
+      "sourceId": 132312,
+      "intoId": 168142
+    },
+    {
+      "state": "Jharkhand",
+      "name": "Garhwa",
+      "sourceId": 131922,
+      "intoId": 147475
+    },
+    {
+      "state": "Karnataka",
+      "name": "Kanakapura",
+      "sourceId": 157018,
+      "intoId": 132706
+    },
+    {
+      "state": "Karnataka",
+      "name": "Vijayapura",
+      "sourceId": 58031,
+      "intoId": 134307
+    },
+    {
+      "state": "Odisha",
+      "name": "Bargarh",
+      "sourceId": 57869,
+      "intoId": 57862
+    },
+    {
+      "state": "Odisha",
+      "name": "Paralakhemundi",
+      "sourceId": 133361,
+      "intoId": 167532
+    },
+    {
+      "state": "Puducherry",
+      "name": "Mahe",
+      "sourceId": 132852,
+      "intoId": 132830
+    },
+    {
+      "state": "Puducherry",
+      "name": "Yanam",
+      "sourceId": 134424,
+      "intoId": 134425
+    },
+    {
+      "state": "Uttar Pradesh",
+      "name": "Akbarpur",
+      "sourceId": 57621,
+      "intoId": 167550
+    },
+    {
+      "state": "Uttar Pradesh",
+      "name": "Prayagraj",
+      "sourceId": 57640,
+      "intoId": 147429
+    }
+  ],
+  "excludedRecords": [
+    {
+      "state": "Andaman and Nicobar Islands",
+      "sourceId": 133213,
+      "name": "Nicobar",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Andaman and Nicobar Islands",
+      "sourceId": 134006,
+      "name": "South Andaman",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Dadra and Nagar Haveli and Daman and Diu",
+      "sourceId": 131640,
+      "name": "Dadra & Nagar Haveli",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Karnataka",
+      "sourceId": 57847,
+      "name": "Bengaluru Rural",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Karnataka",
+      "sourceId": 57848,
+      "name": "Bengaluru Urban",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Karnataka",
+      "sourceId": 132537,
+      "name": "Kodagu",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Karnataka",
+      "sourceId": 134300,
+      "name": "Uttar Kannada",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Lakshadweep",
+      "sourceId": 132750,
+      "name": "Lakshadweep",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 147827,
+      "name": "Mokhada taluka",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 133025,
+      "name": "Mumbai Suburban",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 133117,
+      "name": "Nagpur Division",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 133178,
+      "name": "Nashik Division",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 133505,
+      "name": "Pune Division",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 133816,
+      "name": "Satara Division",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Maharashtra",
+      "sourceId": 133943,
+      "name": "Sindhudurg",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Odisha",
+      "sourceId": 132371,
+      "name": "Kandhamal",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Odisha",
+      "sourceId": 133195,
+      "name": "Nayagarh District",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Sikkim",
+      "sourceId": 131822,
+      "name": "East",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Sikkim",
+      "sourceId": 133235,
+      "name": "North",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Sikkim",
+      "sourceId": 134008,
+      "name": "South",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Sikkim",
+      "sourceId": 134405,
+      "name": "West",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Telangana",
+      "sourceId": 57952,
+      "name": "Bhadradri Kothagudem",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Telangana",
+      "sourceId": 132257,
+      "name": "Jayashankar Bhupalapally",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Telangana",
+      "sourceId": 132290,
+      "name": "Jogulamba Gadwal",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Telangana",
+      "sourceId": 132957,
+      "name": "Medchal Malkajgiri",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Telangana",
+      "sourceId": 133592,
+      "name": "Rajanna Sircilla",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Telangana",
+      "sourceId": 133607,
+      "name": "Rangareddi",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 57669,
+      "name": "Ambedkar Nagar",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 58187,
+      "name": "Chandauli District",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 131929,
+      "name": "Gautam Buddha Nagar",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 132303,
+      "name": "Jyotiba Phule Nagar",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 132783,
+      "name": "Lucknow District",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 133793,
+      "name": "Sant Ravi Das Nagar",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    },
+    {
+      "state": "Uttar Pradesh",
+      "sourceId": 133833,
+      "name": "Sector",
+      "reason": "Administrative-area or ambiguous generic label, not a city/town selection."
+    }
+  ],
+  "verificationSources": [
+    {
+      "url": "https://www.india.gov.in/directory/web-directory/state-uts",
+      "purpose": "Official list of 36 states and union territories, including merged DNHDD."
+    },
+    {
+      "url": "https://www.mha.gov.in/index.php/union-territories-divisions",
+      "purpose": "Eight union territories."
+    },
+    {
+      "url": "https://bengaluruurban.nic.in/en/history/",
+      "purpose": "Bangalore and Bengaluru refer to the same city."
+    },
+    {
+      "url": "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=113433",
+      "purpose": "Karnataka city renamings; modern Mysuru spelling retained from upstream."
+    },
+    {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2054647&lang=2&reg=48",
+      "purpose": "Sri Vijaya Puram / Port Blair."
+    },
+    {
+      "url": "https://mahades.maharashtra.gov.in/ESM1920/chapter/English/esm2122_e.pdf",
+      "purpose": "Chhatrapati Sambhajinagar / Aurangabad and Dharashiv / Osmanabad."
+    },
+    {
+      "url": "https://gurugram.gov.in/history/",
+      "purpose": "Gurugram / Gurgaon."
+    },
+    {
+      "url": "https://py.gov.in/about-puducherry",
+      "purpose": "Mahe and Yanam belong to Puducherry; they are enclaves surrounded by other states."
+    },
+    {
+      "url": "https://mahe.gov.in/",
+      "purpose": "Mahe is part of Puducherry, not Kerala."
+    },
+    {
+      "url": "https://gajapati.odisha.gov.in/en/departments/municipality",
+      "purpose": "Paralakhemundi belongs to Odisha, not Andhra Pradesh."
+    },
+    {
+      "url": "https://www.uttarakhandtourism.gov.in/search",
+      "purpose": "Kausani, Mukteshwar and Munsiyari belong to Uttarakhand, not Uttar Pradesh."
+    },
+    {
+      "url": "https://pithoragarh.nic.in/ward-munsyari/",
+      "purpose": "Munsyari belongs to Pithoragarh, Uttarakhand."
+    },
+    {
+      "url": "https://bageshwar.nic.in/tourist-place/kausani/",
+      "purpose": "Kausani belongs to Bageshwar, Uttarakhand."
+    }
+  ],
+  "distribution": "Keep this attribution and ODbL license with redistributed copies. Publish the adapted JSON/provenance under ODbL 1.0 alongside any public selector that redistributes it, and link the source/license from a data-credit notice. The license covers this location database, not unrelated app source or private enquiry records.",
+  "limitations": [
+    "A broad community-maintained city/town/locality selector, not a certified census or exhaustive register of every Indian settlement.",
+    "Some upstream records are neighborhoods or administrative centers; this extract is not a legal municipal-status classification.",
+    "Known obvious mapping errors were corrected, but all 4,000+ mappings were not individually verified against government gazetteers.",
+    "Locations not in this snapshot cannot be selected in a strict selector; show clear no-results guidance and provide a contact route.",
+    "The data does not imply franchise availability or territory exclusivity.",
+    "Future refreshes should reapply documented fixes rather than overwrite them blindly."
+  ]
+}

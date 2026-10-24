@@ -28,7 +28,7 @@ export function FranchiseDetail({brand:b,brands}:{brand:any;brands:any[]}){
     <div className="dossier-investment"><span>Indicative investment</span><strong>{b.budget}</strong></div>
     <dl className="dossier-key-facts"><div><dt>Operating model</dt><dd className="dossier-models">{models.map((m:string)=><span key={m}>{m}</span>)}</dd></div><div><dt>Space requirement</dt><dd>{space.includes('\n')?'Varies by format':space}</dd></div><div className="dossier-returns-summary"><dt>Returns</dt><dd>{returns.length>140?<a href="#returns">View return details<ArrowUpRight size={14}/></a>:returns}</dd></div></dl>
     <a className="dossier-requirements-link" href="#investment">View all requirements<ArrowUpRight size={15}/></a>
-    <div className="dossier-summary-actions"><PremiumLink href="#enquire">Request details</PremiumLink><a className="dossier-phone" href="tel:+919129130303"><Phone size={16}/>+91 91291 30303</a></div>
+    <div className="dossier-summary-actions"><PremiumLink href="#enquire" arrow={false}>Request details</PremiumLink><a className="dossier-phone" href="tel:+919129130303"><Phone size={16}/>+91 91291 30303</a></div>
    </aside>
    <section className="dossier-overview dossier-section" id="overview"><h2>About {b.name}</h2><p>{b.overview||b.about||b.description}</p>{b.highlights?.length>0&&<ul className="dossier-highlights">{b.highlights.map((h:string)=><li key={h}><Check size={17}/><span>{h}</span></li>)}</ul>}</section>
    <section className="dossier-requirements dossier-section" id="investment">

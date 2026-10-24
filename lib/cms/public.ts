@@ -13,7 +13,7 @@ export const published=cache(async function published(kind:string):Promise<any[]
  if(kind==='articles'||kind==='blogs')return values.map(a=>hydrateArticle({...a,resourceType:kind==='blogs'?'blog':'article'}));
  return kind==='jobs'?values.filter(j=>j.active!==false):values;
 });
-export function hydrateArticle(a:any){const sections=a.sections.map((s:any,i:number)=>({...s,id:'section-'+(i+1)}));const words=[a.introHighlight,...sections.flatMap((s:any)=>[s.heading,...s.body,...(s.bullets||[])])].join(' ').split(/\s+/).length;return {...a,path:(a.resourceType==='blog'?'/resources/blogs/':'/blogs/')+a.slug,label:a.category,thumbnail:a.image,sections,words,minutes:Math.max(3,Math.ceil(words/210))};}
+export function hydrateArticle(a:any){const sections=a.sections.map((s:any,i:number)=>({...s,id:'section-'+(i+1)}));const words=[a.introHighlight,...sections.flatMap((s:any)=>[s.heading,...s.body,...(s.bullets||[])])].join(' ').split(/\s+/).length;return {...a,path:(a.resourceType==='blog'?'/resources/blogs/':'/blogs/')+a.slug,label:a.category,thumbnail:a.image,sections,words,minutes:Math.max(1,Math.ceil(words/210))};}
 export async function publishedPage(slug:string){return (await published('pages')).find(p=>p.slug===slug);}
 
 export async function publishedFaq(slug:string){return (await published('faqs')).find(p=>p.slug===slug)?.questions||[];}

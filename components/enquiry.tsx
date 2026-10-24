@@ -1,5 +1,5 @@
 'use client';
-import {PhoneField,EmailField} from './contact-fields';
+import {PhoneField,EmailField,NameField} from './contact-fields';
 import {useEffect,useRef,useState} from 'react';
 import {budgetOptions,timeframeOptions} from '../lib/journey-client.mjs';
 import {ArrowRight,ArrowLeft,Check} from 'lucide-react';
@@ -19,7 +19,7 @@ export function EnquiryForm({brandSlug,items=[],journeyType}:{brandSlug?:string;
  {!embedded&&<div className="p-form-heading"><h2>{journey==='investor'?'Your franchise enquiry':'Your brand enquiry'}</h2><span>{step+1} / 2</span></div>}
  <div className="p-form-progress" aria-label="Enquiry steps"><button type="button" onClick={()=>setStep(0)} aria-current={step===0?'step':undefined}><span>{step>0?<Check size={14}/>:1}</span>Your details</button><i/><button type="button" onClick={next} aria-current={step===1?'step':undefined}><span>2</span>{journey==='brand'?'Your business':'Your preferences'}</button></div>
  <form ref={form} onSubmit={send} noValidate aria-label="Enquiry form">
- <fieldset className="p-form-step" data-step="0" hidden={step!==0}><legend className="sr-only">Your details</legend><div className="field"><label htmlFor={id+'-name'}>Full name *</label><input id={id+'-name'} name="name" autoComplete="name" required minLength={2} maxLength={120}/></div><PhoneField id={id}/><EmailField id={id}/></fieldset>
+ <fieldset className="p-form-step" data-step="0" hidden={step!==0}><legend className="sr-only">Your details</legend><NameField id={id}/><PhoneField id={id}/><EmailField id={id}/></fieldset>
  <fieldset className="p-form-step" data-step="1" hidden={step!==1}><legend className="sr-only">Enquiry details</legend>
  {!embedded&&journey==='investor'&&<div className="field"><label htmlFor={id+'-brand'}>Brand of interest</label><select id={id+'-brand'} value={brand} onChange={e=>setBrand(e.target.value)}><option value="">Help me explore</option>{items.map(b=><option key={b.slug} value={b.slug}>{b.name}</option>)}</select></div>}
  {journey==='brand'&&<div className="field-row"><div className="field"><label htmlFor={id+'-company'}>Business name *</label><input id={id+'-company'} name="companyName" required minLength={2} maxLength={120} autoComplete="organization"/></div><div className="field"><label htmlFor={id+'-site'}>Business website</label><input id={id+'-site'} name="companyWebsite" type="url" maxLength={500} placeholder="https://" autoComplete="url"/></div></div>}

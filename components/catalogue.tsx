@@ -10,6 +10,7 @@ const models=['FOFO','FOCO','FICO','COCO','Unit Franchise','Master Franchise','A
 const defaults={query:'',sector:'all',budget:'all',model:'all',sort:'featured'};
 export function Catalogue({brands,industries=[]}:{brands:any[];industries?:any[]}){
  const sectors=[...new Set([...industries.map(i=>i.title),...brands.map(b=>b.category)])].sort();
+ const [expanded,setExpanded]=useState(false);
  const [filters,setFilters]=useState(defaults),[ready,setReady]=useState(false);
  const {query,sector,budget,model,sort}=filters;
  useEffect(()=>{
@@ -23,8 +24,8 @@ export function Catalogue({brands,industries=[]}:{brands:any[];industries?:any[]
  function reset(){setFilters(f=>({...defaults,sort:f.sort}));}
  return <section className="opportunity-browser" id="catalogue" aria-label="Browse franchise opportunities">
   <div className="opportunity-filters">
-   <div className="opportunity-filter-heading"><h2>Find a franchise</h2><a href="/guides/franchise-models">Understand the operating models <Icon name="arrow"/></a></div>
-   <div className="opportunity-filter-fields">
+   <div className="opportunity-filter-heading"><h2>Find a franchise</h2><button className="filter-toggle" type="button" aria-expanded={expanded} aria-controls="opportunity-filter-fields" onClick={()=>setExpanded(v=>!v)}>{expanded?'Fewer filters':'Filters'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><a href="/guides/franchise-models">Understand the operating models <Icon name="arrow"/></a></div>
+   <div id="opportunity-filter-fields" className={'opportunity-filter-fields'+(expanded?' is-expanded':'')}>
     <div className="opportunity-field opportunity-search"><label htmlFor="brand-search">Search</label><div><Icon name="search"/><input type="search" id="brand-search" placeholder="Brand name or sector" maxLength={120} value={query} onChange={e=>change('query',e.target.value)}/></div></div>
     <div className="opportunity-field"><label htmlFor="sector-filter">Sector</label><select id="sector-filter" value={sector} onChange={e=>change('sector',e.target.value)}><option value="all">All sectors</option>{sectors.map(s=><option key={s}>{s}</option>)}</select></div>
     <div className="opportunity-field"><label htmlFor="budget-filter">Starting investment</label><select id="budget-filter" value={budget} onChange={e=>change('budget',e.target.value)}><option value="all">Any investment</option>{budgets.map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></div>

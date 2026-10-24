@@ -28,13 +28,14 @@ export function ResourceLibrary({items,mode='all',questions=[],initialCategory='
  function turn(value:number){setPage(value);document.getElementById('resource-library')?.scrollIntoView({block:'start',behavior:'auto'})}
  function reset(){chooseCategory('all');setQuery('');setTopic('all');setPage(1);}
  return <>
-  <ResourceTabs mode={mode} category={category}/>
+  <div className="resource-filter-bar"><ResourceTabs mode={mode} category={category}/>
   {categorised&&<div className="resource-categories" role="group" aria-label="Resource categories">
    {[{id:'all',label:'All categories'},...resourceCategories].map(c=><button type="button" key={c.id} aria-pressed={category===c.id} onClick={()=>chooseCategory(c.id)}>{c.label}<span>{filterResources(items,{category:c.id}).length}</span></button>)}
   </div>}
   <div className="resource-tools">
    <label className="resource-search"><Search size={20}/><input type="search" aria-label="Search resources" placeholder={mode==='faqs'?'Search your question':'Search resources'} value={query} onChange={e=>{setQuery(e.target.value);setPage(1)}}/></label>
    {categorised&&<select aria-label="Filter by topic" value={topic} onChange={e=>{setTopic(e.target.value);setPage(1)}}><option value="all">All topics</option>{topics.map(value=><option key={value} value={value}>{value}</option>)}</select>}
+  </div>
   </div>
   {mode==='faqs'?<div className="resource-faqs">{filtered.map((f,i)=><details key={i}><summary>{f.q}<span>+</span></summary><p>{f.a}</p></details>)}{!filtered.length&&<p>No matching questions. Try a different search.</p>}</div>:<>
    <div className="resource-results"><span role="status" aria-live="polite">{list.length>0?`${start+1}–${Math.min(start+12,list.length)} of ${list.length}`:0} {mode==='blogs'?(list.length===1?'blog':'blogs'):mode==='articles'?(list.length===1?'article':'articles'):(list.length===1?'resource':'resources')}{category!=='all'&&categorised?' · '+resourceCategories.find(c=>c.id===category)?.label:''}</span>{(query||category!=='all'||topic!=='all')&&<button type="button" onClick={reset}>Clear filters</button>}</div>
