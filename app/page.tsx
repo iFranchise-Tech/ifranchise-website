@@ -3,7 +3,7 @@ import {SITE} from '../lib/site';
 import {socialLinks} from '../lib/contact';
 import {published,publishedPage} from '../lib/cms/public';
 import {BrandCard} from '../components/ui';
-import {PremiumLink,InlineLink,SectionHeading,Questions,RouteLines,ScrollLink} from '../components/premium';
+import {PremiumLink,InlineLink,SectionHeading,Questions,ScrollLink} from '../components/premium';
 export const dynamic='force-dynamic';
 export const metadata={title:'Franchise Consulting Company in India',description:'Explore franchise opportunities and develop your business expansion plan with iFranchise. Advice on franchise selection, business models, operations and growth.',alternates:{canonical:'/'}};
 import {HomePage} from '../components/home-page';

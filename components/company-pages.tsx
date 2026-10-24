@@ -1,5 +1,4 @@
 import {CareersPage} from './careers-page';
-import {LiveBackground} from './live-background';
 import {published} from '../lib/cms/public';
 import {Breadcrumb} from './ui';
 import {Icon} from './icons';

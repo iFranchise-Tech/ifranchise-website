@@ -18,7 +18,8 @@ export function BrandLogo({brand,className=''}:{brand:{slug:string;name:string;l
  const f=brand.logo.startsWith('/brands/')?frames[brand.slug]:undefined;
  return <span className={'brand-logo '+className} style={{background:f?.bg||'#fff'}}>
   {f?<svg viewBox="0 0 160 80" role="img" aria-label={brand.name+' logo'} preserveAspectRatio="xMidYMid meet">
-   <svg x="12" y="12" width="136" height="56" viewBox={f.box.join(' ')} preserveAspectRatio="xMidYMid meet" overflow="hidden"><image href={brand.logo} width={f.size[0]} height={f.size[1]}/></svg>
+   <svg x="12" y="12" width="136" height="56" viewBox={f.box.join(' ')} preserveAspectRatio="xMidYMid meet" overflow="hidden"><image href={imageSrc(brand.logo,800)} width={f.size[0]} height={f.size[1]}/></svg>
   </svg>:<img src={brand.logo} alt={brand.name+' logo'} width="160" height="80" decoding="async"/>}
  </span>;
 }
+import {imageSrc} from '../lib/responsive-image';
