@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {NOTICE_VERSION} from '../lib/intake/constants.mjs';
+
+const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:3018';
+assert.ok(['127.0.0.1','localhost'].includes(new URL(origin).hostname),'This synthetic workflow is restricted to a local preview.');
+const headers={'Content-Type':'application/json',Origin:origin};
+const sessionResponse=await fetch(origin+'/api/intake/session',{method:'POST',headers:{Origin:origin}});
+assert.equal(sessionResponse.status,200);
+const {token}=await sessionResponse.json(),id=crypto.randomUUID();
+const payload={id,token,kind:'privacy',noticeVersion:NOTICE_VERSION,email:'privacy-test@example.invalid',requestType:'Access my information',message:'Synthetic local workflow check only.',trap:''};
+await new Promise(resolve=>setTimeout(resolve,1600));
+const submit=()=>fetch(origin+'/api/intake/enquiries',{method:'POST',headers,body:JSON.stringify(payload)});
+const first=await submit(),receipt=await first.json();
+assert.equal(first.status,200,JSON.stringify(receipt));
+assert.equal(receipt.received,true);
+assert.equal((await (await submit()).json()).reference,receipt.reference);
+const read=await fetch(origin+'/api/admin/intake?id='+id);
+assert.equal(read.status,401,'Privacy records must require an authenticated administrator.');
+const patch=await fetch(origin+'/api/admin/intake',{method:'PATCH',headers,body:JSON.stringify({id,status:'In progress'})});
+assert.equal(patch.status,401,'Anonymous visitors cannot change privacy request status.');
+const crossOrigin=await fetch(origin+'/api/admin/intake',{method:'PATCH',headers:{...headers,Origin:'https://other.invalid'},body:JSON.stringify({id,status:'Received'})});
+assert.equal(crossOrigin.status,403);
+console.log('Local privacy request: minimal submission accepted, duplicate-safe receipt, administrator authentication and origin guards passed.');

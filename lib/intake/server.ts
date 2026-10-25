@@ -21,6 +21,7 @@ export async function createSession(req:Request){
 }
 export async function jsonBody(req:Request){if(!req.headers.get('content-type')?.includes('application/json'))throw new CmsError(415,'Use the website form.');try{return JSON.parse(new TextDecoder().decode(await boundedBody(req,24000)))}catch(e){if(e instanceof CmsError)throw e;throw new CmsError(400,'Invalid submission.')}}
 export async function deliver(record:any,origin:string){
+ if(record.kind==='privacy')return false;
  const {SHEETS_WEBHOOK_URL:url,INTAKE_SIGNING_KEY:key}=config();if(!url||!key)return false;
  try{
   const body=JSON.stringify({...sheetEntry(record,origin),timestamp:Date.now()});
@@ -46,9 +47,10 @@ export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Arr
  if(data.kind==='job'){const job=(await published('jobs')).find(j=>(j.slug===data.jobSlug||j.id===data.jobSlug)&&j.active!==false);if(!job)throw new CmsError(422,'This role is no longer accepting applications.');data.jobTitle=job.title;if(!resume)throw new CmsError(422,'Upload your resume as a PDF.');}
  const resumeKey=resume?'applications/'+p.id+'/resume.pdf':null;
  if(resume){if(resume.bytes.length>MAX_RESUME||new TextDecoder().decode(resume.bytes.slice(0,5))!=='%PDF-')throw new CmsError(422,'Upload a PDF resume up to 5 MB.');if(!env.BUCKET)throw new CmsError(503,'File uploads are unavailable.');await env.BUCKET.put(resumeKey!,resume.bytes,{httpMetadata:{contentType:'application/pdf'}});}
- const row={id:p.id,reference:'IF-'+p.id,session_id:p.token,kind:data.kind,payload:JSON.stringify(data),resume_key:resumeKey,resume_name:resume?.name||null,created_at:new Date().toISOString(),sheet_status:'pending'};
- try{await db().prepare('INSERT INTO website_submissions (id,reference,session_id,kind,payload,resume_key,resume_name,created_at,sheet_status,attempts) VALUES (?,?,?,?,?,?,?,?,?,0)').bind(row.id,row.reference,row.session_id,row.kind,row.payload,row.resume_key,row.resume_name,row.created_at,'pending').run();}
- catch(e){const saved:any=await db().prepare('SELECT * FROM website_submissions WHERE id=? AND session_id=?').bind(p.id,p.token).first();if(saved)return saved;throw e;}
+ const row={id:p.id,reference:'IF-'+p.id,session_id:p.token,kind:data.kind,payload:JSON.stringify(data),resume_key:resumeKey,resume_name:resume?.name||null,created_at:new Date().toISOString(),sheet_status:data.kind==='privacy'?'not_applicable':'pending'};
+ try{await db().prepare('INSERT INTO website_submissions (id,reference,session_id,kind,payload,resume_key,resume_name,created_at,sheet_status,attempts) VALUES (?,?,?,?,?,?,?,?,?,0)').bind(row.id,row.reference,row.session_id,row.kind,row.payload,row.resume_key,row.resume_name,row.created_at,row.sheet_status).run();}
+ catch(e){const saved:any=await db().prepare('SELECT * FROM website_submissions WHERE id=? AND session_id=?').bind(p.id,p.token).first();if(saved)return saved;if(resumeKey&&env.BUCKET)await env.BUCKET.delete(resumeKey);throw e;}
+ if(data.kind==='privacy')return row;
  await finishDelivery(Promise.all([deliver(row,new URL(req.url).origin),retryPending(new URL(req.url).origin,2)]));
  return row;
 }

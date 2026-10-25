@@ -1,0 +1,72 @@
+/* Compact, consistent public-page controls and a single brand enquiry form. */
+html:has(.brand-dossier){scroll-padding-top:0}
+.p-photo-hero-image{object-position:70% 30%}
+.p-about-photo img{object-position:center 40%}
+.dossier-nav a{border-bottom:2px solid transparent}
+.dossier-nav a[aria-current=location]{color:var(--p-brand);border-bottom-color:var(--p-brand)}
+.dossier-layout{grid-template-columns:minmax(0,1fr) 370px;gap:40px}
+.brand-enquiry-card{grid-column:2;grid-row:1/span 4;align-self:start;min-width:0;border:1px solid var(--p-line);border-radius:12px;background:var(--p-raised);padding:24px;box-shadow:0 10px 30px #211b3106}
+.brand-enquiry-card.is-sticky{position:sticky;top:calc(var(--site-header-height) + 76px)}
+.brand-enquiry-heading{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.brand-enquiry-heading span{font-size:11px;color:var(--p-copy)}
+.brand-enquiry-heading h2,.brand-dossier .brand-enquiry-heading h2{font:600 21px/1.4 Sora,sans-serif;letter-spacing:-.035em;color:var(--p-ink);margin:6px 0 0;overflow-wrap:anywhere}
+.p-site .brand-enquiry-card .enquiry-card{padding:0;border:0;border-radius:0;box-shadow:none;margin:0;background:none;width:100%;max-width:none}
+.brand-enquiry-card .p-form-progress{gap:8px;margin-bottom:18px}
+.brand-enquiry-card .p-form-progress button{font-size:10px;gap:6px}
+.p-site .brand-enquiry-card .field{margin-bottom:15px}
+.p-site .brand-enquiry-card .field-row{gap:10px}
+.p-site .brand-enquiry-card .field input,.p-site .brand-enquiry-card .field select{font-size:13px;height:44px;min-height:44px;padding:10px 11px}
+.p-site .brand-enquiry-card .phone-control{height:44px;min-height:44px}
+.p-site .brand-enquiry-card .phone-control input{height:42px;min-height:42px}
+.p-site .brand-enquiry-card .country-trigger{min-width:87px;gap:5px;padding:0 8px}
+.brand-enquiry-card .p-button{min-height:46px;padding:12px 15px;font-size:13px}
+.brand-enquiry-card .p-form-actions{gap:14px}
+.brand-enquiry-contacts{border-top:1px solid var(--p-line);padding-top:17px;margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.brand-enquiry-contacts a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:40px;color:var(--p-brand);font-size:12px;border-radius:5px}
+.brand-enquiry-contacts a:hover{background:var(--p-brand-soft)}
+.brand-enquiry-contacts svg{width:18px;height:18px;flex-shrink:0}
+.brand-enquiry-close{margin-left:auto;display:grid;place-items:center;background:var(--p-surface);border:1px solid var(--p-line);color:var(--p-ink);width:40px;height:40px;border-radius:6px;flex-shrink:0}
+.brand-enquiry-dialog{width:min(440px,calc(100% - 28px));max-height:calc(100dvh - 32px);padding:0;border:0;border-radius:12px;overflow:auto;overscroll-behavior:contain;margin:auto 14px auto auto}
+.brand-enquiry-dialog::backdrop{background:#14102088}
+.brand-enquiry-dialog .brand-enquiry-card{border:0;border-radius:0}
+.brand-mobile-contact{position:fixed;right:0;top:50%;transform:translateY(-50%);width:44px;height:248px;z-index:42;font:600 13px/1.4 Manrope,sans-serif;transition:height .3s ease;isolation:isolate}
+.brand-contact-actions{display:flex;flex-direction:column;border-radius:8px 0 0 0;box-shadow:-3px 3px 14px #211b3114;overflow:hidden;transition:transform .3s ease,opacity .25s ease}
+.brand-mobile-contact button,.brand-mobile-contact a{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px;border:0;background:var(--p-raised);color:var(--p-brand);cursor:pointer;font:inherit}
+.brand-mobile-contact a{border-left:1px solid var(--p-line);border-bottom:1px solid var(--p-line)}
+.brand-mobile-contact .brand-contact-enquire{height:116px;background:var(--p-brand);color:#fff;letter-spacing:.04em}
+.brand-contact-enquire span{writing-mode:vertical-rl;transform:rotate(180deg)}
+.brand-mobile-contact .brand-contact-toggle{position:absolute;right:0;bottom:0;border:1px solid var(--p-line);border-right:0;border-top:0;border-radius:0 0 0 8px;box-shadow:-3px 4px 14px #211b3110}
+.brand-mobile-contact.is-collapsed{height:44px}
+.brand-mobile-contact.is-collapsed .brand-contact-actions{transform:translateX(100%);opacity:0;pointer-events:none}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle{border-top:1px solid var(--p-line);border-radius:8px 0 0 8px;background:var(--p-brand);color:#fff}
+.brand-mobile-contact :is(button,a):focus-visible{outline:2px solid var(--p-brand);outline-offset:-4px}
+.brand-mobile-contact .brand-contact-enquire:focus-visible,.brand-mobile-contact.is-collapsed button:focus-visible{outline-color:white}
+.brand-mobile-contact a:hover,.brand-mobile-contact .brand-contact-toggle:hover{background:var(--p-brand-soft);color:var(--p-brand)}
+.brand-mobile-contact svg{width:20px;height:20px}
+.p-site .dossier-specs{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px}
+.p-site .dossier-specs dt{font-size:12px}.p-site .dossier-specs dd{font-size:14px}
+.p-site .dossier-specs>div{padding:0;border:0}.p-site .dossier-specs>.dossier-specs-returns{padding-top:20px;border-top:1px solid var(--p-line)}
+.p-footer-legal{flex-wrap:wrap;gap:12px 22px}
+.candidate-experience{display:grid;grid-template-columns:1fr 1fr;gap:20px;border:0;padding:0;margin:0;min-width:0}
+.candidate-experience legend{font-weight:600;font-size:14px;margin-bottom:12px}
+.p-site .p-about-photo.p-container{height:auto;aspect-ratio:1672/700}
+.p-about-photo img{object-fit:cover;object-position:center 52%}
+.p-button svg{flex-shrink:0;transition:transform .2s ease}.p-button:hover svg{transform:translate(3px,-3px)}
+@media(max-width:1199px) and (min-width:1024px){.dossier-layout{grid-template-columns:minmax(0,1fr) 340px;gap:28px}.brand-enquiry-card{padding:20px}}
+@media(max-width:1023px){.dossier-layout{grid-template-columns:minmax(0,1fr)}.dossier-overview{grid-row:2}.dossier-requirements{grid-row:3}.dossier-questions{grid-row:4}.brand-enquiry-card{grid-column:auto;grid-row:auto}.p-site .p-about-photo.p-container{aspect-ratio:16/9}}
+@media(max-width:767px){.dossier-nav>.p-container{gap:22px}.dossier-nav a:last-child{padding-right:10px}.p-site .dossier-specs{gap:18px}.p-site .dossier-specs dt{font-size:11px}.p-site .dossier-specs dd{font-size:13px}.brand-enquiry-card{padding:22px}.p-footer-legal{gap:8px 18px}.p-footer-legal a{display:inline-flex;align-items:center;min-height:36px}.candidate-experience{gap:14px}.p-site .p-about-photo.p-container{aspect-ratio:4/3}.p-about-photo img{object-position:65% center}}
+@media(max-width:370px){.p-site .dossier-specs{grid-template-columns:1fr}.brand-enquiry-card{padding:18px}.brand-enquiry-card .p-form-progress button{font-size:9px}.p-site .brand-enquiry-card .field-row{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.p-photo-hero .p-scroll-link svg{animation:none}.p-button svg,.brand-mobile-contact,.brand-contact-actions{transition:none}.p-button:hover svg{transform:none}}
+
+.privacy-choices-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start;padding-bottom:70px}.privacy-request-card{border:1px solid var(--p-line);background:var(--p-raised);border-radius:12px;padding:30px}.privacy-request-card h2{font:600 24px/1.35 Sora,sans-serif;margin:0;color:var(--p-ink)}.privacy-request-form{gap:20px}.privacy-request-form label{font-size:13px}.privacy-request-form label span,.privacy-request-form small{font-weight:400;color:var(--p-muted);font-size:12px;line-height:1.7}.privacy-request-form .privacy-request-note{font-size:12px;line-height:1.8;margin:0}.privacy-request-form a{color:var(--p-brand);text-decoration:underline}.privacy-request-card .intake-success{font-size:14px;line-height:1.8}.privacy-request-card .intake-success strong{overflow-wrap:anywhere}.policy-body ul{padding-left:22px;color:var(--p-copy);line-height:1.9}.policy-body li+li{margin-top:10px}.privacy-choices-grid .policy-body section:first-child{margin-top:0}.privacy-choices-grid .policy-body h2{font-size:24px}.privacy-workflow{padding:20px;margin-top:24px;border:1px solid var(--p-line);border-radius:8px}.privacy-workflow label{display:block;margin:12px 0}.privacy-workflow select{padding:10px;border:1px solid var(--p-line);background:var(--p-bg);color:var(--p-ink);border-radius:6px}.privacy-workflow .checkbox-label{display:flex;gap:10px;font-size:13px;line-height:1.6}
+@media(max-width:900px){.privacy-choices-grid{grid-template-columns:1fr;gap:32px}.privacy-request-card{padding:24px}}
+/* Keep faces inside the shorter collection headers instead of enlarging a full-width crop. */
+.p-photo-hero-compact .p-photo-hero-image{left:30%;width:70%;object-position:70% 20%}
+.p-site .p-about-photo.p-container{aspect-ratio:2/1}
+.p-about-photo img{object-position:center 20%}
+@media(max-width:767px){.p-photo-hero-compact .p-photo-hero-image{left:0;width:100%;object-position:70% 20%}.p-site .p-about-photo.p-container{aspect-ratio:4/3}.p-about-photo img{object-position:65% 25%}}
+
+/* Apply after form and theme backgrounds so every native dropdown keeps its cue. */
+html .p-site select:not([multiple]):not([size]),html .cms-root select:not([multiple]):not([size]){appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%237d719d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:18px 18px;padding-right:40px!important;box-sizing:border-box;max-width:100%;text-overflow:ellipsis}
+html[data-theme=dark] .p-site select:not([multiple]):not([size]),html[data-theme=dark] .cms-root select:not([multiple]):not([size]){background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23c8b8ee' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+@media(forced-colors:active){html .p-site select:not([multiple]):not([size]),html .cms-root select:not([multiple]):not([size]){appearance:auto;background-image:none}}

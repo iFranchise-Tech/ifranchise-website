@@ -26,6 +26,8 @@ import './resource-engagement.css';
 import './intake.css';
 import './brand-logo-sizing.css';
 import './report-fixes.css';
+import './october-refinement.css';
+import './home-video.css';
 import {DEFAULT_THEME,themeBootstrap} from '../lib/theme';
 import {SiteFrame} from '../components/site-frame';
 import {Measurement} from '../components/measurement';
