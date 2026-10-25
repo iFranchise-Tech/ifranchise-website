@@ -9,22 +9,33 @@ import {BrandIdentity} from './brand-identity';
 import {ThemeToggle} from './theme-toggle';
 const menus={company:{label:'Company',links:[['/about-us','About us'],['/careers','Careers']]},resources:{label:'Resources',links:[['/resources','All resources'],['/resources/blogs','Blogs'],['/resources/articles','Articles'],['/resources/faqs','FAQs'],['/resources/videos','Videos'],['/resources/saved','Saved resources']]}};
 export function SocialLinks({label=false}:{label?:boolean}){return <div className="social-links" aria-label="iFranchise social media">{socialLinks.map(s=><a href={s.href} key={s.name} target="_blank" rel="noopener noreferrer" aria-label={'iFranchise on '+s.name} title={s.name}><Icon name={s.icon}/>{label&&<span>{s.name}</span>}</a>)}</div>}
-export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]=useState<string|null>(null),root=useRef<HTMLElement>(null),toggle=useRef<HTMLButtonElement>(null),path=usePathname();
- const [{scrolled,overHero,darkHero},setHeaderState]=useState({scrolled:false,overHero:true,darkHero:path==='/'});
+export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]=useState<string|null>(null),root=useRef<HTMLElement>(null),wordmark=useRef<HTMLDivElement>(null),toggle=useRef<HTMLButtonElement>(null),path=usePathname();
+ const [{scrolled,overHero,darkHero,protectBrand,joinedHeight},setHeaderState]=useState({scrolled:false,overHero:true,darkHero:path==='/',protectBrand:false,joinedHeight:0});
  useEffect(()=>{setMobile(false);setOpen(null)},[path]);
  useEffect(()=>{
   const header=root.current;
-  let hero:Element|null=null,frame=0;
+  let hero:Element|null=null,sectionBar:Element|null=null,frame=0;
   const resize=new ResizeObserver(()=>schedule());
   const update=()=>{
    frame=0;
    // Routes may stream their hero after the shared header has hydrated.
    const nextHero=document.querySelector('.p-video-hero,.p-photo-hero,.opportunities-hero,.p-about-intro');
    if(nextHero!==hero){if(hero)resize.unobserve(hero);hero=nextHero;if(hero)resize.observe(hero);}
+   const nextBar=document.querySelector('.dossier-nav,.reader-toolbar,.p-brand-nav');
+   if(nextBar!==sectionBar){if(sectionBar)resize.unobserve(sectionBar);sectionBar=nextBar;if(sectionBar)resize.observe(sectionBar);}
    const height=header?.getBoundingClientRect().height||80;
+   const barRect=sectionBar?.getBoundingClientRect();
+   const combinedHeight=barRect&&Math.abs(barRect.top-height)<2?height+barRect.height:0;
    const over=!!hero&&hero.getBoundingClientRect().bottom>height;
-   const next={scrolled:window.scrollY>8,overHero:over,darkHero:!!hero?.matches('.p-video-hero,[data-hero-tone="dark"]')};
-   setHeaderState(current=>current.scrolled===next.scrolled&&current.overHero===next.overHero&&current.darkHero===next.darkHero?current:next);
+   const brand=wordmark.current?.getBoundingClientRect();
+   // Switch before hero copy reaches the logo. Keep it readable through the
+   // remaining copy, instead of flickering between treatments in line gaps.
+   const copyReachedBrand=over&&!!brand&&Array.from(hero!.querySelectorAll('h1,h2,h3,p,a,button')).some(element=>{
+    const rect=element.getBoundingClientRect();
+    return rect.width>0&&rect.height>0&&rect.right>brand.left&&rect.left<brand.right&&rect.top<=height+12;
+   });
+   const next={scrolled:window.scrollY>8,overHero:over,darkHero:!!hero?.matches('.p-video-hero,[data-hero-tone="dark"]'),protectBrand:copyReachedBrand,joinedHeight:combinedHeight};
+   setHeaderState(current=>current.scrolled===next.scrolled&&current.overHero===next.overHero&&current.darkHero===next.darkHero&&current.protectBrand===next.protectBrand&&current.joinedHeight===next.joinedHeight?current:next);
   };
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   const content=new MutationObserver(schedule);
@@ -39,7 +50,7 @@ export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]
  useEffect(()=>{function dismiss(e:PointerEvent){if(root.current&&!root.current.contains(e.target as Node)){setMobile(false);setOpen(null)}}function escape(e:KeyboardEvent){if(e.key==='Escape'){const key=open;setOpen(null);if(key)root.current?.querySelector<HTMLButtonElement>('#p-nav-'+key)?.focus();else{setMobile(false);toggle.current?.focus()}}}document.addEventListener('pointerdown',dismiss);document.addEventListener('keydown',escape);return()=>{document.removeEventListener('pointerdown',dismiss);document.removeEventListener('keydown',escape)}},[open]);
  function link(href:string,label:string){return <a href={href} aria-current={path===href?'page':undefined} onClick={()=>{setMobile(false);setOpen(null)}}>{label}</a>}
  function dropdown(key:keyof typeof menus){const m=menus[key];return <div className={'p-nav-group'+(open===key?' is-open':'')} onPointerEnter={e=>{if(e.pointerType==='mouse'&&matchMedia('(min-width: 1280px)').matches)setOpen(key)}} onPointerLeave={e=>{if(e.pointerType==='mouse'&&matchMedia('(min-width: 1280px)').matches)setOpen(null)}} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setOpen(v=>v===key?null:v)}}><button id={'p-nav-'+key} aria-expanded={open===key} aria-controls={'p-drop-'+key} onClick={()=>setOpen(open===key?null:key)} onKeyDown={e=>{if(e.key==='ArrowDown'){e.preventDefault();setOpen(key);requestAnimationFrame(()=>root.current?.querySelector<HTMLAnchorElement>('#p-drop-'+key+' a')?.focus())}}}>{m.label}<ChevronDown size={14}/></button><div className="p-dropdown" id={'p-drop-'+key} hidden={open!==key}>{m.links.map(([href,label])=><a key={href} href={href} onClick={()=>{setMobile(false);setOpen(null)}} aria-current={path===href?'page':undefined}>{label}<ArrowUpRight size={15}/></a>)}</div></div>}
- return <><a className="skip-link" href="#main">Skip to content</a><header className={'p-header'+(scrolled?' is-scrolled':'')+(overHero?' is-on-hero':'')+(mobile?' is-menu-open':'')+(darkHero&&overHero&&!mobile?' is-over-hero':'')} ref={root}><div className="p-header-inner"><span className="p-brand-space" aria-hidden="true"/><nav id="p-navigation" className={'p-navigation'+(mobile?' is-open':'')} aria-label="Main navigation">{link('/','Home')}{link('/franchise-opportunities','Franchise opportunities')}{link('/list-your-brand','List your Brand')}{dropdown('resources')}{dropdown('company')}<a className="p-mobile-contact" href="/contact-us">Contact us<ArrowUpRight size={18}/></a></nav><div className="p-header-tools"><ThemeToggle/><a className="p-contact-button" href="/contact-us">Contact us<ArrowUpRight size={16}/></a><button ref={toggle} className="p-menu-button" aria-expanded={mobile} aria-controls="p-navigation" aria-label={mobile?'Close navigation':'Open navigation'} onClick={()=>setMobile(!mobile)}>{mobile?<X size={23}/>:<Menu size={23}/>}</button></div></div></header><div className={'p-floating-brand'+(overHero&&!mobile?' is-blended':'')+(overHero&&!scrolled&&!mobile?' is-large':'')}><BrandIdentity wordmark/></div></>}
+ return <><a className="skip-link" href="#main">Skip to content</a><header className={'p-header'+(scrolled?' is-scrolled':'')+(overHero?' is-on-hero':'')+(protectBrand?' is-brand-protected':'')+(joinedHeight?' has-section-glass':'')+(mobile?' is-menu-open':'')+(darkHero&&overHero&&!mobile?' is-over-hero':'')} ref={root}><div className="p-header-inner"><span className="p-brand-space" aria-hidden="true"/><nav id="p-navigation" className={'p-navigation'+(mobile?' is-open':'')} aria-label="Main navigation">{link('/','Home')}{link('/franchise-opportunities','Franchise opportunities')}{link('/list-your-brand','List your Brand')}{dropdown('resources')}{dropdown('company')}<a className="p-mobile-contact" href="/contact-us">Contact us<ArrowUpRight size={18}/></a></nav><div className="p-header-tools"><ThemeToggle/><a className="p-contact-button" href="/contact-us">Contact us<ArrowUpRight size={16}/></a><button ref={toggle} className="p-menu-button" aria-expanded={mobile} aria-controls="p-navigation" aria-label={mobile?'Close navigation':'Open navigation'} onClick={()=>setMobile(!mobile)}>{mobile?<X size={23}/>:<Menu size={23}/>}</button></div></div></header>{joinedHeight>0&&<div className="p-navigation-glass" aria-hidden="true" style={{height:joinedHeight}}/>}<div ref={wordmark} className={'p-floating-brand'+(overHero&&!mobile&&!protectBrand?' is-blended':'')+(overHero&&darkHero&&!mobile?' is-on-dark-hero':'')+(overHero&&!scrolled&&!mobile?' is-large':'')}><BrandIdentity wordmark/></div></>}
 export function Footer(){const contactPage=usePathname()==='/contact-us';return <footer className="p-footer"><div className="p-container">
  <div className="p-footer-grid">
   <div className="p-footer-contact"><h2>{contactPage?'Follow us':'Contact'}</h2>{!contactPage&&<><a className="p-footer-email" href={'mailto:'+SITE.email}>{SITE.email}<ArrowUpRight size={18}/></a><a href="tel:+919129130303"><Phone size={16}/>{SITE.phone}</a></>}<SocialLinks/></div>

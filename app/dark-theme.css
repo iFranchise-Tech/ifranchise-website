@@ -2,15 +2,15 @@
    brand artwork retain their original pixels and colours. */
 html[data-theme="dark"] {
   color-scheme: dark;
-  --dark-page: #140e21;
-  --dark-surface: #20162e;
-  --dark-raised: #2a1e39;
-  --dark-input: #191124;
-  --dark-border: #594564;
-  --dark-text: #f5eefb;
-  --dark-copy: #d5c8e1;
-  --dark-muted: #bcaacb;
-  --dark-link: #d4b4f2;
+  --dark-page: #080808;
+  --dark-surface: #111111;
+  --dark-raised: #1a1a1a;
+  --dark-input: #101010;
+  --dark-border: #3c3c3c;
+  --dark-text: #ffffff;
+  --dark-copy: #d4d4d4;
+  --dark-muted: #ababab;
+  --dark-link: #ffffff;
   --ink: var(--dark-text);
   --muted: var(--dark-muted);
   --paper: var(--dark-page);
@@ -59,7 +59,7 @@ html[data-theme="dark"] :is(.contact-enquiry.enquiry-card,
 }
 html[data-theme="dark"] :is(.franchise-nav, .brand-anchor-nav,
   .franchise-mobile-cta, .mobile-brand-cta) {
-  background: #20162ef5;
+  background: #111111f5;
   color: var(--dark-copy);
   border-color: var(--dark-border);
 }
@@ -108,7 +108,7 @@ html[data-theme="dark"] .landing-page .detail-section>.lead-copy {
 }
 html[data-theme="dark"] :is(.editorial-card, .resource-card, .opportunity-card,
   .audience-collections>a):hover {
-  border-color: #ae88cc;
+  border-color: #707070;
   box-shadow: 0 12px 28px #07030e40;
 }
 html[data-theme="dark"] :is(.job-row:hover, .guide-text-card:hover) {
@@ -159,13 +159,13 @@ html[data-theme="dark"] :is(.phone-control .country-trigger, .form-toggle,
 }
 html[data-theme="dark"] .form-toggle>button {color: var(--dark-copy);}
 html[data-theme="dark"] :is(.country-active, .country-options>[aria-selected=true],
-  .country-options button:hover) {background:#3d2a50;}
+  .country-options button:hover) {background:#252525;}
 html[data-theme="dark"] :is(.form-toggle>button[aria-pressed=true],
   .form-toggle>button[aria-selected=true], .sector-tabs button[aria-pressed=true],
   .content-tabs a[aria-current=page], .blogs-hero .collection-nav>a[aria-current]) {
-  background:#65408b;
+  background:#32159b;
   color:#fff;
-  border-color:#b491ce;
+  border-color:#32159b;
 }
 html[data-theme="dark"] :is(.field input[aria-invalid=true],
   .phone-control.field-invalid, .form-message.error) {
@@ -176,32 +176,32 @@ html[data-theme="dark"] :is(.field input[aria-invalid=true],
 html[data-theme="dark"] .field .field-error {color:#ffacbc;}
 html[data-theme="dark"] :is(input,select,textarea):focus-visible,
 html[data-theme="dark"] .phone-control:focus-within {
-  outline-color:#d4b4f2;
-  border-color:#d4b4f2;
+  outline-color:#ffffff;
+  border-color:#ffffff;
 }
-html[data-theme="dark"] input[type="checkbox"] {accent-color:#b68bdc;}
+html[data-theme="dark"] input[type="checkbox"] {accent-color:#32159b;}
 html[data-theme="dark"] option {background:var(--dark-input);color:var(--dark-text);}
 
 /* Clear calls to action, without bright panel-sized backgrounds. */
 html[data-theme="dark"] :is(.button, .opportunity-details,
   .privacy-panel .cookie-choice) {
-  background:#68408f;
+  background:#32159b;
   color:#fff;
-  border-color:#a17cbd;
+  border-color:#32159b;
 }
 html[data-theme="dark"] :is(.button:hover, .opportunity-details:hover,
-  .privacy-panel .cookie-choice:hover) {background:#7950a1;color:#fff;}
+  .privacy-panel .cookie-choice:hover) {background:#4423b8;color:#fff;}
 html[data-theme="dark"] :is(.button.light, .button.white, .button.lime,
   .button.outline, .opportunity-enquire, .policy-preferences,
   .franchise-hero-photo>a) {
   background:var(--dark-raised);
   color:var(--dark-text);
-  border-color:#9c7ab7;
+  border-color:#575757;
 }
 html[data-theme="dark"] :is(.button.light:hover, .button.white:hover,
   .button.lime:hover, .button.outline:hover, .opportunity-enquire:hover,
   .policy-preferences:hover, .privacy-panel .cookie-manage:hover,
-  .privacy-panel .privacy-close:hover) {background:#3d2a50;color:#fff;}
+  .privacy-panel .privacy-close:hover) {background:#252525;color:#fff;}
 html[data-theme="dark"] .button>svg {border-color:#ffffff35;}
 html[data-theme="dark"] :is(.privacy-panel h2,.privacy-category strong) {
   color:var(--dark-text);
@@ -221,5 +221,5 @@ html[data-theme="dark"] :is(.company-photo, .gallery-stage,
   .franchise-page .gallery-open>img, .gallery-dialog) {background:var(--dark-surface);}
 html[data-theme="dark"] :is(.gallery-controls, .gallery-open>span,
   .gallery-close, .gallery-jump) {background:var(--dark-raised);color:var(--dark-text);}
-html[data-theme="dark"] .gallery-controls>button:hover {background:#65408b;}
+html[data-theme="dark"] .gallery-controls>button:hover {background:#32159b;}
 html[data-theme="dark"] .job-heading>p:last-of-type {color:var(--dark-copy);}

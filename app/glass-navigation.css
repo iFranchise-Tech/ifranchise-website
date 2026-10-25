@@ -1,15 +1,17 @@
-/* Keep the header in document flow; full-bleed heroes extend beneath it. */
-.p-header{position:sticky;top:0;background:var(--p-bg);border-bottom:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;transition:background-color .25s ease}
-.p-header.is-on-hero:not(.is-menu-open){background:transparent}
+/* A separate glass surface leaves the hero wordmark free to reveal its backdrop. */
+.p-header{position:sticky;top:0;background:transparent;border-bottom:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.p-header:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:rgba(255,255,255,.76);-webkit-backdrop-filter:blur(24px) saturate(145%);backdrop-filter:blur(24px) saturate(145%);transition:background-color .25s ease,opacity .25s ease}
+html[data-theme=dark] .p-header:before{background:rgba(8,8,8,.76)}
+.p-header.is-on-hero:not(.is-menu-open):before{left:calc(max(var(--site-gutter),calc((100% - var(--site-width))/2)) + 190px);background:rgba(255,255,255,.24);-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px);mask-image:linear-gradient(90deg,transparent,#000 28px)}
+html[data-theme=dark] .p-header.is-on-hero:not(.is-menu-open):before,.p-header.is-on-hero.is-over-hero:not(.is-menu-open):before{background:rgba(8,8,8,.2)}
+.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open):before{opacity:0}
+.p-header.is-menu-open:before{background:var(--p-bg);opacity:1;-webkit-backdrop-filter:none;backdrop-filter:none}
+/* Cover the logo area with glass as soon as copy scrolls underneath it. */
+.p-header.is-on-hero.is-brand-protected:not(.is-menu-open):before{left:0;opacity:1;-webkit-mask:none;mask:none;background:rgba(255,255,255,.72)}
+html[data-theme=dark] .p-header.is-on-hero.is-brand-protected:not(.is-menu-open):before,.p-header.is-on-hero.is-over-hero.is-brand-protected:not(.is-menu-open):before{background:rgba(8,8,8,.52)}
 .p-video-hero{margin-top:calc(-1 * var(--site-header-height))}
 .p-photo-hero{margin-top:calc(-1 * var(--site-header-height));padding-top:var(--site-header-height)}
 
-/* Solid after the hero, and a softer tint that borrows its colour over the hero. */
-.p-header:is(.is-scrolled,.is-menu-open){background:var(--p-bg);border-bottom-color:transparent;box-shadow:none}
-@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
- .p-header.is-scrolled.is-on-hero:not(.is-menu-open){background:rgba(255,255,255,.32);border-bottom-color:transparent;-webkit-backdrop-filter:blur(26px) saturate(140%);backdrop-filter:blur(26px) saturate(140%);box-shadow:none}
- html[data-theme=dark] .p-header.is-scrolled.is-on-hero:not(.is-menu-open),.p-header.is-scrolled.is-on-hero.is-over-hero{background:rgba(16,12,25,.2);border-bottom-color:transparent;box-shadow:none}
-}
 .p-header.is-scrolled .p-navigation>a,.p-header.is-scrolled .p-nav-group>button{color:var(--p-ink)}
 
 /* White navigation belongs to dark photographic heroes as well as the film. */
@@ -26,8 +28,12 @@
 .p-floating-brand .identity-lockup>.identity-master:first-child{display:block;width:100%;height:auto;max-width:none}
 .p-floating-brand .identity-master{filter:none}
 html[data-theme=dark] .p-floating-brand .identity-master{filter:brightness(0) invert(1)}
-.p-floating-brand.is-blended{mix-blend-mode:difference}
-.p-floating-brand.is-blended .identity-master{filter:brightness(0) invert(1)}
+.p-floating-brand.is-on-dark-hero .identity-master{filter:brightness(0) invert(1)}
+/* Use the approved wordmark as a mask: the moving backdrop remains visible inside it. */
+.p-floating-brand .identity-lockup{position:relative}
+.p-floating-brand.is-blended .identity-master{opacity:0}
+.p-floating-brand.is-blended .identity-lockup:after{content:'';position:absolute;inset:0;pointer-events:none;-webkit-mask:url('/assets/ifranchise-wordmark.svg') center/contain no-repeat;mask:url('/assets/ifranchise-wordmark.svg') center/contain no-repeat;-webkit-backdrop-filter:brightness(2.6) invert(1);backdrop-filter:brightness(2.6) invert(1)}
+@supports not ((backdrop-filter:invert(1)) or (-webkit-backdrop-filter:invert(1))){.p-floating-brand.is-blended{mix-blend-mode:difference}.p-floating-brand.is-blended .identity-master{opacity:1;filter:brightness(0) invert(1)}}
 .p-floating-brand.is-large .identity-lockup.identity-wordmark{width:210px}
 .p-brand-space{width:160px;flex:none;transition:width .35s cubic-bezier(.22,.61,.36,1)}
 .p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:210px}
@@ -35,4 +41,25 @@ html[data-theme=dark] .p-floating-brand .identity-master{filter:brightness(0) in
 @media(max-width:767px){.p-floating-brand .identity-lockup.identity-wordmark,.p-brand-space{width:140px}.p-floating-brand.is-large .identity-lockup.identity-wordmark,.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:175px}}
 @media(max-width:370px){.p-floating-brand.is-large .identity-lockup.identity-wordmark,.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:160px}}
 @media(prefers-reduced-motion:reduce){.p-header,.p-floating-brand .identity-lockup.identity-wordmark,.p-brand-space{transition:none}}
-@media(prefers-reduced-transparency:reduce){.p-header:is(.is-scrolled,.is-menu-open),html[data-theme=dark] .p-header:is(.is-scrolled,.is-menu-open){background:var(--p-bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
+@media(prefers-reduced-transparency:reduce){.p-header:before,.p-header.is-on-hero:before,html[data-theme=dark] .p-header:before{left:0;background:var(--p-bg);opacity:1;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask:none;mask:none}.p-floating-brand.is-blended .identity-master{opacity:1}.p-floating-brand.is-blended .identity-lockup:after{display:none}.p-header.is-over-hero :is(.p-navigation>a,.p-nav-group>button,.p-menu-button){color:var(--p-ink)}.p-header.is-over-hero .theme-toggle{color:var(--p-brand)!important}}
+
+/* Shared glass treatment for navigation panels and the brand section bar. */
+:root{--nav-panel:rgba(255,255,255,.78);--nav-panel-border:rgba(225,220,235,.66);--nav-hover:rgba(238,234,250,.75)}
+html[data-theme=dark]{--nav-panel:rgba(14,14,14,.8);--nav-panel-border:rgba(255,255,255,.16);--nav-hover:rgba(255,255,255,.09)}
+.p-dropdown,.dossier-nav{background:var(--nav-panel);-webkit-backdrop-filter:blur(24px) saturate(145%);backdrop-filter:blur(24px) saturate(145%);border-color:var(--nav-panel-border)}
+/* Continuous navigation surfaces; only the active link retains its underline. */
+.dossier-nav,.p-brand-nav,.reader-toolbar{border-top:0;border-bottom:0;box-shadow:none}
+.resource-tabs{border-bottom:0}
+/* One backdrop across both pinned rows avoids a blur/tint seam between them. */
+.p-navigation-glass{position:fixed;inset:0 0 auto;z-index:34;pointer-events:none;background:var(--nav-panel);-webkit-backdrop-filter:blur(24px) saturate(145%);backdrop-filter:blur(24px) saturate(145%)}
+.p-header.has-section-glass:before{display:none}
+.p-site:has(>.p-header.has-section-glass) :is(.dossier-nav,.p-brand-nav,.reader-toolbar){background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.p-dropdown{box-shadow:0 12px 36px rgba(16,10,30,.1)}
+.p-dropdown a:hover,.p-dropdown a:focus-visible{background:var(--nav-hover)}
+.p-header.is-menu-open:before{background:var(--nav-panel);-webkit-backdrop-filter:blur(24px) saturate(145%);backdrop-filter:blur(24px) saturate(145%)}
+@media(max-width:1279px){
+ .p-navigation.is-open{background:var(--nav-panel);-webkit-backdrop-filter:blur(24px) saturate(145%);backdrop-filter:blur(24px) saturate(145%);border-color:var(--nav-panel-border)}
+ .p-navigation .p-dropdown{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+}
+@media(prefers-reduced-transparency:reduce){.p-dropdown,.dossier-nav,.p-navigation.is-open,.p-header.is-menu-open:before,.p-navigation-glass{background:var(--p-bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.p-header:before,.p-dropdown,.dossier-nav,.p-navigation.is-open,.p-navigation-glass{background:var(--p-bg)}}
