@@ -13,3 +13,5 @@ Delivery runs in the request's background execution context. Pending records are
 Candidate PDFs are stored under private `applications/` object keys. The sheet links to an authenticated admin page. Job-post editing does not itself grant access to applications; grant the separate **Job applications** permission. Existing staff permissions are unchanged.
 
 Local checks: `node --test tests/intake.test.mjs` and `node tests/intake-http.mjs` against the local preview. The HTTP test creates clearly labelled local test submissions and a test PDF only. Never run it against production without a deliberate test plan and cleanup.
+
+The Job Applications tab keeps its existing 21-column receiver contract. Column L (Application details) contains labelled qualification, course, qualification status, institution, current employment and optional cover note. Each is also stored separately in the protected application record. Column J is blank for freshers and applicants who are not currently employed; stale hidden notice values are discarded server-side.
