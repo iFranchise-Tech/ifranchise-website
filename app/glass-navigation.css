@@ -1,0 +1,23 @@
+/* Keep the header in document flow; full-bleed heroes extend beneath it. */
+.p-header{position:sticky;top:0;background:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;transition:background-color .22s ease,border-color .22s ease,box-shadow .22s ease}
+.p-video-hero{margin-top:calc(-1 * var(--site-header-height))}
+.p-photo-hero{margin-top:calc(-1 * var(--site-header-height));padding-top:var(--site-header-height)}
+
+/* Solid after the hero, and a softer tint that borrows its colour over the hero. */
+.p-header:is(.is-scrolled,.is-menu-open){background:var(--p-bg);border-bottom-color:transparent;box-shadow:none}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+ .p-header.is-scrolled.is-on-hero:not(.is-menu-open){background:rgba(255,255,255,.32);border-bottom-color:transparent;-webkit-backdrop-filter:blur(26px) saturate(140%);backdrop-filter:blur(26px) saturate(140%);box-shadow:none}
+ html[data-theme=dark] .p-header.is-scrolled.is-on-hero:not(.is-menu-open),.p-header.is-scrolled.is-on-hero.is-over-hero{background:rgba(16,12,25,.2);border-bottom-color:transparent;box-shadow:none}
+}
+.p-header.is-scrolled .p-navigation>a,.p-header.is-scrolled .p-nav-group>button{color:var(--p-ink)}
+
+/* The dark homepage film needs a white identity only while at the top. */
+.p-header.is-over-hero .identity-lockup .identity-master{filter:brightness(0) invert(1)}
+.p-header.is-over-hero .p-navigation>a,.p-header.is-over-hero .p-nav-group>button,.p-header.is-over-hero .p-menu-button{color:#fff}
+.p-header.is-over-hero .p-navigation>a:after,.p-header.is-over-hero .p-nav-group>button:after{background:#fff}
+.p-header.is-over-hero .p-contact-button{background:#32159b;border-color:#32159b;color:#fff}
+.p-header.is-over-hero .theme-toggle{color:#fff!important}
+.p-header.is-over-hero .theme-toggle:hover{background:#ffffff1f!important}
+.p-header.is-over-hero :is(a,button):focus-visible{outline-color:#d9ccff}
+@media(prefers-reduced-motion:reduce){.p-header{transition:none}}
+@media(prefers-reduced-transparency:reduce){.p-header:is(.is-scrolled,.is-menu-open),html[data-theme=dark] .p-header:is(.is-scrolled,.is-menu-open){background:var(--p-bg);-webkit-backdrop-filter:none;backdrop-filter:none}}

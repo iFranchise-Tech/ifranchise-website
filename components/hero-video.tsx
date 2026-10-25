@@ -2,8 +2,9 @@
 
 import {useEffect,useRef,useState} from 'react';
 
-const film='/assets/home-hero/franchise-journey.mp4';
-const poster='/assets/home-hero/poster.webp';
+const film='/assets/home-hero/plan-to-presence.mp4';
+const mobileFilm='/assets/home-hero/plan-to-presence-mobile.mp4';
+const poster='/assets/home-hero/plan-to-presence.webp';
 type DataConnection=EventTarget & {saveData?:boolean;effectiveType?:string};
 
 export function HeroVideo(){
@@ -19,7 +20,10 @@ export function HeroVideo(){
    const conserve=motion.matches||connection?.saveData||['slow-2g','2g'].includes(connection?.effectiveType||'');
    if(!visible||document.hidden||!loaded||conserve){element.pause();return;}
    // Keep the video request out of the initial page load and respect visitor preferences.
-   if(!element.getAttribute('src'))element.src=film;
+   if(!element.getAttribute('src')){
+    const smallerScreen=window.matchMedia('(max-width: 767px)').matches;
+    element.src=smallerScreen||connection?.effectiveType==='3g'?mobileFilm:film;
+   }
    element.muted=true;
    void element.play().catch(()=>{});
   };

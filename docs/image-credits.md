@@ -1,17 +1,19 @@
 # Marketing image sources
 
-## Approved homepage video, 25 October 2026
+## Approved homepage video — From plan to presence, 25 October 2026
 
-Real stock footage edited into a silent 16.12-second loop, reviewed and approved by the site owner before integration:
+The owner selected option 5 from five real-stock montage previews. Four related scenes form a silent 16.72-second loop:
 
-- Business planning: fauxels, https://www.pexels.com/video/a-man-standing-leading-the-discussion-in-a-business-meeting-3253106/
-- Café operations: cottonbro studio, https://www.pexels.com/video/baristas-working-in-a-coffee-shop-4795016/
-- Retail spaces: Joshua Santos, https://www.pexels.com/video/people-spending-time-inside-a-mall-2985409/
+1. Commercial planning — Kampus Production: https://www.pexels.com/video/business-people-looking-at-documents-8425719/
+2. Preparing a location — cottonbro studio: https://www.pexels.com/video/colleague-discussing-plans-for-the-construction-materials-6568705/
+3. Operating a retail outlet — Gustavo Fring: https://www.pexels.com/video/woman-paying-by-card-at-billing-counter-of-a-store-5103997/
+4. A wider retail destination — Joshua Santos: https://www.pexels.com/video/people-spending-time-inside-a-mall-2985409/
+
 - Licence: https://www.pexels.com/license/ (commercial website use permitted; checked 25 October 2026).
-- Local assets: `public/assets/home-hero/franchise-journey.mp4` and `poster.webp`.
-- Edits: short extracts, gentle crossfades, 1920 × 1080 H.264 encoding, audio removed, fast-start metadata. The poster is extracted from the first clip.
+- Assets: `public/assets/home-hero/plan-to-presence.mp4`, `plan-to-presence-mobile.mp4` and `plan-to-presence.webp`.
+- Edits: short extracts, 0.8-second crossfades between scenes and back to the opening scene, muted H.264 encoding, fast-start metadata. Desktop is 1920 × 1080; mobile is 1280 × 720. The poster matches the opening frame.
 - These are illustrative business settings, not iFranchise staff, clients or locations. No endorsement is implied.
-- The still poster is rendered immediately. Video loads after the page, respects reduced motion and data saving, and pauses out of view or in a hidden tab. Visitors can explicitly play or pause it.
+- The still poster renders immediately. Video loads after the page, respects reduced motion and data saving, and pauses out of view or in a hidden tab. Narrow screens and 3G connections receive the smaller film. No play/pause controls are shown, as requested.
 
 ## Previously prepared homepage photograph
 
