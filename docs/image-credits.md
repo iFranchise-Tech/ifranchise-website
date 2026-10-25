@@ -25,4 +25,18 @@ Real stock photograph: **Interior of a modern, multi-level shopping mall**, by H
 - Changes: size reduction and WebP encoding only. The webpage supplies the text-legibility overlay.
 - Illustrative retail setting; no endorsement by the depicted shops or people is implied.
 
-The homepage does not use the generated replacement proposals. Other page-specific images in `hero-oct25` are generated illustrative scenes, not photographs of the iFranchise team or clients.
+The homepage does not use the generated replacement proposals. The generated page-specific hero images in `hero-oct25` are no longer used by the About, Careers, List your Brand or Resources pages.
+
+
+## Real stock page heroes — 25 October 2026
+
+The EBG site was used only as a visual reference for crisp, full-width photography and restrained dark overlays. No EBG assets were copied.
+
+| Page | Local file under public/assets/stock-heroes | Photographer and original source |
+| --- | --- | --- |
+| List your Brand | brand-ownership.webp | Vitaly Gariev — https://www.pexels.com/photo/cafe-owner-in-cozy-coffee-shop-interior-36729739/ |
+| Careers | careers-collaboration.webp | Gustavo Fring — https://www.pexels.com/photo/people-at-a-meeting-in-a-conference-room-4872016/ |
+| Resources and category landing pages | business-research.webp | RDNE Stock project — https://www.pexels.com/photo/marketing-exit-office-technology-7414209/ |
+| About us | franchise-advisory.webp | Edmond Dantès — https://www.pexels.com/photo/people-on-a-business-meeting-4344115/ |
+
+Licence: https://www.pexels.com/license/ (commercial website use permitted, checked 25 October 2026). These photographs illustrate business settings; they do not depict the iFranchise team or imply endorsement. Changes are limited to resizing and WebP encoding. Responsive widths: 640, 960, 1440 and 2400px. Text legibility is provided by a CSS overlay; no blur filter is applied to the photographs.

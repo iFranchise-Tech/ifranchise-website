@@ -14,8 +14,8 @@ type PhotoHeroProps={
 };
 
 export function PhotoHero({image,imageAlt,title,description,actions,breadcrumb,scroll,compact=false}:PhotoHeroProps){
- return <section className={'p-photo-hero'+(compact?' p-photo-hero-compact':'')}>
-  <img className="p-photo-hero-image" {...responsiveImage(image,'(max-width: 767px) 1100px, 100vw')} alt={imageAlt} width="1672" height="941" fetchPriority="high" decoding="async"/>
+ return <section data-hero-tone="dark" className={'p-photo-hero'+(compact?' p-photo-hero-compact':'')}>
+  <img className="p-photo-hero-image" {...responsiveImage(image,'100vw')} alt={imageAlt} width="2400" height="1600" fetchPriority="high" decoding="async"/>
   <div className="p-photo-hero-overlay" aria-hidden="true"/>
   <div className="p-container p-photo-hero-inner">
    {breadcrumb&&<Crumb label={breadcrumb}/>}

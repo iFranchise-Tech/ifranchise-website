@@ -29,6 +29,7 @@ import './report-fixes.css';
 import './october-refinement.css';
 import './home-video.css';
 import './glass-navigation.css';
+import './stock-heroes.css';
 import {DEFAULT_THEME,themeBootstrap} from '../lib/theme';
 import {SiteFrame} from '../components/site-frame';
 import {Measurement} from '../components/measurement';

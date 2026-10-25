@@ -12,6 +12,7 @@ export function imageSrc(src:string, width=1200){
 }
 
 export function responsiveImage(src:string, sizes:string, maxWidth=1600){
+ if(src.startsWith('/assets/stock-heroes/'))return {src,srcSet:[640,960,1440,2400].map(w=>`${w===2400?src:src.replace('.webp','-'+w+'.webp')} ${w}w`).join(', '),sizes};
  if(src.startsWith('/assets/hero-oct25/')&&src.endsWith('.webp'))return {src,srcSet:[768,1200,1672].map(w=>`${w===1672?src:src.replace('.webp','-'+w+'.webp')} ${w}w`).join(', '),sizes};
  const image=images[src];
  if(!image)return {src};

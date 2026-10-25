@@ -10,35 +10,36 @@ import {ThemeToggle} from './theme-toggle';
 const menus={company:{label:'Company',links:[['/about-us','About us'],['/careers','Careers']]},resources:{label:'Resources',links:[['/resources','All resources'],['/resources/blogs','Blogs'],['/resources/articles','Articles'],['/resources/faqs','FAQs'],['/resources/videos','Videos'],['/resources/saved','Saved resources']]}};
 export function SocialLinks({label=false}:{label?:boolean}){return <div className="social-links" aria-label="iFranchise social media">{socialLinks.map(s=><a href={s.href} key={s.name} target="_blank" rel="noopener noreferrer" aria-label={'iFranchise on '+s.name} title={s.name}><Icon name={s.icon}/>{label&&<span>{s.name}</span>}</a>)}</div>}
 export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]=useState<string|null>(null),root=useRef<HTMLElement>(null),toggle=useRef<HTMLButtonElement>(null),path=usePathname();
- const [scrolled,setScrolled]=useState(false),[overHero,setOverHero]=useState(true);
+ const [{scrolled,overHero,darkHero},setHeaderState]=useState({scrolled:false,overHero:true,darkHero:path==='/'});
  useEffect(()=>{setMobile(false);setOpen(null)},[path]);
  useEffect(()=>{
   const header=root.current;
-  const hero=document.querySelector('.p-video-hero,.p-photo-hero,.opportunities-hero,.p-about-intro');
-  const updateScroll=()=>setScrolled(window.scrollY>8);
-  updateScroll();
-  window.addEventListener('scroll',updateScroll,{passive:true});
-  window.addEventListener('pageshow',updateScroll);
-  let observer:IntersectionObserver|undefined;
-  const watchHero=()=>{
-   observer?.disconnect();
-   if(!hero||!header){setOverHero(false);return;}
-   const height=header.getBoundingClientRect().height;
-   const update=()=>setOverHero(hero.getBoundingClientRect().bottom>height);
-   update();
-   observer=new IntersectionObserver(update,{rootMargin:`-${height}px 0px 0px 0px`,threshold:0});
-   observer.observe(hero);
+  let hero:Element|null=null,frame=0;
+  const resize=new ResizeObserver(()=>schedule());
+  const update=()=>{
+   frame=0;
+   // Routes may stream their hero after the shared header has hydrated.
+   const nextHero=document.querySelector('.p-video-hero,.p-photo-hero,.opportunities-hero,.p-about-intro');
+   if(nextHero!==hero){if(hero)resize.unobserve(hero);hero=nextHero;if(hero)resize.observe(hero);}
+   const height=header?.getBoundingClientRect().height||80;
+   const over=!!hero&&hero.getBoundingClientRect().bottom>height;
+   const next={scrolled:window.scrollY>8,overHero:over,darkHero:!!hero?.matches('.p-video-hero,[data-hero-tone="dark"]')};
+   setHeaderState(current=>current.scrolled===next.scrolled&&current.overHero===next.overHero&&current.darkHero===next.darkHero?current:next);
   };
-  watchHero();
-  const resize=new ResizeObserver(watchHero);
+  function schedule(){if(!frame)frame=requestAnimationFrame(update);}
+  const content=new MutationObserver(schedule);
+  content.observe(document.querySelector('.p-site')||document.body,{childList:true,subtree:true});
   if(header)resize.observe(header);
-  if(hero)resize.observe(hero);
-  return()=>{window.removeEventListener('scroll',updateScroll);window.removeEventListener('pageshow',updateScroll);observer?.disconnect();resize.disconnect()};
+  update();
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  window.addEventListener('pageshow',schedule);
+  return()=>{cancelAnimationFrame(frame);window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);window.removeEventListener('pageshow',schedule);content.disconnect();resize.disconnect();};
  },[path]);
  useEffect(()=>{function dismiss(e:PointerEvent){if(root.current&&!root.current.contains(e.target as Node)){setMobile(false);setOpen(null)}}function escape(e:KeyboardEvent){if(e.key==='Escape'){const key=open;setOpen(null);if(key)root.current?.querySelector<HTMLButtonElement>('#p-nav-'+key)?.focus();else{setMobile(false);toggle.current?.focus()}}}document.addEventListener('pointerdown',dismiss);document.addEventListener('keydown',escape);return()=>{document.removeEventListener('pointerdown',dismiss);document.removeEventListener('keydown',escape)}},[open]);
  function link(href:string,label:string){return <a href={href} aria-current={path===href?'page':undefined} onClick={()=>{setMobile(false);setOpen(null)}}>{label}</a>}
  function dropdown(key:keyof typeof menus){const m=menus[key];return <div className={'p-nav-group'+(open===key?' is-open':'')} onPointerEnter={e=>{if(e.pointerType==='mouse'&&matchMedia('(min-width: 1280px)').matches)setOpen(key)}} onPointerLeave={e=>{if(e.pointerType==='mouse'&&matchMedia('(min-width: 1280px)').matches)setOpen(null)}} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setOpen(v=>v===key?null:v)}}><button id={'p-nav-'+key} aria-expanded={open===key} aria-controls={'p-drop-'+key} onClick={()=>setOpen(open===key?null:key)} onKeyDown={e=>{if(e.key==='ArrowDown'){e.preventDefault();setOpen(key);requestAnimationFrame(()=>root.current?.querySelector<HTMLAnchorElement>('#p-drop-'+key+' a')?.focus())}}}>{m.label}<ChevronDown size={14}/></button><div className="p-dropdown" id={'p-drop-'+key} hidden={open!==key}>{m.links.map(([href,label])=><a key={href} href={href} onClick={()=>{setMobile(false);setOpen(null)}} aria-current={path===href?'page':undefined}>{label}<ArrowUpRight size={15}/></a>)}</div></div>}
- return <><a className="skip-link" href="#main">Skip to content</a><header className={'p-header'+(scrolled?' is-scrolled':'')+(overHero?' is-on-hero':'')+(mobile?' is-menu-open':'')+(path==='/'&&overHero&&!mobile?' is-over-hero':'')} ref={root}><div className="p-header-inner"><BrandIdentity wordmark/><nav id="p-navigation" className={'p-navigation'+(mobile?' is-open':'')} aria-label="Main navigation">{link('/','Home')}{link('/franchise-opportunities','Franchise opportunities')}{link('/list-your-brand','List your Brand')}{dropdown('resources')}{dropdown('company')}<a className="p-mobile-contact" href="/contact-us">Contact us<ArrowUpRight size={18}/></a></nav><div className="p-header-tools"><ThemeToggle/><a className="p-contact-button" href="/contact-us">Contact us<ArrowUpRight size={16}/></a><button ref={toggle} className="p-menu-button" aria-expanded={mobile} aria-controls="p-navigation" aria-label={mobile?'Close navigation':'Open navigation'} onClick={()=>setMobile(!mobile)}>{mobile?<X size={23}/>:<Menu size={23}/>}</button></div></div></header></>}
+ return <><a className="skip-link" href="#main">Skip to content</a><header className={'p-header'+(scrolled?' is-scrolled':'')+(overHero?' is-on-hero':'')+(mobile?' is-menu-open':'')+(darkHero&&overHero&&!mobile?' is-over-hero':'')} ref={root}><div className="p-header-inner"><span className="p-brand-space" aria-hidden="true"/><nav id="p-navigation" className={'p-navigation'+(mobile?' is-open':'')} aria-label="Main navigation">{link('/','Home')}{link('/franchise-opportunities','Franchise opportunities')}{link('/list-your-brand','List your Brand')}{dropdown('resources')}{dropdown('company')}<a className="p-mobile-contact" href="/contact-us">Contact us<ArrowUpRight size={18}/></a></nav><div className="p-header-tools"><ThemeToggle/><a className="p-contact-button" href="/contact-us">Contact us<ArrowUpRight size={16}/></a><button ref={toggle} className="p-menu-button" aria-expanded={mobile} aria-controls="p-navigation" aria-label={mobile?'Close navigation':'Open navigation'} onClick={()=>setMobile(!mobile)}>{mobile?<X size={23}/>:<Menu size={23}/>}</button></div></div></header><div className={'p-floating-brand'+(overHero&&!mobile?' is-blended':'')+(overHero&&!scrolled&&!mobile?' is-large':'')}><BrandIdentity wordmark/></div></>}
 export function Footer(){const contactPage=usePathname()==='/contact-us';return <footer className="p-footer"><div className="p-container">
  <div className="p-footer-grid">
   <div className="p-footer-contact"><h2>{contactPage?'Follow us':'Contact'}</h2>{!contactPage&&<><a className="p-footer-email" href={'mailto:'+SITE.email}>{SITE.email}<ArrowUpRight size={18}/></a><a href="tel:+919129130303"><Phone size={16}/>{SITE.phone}</a></>}<SocialLinks/></div>

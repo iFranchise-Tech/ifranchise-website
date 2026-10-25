@@ -1,5 +1,6 @@
 /* Keep the header in document flow; full-bleed heroes extend beneath it. */
-.p-header{position:sticky;top:0;background:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;transition:background-color .22s ease,border-color .22s ease,box-shadow .22s ease}
+.p-header{position:sticky;top:0;background:var(--p-bg);border-bottom:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;transition:background-color .25s ease}
+.p-header.is-on-hero:not(.is-menu-open){background:transparent}
 .p-video-hero{margin-top:calc(-1 * var(--site-header-height))}
 .p-photo-hero{margin-top:calc(-1 * var(--site-header-height));padding-top:var(--site-header-height)}
 
@@ -11,7 +12,7 @@
 }
 .p-header.is-scrolled .p-navigation>a,.p-header.is-scrolled .p-nav-group>button{color:var(--p-ink)}
 
-/* The dark homepage film needs a white identity only while at the top. */
+/* White navigation belongs to dark photographic heroes as well as the film. */
 .p-header.is-over-hero .identity-lockup .identity-master{filter:brightness(0) invert(1)}
 .p-header.is-over-hero .p-navigation>a,.p-header.is-over-hero .p-nav-group>button,.p-header.is-over-hero .p-menu-button{color:#fff}
 .p-header.is-over-hero .p-navigation>a:after,.p-header.is-over-hero .p-nav-group>button:after{background:#fff}
@@ -19,5 +20,19 @@
 .p-header.is-over-hero .theme-toggle{color:#fff!important}
 .p-header.is-over-hero .theme-toggle:hover{background:#ffffff1f!important}
 .p-header.is-over-hero :is(a,button):focus-visible{outline-color:#d9ccff}
-@media(prefers-reduced-motion:reduce){.p-header{transition:none}}
+/* The logo blends directly with the page, outside the header's backdrop-filter layer. */
+.p-floating-brand{position:fixed;z-index:71;top:0;left:max(var(--site-gutter),calc((100% - var(--site-width))/2));height:var(--site-header-height);display:flex;align-items:center;pointer-events:none}
+.p-floating-brand .identity-lockup.identity-wordmark{display:block;width:160px;max-width:none;padding:0;margin:0;pointer-events:auto;transition:width .35s cubic-bezier(.22,.61,.36,1)}
+.p-floating-brand .identity-lockup>.identity-master:first-child{display:block;width:100%;height:auto;max-width:none}
+.p-floating-brand .identity-master{filter:none}
+html[data-theme=dark] .p-floating-brand .identity-master{filter:brightness(0) invert(1)}
+.p-floating-brand.is-blended{mix-blend-mode:difference}
+.p-floating-brand.is-blended .identity-master{filter:brightness(0) invert(1)}
+.p-floating-brand.is-large .identity-lockup.identity-wordmark{width:210px}
+.p-brand-space{width:160px;flex:none;transition:width .35s cubic-bezier(.22,.61,.36,1)}
+.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:210px}
+@media(max-width:1279px){.p-floating-brand.is-large .identity-lockup.identity-wordmark,.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:190px}}
+@media(max-width:767px){.p-floating-brand .identity-lockup.identity-wordmark,.p-brand-space{width:140px}.p-floating-brand.is-large .identity-lockup.identity-wordmark,.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:175px}}
+@media(max-width:370px){.p-floating-brand.is-large .identity-lockup.identity-wordmark,.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:160px}}
+@media(prefers-reduced-motion:reduce){.p-header,.p-floating-brand .identity-lockup.identity-wordmark,.p-brand-space{transition:none}}
 @media(prefers-reduced-transparency:reduce){.p-header:is(.is-scrolled,.is-menu-open),html[data-theme=dark] .p-header:is(.is-scrolled,.is-menu-open){background:var(--p-bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
