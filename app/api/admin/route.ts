@@ -1,6 +1,7 @@
+import {normalizeWorkEmail} from '../../../lib/contact-validation.mjs';
 import {checkMedia} from '../../../lib/cms/media-permissions';
 import {adminIdentity,assertOrigin,boundedBody,CmsError,db,failure,getMembers,memberFromRow,response} from '../../../lib/cms/auth';
-import {canView,canEdit,canPublish,canReview,canApprove,scopeFor,SCOPES,PERMISSION_SCOPES,ROLES,validateHierarchy,workEmail} from '../../../lib/cms/policy.mjs';
+import {canView,canEdit,canPublish,canReview,canApprove,scopeFor,SCOPES,PERMISSION_SCOPES,ROLES,validateHierarchy} from '../../../lib/cms/policy.mjs';
 import {getRecord,allRecords,summary,writeRecord} from '../../../lib/cms/store';
 import {validPayload} from '../../../lib/cms/validation';
 import {blank} from '../../../lib/cms/defaults';
@@ -71,7 +72,7 @@ async function validatePublication(me:any,r:any){
 async function publishedRecord(me:any,r:any){await validatePublication(me,r);return {...r,live:r.intent==='archive'?null:r.draft,status:r.intent==='archive'?'archived':'published'};}
 async function changeMember(me:any,b:any){
  if(me.role!=='super_admin')throw new CmsError(403,'Only a Super Admin can manage employees.');
- const p=b.payload,email=p?.email?.trim().toLowerCase();if(!workEmail(email))throw new CmsError(422,'Enter a valid iFranchise email address.');
+ const p=b.payload;let email:string;try{email=normalizeWorkEmail(p?.email)}catch(e:any){throw new CmsError(422,e.message)}
  if(!p.name?.trim()||p.name.length>120||!ROLES.includes(p.role)||!Array.isArray(p.scopes)||p.scopes.some((s:string)=>!PERMISSION_SCOPES.includes(s)))throw new CmsError(422,'Complete the employee details.');
  const members=await getMembers(),old=members.find(m=>m.email===email);if(old&&b.version!==old.version||!old&&b.version!==0)throw new CmsError(409,'This employee changed. Reload the team list.');
  if(!['invited','active','suspended'].includes(p.status))throw new CmsError(422,'Invalid status.');

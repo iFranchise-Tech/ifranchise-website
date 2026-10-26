@@ -1,4 +1,5 @@
 'use client';
+import {emailFieldError} from '../../lib/contact-validation.mjs';
 import {useEffect,useState} from 'react';
 import {ArrowLeft,ArrowUp,ArrowDown,GripVertical,Save,Send,ExternalLink,Archive,RotateCcw,Check,X} from 'lucide-react';
 import {Field,Lines,AssetField,Repeater,MultiSelect} from './fields';
@@ -15,15 +16,16 @@ export function RecordEditor({initial,me,onClose,notify,onDirty}:{initial:any;me
  useEffect(()=>{if(kind==='franchises')fetch('/api/admin?view=industries').then(r=>r.json()).then((d:any)=>setIndustries(d.industries||[]))},[kind]);
  const set=(key:string,value:any)=>setPayload((p:any)=>({...p,[key]:value}));
  async function refresh(r:any){setRecord(r);setPayload(r.draft);const res=await fetch('/api/admin?id='+encodeURIComponent(r.id));const d:any=await res.json();if(res.ok){setHistory(d.history);setAllowed(d.canApprove)}}
- async function mutate(action:string,extra:any={}){setBusy(true);setError('');try{let current=record;
+ function validEmail(){if(kind!=='jobs')return true;const problem=emailFieldError(payload.applyEmail,{work:true});if(!problem)return true;setError(problem);setTab('content');setPart('application');return false;}
+ async function mutate(action:string,extra:any={}){if(['save','save-submit','save-publish','submit','publish'].includes(action)&&!validEmail())return;setBusy(true);setError('');try{let current=record;
   if(action==='save-submit'){const res=await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'save',kind,slug:record.slug||payload.slug,version:record.version,payload})});const d:any=await res.json();if(!res.ok)throw new Error(d.error);current=d.record;await refresh(current);}
   const actual=action==='save-submit'?'submit':action;
   const res=await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:actual,kind,slug:current.slug||payload.slug,version:current.version,note,...(['save','save-publish'].includes(actual)?{payload}:{}),...extra})});const d:any=await res.json();if(!res.ok)throw new Error(d.error);await refresh(d.record);setNote('');
   notify(d.record.status==='archived'?'Removed from website':d.record.status==='published'?'Published to website':actual==='submit'?'Submitted for approval':actual==='reject'?'Changes requested':actual==='archive'?'Removal draft created':actual==='save'?'Draft saved':'Draft updated');
  }catch(e:any){setError(e.message)}finally{setBusy(false)}}
- async function preview(){setError('');const win=window.open('/admin/preview?loading=1','_blank');if(win)win.opener=null;try{if(!editing){if(win)win.location.href='/admin/preview?id='+encodeURIComponent(record.id);return;}const res=await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'preview',kind,payload})});const d:any=await res.json();if(!res.ok)throw new Error(d.error);if(win)win.location.href=d.url;else setError('Allow pop-ups to open the preview.');}catch(e:any){win?.close();setError(e.message)}}
+ async function preview(){if(editing&&!validEmail())return;setError('');const win=window.open('/admin/preview?loading=1','_blank');if(win)win.opener=null;try{if(!editing){if(win)win.location.href='/admin/preview?id='+encodeURIComponent(record.id);return;}const res=await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'preview',kind,payload})});const d:any=await res.json();if(!res.ok)throw new Error(d.error);if(win)win.location.href=d.url;else setError('Allow pop-ups to open the preview.');}catch(e:any){win?.close();setError(e.message)}}
  function close(){if(!dirty||window.confirm('Discard unsaved changes?'))onClose()}
- const f=(key:string,label:string,type='text',required=false)=><Field key={key} label={label} value={payload[key]} onChange={v=>set(key,v)} type={type} required={required}/>;
+ const f=(key:string,label:string,type='text',required=false)=><Field key={key} label={label} value={payload[key]} onChange={v=>set(key,v)} type={type} required={required} validateOnSubmit={!!error}/>;
  const lines=(key:string,label:string)=><Lines label={label} value={payload[key]||[]} onChange={v=>set(key,v)}/>;
  function pair(items:any[],name:string,keys:string[],create:any){return <Repeater label={name} items={items||[]} onChange={v=>set(name==='Sources'?'sources':name==='FAQs'?'faqs':'questions',v)} create={()=>({...create})}>{(item,change)=><div className="cms-form-grid">{keys.map(k=><Field key={k} label={k==='q'?'Question':k==='a'?'Answer':k==='url'?'URL':'Label'} type={k==='a'?'textarea':'text'} value={item[k]} onChange={v=>change({...item,[k]:v})}/>)}</div>}</Repeater>}
  const changes=record.live?Object.keys(payload).filter(k=>JSON.stringify(payload[k])!==JSON.stringify(record.live[k])):Object.keys(payload);

@@ -1,6 +1,7 @@
 import {z} from 'zod';
+import {emailFieldError,normalizeWorkEmail} from '../contact-validation.mjs';
 import {CmsError} from './auth';
-import {assetUrl,workEmail} from './policy.mjs';
+import {assetUrl} from './policy.mjs';
 import {franchiseModels} from './catalogue-fields.mjs';
 import {validResourceCategory} from '../resource-categories.mjs';
 const short=z.string().max(600),long=z.string().max(50000),list=z.array(long).max(200);
@@ -9,7 +10,7 @@ const questions=z.array(z.object({q:short,a:long})).max(100);
 const date=z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(v=>!isNaN(Date.parse(v))&&new Date(v).toISOString().slice(0,10)===v,'Choose a valid date.');
 const article=z.object({slug:short,title:short,excerpt:long,category:short,resourceCategory:z.string().refine(validResourceCategory,'Select a resource category.').optional(),audience:z.enum(['all','brand','investor']),image:url,imageAlt:short,introHighlight:long,sections:z.array(z.object({heading:short,body:list,bullets:list.optional()})).min(1).max(60),faqs:questions,sources:z.array(z.object({label:short,url:z.string().url().startsWith('https://')})).max(100),relatedSlugs:z.array(short).max(100),date}).passthrough();
 const brand=z.object({slug:short,name:short,category:short,investment:z.number().min(0).max(1e9).nullable(),budget:short,model:short,models:z.array(z.string().refine(v=>franchiseModels.includes(v),'Select an operating model.')).min(1).max(7),description:long,overview:long,highlights:list,logo:url,gallery:z.array(url).max(40),brochure:z.string().max(1000).refine(v=>!v||/^\/(brochures\/[a-z0-9-]+\.pdf|media\/[a-f0-9-]{36}\.pdf)$/.test(v),'Upload a PDF brochure to the media library.'),brochureEnabled:z.boolean(),faqs:questions,facts:z.record(z.union([z.string().max(5000),z.number(),z.null()]))}).passthrough();
-const job=z.object({slug:short,title:short,dept:short,type:short,mode:short,location:short,experience:short,tagline:long,aboutRole:long,responsibilities:list,requirements:list,applyEmail:z.string().email().refine(workEmail,'Use an iFranchise email address.'),applyNote:long}).passthrough();
+const job=z.object({slug:short,title:short,dept:short,type:short,mode:short,location:short,experience:short,tagline:long,aboutRole:long,responsibilities:list,requirements:list,applyEmail:z.string().superRefine((value,ctx)=>{const message=emailFieldError(value,{work:true});if(message)ctx.addIssue({code:z.ZodIssueCode.custom,message});}).transform(value=>normalizeWorkEmail(value)),applyNote:long}).passthrough();
 const home=z.object({slug:z.literal('homepage'),title:short,headline:short,accent:short,intro:long,overviewTitle:short,overviewIntro:long});
 const faq=z.object({slug:z.enum(['general','homepage','opportunities','list-your-brand','contact-us']),title:short,questions});
 const video=z.object({slug:short,title:short,excerpt:long,youtubeUrl:z.string().max(500),image:url,imageAlt:short,date,transcript:long});
