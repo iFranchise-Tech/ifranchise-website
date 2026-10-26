@@ -36,7 +36,7 @@ test('aliases, international domains, long TLDs and custom domains are not treat
 test('national entry rejects letters and normalizes a country-code paste without duplication',()=>{
  assert.equal(nationalPhoneInput('+91 91234-56789','IN'),'9123456789');
  assert.equal(normalizePhone(nationalPhoneInput('+91 9123456789','IN'),'IN'),'+919123456789');
- assert.equal(nationalPhoneInput('09123456789','IN'),'09123456789');
+ assert.throws(()=>nationalPhoneInput('09123456789','IN'),/no more than 10 digits/);
  assert.throws(()=>normalizePhone(nationalPhoneInput('09123456789','IN'),'IN'));
  for(const value of ['912345678','91234567890','919123456789','+91919123456789','5123456789'])assert.throws(()=>normalizePhone(value,'IN'),value);
  for(const value of ['abc','91234a56789','91234#56789','91234+56789','++919123456789'])assert.throws(()=>nationalPhoneInput(value,'IN'),value);

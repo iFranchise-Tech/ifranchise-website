@@ -8,8 +8,8 @@ import starterBlogs from '../../content/cms-blogs.json';
 import {editorialArticles} from '../editorial';
 import {homeQuestions} from '../search-content';
 export const pageDefaults=[
- {slug:'homepage',title:'Homepage',processImage:'/images/revamp/advisory.webp',processAlt:'An illustrative advisory discussion around a retail floor plan',headline:'Franchise consulting',accent:'for business growth.',intro:'Explore a franchise opportunity or prepare your business for more locations. We help you assess the options, work through the details and plan what comes next.',overviewTitle:'How we support your plans',overviewIntro:'Whether you are choosing a business or developing a franchise network, our work begins with your priorities.'},
- {slug:'about-us',title:'About us',banner:'/assets/stock-heroes/retail-partnership.webp',bannerAlt:'Café team discussing their business at the counter'},
+ {slug:'homepage',title:'Homepage',processImage:'/assets/stock-heroes/business-research.webp',processAlt:'Two business professionals reviewing a plan, figures and documents',headline:'Franchise consulting',accent:'for business growth.',intro:'Explore a franchise opportunity or prepare your business for more locations. We help you assess the options, work through the details and plan what comes next.',overviewTitle:'How we support your plans',overviewIntro:'Whether you are choosing a business or developing a franchise network, our work begins with your priorities.'},
+ {slug:'about-us',title:'About us',banner:'/assets/stock-heroes/franchise-advisory.webp',bannerAlt:'Business owners and an adviser discussing their plans'},
  {slug:'contact-us',title:'Contact details',email:'contact@ifranchise.in',phone:'+919129130303',phoneCountry:'IN'},
  {slug:'footer',title:'Footer & social links',socialLinks:socialLinks.map(l=>({...l,visible:true}))},
  ...legalDefaults,

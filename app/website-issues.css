@@ -1,0 +1,69 @@
+/* Public website scale: display hero > page title > section > card > detail.
+   Component selectors keep admin controls and footer labels independent. */
+.p-site{--type-page:clamp(36px,4.2vw,60px);--type-section:clamp(30px,3.2vw,46px);--type-card:clamp(21px,2vw,28px);--type-detail:18px}
+.p-site main :is(.opportunities-intro h1,.p-section-heading h2,.p-process-copy h2,.p-faq-section h2,.careers-list-heading h2,.p-development h2,.p-form-intro h2){font-size:var(--type-section);line-height:1.16;letter-spacing:-.045em;font-weight:600}
+.p-site main :is(.p-photo-hero h1,.job-heading h1,.reading-heading h1,.content-heading h1,.p-contact h1){font-size:var(--type-page);line-height:1.15;letter-spacing:-.045em;font-weight:600}
+.p-site main :is(.dossier-heading h1,.dossier-section h2,.reading-body h2,.job-body h2){font-size:clamp(28px,2.8vw,40px);line-height:1.2;letter-spacing:-.035em}
+.p-site main :is(.journal-card h3,.p-reading-card h3,.careers-job h3){font-size:var(--type-card);line-height:1.3;letter-spacing:-.035em}
+.p-site main :is(.p-process-copy h3,.p-deliverables h3){font-size:var(--type-detail);line-height:1.4}
+.p-site .p-process-copy>.p-link{margin-left:0;align-self:flex-start;justify-self:start;width:max-content;max-width:100%;justify-content:flex-start}
+.p-video-hero-inner{padding-bottom:72px}
+.p-site .p-footer-office .footer-company-name{font-size:13px;font-weight:700;line-height:1.65;color:var(--p-ink);margin:0 0 14px}
+.p-footer-bottom>span{white-space:normal}
+.catalogue-suggestions{position:absolute;inset:calc(100% + 6px) 0 auto;z-index:20;margin:0;padding:6px;list-style:none;background:rgba(255,255,255,.97);border:1px solid var(--p-line);border-radius:10px;box-shadow:0 12px 30px #1c143b1a;backdrop-filter:blur(18px)}
+.catalogue-suggestions button{display:block;width:100%;min-height:44px;padding:10px 12px;border:0;border-radius:6px;background:transparent;color:var(--p-ink);text-align:left;font:inherit;font-size:13px;line-height:1.5;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+.catalogue-suggestions button:hover,.catalogue-suggestions button[aria-selected=true]{background:#eee9fb;color:#32159b}
+/* Editorial resource heroes keep the photograph clear of headline text. */
+.p-site .p-photo-hero-editorial{background:#f3f4f8;color:var(--p-ink);display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:0;isolation:isolate}
+.p-site .p-photo-hero-editorial .p-photo-hero-image{position:static;grid-column:2;grid-row:1;width:100%;height:100%;min-height:330px;max-height:460px;object-fit:cover;object-position:50% 50%;z-index:0}
+.p-photo-hero-editorial .p-photo-hero-overlay{display:none}
+.p-site .p-photo-hero-editorial .p-photo-hero-inner{grid-column:1;grid-row:1;width:auto;margin:0;padding:56px max(28px,calc((100vw - 1320px)/2));padding-right:44px;min-height:0;z-index:1}
+.p-site .p-photo-hero-editorial .p-photo-hero-copy{max-width:620px;text-shadow:none}
+.p-site main .p-photo-hero-editorial h1{font-size:var(--type-section);color:var(--p-ink);margin:0 0 22px;text-wrap:balance}
+.p-site .p-photo-hero-editorial .p-photo-hero-copy>p{font-size:16px;color:var(--p-copy);margin:0;max-width:490px}
+.p-about .p-photo-hero-image{object-position:55% 30%}
+.careers-page .p-photo-hero-image{object-position:55% 30%}
+.p-solutions .p-photo-hero-image{object-position:60% 32%}
+.careers-page .p-photo-hero-inner{min-height:560px;padding-block:100px 80px}
+/* Keep the existing mobile job presentation; use the existing 750px breakpoint. */
+.job-sidebar .job-desktop-facts{display:none}
+@media(min-width:751px){
+ .job-heading .job-facts{display:none}
+ .job-sidebar .job-desktop-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;padding-bottom:20px;border-bottom:1px solid var(--p-line)}
+ .job-sidebar .job-desktop-facts>div{margin:0;min-width:0}
+ .job-sidebar .job-mobile-detail{display:none}
+}
+.dossier-investment-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.dossier-investment-row>div{min-width:0}
+.dossier-investment-row>div>span{display:block;font-size:12px;color:var(--p-copy);margin-bottom:8px}
+.dossier-investment-row strong{display:block;font-family:Sora,sans-serif;font-size:28px;line-height:1.4;font-weight:600;letter-spacing:-.035em;white-space:pre-line;overflow-wrap:anywhere}
+.dossier-outlets{display:inline-flex;background:#32159b;color:#fff;border-radius:100px;font-size:12px;font-weight:650;padding:8px 14px;white-space:nowrap}
+.dossier-specs .dossier-return-label{margin-top:18px}
+.dossier-return-terms{grid-column:1/-1}
+.enquiry-confirmation{min-height:75svh;display:grid;place-items:center;padding:60px 20px;background:radial-gradient(ellipse at top,#eae6f7,transparent 60%),#f7f8fb}
+.enquiry-confirmation-card{width:min(100%,640px);border:1px solid #e3dfeb;background:#fff;border-radius:20px;padding:44px;text-align:center;box-shadow:0 18px 70px #1b143b0b}
+.enquiry-confirmation-card .brand-logo{margin:0 auto 24px}
+.enquiry-confirmation-icon{display:grid;place-items:center;width:52px;height:52px;background:#eee9fb;border-radius:50%;color:#32159b;margin:0 auto 20px}
+.enquiry-confirmation-card .p-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--p-copy)}
+.p-site .enquiry-confirmation-card h1{font-size:clamp(28px,3.3vw,42px);line-height:1.2;margin:18px 0 20px}
+.enquiry-confirmation-card>p:not(.p-eyebrow){color:var(--p-copy);font-size:16px;line-height:1.8;margin-bottom:28px}
+.enquiry-confirmation-card .p-button{justify-content:center;gap:16px;max-width:100%}
+@media(max-width:767px){
+ .p-site .p-page .p-video-hero h1{font-size:clamp(23px,6.7vw,46px);line-height:1.18;letter-spacing:-.05em;text-wrap:initial}
+ .p-video-hero-inner{padding-block:calc(var(--site-header-height) + 36px) 48px}
+ .p-video-hero .p-actions{flex-direction:row;flex-wrap:nowrap;gap:clamp(7px,2vw,16px);align-items:center}
+ .p-video-hero .p-actions a{min-height:44px;font-size:clamp(10.5px,2.9vw,13px);white-space:nowrap;gap:6px;min-width:0;padding:12px 9px}
+ .p-video-hero .p-actions .p-link{padding-inline:2px}
+ .p-video-hero .p-actions svg{width:14px;height:14px;flex-shrink:0}
+ /* Keep the full stock photograph visible instead of cutting off faces. */
+ .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero{display:flex;flex-direction:column;background:#15151b}
+ .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero-inner{order:0;min-height:0;padding-block:28px 36px}
+ .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero-image{position:relative;order:1;inset:auto;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;z-index:0}
+ .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero-overlay{display:none}
+ .p-site .p-photo-hero-editorial{display:flex;flex-direction:column}
+ .p-site .p-photo-hero-editorial .p-photo-hero-inner{padding:28px 24px 34px;order:0}
+ .p-site .p-photo-hero-editorial .p-photo-hero-image{order:1;min-height:0;max-height:none;height:auto;aspect-ratio:3/2}
+ .p-site main .p-photo-hero-editorial h1{font-size:32px}
+ .enquiry-confirmation-card{padding:28px 20px}
+ .dossier-investment-row strong{font-size:25px}
+}

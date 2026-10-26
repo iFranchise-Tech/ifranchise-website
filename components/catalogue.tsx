@@ -1,15 +1,14 @@
 'use client';
 import {useEffect,useState} from 'react';
 
-import {filterBrands} from '../lib/catalogue.mjs';
+import {filterBrands,catalogueOptions} from '../lib/catalogue.mjs';
 import {BrandCard} from './ui';
 import {Icon} from './icons';
+import {CatalogueSearch} from './catalogue-search';
 
-const budgets=[['25','Up to ₹25 lakh'],['50','Up to ₹50 lakh'],['100','Up to ₹1 crore'],['250','Up to ₹2.5 crore'],['500','Up to ₹5 crore'],['1000','Up to ₹10 crore']];
-const models=['FOFO','FOCO','FICO','COCO','Unit Franchise','Master Franchise','Area Development'].map(v=>[v.toUpperCase(),v]);
 const defaults={query:'',sector:'all',budget:'all',model:'all',sort:'featured'};
 export function Catalogue({brands,industries=[]}:{brands:any[];industries?:any[]}){
- const sectors=[...new Set([...industries.map(i=>i.title),...brands.map(b=>b.category)])].sort();
+ const {sectors,budgets,models,suggestions}=catalogueOptions(brands);
  const [expanded,setExpanded]=useState(false);
  const [filters,setFilters]=useState(defaults),[ready,setReady]=useState(false);
  const {query,sector,budget,model,sort}=filters;
@@ -26,12 +25,12 @@ export function Catalogue({brands,industries=[]}:{brands:any[];industries?:any[]
   <div className="opportunity-filters">
    <div className="opportunity-filter-heading"><h2>Find a franchise</h2><button className="filter-toggle" type="button" aria-expanded={expanded} aria-controls="opportunity-filter-fields" onClick={()=>setExpanded(v=>!v)}>{expanded?'Fewer filters':'Filters'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><a href="/guides/franchise-models">Understand the operating models <Icon name="arrow"/></a></div>
    <div id="opportunity-filter-fields" className={'opportunity-filter-fields'+(expanded?' is-expanded':'')}>
-    <div className="opportunity-field opportunity-search"><label htmlFor="brand-search">Search</label><div><Icon name="search"/><input type="search" id="brand-search" placeholder="Brand name or sector" maxLength={120} value={query} onChange={e=>change('query',e.target.value)}/></div></div>
+    <CatalogueSearch value={query} onChange={value=>change('query',value)} suggestions={suggestions}/>
     <div className="opportunity-field"><label htmlFor="sector-filter">Sector</label><select id="sector-filter" value={sector} onChange={e=>change('sector',e.target.value)}><option value="all">All sectors</option>{sectors.map(s=><option key={s}>{s}</option>)}</select></div>
     <div className="opportunity-field"><label htmlFor="budget-filter">Starting investment</label><select id="budget-filter" value={budget} onChange={e=>change('budget',e.target.value)}><option value="all">Any investment</option>{budgets.map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></div>
     <div className="opportunity-field"><label htmlFor="model-filter">Operating model</label><select id="model-filter" value={model} onChange={e=>change('model',e.target.value)}><option value="all">All models</option>{models.map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></div>
    </div>
-   {selected.length>0&&<div className="opportunity-selections" aria-label="Active filters">{selected.map(f=><button key={f.key} onClick={()=>change(f.key,defaults[f.key])} aria-label={'Remove '+f.label+' filter'}>{f.label}<Icon name="close"/></button>)}<button className="opportunity-reset" onClick={reset}>Clear all</button></div>}
+
   </div>
   <div className="opportunity-results"><p role="status" aria-live="polite"><strong>{result.length}</strong> {result.length===1?'opportunity':'opportunities'}{selected.length?(result.length===1?' matches your search':' match your search'):''}</p><div><label htmlFor="sort-brands">Sort by</label><select id="sort-brands" value={sort} onChange={e=>change('sort',e.target.value)}><option value="featured">Recommended order</option><option value="name">Name: A–Z</option><option value="investment">Investment: low to high</option></select></div></div>
   {result.length?<div className="opportunity-grid">{result.map((b:typeof brands[number])=><BrandCard brand={b} key={b.slug}/>)}</div>:<div className="opportunity-empty"><Icon name="search"/><h2>No matching opportunities</h2><p>Try a different sector, investment range or operating model.</p><button className="button" onClick={reset}>Reset filters <Icon name="arrow"/></button><a href="/contact-us?journey=investor">Get help choosing a franchise <Icon name="arrow"/></a></div>}

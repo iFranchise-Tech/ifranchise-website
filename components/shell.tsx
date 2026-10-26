@@ -66,9 +66,9 @@ export function Footer(){const contact=useSiteSettings();const contactPage=usePa
   <div className="p-footer-contact"><h2>{contactPage?'Follow us':'Contact'}</h2>{!contactPage&&<><a className="p-footer-email" href={'mailto:'+contact.email}>{contact.email}<ArrowUpRight size={18}/></a><a href={'tel:'+contact.phone}><Phone size={16}/>{phoneLabel(contact.phone)}</a></>}<SocialLinks/></div>
   <div><h2>Explore</h2><a href="/franchise-opportunities">Franchise opportunities</a><a href="/list-your-brand">List your Brand</a><a href="/resources">Resources</a></div>
   <div><h2>Company</h2><a href="/about-us">About us</a><a href="/careers">Careers</a><a href="/contact-us">Contact us</a></div>
-  <div className="p-footer-office"><h2>Registered office</h2><p>IFRANCHISE SERVICES PRIVATE LIMITED</p><address>Innov 8 Mantri Commercio, Tower A, No 51,<br/>5th floor, Bellandur, Bangalore South,<br/>Bangalore 560103, Karnataka, India.</address></div>
+  <div className="p-footer-office"><h2>Registered office</h2><p className="footer-company-name">iFRANCHISE SERVICES PRIVATE LIMITED</p><address>Innov 8 Mantri Commercio, Tower A, No 51,<br/>5th floor, Bellandur, Bangalore South,<br/>Bangalore 560103, Karnataka, India.</address></div>
  </div>
- <div className="p-footer-bottom"><span>© {new Date().getFullYear()} iFranchise</span><nav className="p-footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a><a href="/privacy-choices">Privacy choices</a></nav><a href="#main" className="p-back-top">Back to top<ArrowUpRight size={15}/></a></div>
+ <div className="p-footer-bottom"><span>© {new Date().getFullYear()} iFranchise. All rights reserved.</span><nav className="p-footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a><a href="/privacy-choices">Privacy choices</a></nav><a href="#main" className="p-back-top">Back to top<ArrowUpRight size={15}/></a></div>
  </div></footer>}
 export function WhatsAppButton(){const contact=useSiteSettings();
  const path=usePathname(),[footerVisible,setFooterVisible]=useState(false),[intro,setIntro]=useState(false);

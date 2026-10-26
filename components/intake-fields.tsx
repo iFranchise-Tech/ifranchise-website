@@ -21,4 +21,4 @@ export function IntakeConsent({job=false}:{job?:boolean}){return <>
  <div className="honeypot" aria-hidden="true"><label>Leave this empty<input name="trap" tabIndex={-1} autoComplete="off"/></label></div>
  </>}
 
-export async function readReceipt(r:Response){const d:any=await r.json();if(!r.ok||d.received!==true)throw Error(d.error||'Your submission could not be confirmed. Please try again.');return d;}
+export {readReceipt} from '../lib/intake/receipt.mjs';

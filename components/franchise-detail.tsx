@@ -1,5 +1,6 @@
+import {returnDetails,outletLabel} from '../lib/return-details.mjs';
 import {applyCommercial,selectedItems,imageStyle,frameStyle} from '../lib/cms/display.mjs';
-import {brandQuestions,brandModels,brandReturns} from '../lib/cms/catalogue-fields.mjs';
+import {brandQuestions,brandModels} from '../lib/cms/catalogue-fields.mjs';
 import {SITE} from '../lib/site';
 import {BrandCard} from './ui';
 import {BrandLogo} from './brand-logo';
@@ -11,8 +12,8 @@ import {ArrowLeft,Check,ChevronRight} from 'lucide-react';
 export function FranchiseDetail({brand:original,brands}:{brand:any;brands:any[]}){
  const b=applyCommercial(original);const f=b.facts||{},models=brandModels(b),model=models.join(' / '),space=f.sqFt&&f.sqFt!=='--'?f.sqFt:'On request';
  const images=[...new Set<string>((b.gallery||[]).filter((image:unknown)=>typeof image==='string'&&image))];
- const specs=[['Operating model',model],['Space requirement',space],['Location format',f.locationType],['Franchise fee',f.franchiseFee],['Agreement term',f.agreementTerm],['Lock-in period',f.lockInPeriod],['Number of outlets',f.outlets]].filter(([,v])=>v&&v!=='--');
- const questions=brandQuestions(b),returns=brandReturns(b);
+ const specs=[['Operating model',model],['Space requirement',space],['Location format',f.locationType],['Franchise fee',f.franchiseFee],['Agreement term',f.agreementTerm],['Lock-in period',f.lockInPeriod]].filter(([,v])=>v&&v!=='--');
+ const questions=brandQuestions(b),terms=returnDetails(b),outlets=outletLabel(b);
  const schema={'@context':'https://schema.org','@graph':[{'@type':'WebPage',name:b.name+' Franchise Opportunity',url:SITE.url+'/franchise/'+b.slug,description:b.description,mainEntity:{'@type':'Brand',name:b.name,logo:new URL(b.logo,SITE.url).href}},{'@type':'FAQPage',mainEntity:questions.map(({q,a}:any)=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}]};
  return <main id="main" className="p-page brand-dossier">
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>
@@ -29,8 +30,14 @@ export function FranchiseDetail({brand:original,brands}:{brand:any;brands:any[]}
    <section className="dossier-requirements dossier-section" id="investment">
     <h2>Investment & format</h2>
     <div className="dossier-commercial">
-     <div className="dossier-investment-total"><span>Indicative investment</span><strong>{b.budget}</strong>{f.investmentNote&&<p>{f.investmentNote}</p>}</div>
-     <dl className="dossier-specs">{specs.map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}<div id="returns" className="dossier-specs-returns"><dt>Returns</dt><dd>{returns}</dd></div></dl>
+     <div className="dossier-investment-total"><div className="dossier-investment-row"><div><span>Indicative investment</span><strong>{b.budget}</strong></div>{outlets&&<span className="dossier-outlets">{outlets}</span>}</div>{f.investmentNote&&<p>{f.investmentNote}</p>}</div>
+     <dl className="dossier-specs">{specs.map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd>{k==='Agreement term'&&terms.guarantee&&<><dt className="dossier-return-label" id="returns">Minimum guarantee</dt><dd>{terms.guarantee}</dd></>}{k==='Lock-in period'&&terms.share&&<><dt className="dossier-return-label" id={!terms.guarantee?'returns':undefined}>Revenue share</dt><dd>{terms.share}</dd></>}</div>)}
+      {!specs.some(([label])=>label==='Agreement term')&&terms.guarantee&&<div id="returns"><dt>Minimum guarantee</dt><dd>{terms.guarantee}</dd></div>}
+      {!specs.some(([label])=>label==='Lock-in period')&&terms.share&&<div id={!terms.guarantee?'returns':undefined}><dt>Revenue share</dt><dd>{terms.share}</dd></div>}
+      {terms.fixed&&<div id="returns"><dt>Fixed return</dt><dd>{terms.fixed}</dd></div>}
+      {terms.legacy&&<div id="returns" className="dossier-return-terms"><dt>Return terms</dt><dd>{terms.legacy}</dd></div>}
+      {terms.note&&<div className="dossier-return-terms"><dt>Return conditions</dt><dd>{terms.note}</dd></div>}
+     </dl>
     </div>
     <div className="dossier-notes">{b.slug==='lassi-n-cafe'&&<p>The proposal contains different investment figures. Request a confirmed cost sheet.</p>}{b.slug==='original-burger-co'&&<p>Unit and master franchise proposals have separate investment and territory terms.</p>}<p>Confirm costs, fees and return terms in the latest written proposal from the brand.</p></div>
    </section>
