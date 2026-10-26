@@ -4,7 +4,6 @@ import {AccessMatrix,presetPermissions,sectionNames} from './access-matrix';
 import {useEffect,useRef,useState} from 'react';
 import {LayoutDashboard,Store,BriefcaseBusiness,NotebookText,PanelsTopLeft,Image,CheckCheck,Users,History,ArrowUpRight,Search,Plus,ArrowDownUp,Menu,X,LogOut,FileText,Check,Copy,Mail} from 'lucide-react';
 import {BrandIdentity} from '../brand-identity';
-import {ThemeToggle} from '../theme-toggle';
 import {BrochureImport} from './brochure-import';
 import {RecordEditor} from './editor';
 import {Field,AssetField} from './fields';
@@ -28,7 +27,7 @@ export function AdminPortal({me}:{me:any}){
  const pending=data?.pending||[];
  return <div className="cms-app"><aside className={'cms-sidebar'+(mobile?' is-open':'')}><div className="cms-sidebar-brand"><BrandIdentity/><span>Website admin</span><button className="cms-mobile-close" aria-label="Close menu" onClick={()=>setMobile(false)}><X size={20}/></button></div><nav aria-label="Admin navigation">{visible.map(([key,label,Icon])=><button key={key} className={section===key?'active':''} onClick={()=>{if(!editorDirty||window.confirm('Discard unsaved changes?'))navigate(key)}}><Icon size={19}/><span>{label}</span>{key==='review'&&pending.length>0&&<b>{pending.length}</b>}</button>)}</nav><div className="cms-sidebar-bottom"><a href="/" target="_blank" rel="noopener">View website <ArrowUpRight size={17}/></a><a href="/signout-with-chatgpt?return_to=%2Fadmin" target="_top"><LogOut size={16}/>Sign out</a><div className="cms-user"><span>{me.name.slice(0,1)}</span><div><strong>{me.name}</strong><small>{roles[me.role]}</small></div></div></div></aside>
  {mobile&&<button className="cms-mobile-scrim" aria-label="Close menu" onClick={()=>setMobile(false)}/>}
- <div className="cms-workspace"><header className="cms-topbar"><div><button className="cms-menu" onClick={()=>setMobile(true)} aria-label="Open admin navigation"><Menu size={21}/></button><span>iFranchise</span><span className="cms-breadcrumb-divider">/</span><strong>{names[section]}</strong></div><ThemeToggle/></header><main className="cms-main" id="main">
+ <div className="cms-workspace"><header className="cms-topbar"><div><button className="cms-menu" onClick={()=>setMobile(true)} aria-label="Open admin navigation"><Menu size={21}/></button><span>iFranchise</span><span className="cms-breadcrumb-divider">/</span><strong>{names[section]}</strong></div></header><main className="cms-main" id="main">
  {toast&&<div className="cms-toast" role="status"><Check size={16}/>{toast}<button onClick={()=>setToast('')} aria-label="Dismiss notification"><X size={15}/></button></div>}
  {error&&<div className="cms-error" role="alert">{error}<button className="cms-button" onClick={()=>load()}>Retry</button></div>}
  {editor?<RecordEditor key={editor.record.id||'new'} initial={editor} me={me} notify={notify} onDirty={setEditorDirty} onClose={()=>{setEditor(null);load()}}/>:<>

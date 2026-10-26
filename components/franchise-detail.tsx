@@ -16,7 +16,7 @@ export function FranchiseDetail({brand:b,brands}:{brand:any;brands:any[]}){
  return <main id="main" className="p-page brand-dossier">
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>
   <header className="dossier-header p-container">
-   <nav className="dossier-breadcrumb" aria-label="Breadcrumb"><a href="/franchise-opportunities"><ArrowLeft size={15}/>Franchise opportunities</a><ChevronRight size={13}/><span aria-current="page">{b.name}</span></nav>
+   
    <div className="dossier-heading"><div className="dossier-identity"><BrandLogo brand={b} className="dossier-logo"/><div><p className="dossier-category">{b.category}</p><h1>{b.name}</h1></div></div><p className="dossier-description">{b.description}</p></div>
   </header>
   <BrandSectionNav hasQuestions={questions.length>0}/>

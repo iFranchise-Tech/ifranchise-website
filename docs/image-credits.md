@@ -40,3 +40,19 @@ The EBG site was used only as a visual reference for crisp, full-width photograp
 | About us | franchise-advisory.webp | Edmond Dantès — https://www.pexels.com/photo/people-on-a-business-meeting-4344115/ |
 
 Licence: https://www.pexels.com/license/ (commercial website use permitted, checked 25 October 2026). These photographs illustrate business settings; they do not depict the iFranchise team or imply endorsement. Changes are limited to resizing and WebP encoding. Responsive widths: 640, 960, 1440 and 2400px. Text legibility is provided by a CSS overlay; no blur filter is applied to the photographs.
+
+## Page hero relevance refresh — 26 October 2026
+
+These real photographs replace the earlier generic meeting images with retail locations, practical business analysis, shop-floor collaboration and day-to-day office work. No AI-generated imagery or EBG assets are used.
+
+| Page | Local file under public/assets/stock-heroes | Photographer and original source | Source dimensions |
+| --- | --- | --- | --- |
+| List your Brand | retail-expansion.webp | Arunodhai V — https://www.pexels.com/photo/a-shopping-stores-inside-the-mall-11412766/ | 4000 × 2252 |
+| Resources and category landing pages | franchise-research.webp | RDNE Stock project — https://www.pexels.com/photo/overhead-shot-of-a-markers-on-a-paper-with-various-charts-7947750/ | 6720 × 4480 |
+| About us | retail-partnership.webp | Tim Douglas — https://www.pexels.com/photo/cafe-employees-with-tablet-and-smartphone-speaking-at-counter-6205511/ | 5616 × 3744 |
+| Careers | careers-client-team.webp | Mikhail Nilov — https://www.pexels.com/photo/woman-and-men-working-at-office-8102000/ | 6000 × 4000 |
+
+- Licence: https://www.pexels.com/license/ (free commercial website use and modification permitted; checked 26 October 2026).
+- New local files are 2400px wide, with matching `-640.webp`, `-960.webp` and `-1440.webp` variants. They retain the original aspect ratio and photographic colour; changes are limited to resizing and WebP encoding.
+- These are representative stock settings, not iFranchise staff, clients, partners or properties. The incidental store signs and people do not imply endorsement or a commercial relationship.
+- Composition: the mall establishes multiple retail locations; the research image shows business charts and market analysis; the café photograph shows practical collaboration at a business counter; the Careers photograph shows colleagues reviewing work together in a functioning office.

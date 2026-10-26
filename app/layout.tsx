@@ -14,7 +14,6 @@ import './theme-palette.css';
 import './brand-colour-review.css';
 import './theme-controls.css';
 import './readability.css';
-import './dark-theme.css';
 import './live-backgrounds.css';
 import './home-redesign.css';
 import './premium.css';
@@ -30,7 +29,8 @@ import './october-refinement.css';
 import './home-video.css';
 import './glass-navigation.css';
 import './stock-heroes.css';
-import './dark-brand.css';
+import './glass-refresh.css';
+import {wordmarkBootstrap} from '../lib/wordmark';
 import {DEFAULT_THEME,themeBootstrap} from '../lib/theme';
 import {SiteFrame} from '../components/site-frame';
 import {Measurement} from '../components/measurement';
@@ -38,4 +38,4 @@ import {Privacy} from '../components/privacy';
 import {SITE} from '../lib/site';
 import {faviconMetadata} from '../lib/favicon';
 export const metadata:Metadata={metadataBase:new URL(SITE.url),title:{default:'iFranchise — Franchise Consulting & Opportunities in India',template:'%s | iFranchise'},description:'Explore franchise opportunities in India or build your brand’s expansion plan with iFranchise. Compare franchise models, investment requirements and expansion options with practical consulting support.',robots:{index:!SITE.preview,follow:!SITE.preview},openGraph:{type:'website',locale:'en_IN',siteName:'iFranchise',title:'Franchise Consulting & Opportunities in India | iFranchise',description:'Franchise selection, development and expansion consulting for investors and businesses in India.',images:[{url:'/art/franchise-network.webp',width:1365,height:768,alt:'iFranchise hub connecting retail, cafe, service and learning businesses'}]},twitter:{card:'summary_large_image'},icons:faviconMetadata};
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en-IN" data-theme={DEFAULT_THEME} suppressHydrationWarning><head><script dangerouslySetInnerHTML={{__html:themeBootstrap}}/><link rel="preload" href="/fonts/sora-800.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/><link rel="preload" href="/fonts/manrope-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/></head><body><SiteFrame>{children}</SiteFrame></body></html>}
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en-IN" data-theme={DEFAULT_THEME} suppressHydrationWarning><head><script dangerouslySetInnerHTML={{__html:themeBootstrap+wordmarkBootstrap}}/><link rel="preload" href="/fonts/sora-800.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/><link rel="preload" href="/fonts/manrope-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/></head><body><SiteFrame>{children}</SiteFrame></body></html>}

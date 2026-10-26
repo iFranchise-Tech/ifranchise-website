@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {normalizeName} from '../lib/contact-validation.mjs';
 import {citiesForState,validateCity} from '../lib/location-cities.mjs';
-import {indianStates} from '../lib/locations.mjs';
+import {indianStates,validateManualCity} from '../lib/locations.mjs';
 
 test('names accept Unicode letters and natural punctuation without dropping characters',()=>{
  for(const value of ['Abdul Syed','Jean-Luc Martin',"D’Arcy O’Neill",'José García','अब्दुल सैयद'])assert.equal(normalizeName(value),value);
@@ -17,3 +17,9 @@ test('city selection resolves aliases and rejects incorrect state pairs',()=>{
  assert.throws(()=>validateCity('Invented City','Delhi'));
  assert.equal(validateCity('Mahe','Puducherry'),'Mahe');
 });
+
+ test('manual city accepts international names but rejects digits and non-name input',()=>{
+ for(const city of ['Bengaluru','New Delhi',"St. John’s",'Aix-en-Provence','São Paulo','मुंबई'])assert.equal(validateManualCity(city),city);
+ for(const city of ['123','Bengaluru 123','Delhi१२','Paris３','<City>','City@Name',''])assert.throws(()=>validateManualCity(city));
+ assert.equal(validateManualCity('  New   Delhi '),'New Delhi');
+ });

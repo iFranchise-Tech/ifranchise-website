@@ -1,0 +1,76 @@
+/* Light-only glass system: blue actions, quiet surfaces and readable overlays. */
+:root{color-scheme:light;--p-surface:#f5f7fc;--p-brand-soft:#eef0fb;--glass-surface:rgba(255,255,255,.86);--glass-border:rgba(50,21,155,.14);--glass-shadow:0 8px 24px rgba(26,24,64,.07),inset 0 1px 0 rgba(255,255,255,.85)}
+.p-site{background:#fff}
+.p-site :is(.p-button,.button,.p-contact-button,.brand-contact-enquire,.whatsapp-float){background:linear-gradient(135deg,rgba(87,61,191,.92),rgba(50,21,155,.94));color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:10px;box-shadow:0 6px 20px rgba(50,21,155,.16),inset 0 1px 0 rgba(255,255,255,.3);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:background-color .2s,box-shadow .2s,transform .2s}
+.p-site :is(.p-button,.button,.p-contact-button,.brand-contact-enquire,.whatsapp-float):hover{background:linear-gradient(135deg,rgba(72,43,177,.96),rgba(41,16,137,.97));color:#fff;box-shadow:0 8px 26px rgba(50,21,155,.2),inset 0 1px 0 rgba(255,255,255,.35)}
+.p-site :is(.p-button,.button,.p-contact-button):active{transform:translateY(0)}
+.p-site :is(.p-button,.button,.p-contact-button) svg{flex-shrink:0}
+/* Secondary actions retain their hierarchy, without turning text links into pills. */
+.p-site :is(.resource-categories button,.resource-pagination button,.p-form-switch button,.gallery-controls button,.gallery-expand,.brand-enquiry-close,.brand-contact-toggle,.brand-contact-actions>a,.reader-toolbar button,.resource-action-button,.p-menu-button){border:1px solid var(--glass-border);background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(239,242,253,.76));color:var(--p-brand);box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.p-site :is(.resource-categories button[aria-pressed=true],.resource-pagination button[aria-current=page],.p-form-switch button[aria-pressed=true]){background:linear-gradient(135deg,#573dbfeb,#32159bf0);border-color:rgba(255,255,255,.3);color:#fff;box-shadow:0 3px 12px #32159b20,inset 0 1px 0 #ffffff40}
+.p-site button:disabled{cursor:not-allowed;opacity:.5}
+.p-site :is(button,a,input,select,textarea):focus-visible{outline:2px solid var(--p-brand);outline-offset:3px}
+.p-site :is(.p-video-hero,.p-photo-hero) :is(a,button):focus-visible{outline-color:#fff}
+.p-site .p-header.is-over-hero .p-menu-button{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff;box-shadow:inset 0 1px 0 #ffffff30}
+.p-tinted{background:linear-gradient(135deg,#f4f6fc,#fafbff)}
+.p-site :is(.p-enquiry.enquiry-card,.p-purpose-panel,.journal-card,.p-brand-card,.opportunity-filters,.brand-enquiry-card,.job-sidebar){background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(245,247,254,.86));border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);border-radius:14px}
+/* Stronger panel tint keeps menus and form options legible over photography. */
+:root{--nav-panel:rgba(255,255,255,.86);--nav-panel-border:rgba(255,255,255,.72);--nav-hover:rgba(234,237,250,.92)}
+.p-site .p-dropdown,.p-site .country-picker{background:rgba(255,255,255,.94);border:1px solid rgba(50,21,155,.12);border-radius:14px;box-shadow:0 16px 40px rgba(18,20,40,.14),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(24px) saturate(120%);backdrop-filter:blur(24px) saturate(120%);color:var(--p-ink)}
+.p-site .p-dropdown a{color:var(--p-ink)}
+.p-site .p-dropdown a:hover,.p-site .p-dropdown a[aria-current=page]{color:var(--p-brand)}
+.p-site select{background-color:rgba(255,255,255,.96)}
+.p-site select option{background:#fff;color:#211b31}
+.p-site .p-enquiry .country-picker{background:rgba(255,255,255,.97);z-index:80}
+.p-site :is(input,select,textarea){color:var(--p-ink)}
+.p-site .p-form-switch.intake-switch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;padding:5px;overflow-anchor:none;background:rgba(235,238,250,.68)}
+.p-site .p-form-switch.intake-switch button{min-width:0;min-height:46px;line-height:1.4;white-space:normal;padding:10px 12px;border-radius:7px}
+.p-contact-form{overflow-anchor:none}
+.p-contact-form .p-form-heading{min-height:34px}
+.p-contact-form .p-form-heading h2{font-size:22px}
+.p-site .field-error{color:#b42336;font-size:12px;line-height:1.5;margin-top:6px}
+.p-site .whatsapp-float{width:52px;height:52px;border-radius:50%;color:#fff}
+.p-site .whatsapp-float.is-intro{width:auto;border-radius:28px}
+.p-site .whatsapp-float svg{color:inherit;fill:currentColor}
+/* Crisp images, no white wash. Local shade protects copy, leaving the scene clear. */
+.p-photo-hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.74),rgba(0,0,0,.5) 38%,rgba(0,0,0,.06) 80%),linear-gradient(180deg,rgba(0,0,0,.3),transparent 34%)}
+.p-video-hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.4) 48%,rgba(0,0,0,.08)),linear-gradient(0deg,rgba(0,0,0,.18),transparent 50%)}
+.p-site :is(.p-photo-hero-copy,.p-video-hero-copy){text-shadow:0 1px 12px rgba(0,0,0,.2)}
+.p-site :is(.p-photo-hero-copy,.p-video-hero-copy) a{text-shadow:none}
+.p-site .p-photo-hero-copy>p,.p-site .p-page .p-video-hero-intro{color:#fff}
+.p-photo-hero-compact .p-photo-hero-inner{padding-block:54px 54px}
+.p-solutions .p-photo-hero-image{object-position:65% 52%}
+.resources-page .p-photo-hero-image{object-position:68% 50%}
+.p-about .p-photo-hero-image{object-position:68% 44%}
+.careers-page .p-photo-hero-image{object-position:70% 24%}
+/* Resource collections feature the three newest posts without repeating them below. */
+.resource-new{margin:8px 0 48px}
+.resource-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.resource-section-heading .p-eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p-brand)}
+.p-site .resource-section-heading h2{font-size:32px;line-height:1.2;margin:8px 0 0}
+.resource-section-heading p{font-size:14px;color:var(--p-copy);margin:0}
+.p-site .resource-browse-heading{font-size:24px;margin:0 0 24px}
+/* A route change never runs the logo-size transition. */
+.p-floating-brand .identity-lockup.identity-wordmark,.p-header .p-brand-space{width:var(--wordmark-compact)!important;transition:none}
+html[data-wordmark-size=large] .p-floating-brand .identity-lockup.identity-wordmark,html[data-wordmark-size=large] .p-header .p-brand-space{width:190px!important}
+html[data-wordmark-motion=scroll] :is(.p-floating-brand .identity-lockup.identity-wordmark,.p-header .p-brand-space){transition:width .35s cubic-bezier(.22,.61,.36,1)}
+@media(max-width:1279px){.p-site .p-navigation.is-open{background:rgba(255,255,255,.97)}.p-site .p-navigation .p-dropdown{box-shadow:none;background:rgba(240,243,252,.6);-webkit-backdrop-filter:none;backdrop-filter:none}}
+@media(max-width:767px){
+ html[data-wordmark-size=large] .p-floating-brand .identity-lockup.identity-wordmark,html[data-wordmark-size=large] .p-header .p-brand-space{width:160px!important}
+ .p-photo-hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.76),rgba(0,0,0,.34)),linear-gradient(0deg,rgba(0,0,0,.22),transparent)}
+ .p-video-hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.74),rgba(0,0,0,.4))}
+ .p-photo-hero-compact .p-photo-hero-inner{padding-block:48px 44px}
+ .resource-section-heading{align-items:flex-start;flex-direction:column;gap:12px}.p-site .resource-section-heading h2{font-size:28px}
+ .p-site .p-form-switch.intake-switch button{font-size:12px!important;padding:10px 8px}
+}
+@media(prefers-reduced-motion:reduce){html[data-wordmark-motion=scroll] :is(.p-floating-brand .identity-lockup.identity-wordmark,.p-header .p-brand-space){transition:none}}
+@media(prefers-reduced-transparency:reduce){.p-site :is(.p-button,.button,.p-contact-button,.brand-contact-enquire,.whatsapp-float){background:#32159b;-webkit-backdrop-filter:none;backdrop-filter:none}.p-site :is(.p-dropdown,.country-picker){background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
+
+/* Keep every primary action blue, including the header when it overlays a hero. */
+.p-site .p-header .p-contact-button,.p-site .p-header.is-over-hero .p-contact-button{background:linear-gradient(135deg,rgba(87,61,191,.92),rgba(50,21,155,.94));color:#fff;border-color:rgba(255,255,255,.25)}
+.p-site .brand-mobile-contact :is(.brand-contact-enquire){background:linear-gradient(135deg,#573dbfeb,#32159bf0);color:#fff}
+.p-site .brand-mobile-contact :is(.brand-contact-actions>a,.brand-contact-toggle){background:rgba(255,255,255,.9);color:#32159b;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+
+.p-site :is(.showcase-enlarge,.showcase-controls,.showcase-dialog-header button,.showcase-dialog-footer button){background:rgba(255,255,255,.88);border:1px solid var(--glass-border);color:var(--p-brand);box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.p-site .showcase-controls button{background:transparent;color:var(--p-brand)}
+.p-site .showcase-controls button:hover{background:#32159b12}

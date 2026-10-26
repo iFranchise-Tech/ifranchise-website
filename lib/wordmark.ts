@@ -1,0 +1,1 @@
+export const wordmarkBootstrap=`(()=>{let size='large';try{size=sessionStorage.getItem('ifranchise-wordmark-size')||size}catch{}document.documentElement.dataset.wordmarkSize=size==='compact'?'compact':'large';})();`;
