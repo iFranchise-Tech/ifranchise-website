@@ -1,0 +1,25 @@
+/* Keep native scrolling; only the page's visual thumb is drawn over its content. */
+html{scrollbar-gutter:auto}
+@media(hover:hover) and (pointer:fine){
+ body *{scrollbar-width:thin;scrollbar-color:transparent transparent}
+ .is-scrolling{scrollbar-color:#a29cac transparent}
+ @supports selector(::-webkit-scrollbar){
+  body *{scrollbar-width:auto;scrollbar-color:auto}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track,::-webkit-scrollbar-corner{background:transparent}
+  ::-webkit-scrollbar-thumb{background:transparent;border:3px solid transparent;border-radius:20px;background-clip:padding-box}
+  .is-scrolling::-webkit-scrollbar-thumb{background-color:#aaa3b5}
+  ::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active{background-color:#82798e;border-width:1px}
+  ::-webkit-scrollbar-button{display:none}
+ }
+ html.has-overlay-scrollbar{scrollbar-width:none}
+ html.has-overlay-scrollbar::-webkit-scrollbar{display:none;width:0;height:0}
+}
+.page-scrollbar{position:fixed;z-index:90;top:0;right:0;bottom:0;width:14px;opacity:0;transition:opacity .2s;touch-action:none;user-select:none;background:transparent;outline:none}
+.page-scrollbar[hidden]{display:none}
+.page-scrollbar>span{position:absolute;top:0;right:3px;width:4px;border-radius:10px;background:rgba(104,100,115,.65);box-shadow:0 0 1px 1px #ffffff40;transition:width .16s,background-color .16s}
+html.is-scrolling .page-scrollbar,.page-scrollbar:is(:hover,:focus-visible,.is-dragging){opacity:1}
+.page-scrollbar:is(:hover,:focus-visible,.is-dragging)>span{width:9px;background:rgba(87,80,103,.85)}
+.page-scrollbar:focus-visible>span{outline:2px solid #32159b;outline-offset:1px}
+@media(prefers-reduced-motion:reduce){.page-scrollbar,.page-scrollbar>span{transition:none}}
+@media(forced-colors:active){html,body *{scrollbar-width:auto!important;scrollbar-color:auto!important}.page-scrollbar{display:none}::-webkit-scrollbar-thumb{background:ButtonText!important}}

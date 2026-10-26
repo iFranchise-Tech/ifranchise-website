@@ -6,11 +6,11 @@ let checks=0;async function api(path,body,status=200){const r=await fetch(base+'
 for(const id of ['faqs:general','faqs:homepage','faqs:opportunities','faqs:list-your-brand','faqs:contact-us','articles:what-is-a-franchise','blogs:what-to-notice-on-your-first-franchise-visit','franchises:odette']){
  const r=(await api('?id='+id)).record,key=r.kind==='faqs'?'questions':'faqs';
  const rows=Array.from({length:5},(_,i)=>({q:'Question '+i,a:'Answer'}));
- for(const values of [[...rows,{q:'Sixth?',a:'Answer'}],[{q:'q'.repeat(101),a:'A'}],[{q:'Q?',a:'a'.repeat(401)}],[{q:'Same?',a:'A'},{q:'Same?',a:'B'}]])await api('',{action:'save',kind:r.kind,slug:r.slug,version:r.version,payload:{...r.draft,[key]:values}},422);
+ for(const values of [rows.slice(0,1),rows.slice(0,4),[...rows,{q:'Sixth?',a:'Answer'}],[{q:'q'.repeat(101),a:'A'}],[{q:'Q?',a:'a'.repeat(401)}],[{q:'Same?',a:'A'},{q:'Same?',a:'B'}]])await api('',{action:'save',kind:r.kind,slug:r.slug,version:r.version,payload:{...r.draft,[key]:values}},422);
  const preview=await api('',{action:'preview',kind:r.kind,payload:{...r.draft,[key]:rows}});assert(preview.url);assert.equal((await api('?id='+id)).record.version,r.version);
 }
-console.log('PASS: all eight FAQ locations reject over-limit, long and duplicate entries; valid five-item previews preserve versions.');
-for(const [path,image] of [['/','/assets/stock-heroes/business-research'],['/about-us','/assets/stock-heroes/franchise-advisory'],['/list-your-brand','/assets/stock-heroes/retail-partnership'],['/careers','careers-collaboration'],['/resources','franchise-research'],['/resources/blogs','team-strategy-meeting'],['/resources/articles','business-consultation'],['/resources/videos','franchise-consulting-meeting']]){
+console.log('PASS: all eight FAQ locations reject incomplete, over-limit, long and duplicate entries; valid five-item previews preserve versions.');
+for(const [path,image] of [['/','/assets/stock-heroes/home-business-consultation'],['/about-us','/assets/stock-heroes/advisory-collaboration'],['/list-your-brand','/assets/stock-heroes/expansion-strategy-boardroom'],['/careers','careers-working-together'],['/resources','resources-commercial-analysis'],['/resources/blogs','blogs-professional-research'],['/resources/articles','articles-learning-workspace'],['/resources/videos','videos-business-workshop']]){
  const r=await fetch(base+path);assert.equal(r.status,200,path);const html=await r.text();
  // Local old CMS page records may override image defaults; leave their content intact.
  if(path!=='/'&&path!=='/about-us')assert(html.includes(image),path+' stock asset');

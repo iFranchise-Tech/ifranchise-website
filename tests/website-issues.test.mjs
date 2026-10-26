@@ -26,7 +26,7 @@ test('Odette MG and revenue share stay exact and complex legacy return condition
  const odette=brands.find(b=>b.slug==='odette'),r=returnDetails(odette);
  assert.equal(r.guarantee,'₹1.25 Lakhs per month');assert.equal(r.share,'12% Revenue Share (whichever is higher)');assert.equal(r.legacy,null);assert.equal(outletLabel(odette),'50+ outlets');
  const emori=brands.find(b=>b.slug==='emori');assert.equal(returnDetails(emori).legacy,emori.facts.returns);
- assert.equal(outletLabel({}),null);assert.equal(outletLabel({outlets:7}),'7 outlets');
+ assert.equal(outletLabel({facts:{outlets:'22 Outlets (2025)'}}),'22 Outlets (2025)');assert.equal(outletLabel({outlets:1}),'1 outlet');assert.equal(outletLabel({}),null);assert.equal(outletLabel({outlets:7}),'7 outlets');
 });
 test('all structured return arrangements preserve values, periods and conditions',()=>{
  const t={arrangement:'higher',margin:12,guaranteeType:'amount',guarantee:125000,period:'monthly',note:'Excludes taxes'};

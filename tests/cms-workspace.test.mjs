@@ -24,7 +24,7 @@ test('legacy over-limit content is retained until the corresponding list is edit
  assert.deepEqual(editingIssues('franchises',{...old,name:'Updated name'},old),[]);
  assert.match(editingIssues('franchises',{...old,gallery:[...old.gallery].reverse()},old).join(),/10 gallery/);
  assert.match(editingIssues('franchises',{...old,overview:'x'.repeat(1001)},old).join(),/1,000/);
- assert.deepEqual(editingIssues('franchises',{...old,gallery:old.gallery.slice(0,10),overview:'x'.repeat(1000),highlights:['x'.repeat(100)],faqs:[{q:'x'.repeat(100),a:'x'.repeat(400)}]},old),[]);
+ assert.deepEqual(editingIssues('franchises',{...old,gallery:old.gallery.slice(0,10),overview:'x'.repeat(1000),highlights:['x'.repeat(100)],faqs:Array.from({length:5},(_,i)=>({q:String(i)+'x'.repeat(99),a:'x'.repeat(400)}))},old),[]);
 });
 test('FAQ limits and duplicate questions apply consistently to managed pages',()=>{
  for(const slug of ['homepage','list-your-brand','opportunities','contact-us']){

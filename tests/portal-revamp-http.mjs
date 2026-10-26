@@ -9,7 +9,7 @@ const mixed=headers(person,'matrix-'+stamp);await api(mixed);
 await api(mixed,'?kind=jobs');await api(mixed,'?kind=videos',undefined,403);await api(mixed,'?view=industries');
 const job=(await api(owner,'?kind=jobs')).records[0];const jr=(await api(owner,'?id='+job.id)).record;await change(mixed,jr,'save',jr.draft,403);
 let brand=(await api(owner,'?id=franchises:odette')).record,original=brand.draft;
-const draft={...original,description:'Synthetic preview description',models:['FICO','FOFO'],brochureEnabled:false,faqs:[{q:'Synthetic brand question?',a:'Synthetic answer.'}]};
+const draft={...original,description:'Synthetic preview description',models:['FICO','FOFO'],brochureEnabled:false,faqs:Array.from({length:5},(_,i)=>({q:i?'Synthetic question '+i+'?':'Synthetic brand question?',a:'Synthetic answer.'}))};
 const preview=await api(mixed,'',{action:'preview',kind:'franchises',payload:draft});const html=await(await fetch(base+preview.url,{headers:mixed})).text();assert(html.includes('Synthetic preview description'));assert(html.includes('Synthetic brand question?'));assert(html.includes('p-header'));assert(html.includes('p-footer'));assert(!html.includes('data-brochure-request'));assert(html.includes('FICO / FOFO'));assert(!html.includes('Brand information sources'));
 assert.equal((await api(owner,'?id='+brand.id)).record.version,brand.version,'preview must not save a draft');
 assert.equal((await fetch(base+preview.url)).status,404,'previews require authentication');

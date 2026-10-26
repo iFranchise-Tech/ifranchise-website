@@ -1,0 +1,40 @@
+/* Restore solid brand-blue actions. Navigation and panel glass stays separate. */
+.p-site :is(.p-button,.button,.p-contact-button,.brand-contact-enquire,.whatsapp-float),
+.p-site .p-header .p-contact-button,.p-site .p-header.is-over-hero .p-contact-button,
+.brand-mobile-contact .brand-contact-enquire,.p-site .brand-mobile-contact .brand-contact-enquire{
+ background:#32159b;color:#fff;border:1px solid #32159b;border-radius:7px;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;
+}
+.p-site :is(.p-button,.button,.p-contact-button,.brand-contact-enquire,.whatsapp-float):hover,
+.p-site .p-header .p-contact-button:hover,.brand-mobile-contact .brand-contact-enquire:hover{background:#261078;border-color:#261078;color:#fff;box-shadow:none}
+.p-site :is(.resource-categories button,.resource-pagination button,.p-form-switch button,.gallery-controls button,.gallery-expand,.brand-enquiry-close,.brand-contact-toggle,.brand-contact-actions>a,.reader-toolbar button,.resource-action-button,.p-menu-button,.showcase-enlarge,.showcase-controls,.showcase-dialog-header button,.showcase-dialog-footer button),
+.brand-mobile-contact :is(.brand-contact-actions>a,.brand-contact-toggle),.p-site .brand-mobile-contact :is(.brand-contact-actions>a,.brand-contact-toggle){background:#fff;color:#32159b;border-color:#e0daed;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.p-site :is(.resource-categories button[aria-pressed=true],.resource-pagination button[aria-current=page],.p-form-switch button[aria-pressed=true]){background:#32159b;border-color:#32159b;color:#fff;box-shadow:none}
+.p-site :is(.resource-categories button,.resource-pagination button,.p-form-switch button):not([aria-pressed=true]):not([aria-current=page]):hover{background:#f2eff9}
+.p-site .p-header .p-menu-button{background:transparent;color:#32159b;border:0;box-shadow:none;min-width:44px;min-height:44px;padding:8px;-webkit-backdrop-filter:none;backdrop-filter:none}
+.p-site .p-header.is-over-hero .p-menu-button{background:transparent;color:#fff;border:0;box-shadow:none}
+.p-site .p-header .p-menu-button:hover{background:#32159b0c}
+.p-site .p-header.is-over-hero .p-menu-button:hover{background:#ffffff14}
+.p-site .whatsapp-float{border-radius:50%}
+.p-site .whatsapp-float.is-intro{border-radius:28px}
+
+/* One glass surface spans the open compact navigation and the header. */
+@media(max-width:1279px){
+ .p-site .p-header.is-menu-open:before{height:calc(100% + var(--menu-panel-height,0px));inset:0 0 auto;background:rgba(255,255,255,.84);opacity:1;-webkit-mask:none;mask:none;-webkit-backdrop-filter:blur(24px) saturate(130%);backdrop-filter:blur(24px) saturate(130%)}
+ .p-site .p-header .p-navigation.is-open{top:100%;background:transparent;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;max-height:calc(100dvh - var(--site-header-height));overscroll-behavior:contain;animation:p-menu-enter .2s ease-out}
+ .p-site .p-header .p-navigation .p-menu-row{color:#211b31;font-weight:700;border-bottom:1px solid rgba(50,21,155,.1);position:relative;transition:color .2s,background-color .2s}
+ .p-site .p-header .p-navigation .p-menu-row:after{display:block;right:auto;bottom:0;width:34px;height:2px;background:#32159b;transform:scaleX(0);transition:transform .22s ease;transform-origin:left}
+ .p-site .p-header .p-navigation .p-menu-row>span,.p-site .p-header .p-dropdown a>span{transition:transform .22s ease}
+ .p-site .p-header .p-navigation .p-menu-row:is(:hover,:focus-visible,[aria-current=page],[aria-expanded=true]){color:#32159b}
+ .p-site .p-header .p-navigation .p-menu-row:is(:hover,:focus-visible,[aria-current=page],[aria-expanded=true]):after{transform:scaleX(1)}
+ .p-site .p-header .p-navigation .p-menu-row:is(:hover,:focus-visible)>span,.p-site .p-header .p-dropdown a:is(:hover,:focus-visible)>span{transform:translateX(5px)}
+ .p-site .p-header .p-navigation .p-dropdown{background:transparent;border:0;border-left:2px solid #32159b24;border-radius:0;margin:4px 0 10px;padding:4px 0 4px 12px;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+ .p-site .p-header .p-dropdown a{color:#292332;font-weight:600;transition:background-color .2s,color .2s}
+ .p-site .p-header .p-dropdown a:is(:hover,:focus-visible){color:#32159b;background:#32159b09}
+}
+.brand-mobile-contact .brand-contact-toggle{touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.brand-mobile-contact.is-dragging{transition:none;user-select:none}
+.brand-mobile-contact.is-dragging .brand-contact-toggle{cursor:grabbing;box-shadow:-3px 3px 16px #32159b24}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle{background:#32159b;color:white}
+@media(prefers-reduced-motion:reduce){.p-site .p-header .p-navigation :is(a,button,span):after,.p-site .p-header .p-navigation :is(a,button,span){transition:none!important;animation:none!important}}
+@media(prefers-reduced-transparency:reduce){.p-site .p-header.is-menu-open:before{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.p-site .p-header.is-menu-open:before{background:#fff}}

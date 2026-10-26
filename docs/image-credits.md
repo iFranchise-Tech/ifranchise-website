@@ -56,3 +56,32 @@ These real photographs replace the earlier generic meeting images with retail lo
 - New local files are 2400px wide, with matching `-640.webp`, `-960.webp` and `-1440.webp` variants. They retain the original aspect ratio and photographic colour; changes are limited to resizing and WebP encoding.
 - These are representative stock settings, not iFranchise staff, clients, partners or properties. The incidental store signs and people do not imply endorsement or a commercial relationship.
 - Composition: the mall establishes multiple retail locations; the research image shows business charts and market analysis; the café photograph shows practical collaboration at a business counter; the Careers photograph shows colleagues reviewing work together in a functioning office.
+
+
+## Page-specific stock banners — 26 October 2026, evening revision
+
+This revision supersedes the page assignments above. All seven photographs are new selections for their designated pages; previous banners are not shuffled between pages. The approved homepage video and original franchise-brand galleries are unchanged.
+
+| Page | Local file under public/assets/stock-heroes | Photographer and original source | Purpose |
+| --- | --- | --- | --- |
+| List your Brand | expansion-strategy-boardroom.webp | Vitaly Gariev — https://www.pexels.com/photo/business-team-engaged-in-office-discussion-36733326/ | Commercial planning and franchise expansion strategy |
+| About us | advisory-collaboration.webp | Thirdman — https://www.pexels.com/photo/businessmen-writing-and-discussing-5256993/ | Collaborative business advice and practical decision-making |
+| Careers | careers-working-together.webp | Matheus Bertelli — https://www.pexels.com/photo/business-training-course-18999469/ | Working together in a contemporary professional team |
+| Resources | resources-commercial-analysis.webp | fauxels — https://www.pexels.com/photo/people-discuss-about-graphs-and-rates-3184292/ | Reviewing commercial figures and research |
+| Blogs | blogs-professional-research.webp | Pavel Danilyuk — https://www.pexels.com/photo/a-woman-using-a-laptop-for-work-while-at-home-7120874/ | Professional research and reflection |
+| Articles | articles-learning-workspace.webp | Michael Burrows — https://www.pexels.com/photo/ethnic-student-with-laptop-studying-online-7129697/ | Reading and learning from detailed online guidance |
+| Videos | videos-business-workshop.webp | RDNE Stock project — https://www.pexels.com/photo/colleagues-on-a-business-meeting-9034242/ | A business workshop and sharing knowledge |
+
+- Licence: https://www.pexels.com/license/ — checked 26 October 2026. Free commercial website use, downloading and modification are permitted. No endorsement or identification as iFranchise employees, clients or locations is implied.
+- Only resizing and WebP encoding were performed. The original photographic colour and image content are retained; the website supplies its own legibility overlay.
+- Each image has 640px, 960px, 1440px and 2400px-wide local variants, retaining its original aspect ratio. Photos were visually inspected before selection. No generated images were used.
+- Pages that do not have stock banners (including Contact, job detail, legal pages and the Opportunities listing) receive no added banner. Existing article-specific editorial images and brand galleries are outside this banner replacement.
+
+
+## Homepage “How we work with you” — real-stock replacement, 26 October 2026
+
+- Photograph: **Two People Having a Business Meeting**, by Thirdman. Source: https://www.pexels.com/photo/two-people-having-a-business-meeting-7652251/
+- Asset: `public/assets/stock-heroes/home-business-consultation.webp`, with matching 640px, 960px and 1440px variants; base width 2400px. Original source dimensions: 6597 × 4398.
+- This photograph illustrates a collaborative consultation with a tablet and laptop. It is distinct from the seven page banners above. It does not depict or imply endorsement by iFranchise employees or clients.
+- Licence: https://www.pexels.com/license/ (free commercial website use and modification; checked 26 October 2026).
+- Edits: resizing and WebP encoding only. The website may crop to its 4:3 frame with a 44% horizontal, 50% vertical focal position. No generated imagery is used. The homepage hero video remains unchanged.

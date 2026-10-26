@@ -67,3 +67,35 @@
  .enquiry-confirmation-card{padding:28px 20px}
  .dossier-investment-row strong{font-size:25px}
 }
+
+/* Catalogue introduction: one centred heading, as requested. */
+/* Keep the catalogue directly below the navigation, without a hero banner. */
+.p-site .opportunities-content{padding-top:18px}
+/* Compact opportunity cards: the logo straddles the image edge. */
+.p-site .p-brand-card .p-card-image{height:auto;aspect-ratio:2/1}
+.p-site .p-brand-card .p-card-body{padding:0 20px 20px}
+.p-site .p-brand-card .p-card-identity{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-top:-30px;position:relative;min-height:60px}
+.p-site .p-brand-card .p-card-logo{width:120px;height:60px;flex:0 0 120px;margin:0;border:3px solid #fff;border-radius:7px;background:#fff;box-shadow:0 2px 8px #2113330d}
+.p-site .p-brand-card .p-card-identity>span{font-size:11px;line-height:1.5;padding-bottom:2px;text-align:right}
+.p-site .p-brand-card .p-card-body h3{font-size:22px;line-height:1.3;margin:16px 0 14px}
+.p-site .p-brand-card .p-card-body dl{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;margin-top:0;padding-top:13px}
+.p-site .p-brand-card .p-card-body dt{font-size:11px;margin-bottom:5px}
+.p-site .p-brand-card .p-card-body dd{font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+.p-site .p-brand-card .p-card-arrow{width:36px;height:36px;right:15px;bottom:15px}
+@media(max-width:767px){.p-site .p-brand-card .p-card-body{padding:0 16px 17px}.p-site .p-brand-card .p-card-body h3{font-size:20px}.p-site .p-brand-card .p-card-logo{width:110px;flex-basis:110px}.p-site .p-brand-card .p-card-identity>span{font-size:10px}}
+@media(min-width:1024px){
+ .p-site .opportunities-page .opportunity-browser .opportunity-filters{position:sticky;top:var(--site-header-height);z-index:35;isolation:isolate;padding:12px 0 14px;background:rgba(255,255,255,.97);border:0;border-radius:0;box-shadow:none;backdrop-filter:blur(16px)}
+ .p-site .opportunities-page .opportunity-browser .opportunity-filters::before{content:"";position:absolute;inset:0 calc((100% - 100vw)/2);z-index:-1;background:inherit;border:0;pointer-events:none}
+ .p-site .opportunity-filter-heading{padding:4px 0 8px}
+ .p-site .opportunity-filter-heading{margin-bottom:10px}
+ .p-site .opportunity-filter-heading h2{font-size:20px;line-height:1.3;margin:0}
+ .p-site .opportunity-filter-heading>a{font-size:11px}
+ .p-site .opportunity-filter-fields{gap:14px}
+ .p-site .opportunity-field label{font-size:11px;margin-bottom:5px}
+ .p-site .opportunity-field :is(input,select){height:42px;min-height:42px}
+}
+
+@media(min-width:1024px){
+ .p-site:has(>.p-header.has-section-glass) .opportunities-page .opportunity-filters{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+ .p-site:has(>.p-header.has-section-glass) .opportunities-page .opportunity-filters::before{display:none}
+}
