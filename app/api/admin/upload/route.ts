@@ -1,3 +1,4 @@
+import {imageDimensions} from '../../../../lib/cms/image-dimensions.mjs';
 import {env} from 'cloudflare:workers';
 import {adminIdentity,assertOrigin,boundedBody,CmsError,db,failure,response} from '../../../../lib/cms/auth';
 import {canEdit,SCOPES} from '../../../../lib/cms/policy.mjs';
@@ -8,9 +9,10 @@ export async function POST(req:Request){try{
  const bytes=new Uint8Array(await file.arrayBuffer()),head=new TextDecoder().decode(bytes.slice(0,16));
  const mime=bytes[0]===137&&head.slice(1,4)==='PNG'?'image/png':bytes[0]===255&&bytes[1]===216&&bytes[2]===255?'image/jpeg':head.startsWith('RIFF')&&head.slice(8,12)==='WEBP'?'image/webp':head.startsWith('%PDF-')?'application/pdf':null;
  if(!mime)throw new CmsError(422,'Choose a PNG, JPEG, WebP or PDF.');
+ let dimensions;try{if(mime.startsWith('image/'))dimensions=imageDimensions(bytes,mime)}catch(e:any){throw new CmsError(422,e.message)}
  if(!env.BUCKET)throw new CmsError(503,'Media storage is unavailable.');
  const ext={'image/png':'png','image/jpeg':'jpg','image/webp':'webp','application/pdf':'pdf'}[mime]!,id=crypto.randomUUID()+'.'+ext,now=new Date().toISOString();
  await env.BUCKET.put('cms/'+id,bytes,{httpMetadata:{contentType:mime}});
  try{await db().batch([db().prepare('INSERT INTO cms_media (id,name,mime,size,scope,uploaded_by,created_at) VALUES (?,?,?,?,?,?,?)').bind(id,file.name.slice(0,200),mime,file.size,scope,me.email,now),db().prepare('INSERT INTO cms_events (id,record_id,action,actor,note,created_at) VALUES (?,?,?,?,?,?)').bind(crypto.randomUUID(),scope+':media','upload',me.email,file.name.slice(0,200),now)]);}catch(e){await env.BUCKET.delete('cms/'+id);throw e;}
- return response({url:'/media/'+id,name:file.name,mime});
+ return response({url:'/media/'+id,name:file.name,mime,...dimensions});
  }catch(e){return failure(e)}}

@@ -6,13 +6,14 @@ const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:3018';
 assert.match(origin,/^http:\/\/127\.0\.0\.1:\d+$/);
 assert(!process.env.SHEETS_WEBHOOK_URL&&!process.env.INTAKE_SIGNING_KEY);
 for(const file of ['.dev.vars','.dev.vars.local','.env','.env.local','.env.development','.env.development.local'])if(existsSync(file))assert(!/^\s*(?:SHEETS_WEBHOOK_URL|INTAKE_SIGNING_KEY)\s*=/m.test(readFileSync(file,'utf8')),'Use a local preview without delivery credentials.');
-const headers={'Content-Type':'application/json',Origin:origin},admin={...headers,Cookie:'__sites_local_auth=1'};
+const clientIp='192.0.2.'+(1+Date.now()%250);
+const headers={'Content-Type':'application/json',Origin:origin,'cf-connecting-ip':clientIp},admin={...headers,'oai-authenticated-user-email':'preview@ifranchise.in','oai-authenticated-user-id':'local_seedy'};
 let checks=0;
 async function api(path,body,expected=200,auth=headers){const r=await fetch(origin+path,{method:body?'POST':'GET',headers:auth,body:body?JSON.stringify(body):undefined}),d=await r.json();assert.equal(r.status,expected,JSON.stringify(d));checks++;return d;}
 const base={id:crypto.randomUUID(),name:'Validation Test',phone:'+91 9123456789',phoneCountry:'IN',email:'validation-qa@ifranchise.in',city:'Bengaluru',state:'Karnataka',consent:true,adult:true,noticeVersion:NOTICE_VERSION,sourcePage:'/contact-us',trap:''};
 const variations=[{kind:'investor',brandSlug:'emori',budget:'Exploring',timeframe:'Just exploring'},{kind:'brand',companyName:'Local validation test',timeframe:'Just exploring'},{kind:'general',message:'Local validation test only.'},{kind:'privacy',requestType:'Access my information'}];
 const job={kind:'job',jobSlug:'business-development-trainee',experienceType:'fresher',qualification:'Bachelor’s degree',course:'B.Com',educationStatus:'Completed',institution:'Test College'};
-async function application(payload,expected){const f=new FormData();f.set('payload',JSON.stringify(payload));f.set('resume',new Blob(['%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\n%%EOF'],{type:'application/pdf'}),'local-validation.pdf');const r=await fetch(origin+'/api/intake/applications',{method:'POST',headers:{Origin:origin},body:f}),d=await r.json();assert.equal(r.status,expected,JSON.stringify(d));checks++;return d;}
+async function application(payload,expected){const f=new FormData();f.set('payload',JSON.stringify(payload));f.set('resume',new Blob(['%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\n%%EOF'],{type:'application/pdf'}),'local-validation.pdf');const r=await fetch(origin+'/api/intake/applications',{method:'POST',headers:{Origin:origin,'cf-connecting-ip':clientIp},body:f}),d=await r.json();assert.equal(r.status,expected,JSON.stringify(d));checks++;return d;}
 for(const body of [...variations,job]){
  const send=(change,expected)=>body.kind==='job'?application({...base,...body,...change},expected):api('/api/intake/enquiries',{...base,...body,...change},expected);
  for(const email of ['user@','user@gmail','user@@gmail.com','user name@gmail.com','user..name@gmail.com','user@gmial.com','user@example.com','user@mail.invalid','user@mail.test']){const d=await send({email},422);assert(d.error);}

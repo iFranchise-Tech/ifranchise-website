@@ -24,9 +24,9 @@ await change(eh,r,'save',{payload:r.draft},409);await change(eh,r,'publish',{},4
 await change(mh,r,'reject',{},422);r=await change(mh,r,'reject',{note:'Revise the title.'});assert.equal(r.status,'changes');
 r=await change(eh,r,'save',{payload:orig.draft});r=await change(eh,r,'submit');r=await change(mh,r,'publish');assert.equal(r.status,'published');
 // A publisher's own edits save and publish atomically, without a submission event.
-const before=(await api(mh,'?id='+r.id)).history.length;
+const priorHistory=(await api(mh,'?id='+r.id)).history;const before=priorHistory.length;
 r=await change(mh,r,'save-publish',{payload:{...r.draft,title:'Local direct publication'}});assert.equal(r.status,'published');assert.equal(r.live.title,'Local direct publication');assert.equal(r.submittedBy,null);
-const details=await api(mh,'?id='+r.id);assert.equal(details.history.length,before+1);assert.equal(details.history[0].action,'publish');
+const details=await api(mh,'?id='+r.id);assert.equal(details.history.length,Math.min(50,before+1));assert.notEqual(details.history[0].id,priorHistory[0]?.id);assert.equal(details.history[0].action,'publish');
 // Explicit drafts and requests from old clients remain supported.
 r=await change(mh,r,'save',{payload:orig.draft});assert.equal(r.status,'draft');r=await change(mh,r,'submit');assert.equal(r.status,'published');
 // Removal is immediate for publishers, reviewed for editors.

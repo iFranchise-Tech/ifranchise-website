@@ -23,8 +23,8 @@ function useContactPopover(anchor:React.RefObject<HTMLDivElement|null>,open:bool
  return placement;
 }
 
-export function PhoneField({id}:{id:string}){
- const [country,setCountry]=useState('IN'),[value,setValue]=useState(''),[touched,setTouched]=useState(false),[focused,setFocused]=useState(false),[entryError,setEntryError]=useState(''),[open,setOpen]=useState(false),[query,setQuery]=useState(''),[active,setActive]=useState(0);
+export function PhoneField({id,initialValue='',initialCountry='IN',onValueChange,label='Mobile number'}:{id:string;initialValue?:string;initialCountry?:string;label?:string;onValueChange?:(value:string,country:string)=>void}){
+ const [country,setCountry]=useState(initialCountry),[value,setValue]=useState(()=>nationalPhoneInput(initialValue,initialCountry)),[touched,setTouched]=useState(false),[focused,setFocused]=useState(false),[entryError,setEntryError]=useState(''),[open,setOpen]=useState(false),[query,setQuery]=useState(''),[active,setActive]=useState(0);
  const anchor=useRef<HTMLDivElement>(null),root=useRef<HTMLDivElement>(null),input=useRef<HTMLInputElement>(null),search=useRef<HTMLInputElement>(null),trigger=useRef<HTMLButtonElement>(null);
  const placement=useContactPopover(anchor,open,300);
  const selected=phoneCountries.find(c=>c.code===country)!;
@@ -33,12 +33,12 @@ export function PhoneField({id}:{id:string}){
  useEffect(()=>{input.current?.setCustomValidity(error);},[error]);
  useEffect(()=>{if(open)search.current?.focus();},[open]);
  useEffect(()=>{function close(e:PointerEvent){if(root.current&&!root.current.contains(e.target as Node))setOpen(false);}document.addEventListener('pointerdown',close);return()=>document.removeEventListener('pointerdown',close);},[]);
- function choose(code:string){setCountry(code);setOpen(false);setQuery('');setEntryError('');if(value)setTouched(true);input.current?.focus();}
- function change(raw:string){try{const digits=nationalPhoneInput(raw,country);setValue(digits);setEntryError('');input.current?.setCustomValidity(contactFieldError('phone',digits,country));}catch(e:any){setEntryError(e.message);input.current?.setCustomValidity(e.message);}}
+ function choose(code:string){setCountry(code);onValueChange?.(value,code);setOpen(false);setQuery('');setEntryError('');if(value)setTouched(true);input.current?.focus();}
+ function change(raw:string){try{const digits=nationalPhoneInput(raw,country);setValue(digits);onValueChange?.(digits,country);setEntryError('');input.current?.setCustomValidity(contactFieldError('phone',digits,country));}catch(e:any){setEntryError(e.message);input.current?.setCustomValidity(e.message);}}
  function show(){setQuery('');setActive(0);setOpen(v=>!v);}
  function keys(e:React.KeyboardEvent){if(e.key==='Escape'){e.preventDefault();e.stopPropagation();setOpen(false);trigger.current?.focus();}else if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();const next=Math.max(0,Math.min(filtered.length-1,active+(e.key==='ArrowDown'?1:-1)));setActive(next);document.getElementById(id+'-country-'+filtered[next]?.code)?.scrollIntoView({block:'nearest'});}else if(e.key==='Enter'&&filtered[active]){e.preventDefault();choose(filtered[active].code);}}
  return <div className="field phone-field" ref={root} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setOpen(false);}}>
-  <label htmlFor={id+'-phone'}>Mobile number *</label>
+  <label htmlFor={id+'-phone'}>{label} *</label>
   <div className="contact-input-anchor" ref={anchor}>
    <div className={'phone-control'+(invalid?' field-invalid':'')}>
     <button ref={trigger} type="button" className="country-trigger" aria-label={'Country code: '+selected.name+' '+selected.dial} aria-haspopup="dialog" aria-expanded={open} aria-controls={open?id+'-country-dialog':undefined} onClick={show} onKeyDown={e=>{if(e.key==='ArrowDown'){e.preventDefault();setOpen(true);setActive(0);}}}><span aria-hidden="true" className="country-flag">{selected.flag}</span><strong>{selected.dial}</strong><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5"/></svg></button>

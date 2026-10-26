@@ -15,10 +15,10 @@ assert.equal((await api(owner,'?id='+brand.id)).record.version,brand.version,'pr
 assert.equal((await fetch(base+preview.url)).status,404,'previews require authentication');
 await api(mixed,'',{action:'preview',kind:'jobs',payload:jr.draft},403);
 brand=await change(mixed,brand,'save-publish',draft);assert.equal(brand.status,'published');assert.equal(brand.submittedBy,null);assert.equal(brand.live.models.length,2);
-assert.equal((await fetch(base+'/api/brochures/odette',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:'{}'})).status,404);
+assert.equal((await fetch(base+'/api/brochures/odette',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:'{}'})).status,410);
 brand=await change(mixed,brand,'save-publish',original);
-assert.equal((await fetch(base+'/api/brochures/odette',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:'{}'})).status,503);
-assert.equal((await fetch(base+'/brochures/odette.pdf')).status,404);assert.equal((await fetch(base+'/api/brochures/odette')).status,405);
+assert.equal((await fetch(base+'/api/brochures/odette',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:'{}'})).status,410);
+assert.equal((await fetch(base+'/brochures/odette.pdf')).status,404);assert.equal((await fetch(base+'/api/brochures/odette')).status,410);
 const industries=await api(owner,'?kind=industries'),inUse=(await api(owner,'?id='+industries.records.find(i=>i.title===original.category).id)).record;await change(owner,inUse,'archive',null,422);
 let industry=(await api(owner,'',{action:'save-publish',kind:'industries',slug:'qa-industry-'+stamp,version:0,payload:{slug:'qa-industry-'+stamp,title:'Synthetic industry '+stamp}})).record;assert((await api(mixed,'?view=industries')).industries.some(i=>i.slug===industry.slug));industry=await change(owner,industry,'archive');assert(!((await api(mixed,'?view=industries')).industries.some(i=>i.slug===industry.slug)));
 for(const id of ['pages:homepage','faqs:homepage','faqs:list-your-brand','faqs:opportunities','faqs:contact-us','faqs:general','placements:franchises']){const record=(await api(owner,'?id='+id)).record;const p=await api(owner,'',{action:'preview',kind:record.kind,payload:record.draft});const r=await fetch(base+p.url,{headers:owner}),page=await r.text();assert.equal(r.status,200,id);assert(page.includes('p-footer'),id+' complete footer');assert(page.includes('p-header'),id+' complete header');}

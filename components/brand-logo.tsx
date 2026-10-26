@@ -1,3 +1,4 @@
+import {imageStyle} from '../lib/cms/display.mjs';
 // Frame the visible mark, excluding the large blank margins in the original assets.
 // Original files, colours and artwork are preserved.
 const frames:Record<string,{size:[number,number];box:[number,number,number,number];bg:string}>={
@@ -14,12 +15,12 @@ const frames:Record<string,{size:[number,number];box:[number,number,number,numbe
   'freshco-goli-soda':{size:[1536,1024],box:[72,236,1435,559],bg:'#fefefe'},
   emori:{size:[1600,900],box:[181,158,1253,518],bg:'#000'},
 };
-export function BrandLogo({brand,className=''}:{brand:{slug:string;name:string;logo:string};className?:string}){
- const f=brand.logo.startsWith('/brands/')?frames[brand.slug]:undefined;
+export function BrandLogo({brand,className=''}:{brand:{slug:string;name:string;logo:string;logoPresentation?:any;logoAlt?:string};className?:string}){
+ const f=!brand.logoPresentation&&brand.logo.startsWith('/brands/')?frames[brand.slug]:undefined;
  return <span className={'brand-logo '+className} style={{background:f?.bg||'#fff'}}>
   {f?<svg viewBox="0 0 160 80" role="img" aria-label={brand.name+' logo'} preserveAspectRatio="xMidYMid meet">
    <svg x="12" y="12" width="136" height="56" viewBox={f.box.join(' ')} preserveAspectRatio="xMidYMid meet" overflow="hidden"><image href={imageSrc(brand.logo,800)} width={f.size[0]} height={f.size[1]}/></svg>
-  </svg>:<img src={brand.logo} alt={brand.name+' logo'} width="160" height="80" decoding="async"/>}
+  </svg>:<img src={brand.logo} alt={brand.logoAlt||brand.name+' logo'} style={brand.logoPresentation?{...imageStyle(brand.logoPresentation),width:(brand.logoPresentation.width||100)+'%'} as any:undefined} width="160" height="80" decoding="async"/>}
  </span>;
 }
 import {imageSrc} from '../lib/responsive-image';

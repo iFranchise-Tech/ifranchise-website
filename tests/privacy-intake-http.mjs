@@ -3,11 +3,12 @@ import {NOTICE_VERSION} from '../lib/intake/constants.mjs';
 
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:3018';
 assert.ok(['127.0.0.1','localhost'].includes(new URL(origin).hostname),'This synthetic workflow is restricted to a local preview.');
-const headers={'Content-Type':'application/json',Origin:origin};
-const sessionResponse=await fetch(origin+'/api/intake/session',{method:'POST',headers:{Origin:origin}});
+const clientIp='203.0.113.'+(1+Date.now()%250);
+const headers={'Content-Type':'application/json',Origin:origin,'cf-connecting-ip':clientIp};
+const sessionResponse=await fetch(origin+'/api/intake/session',{method:'POST',headers:{Origin:origin,'cf-connecting-ip':clientIp}});
 assert.equal(sessionResponse.status,200);
 const {token}=await sessionResponse.json(),id=crypto.randomUUID();
-const payload={id,token,kind:'privacy',noticeVersion:NOTICE_VERSION,email:'privacy-test@example.invalid',requestType:'Access my information',message:'Synthetic local workflow check only.',trap:''};
+const payload={id,token,kind:'privacy',noticeVersion:NOTICE_VERSION,email:'privacy-qa-intake@ifranchise.in',requestType:'Access my information',message:'Synthetic local workflow check only.',trap:''};
 await new Promise(resolve=>setTimeout(resolve,1600));
 const submit=()=>fetch(origin+'/api/intake/enquiries',{method:'POST',headers,body:JSON.stringify(payload)});
 const first=await submit(),receipt=await first.json();

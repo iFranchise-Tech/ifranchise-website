@@ -1,8 +1,12 @@
+import {AboutPage} from '../../../components/about-page';
+import {CareersPage} from '../../../components/careers-page';
+import {ManagedLegalPage} from '../../../components/managed-legal-page';
+import {SiteSettingsProvider} from '../../../components/site-settings';
 import {notFound} from 'next/navigation';
 import {adminIdentity,db} from '../../../lib/cms/auth';
 import {canView} from '../../../lib/cms/policy.mjs';
 import {getRecord} from '../../../lib/cms/store';
-import {hydrateArticle,published,publishedPage,publishedFaq} from '../../../lib/cms/public';
+import {hydrateArticle,published,publishedPage,publishedFaq,publishedResources} from '../../../lib/cms/public';
 import {EditorialArticlePage} from '../../../components/editorial-article';
 import {FranchiseDetail} from '../../../components/franchise-detail';
 import {JobDetail} from '../../../components/job-detail';
@@ -19,14 +23,19 @@ export default async function Preview({searchParams}:{searchParams:Promise<{id?:
  let me;try{me=await adminIdentity()}catch{notFound()}
  const {id,token,loading}=await searchParams;if(loading)return <div className="cms-preview-banner" role="status">Preparing preview…</div>;
  let r:any;if(token){const row:any=await db().prepare('SELECT kind,payload FROM cms_previews WHERE id=? AND expires_at>?').bind(token,new Date().toISOString()).first();if(row)r={kind:row.kind,draft:JSON.parse(row.payload)}}else r=await getRecord(id||'');
- if(!r||!canView(me,r.kind))notFound();const p=r.draft,kind=r.kind;
+ if(!r||!canView(me,r.kind==='placements'&&r.draft?.slug==='jobs'?'job-order':r.kind))notFound();const p=r.draft,kind=r.kind;
  const [brands,articles,industries]=await Promise.all([published('franchises'),published('articles'),published('industries')]);
  let page;
  if(kind==='franchises')page=<FranchiseDetail brand={p} brands={[p,...brands.filter(b=>b.slug!==p.slug)]}/>;
- else if(kind==='articles'||kind==='blogs')page=<EditorialArticlePage article={hydrateArticle({...p,resourceType:kind==='blogs'?'blog':'article'})} allArticles={kind==='blogs'?await published('blogs'):articles}/>;
+ else if(kind==='articles'||kind==='blogs')page=<EditorialArticlePage article={hydrateArticle({...p,resourceType:kind==='blogs'?'blog':'article'})} allArticles={await publishedResources()}/>;
  else if(kind==='videos')page=<VideoPage video={p}/>;
  else if(kind==='jobs')page=<JobDetail job={p}/>;
- else if(kind==='pages'||kind==='faqs'&&p.slug==='homepage')page=<HomePage home={kind==='pages'?p:await publishedPage('homepage')} faq={{questions:kind==='faqs'?p.questions:await publishedFaq('homepage')}} brands={brands} articles={articles}/>;
+ else if(kind==='pages'&&p.slug==='homepage'||kind==='faqs'&&p.slug==='homepage')page=<HomePage home={kind==='pages'?p:await publishedPage('homepage')} faq={{questions:kind==='faqs'?p.questions:await publishedFaq('homepage')}} brands={brands} articles={await publishedResources()}/>;
+ else if(kind==='pages'&&p.slug==='about-us')page=<AboutPage settings={p}/>;
+ else if(kind==='pages'&&p.slug==='contact-us')page=<ContactPage brands={brands}/>;
+ else if(kind==='pages'&&p.slug==='footer')page=<section className="p-container p-section"><h1>Footer preview</h1><p>Your selected social links appear in the footer below.</p></section>;
+ else if(kind==='pages'&&['privacy-policy','terms-and-conditions'].includes(p.slug))page=<ManagedLegalPage page={p} contact={await publishedPage('contact-us')}/>;
+ else if(kind==='placements'&&p.slug==='jobs'){const jobs=await published('jobs');page=<CareersPage jobs={[...jobs].sort((a,b)=>(p.ids.indexOf(a.slug)<0?1e6:p.ids.indexOf(a.slug))-(p.ids.indexOf(b.slug)<0?1e6:p.ids.indexOf(b.slug)))}/>;}
  else if(kind==='faqs'&&p.slug==='list-your-brand')page=<SolutionsPage brands={brands} faqs={p.questions}/>;
  else if(kind==='faqs'&&p.slug==='contact-us')page=<ContactPage brands={brands} faqs={p.questions}/>;
  else if(kind==='faqs'&&p.slug==='general')page=<ResourcesPage mode="faqs" override={{kind,payload:p}}/>;
@@ -34,5 +43,6 @@ export default async function Preview({searchParams}:{searchParams:Promise<{id?:
  const sorted=kind==='placements'?[...brands].sort((a,b)=>{const x=p.ids.indexOf(a.slug),y=p.ids.indexOf(b.slug);return (x<0?1e6:x)-(y<0?1e6:y)}):brands;
  page=<OpportunitiesPage brands={sorted} industries={kind==='industries'?[p,...industries.filter(i=>i.slug!==p.slug)]:industries} faqs={kind==='faqs'?p.questions:await publishedFaq('opportunities')}/>;
  }else notFound();
- return <><div className="cms-preview-banner"><strong>Preview</strong><span>{p.name||p.title}</span><span>Not published</span><a href="/admin">Open admin ↗</a></div><PremiumMotion><Header/>{page}<Footer/></PremiumMotion></>;
+ const [contact,footer]=await Promise.all([publishedPage('contact-us'),publishedPage('footer')]);
+ return <SiteSettingsProvider value={{...(kind==='pages'&&p.slug==='contact-us'?p:contact),socialLinks:kind==='pages'&&p.slug==='footer'?p.socialLinks:footer?.socialLinks}}><div className="cms-preview-banner"><strong>Preview</strong><span>{p.name||p.title}</span><span>Not published</span><a href="/admin">Open admin ↗</a></div><PremiumMotion><Header/>{page}<Footer/></PremiumMotion></SiteSettingsProvider>;
 }
