@@ -26,6 +26,7 @@ Checks performed in the ChatGPT in-app browser against the local development sit
 | Collapse, keyboard ArrowDown, expand | Collapsed control is 48px high; keyboard repositioning and reopening work |
 | Mobile navigation | Opens below 72px header without width overflow; browser tint changes to light for open menu |
 | TypeScript | `tsc --noEmit --incremental false` passed |
+| Production build | All five build stages and static asset cache generation passed |
 
 ## Limits
 
