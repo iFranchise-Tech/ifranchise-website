@@ -2,56 +2,42 @@
 export const pageBanners = {
   "brand": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-business-owners-hd.webp",
-    "mobilePosition": "50% 45%",
     "image": "/assets/stock-heroes/brand-business-owners-hd.webp",
     "alt": "Smiling business owners welcoming customers to their café",
     "position": "62% 45%"
   },
   "about": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/about-collaborative-team-hd.webp",
-    "mobilePosition": "50% 40%",
     "image": "/assets/stock-heroes/about-collaborative-team-hd.webp",
     "alt": "Colleagues sharing ideas and planning together in a collaborative business meeting",
     "position": "60% 45%"
   },
   "careers": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/careers-friendly-colleagues-hd.webp",
-    "mobilePosition": "50% 35%",
     "image": "/assets/stock-heroes/careers-friendly-colleagues-hd.webp",
     "alt": "Smiling colleagues sharing ideas around a meeting table",
     "position": "50% 45%"
   },
   "resources": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/resources-commercial-analysis-hd.webp",
-    "mobilePosition": "50% 45%",
     "image": "/assets/stock-heroes/resources-commercial-analysis-hd.webp",
     "alt": "A team comparing reports and commercial performance charts",
     "position": "50% 50%"
   },
   "blogs": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/blogs-business-journal-hd.webp",
-    "mobilePosition": "50% 35%",
     "image": "/assets/stock-heroes/blogs-business-journal-hd.webp",
     "alt": "A laptop, notebook and coffee arranged for research and writing",
     "position": "50% 58%"
   },
   "articles": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/articles-business-insights-hd.webp",
-    "mobilePosition": "50% 40%",
     "image": "/assets/stock-heroes/articles-business-insights-hd.webp",
     "alt": "Hands reviewing a commercial report with charts and business insights",
     "position": "50% 50%"
   },
   "videos": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/videos-interview-recording-hd.webp",
-    "mobilePosition": "50% 35%",
     "image": "/assets/stock-heroes/videos-interview-recording-hd.webp",
     "alt": "A camera recording an interview with two speakers",
     "position": "50% 45%"
