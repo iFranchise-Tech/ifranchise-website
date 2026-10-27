@@ -136,3 +136,35 @@
 .p-site .p-photo-hero .p-photo-hero-overlay{display:block;position:absolute;inset:0;z-index:-2}
 .p-site main .p-photo-hero h1,.p-site main .p-photo-hero h1 span{color:#fff}
 @media(min-width:768px){.p-site .p-photo-hero .p-photo-hero-overlay{background:linear-gradient(90deg,#000c 0%,#0009 40%,#0002 82%),linear-gradient(180deg,#0007,transparent 38%)}}
+
+/* One balanced frame for every inner-page photo banner. */
+@media(min-width:768px){
+ .p-site .p-photo-hero[data-image-ratio]{height:clamp(460px,42vw,620px);padding-top:0;min-height:0}
+ .p-site .p-photo-hero[data-image-ratio] .p-photo-hero-inner{height:100%;min-height:0;padding-block:calc(var(--site-header-height) + 24px) 36px;justify-content:center}
+ .p-site .p-photo-hero[data-image-ratio] .p-photo-hero-image{object-fit:cover}
+}
+
+/* Make the current reading section unmistakable without moving the document. */
+.p-site .policy-navigation{top:calc(var(--site-header-height,80px) + 24px)}
+.p-site .policy-navigation a{border-left:3px solid transparent;padding:9px 12px;color:var(--p-copy);border-radius:0 6px 6px 0}
+.p-site .policy-navigation a[aria-current="location"]{border-left-color:var(--p-brand);background:#32159b0a;color:var(--p-brand);font-weight:700;text-decoration:none}
+.p-site .policy-navigation a:hover{color:var(--p-brand)}
+/* The document scroll padding already clears the fixed header. */
+.p-site .policy-body section,.p-site .reading-body>section{scroll-margin-top:0}
+.p-site .reading-contents a[aria-current="location"]{color:var(--p-brand);font-weight:700}
+
+/* Short, continuous photo banners keep resource collections in view. */
+@media(min-width:768px){
+ .p-site .resources-page .p-photo-hero-editorial[data-image-ratio]{height:clamp(350px,44svh,430px);background:#17191b}
+ .p-site .resources-page .p-photo-hero-editorial .p-photo-hero-image{object-fit:cover;object-position:var(--hero-desktop-position,50% 50%)}
+ .p-site .resources-page .p-photo-hero-editorial .p-photo-hero-overlay{background:linear-gradient(90deg,#000b 0%,#0008 42%,#0002 85%),linear-gradient(180deg,#0005,transparent 42%)}
+ .p-site .resources-page .p-photo-hero-editorial[data-image-ratio] .p-photo-hero-inner{padding-block:calc(var(--site-header-height) + 18px) 30px}
+ .p-site .resources-page .p-photo-hero-editorial .p-photo-hero-copy{max-width:580px}
+ .p-site .resources-page .p-photo-hero-editorial h1{font-size:clamp(30px,3vw,44px);margin-bottom:18px}
+}
+@media(max-width:767px){
+ .p-site .resources-page .p-photo-hero-editorial{height:auto;min-height:0;padding-top:0}
+ .p-site .resources-page .p-photo-hero-editorial .p-photo-hero-inner{min-height:390px;padding-block:calc(var(--site-header-height) + 40px) 32px;justify-content:flex-end}
+ .p-site .resources-page .p-photo-hero-editorial h1{font-size:30px;margin-bottom:16px}
+ .p-site .resources-page .p-photo-hero-editorial .p-photo-hero-copy>p{font-size:15px;line-height:1.65}
+}

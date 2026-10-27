@@ -42,3 +42,20 @@ test('education is required, retained separately and delivered in the existing j
  assert.equal(row.length,21);assert.equal(row[9],'30 days');assert.match(row[11],/Qualification: Bachelor’s degree/);assert.match(row[11],/Course \/ field of study: B.Com/);assert.match(row[11],/Institution: Test College/);
  const older=sheetEntry({kind:'job',id:common.id,created_at:'2026-10-25',payload:JSON.stringify({coverNote:'Existing cover note'})},'https://example.test');assert.equal(older.row[11],'Existing cover note');
 });
+
+for(const kind of ['investor','brand'])test(kind+': optional visitor messages survive validation and the existing sheet contract',()=>{
+ const base=payloads.find(p=>p.kind===kind),record=data=>({id:base.id,reference:'IF-'+base.id,kind,created_at:'2026-10-27',payload:JSON.stringify(data)});
+ for(const message of [undefined,'','   ']){const data=validateIntake({...base,message});assert.equal(data.message,'');assert.equal(sheetEntry(record(data),'https://example.test').row.at(-1),'');}
+ const message='Looking for a café in Bengaluru.\nCan we discuss ₹50 lakh options?';
+ const data=validateIntake({...base,message:'  '+message+'  '});assert.equal(data.message,message);
+ const sheet=sheetEntry(record(data),'https://example.test');assert.equal(sheet.row.length,kind==='investor'?19:18);assert.equal(sheet.row.at(-1),'Visitor message:\n'+message);
+ assert.equal(validateIntake({...base,message:'x'.repeat(3000)}).message.length,3000);
+ assert.throws(()=>validateIntake({...base,message:'x'.repeat(3001)}),/3,000/);
+ assert.throws(()=>validateIntake({...base,message:{text:'unexpected'}}),/text/);
+});
+test('job applications keep their existing cover note and ignore enquiry messages',()=>{
+ const data=validateIntake({...payloads[3],message:'Not a job field',coverNote:'My application note'});
+ assert.equal(data.message,undefined);assert.equal(data.coverNote,'My application note');
+ const row=sheetEntry({id:common.id,kind:'job',created_at:'2026-10-27',payload:JSON.stringify(data)},'https://example.test').row;
+ assert.equal(row.length,21);assert.equal(row.at(-1),'');assert.match(row[11],/My application note/);
+});

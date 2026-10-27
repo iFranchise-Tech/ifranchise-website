@@ -167,3 +167,19 @@ Bytes: 86602
 Composition: New portrait stock; presenter, whiteboard and audience context retained.
 
 Total bytes: 515156
+
+## Current page banners — 27 October 2026
+
+Real stock photography under the [Pexels licence](https://www.pexels.com/license/), verified on 27 October 2026. Illustrative scenes do not represent iFranchise employees, premises or endorsements. No AI generation, artificial blur or upscaling. Original photographs were downloaded at 3600 px or greater and encoded as WebP at 640, 960, 1440, 2400 and 3200 px, with separate 1200 × 1600 mobile crops. The browser selects a suitable size for its viewport and pixel density. Resource desktop compositions are 3:1; other desktop banners are 12:5.
+
+- **Blogs:** `blogs-business-journal-hd*.webp` — [dlxmedia.hu, A Cup of Coffee and a Notebook](https://www.pexels.com/photo/a-cup-of-coffee-and-a-notebook-11911067/). Writing and research workspace; same stock photograph for mobile.
+- **Articles:** `articles-business-insights-hd*.webp` — [Mikhail Nilov, Charts and Graphs on Paper on a Clipboard](https://www.pexels.com/photo/charts-and-graphs-on-paper-on-a-clipboard-9304917/). Business analysis and practical guidance; same photograph for mobile.
+- **About iFranchise:** `about-collaborative-team-hd*.webp` — [Tima Miroshnichenko, People Laughing While in a Meeting](https://www.pexels.com/photo/people-laughing-while-in-a-meeting-6914348/). Approachable collaboration; mobile crop retains the two colleagues on the right.
+- **Videos:** `videos-interview-recording-hd*.webp` — [cottonbro studio, Camera Recording Podcast](https://www.pexels.com/photo/camera-recording-podcast-6883807/). The user's preferred photo is retained for desktop and mobile; the camera is the focal point. The background speakers are intentionally out of focus in the original photograph.
+- **All resources:** `resources-commercial-analysis-hd*.webp` — [fauxels, People Discuss About Graphs and Rates](https://www.pexels.com/photo/people-discuss-about-graphs-and-rates-3184292/). Commercial reports and collaborative learning; same photograph for mobile.
+- **List Your Brand, desktop:** `brand-business-owners-hd*.webp` — [Vitaly Gariev, Young Cafe Owners Smiling in Apron Attire](https://www.pexels.com/photo/young-cafe-owners-smiling-in-apron-attire-36729740/).
+- **List Your Brand, mobile:** `mobile/brand-business-owners-hd.webp` — [Anthony Dalesandro, Smiling Coffee Shop Owners Behind Counter](https://www.pexels.com/photo/smiling-coffee-shop-owners-behind-counter-34164499/). Native portrait composition keeps both owners and their counter visible.
+- **Careers, desktop:** `careers-friendly-colleagues-hd*.webp` — [fauxels, Happy Colleagues Working Together](https://www.pexels.com/photo/happy-colleagues-working-together-3184285/).
+- **Careers, mobile:** `mobile/careers-friendly-colleagues-hd.webp` — [Gustavo Fring, Businesswomen Consulting Documents](https://www.pexels.com/photo/businesswomen-consulting-documents-8770081/).
+
+The approved homepage video and its existing poster are unchanged.

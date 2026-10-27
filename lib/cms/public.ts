@@ -1,3 +1,4 @@
+import {loadResourceCollections} from '../resource-loading.mjs';
 import {pageFaqs,resourceFaqs} from '../faq-content.mjs';
 import {applyCommercial} from './display.mjs';
 import {cache} from 'react';
@@ -20,4 +21,4 @@ export async function publishedPage(slug:string){return (await published('pages'
 
 export async function publishedFaq(slug:string){return (await published('faqs')).find(p=>p.slug===slug)?.questions||[];}
 
-export async function publishedResources(){return [...await published('articles'),...await published('blogs'),...(await published('videos')).map(v=>({...v,resourceType:'video',path:'/resources/videos/'+v.slug,minutes:0}))];}
+export async function publishedResources(){const {articles,blogs,videos}=await loadResourceCollections(published);return [...articles,...blogs,...videos.map(v=>({...v,resourceType:'video',path:'/resources/videos/'+v.slug,minutes:0}))];}

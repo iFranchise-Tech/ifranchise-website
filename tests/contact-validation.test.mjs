@@ -41,7 +41,7 @@ test('national entry rejects letters and normalizes a country-code paste without
  for(const value of ['912345678','91234567890','919123456789','+91919123456789','5123456789'])assert.throws(()=>normalizePhone(value,'IN'),value);
  for(const value of ['abc','91234a56789','91234#56789','91234+56789','++919123456789'])assert.throws(()=>nationalPhoneInput(value,'IN'),value);
  assert.throws(()=>nationalPhoneInput('+447400123456','IN'));
- assert.throws(()=>nationalPhoneInput('+14165551234','US'),/Canada/);
+ assert.throws(()=>nationalPhoneInput('+14165551234','US'),/selected dialling region/);
 });
 test('country rules, formatting and international pastes cover multiple regions',()=>{
  const cases=[['IN','9123456789','+919123456789'],['GB','07400123456','+447400123456'],['US','4155552671','+14155552671'],['CA','4165551234','+14165551234'],['AE','0501234567','+971501234567'],['AU','0412345678','+61412345678'],['SG','81234567','+6581234567'],['FR','0612345678','+33612345678']];
@@ -56,9 +56,15 @@ test('country rules, formatting and international pastes cover multiple regions'
     const corrected=phoneInputState('9123456789','IN');assert.equal(corrected.error,'');assert.equal(normalizePhone(corrected.value,'IN'),'+919123456789');
    }
   }
-  const pasted=phoneInputState('+91 91234-567890','IN');assert.equal(pasted.value,'91234567890');assert.match(pasted.error,/exactly 10/);
+  const pasted=phoneInputState('+91 91234-567890','IN');assert.equal(pasted.value,'91234567890');assert.match(pasted.error,/10-digit/);
   assert.deepEqual(phoneInputState('+91 91234-56789','IN'),{value:'9123456789',error:''});
   assert(phoneInputState('07400123456','IN').error);assert.equal(phoneInputState('07400123456','GB').error,'');
   assert(phoneInputState('81234567','IN').error);assert.equal(phoneInputState('81234567','SG').error,'');
   assert(phoneInputState('+447400123456','IN').error);
  });
+
+test('phone guidance is concise and does not repeat country names or calling codes',()=>{
+ for(const [value,country] of [['91234567890','IN'],['123','GB'],['123','US'],['123','AU'],['123','AE']]){
+  const {error}=phoneInputState(value,country);assert(error);assert(error.length<70);assert(!/India|United|Australia|Emirates|\+\d/.test(error));
+ }
+});

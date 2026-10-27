@@ -1,53 +1,60 @@
 // Page-specific real stock photography. Sources: docs/image-credits.md.
 export const pageBanners = {
   "brand": {
-    "mobileImage": "/assets/stock-heroes/mobile/brand-expansion-planning.webp",
+    "ratio": "12 / 5",
+    "mobileImage": "/assets/stock-heroes/mobile/brand-business-owners-hd.webp",
     "mobilePosition": "50% 45%",
-    "image": "/assets/stock-heroes/expansion-strategy-boardroom.webp",
-    "alt": "Business advisers reviewing a commercial strategy around a meeting table",
+    "image": "/assets/stock-heroes/brand-business-owners-hd.webp",
+    "alt": "Smiling business owners welcoming customers to their café",
     "position": "62% 45%"
   },
   "about": {
-    "mobileImage": "/assets/stock-heroes/mobile/about-consultation.webp",
-    "mobilePosition": "50% 42%",
-    "image": "/assets/stock-heroes/advisory-collaboration.webp",
-    "alt": "Professionals reviewing documents during a business consultation",
+    "ratio": "12 / 5",
+    "mobileImage": "/assets/stock-heroes/mobile/about-collaborative-team-hd.webp",
+    "mobilePosition": "50% 40%",
+    "image": "/assets/stock-heroes/about-collaborative-team-hd.webp",
+    "alt": "Colleagues sharing ideas and planning together in a collaborative business meeting",
     "position": "60% 45%"
   },
   "careers": {
-    "mobileImage": "/assets/stock-heroes/mobile/careers-professional-team.webp",
+    "ratio": "12 / 5",
+    "mobileImage": "/assets/stock-heroes/mobile/careers-friendly-colleagues-hd.webp",
     "mobilePosition": "50% 35%",
-    "image": "/assets/stock-heroes/careers-working-together.webp",
-    "alt": "Professional colleagues reviewing documents and discussing their work",
-    "position": "56% 45%"
+    "image": "/assets/stock-heroes/careers-friendly-colleagues-hd.webp",
+    "alt": "Smiling colleagues sharing ideas around a meeting table",
+    "position": "50% 45%"
   },
   "resources": {
-    "mobileImage": "/assets/stock-heroes/mobile/resources-commercial-analysis.webp",
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/resources-commercial-analysis-hd.webp",
     "mobilePosition": "50% 45%",
-    "image": "/assets/stock-heroes/resources-commercial-analysis.webp",
+    "image": "/assets/stock-heroes/resources-commercial-analysis-hd.webp",
     "alt": "A team comparing reports and commercial performance charts",
     "position": "50% 50%"
   },
   "blogs": {
-    "mobileImage": "/assets/stock-heroes/mobile/blogs-professional-research.webp",
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/blogs-business-journal-hd.webp",
     "mobilePosition": "50% 35%",
-    "image": "/assets/stock-heroes/blogs-professional-research.webp",
-    "alt": "A business professional researching on a laptop and writing notes",
-    "position": "65% 45%"
+    "image": "/assets/stock-heroes/blogs-business-journal-hd.webp",
+    "alt": "A laptop, notebook and coffee arranged for research and writing",
+    "position": "50% 58%"
   },
   "articles": {
-    "mobileImage": "/assets/stock-heroes/mobile/articles-business-learning.webp",
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/articles-business-insights-hd.webp",
     "mobilePosition": "50% 40%",
-    "image": "/assets/stock-heroes/articles-learning-workspace.webp",
-    "alt": "A reader studying online material at a quiet workspace",
-    "position": "65% 45%"
+    "image": "/assets/stock-heroes/articles-business-insights-hd.webp",
+    "alt": "Hands reviewing a commercial report with charts and business insights",
+    "position": "50% 50%"
   },
   "videos": {
-    "mobileImage": "/assets/stock-heroes/mobile/videos-business-workshop.webp",
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/videos-interview-recording-hd.webp",
     "mobilePosition": "50% 35%",
-    "image": "/assets/stock-heroes/videos-business-workshop.webp",
-    "alt": "A presenter explaining ideas to colleagues in a business workshop",
-    "position": "52% 45%"
+    "image": "/assets/stock-heroes/videos-interview-recording-hd.webp",
+    "alt": "A camera recording an interview with two speakers",
+    "position": "50% 45%"
   }
   ,"homeProcess": {
   "image": "/assets/stock-heroes/home-business-consultation.webp",

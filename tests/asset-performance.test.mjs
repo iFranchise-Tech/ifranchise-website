@@ -5,8 +5,8 @@ import vm from 'node:vm';
 import {isCacheableAsset,isCacheableResponse} from '../lib/asset-cache-policy.mjs';
 
 test('the cache excludes pages, personal data, uploads and application endpoints',()=>{
- for(const path of ['/','/admin','/franchise/emori','/api/intake/session','/api/admin/intake/resume/1','/media/resume.pdf','/api/admin/records','/private/document.webp','/optimized/unhashed.webp'])assert.equal(isCacheableAsset(path),false,path);
- for(const path of ['/_next/static/chunks/index-ab123.js','/_next/static/css/index.ab123.css','/optimized/retail-123456abcdef-800.webp','/fonts/manrope-400.woff2','/assets/ifranchise-wordmark.svg'])assert.equal(isCacheableAsset(path),true,path);
+ for(const path of ['/','/admin','/franchise/emori','/api/intake/session','/api/admin/intake/resume/1','/media/resume.pdf','/api/admin/records','/private/document.webp','/optimized/unhashed.webp','/assets/stock-heroes/private/photo.webp','/assets/stock-heroes/photo.svg','/assets/home-hero/plan-to-presence.mp4'])assert.equal(isCacheableAsset(path),false,path);
+ for(const path of ['/_next/static/chunks/index-ab123.js','/_next/static/css/index.ab123.css','/optimized/retail-123456abcdef-800.webp','/fonts/manrope-400.woff2','/assets/ifranchise-wordmark.svg','/assets/stock-heroes/blogs-business-journal-hd-1440.webp','/assets/stock-heroes/mobile/about-collaborative-team-hd.webp','/assets/home-hero/plan-to-presence.webp'])assert.equal(isCacheableAsset(path),true,path);
  assert.equal(isCacheableResponse(new Response('<html>Sign in</html>',{headers:{'content-type':'text/html'}})),false);
  assert.equal(isCacheableResponse(new Response('data',{status:403,headers:{'content-type':'image/webp'}})),false);
  assert.equal(isCacheableResponse(new Response('data',{headers:{'content-type':'image/webp','set-cookie':'private=1'}})),false);
@@ -32,6 +32,7 @@ test('service worker reuses static assets, updates caches and ignores all sensit
  const asset='/optimized/retail-123456abcdef-800.webp';
  assert.equal(await (await dispatch(asset)).text(),'image');
  assert.equal(await (await dispatch(asset)).text(),'image');assert.equal(fetches,1);
+ for(const path of ['/assets/stock-heroes/blogs-business-journal-hd-1440.webp','/assets/stock-heroes/mobile/about-collaborative-team-hd.webp']){const before=fetches;await dispatch(path);await dispatch(path);assert.equal(fetches,before+1);}
  for(const path of ['/api/intake/session','/admin','/','/media/resume.pdf','https://other.test'+asset,asset+'?private=true'])assert.equal(await dispatch(path),undefined,path);
  assert.equal(await dispatch(asset,{method:'POST'}),undefined);
  assert.equal(await dispatch(asset,{mode:'navigate'}),undefined);
