@@ -20,7 +20,7 @@ The stale phone error was retained separately from the current number after inpu
 - Node tests: 108 passed, 0 failed.
 - HTTP/API checks against local preview: 109 passed, 0 failed. Invalid phone and email requests are rejected; valid session-backed requests normalize correctly and duplicate submissions do not create a second record.
 - TypeScript: passed.
-- Production build: passed before the final focus-ring CSS adjustment; publication packaging rebuilds that final adjustment.
+- Production build: passed, including the final phone focus-ring CSS adjustment.
 - Contact Us: entered 11 Indian digits, submission blocked; deleted the extra digit; completed remaining fields; received an enquiry receipt with the corrected number.
 - List Your Brand: same invalid-to-valid correction flow completed and displayed Enquiry received.
 - Careers: pasted +91 with an overlength national number, submission blocked; corrected it to ten digits; successful application receipt, with other fields and resume preserved.
@@ -30,6 +30,16 @@ The stale phone error was retained separately from the current number after inpu
 - Checked native select arrows in enquiry preferences, careers, opportunity filters and resource filters: positioned inside fields with reserved text padding. No horizontal document overflow observed in the checked pages.
 - Contact journey buttons retain stable dimensions and no transform/transition when switching journeys.
 - Brand gallery advances immediately. Active FAQ tab becomes visible automatically on the 390 px tab bar; desktop section tracking also verified.
+
+## Scrollbar idle follow-up
+
+The persistent scrollbar was reproduced: pointer dragging called `focus()` on the scrollbar, leaving `:focus-visible` true after the 1.1-second scroll activity timer expired. `components/scrollbar-activity.tsx` now clears pointer-induced focus rather than assigning it. Keyboard tab focus remains available and deliberately visible for accessibility.
+
+- Before the fix: after dragging away from the right edge and waiting, scroll activity ended but the scrollbar retained focus and opacity 1.
+- After the fix: repeated drag/release cycles clear focus, finish the activity timer and reach opacity 0 while idle.
+- Hovering the right edge reveals the control and expands its thumb from 4px to 9px; dragging still moves the page.
+- Tab navigation still focuses the scrollbar; Page Down and Home move the page correctly.
+- Scrollbar geometry tests: 2 passed, 0 failed. TypeScript and whitespace checks passed after the follow-up.
 
 ## Other requested visual changes in this revision
 
