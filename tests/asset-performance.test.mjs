@@ -24,10 +24,13 @@ test('all generated responsive images exist and preserve source references',asyn
 });
 
 test('service worker reuses static assets, updates caches and ignores all sensitive routes',async()=>{
- const source=await fs.readFile('dist/client/asset-cache-sw.js','utf8'),events={},entries=new Map(),buckets=new Map([['unrelated-cache',new Map()],['ifranchise-assets-old',new Map()]]);
+ const source=await fs.readFile('dist/client/asset-cache-sw.js','utf8'),events={},buckets=new Map([['unrelated-cache',new Map()],['ifranchise-assets-old',new Map()]]);
  let fetches=0,claims=0;
- const cache={match:async r=>entries.get(r.url)?.clone(),put:async(r,v)=>entries.set(r.url,v.clone()),keys:async()=>[...entries.keys()],delete:async k=>entries.delete(typeof k==='string'?k:k.url)};
- vm.runInNewContext(source,{URL,Response,self:{location:{origin:'https://example.test'},clients:{claim:async()=>claims++},skipWaiting:async()=>{},addEventListener:(n,fn)=>events[n]=fn},caches:{keys:async()=>[...buckets.keys()],delete:async k=>buckets.delete(k),open:async k=>{buckets.set(k,entries);return cache;}},fetch:async()=>{fetches++;return new Response('image',{headers:{'content-type':'image/webp'}})}});
+ const context={URL,Response,self:{location:{origin:'https://example.test'},clients:{claim:async()=>claims++},skipWaiting:async()=>{},addEventListener:(n,fn)=>events[n]=fn},caches:{keys:async()=>[...buckets.keys()],delete:async k=>buckets.delete(k),open:async k=>{
+  if(!buckets.has(k))buckets.set(k,new Map());const entries=buckets.get(k);
+  return {match:async r=>entries.get(r.url)?.clone(),put:async(r,v)=>entries.set(r.url,v.clone()),keys:async()=>[...entries.keys()],delete:async key=>entries.delete(typeof key==='string'?key:key.url)};
+ }},fetch:async()=>{fetches++;return new Response('image',{headers:{'content-type':'image/webp'}})}};
+ vm.runInNewContext(source,context);
  async function dispatch(path,{method='GET',mode='cors',headers=new Headers()}={}){let response;const waits=[];events.fetch({request:{url:new URL(path,'https://example.test').href,method,mode,headers},respondWith:p=>response=p,waitUntil:p=>waits.push(p)});if(response){const r=await response;await Promise.all(waits);return r;}}
  const asset='/optimized/retail-123456abcdef-800.webp';
  assert.equal(await (await dispatch(asset)).text(),'image');
@@ -39,4 +42,10 @@ test('service worker reuses static assets, updates caches and ignores all sensit
  assert.equal(await dispatch(asset,{headers:new Headers({range:'bytes=0-20'})}),undefined);
  const waits=[];events.activate({waitUntil:p=>waits.push(p)});await Promise.all(waits);
  assert.ok(!buckets.has('ifranchise-assets-old'));assert.ok(buckets.has('unrelated-cache'));assert.equal(claims,1);
+ // A new release keeps content-hashed images, while stable artwork URLs refresh.
+ vm.runInNewContext(source.replace(/const CACHE='[^']+'/,"const CACHE='ifranchise-assets-next-release'"),{...context});
+ const nextWaits=[];events.activate({waitUntil:p=>nextWaits.push(p)});await Promise.all(nextWaits);
+ const before=fetches;await dispatch(asset);assert.equal(fetches,before,'unchanged optimized image survives deployment');
+ await dispatch('/optimized/retail-fedcba654321-800.webp');assert.equal(fetches,before+1,'changed image gets fresh content');
+ await dispatch('/assets/stock-heroes/blogs-business-journal-hd-1440.webp');assert.equal(fetches,before+2,'stable URL is refreshed after deployment');
 });

@@ -12,12 +12,12 @@ async function walk(dir){for(const entry of (await fs.readdir(dir,{withFileTypes
 await walk(root);
 const revision=hash.digest('hex').slice(0,16);
 const source=`/* Generated from this deployment's static assets. */
-const CACHE='ifranchise-assets-${revision}', PREFIX='ifranchise-assets-', LIMIT=180;
+const CACHE='ifranchise-assets-${revision}', IMAGES='ifranchise-assets-images-v1', PREFIX='ifranchise-assets-', LIMIT=180;
 ${isCacheableAsset.toString()}
 ${isCacheableResponse.toString()}
 self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
- for(const key of await caches.keys())if(key.startsWith(PREFIX)&&key!==CACHE)await caches.delete(key);
+ for(const key of await caches.keys())if(key.startsWith(PREFIX)&&key!==CACHE&&key!==IMAGES)await caches.delete(key);
  await self.clients.claim();
 })()));
 self.addEventListener('fetch',event=>{
@@ -25,7 +25,11 @@ self.addEventListener('fetch',event=>{
  if(request.method!=='GET'||request.mode==='navigate'||request.headers.has('range')||url.origin!==self.location.origin||url.search||!isCacheableAsset(url.pathname))return;
  event.respondWith((async()=>{
   let cache;
-  try{cache=await caches.open(CACHE);const saved=await cache.match(request);if(saved)return saved;}catch{}
+  // Optimized image URLs contain a source-content hash. Keep their bounded
+  // cache across releases so a code update does not redownload unchanged art.
+  // Assets with stable URLs still use the deployment-specific cache.
+  const cacheName=url.pathname.startsWith('/optimized/')?IMAGES:CACHE;
+  try{cache=await caches.open(cacheName);const saved=await cache.match(request);if(saved)return saved;}catch{}
   const response=await fetch(request);
   if(cache&&isCacheableResponse(response)){
    const copy=response.clone();

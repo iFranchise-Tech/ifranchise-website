@@ -47,13 +47,16 @@
 .p-site .brand-profile .dossier-specs dt{display:flex;align-items:center;gap:7px;font-size:11px;line-height:1.5;color:#85798e;margin:0 0 8px}
 .p-site .brand-profile .dossier-specs dt svg{color:#8c7ba4;flex:none}
 .p-site .brand-profile .dossier-specs dd{font-size:14px;line-height:1.65;color:#302838;font-weight:600;margin:0;overflow-wrap:anywhere;white-space:pre-line;text-align:left}
-.p-site .brand-profile .commercial-return{padding-top:13px;margin-top:13px;border-top:1px solid #e4dced}
-.p-site .brand-profile .commercial-return dt{color:#6f5990}
-.p-site .brand-profile .commercial-return dd{color:#32159b}
-.p-site .brand-profile .dossier-specs>.commercial-return{padding:16px 18px;margin:0}
-.p-site .brand-profile .dossier-specs>:is(.dossier-return-terms,.commercial-wide){grid-column:1/-1}
-.p-site .brand-profile .dossier-specs>.dossier-return-terms{background:#f3f0f9}
-.p-site .brand-profile .dossier-return-terms dd{font-weight:500;font-size:13px;line-height:1.8}
+.p-site .brand-profile .dossier-specs>.commercial-wide{grid-column:1/-1}
+.p-site .brand-profile .dossier-returns{background:#32159b;color:#fff;border-radius:11px;padding:18px 20px;margin-top:12px}
+.p-site .brand-profile .dossier-returns h3{font-size:16px;line-height:1.4;letter-spacing:-.02em;margin:0 0 14px;color:#fff}
+.p-site .brand-profile .dossier-returns-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;margin:0}
+.p-site .brand-profile .dossier-returns-values>div{min-width:0}
+.p-site .brand-profile .dossier-returns-values>div:only-child{grid-column:1/-1}
+.p-site .brand-profile .dossier-returns-values dt{font-size:11px;line-height:1.5;color:#ded5fb;margin:0 0 6px}
+.p-site .brand-profile .dossier-returns-values dd,.p-site .brand-profile .dossier-returns-legacy{font-size:15px;line-height:1.65;font-weight:600;color:#fff;margin:0;overflow-wrap:anywhere;white-space:pre-line}
+.p-site .brand-profile .dossier-returns-note{font-size:12px;line-height:1.7;color:#eee8ff;margin:14px 0 0}
+@media(max-width:550px){.p-site .brand-profile .dossier-returns{padding:16px}.p-site .brand-profile .dossier-returns-values{grid-template-columns:1fr;gap:16px}}
 .p-site .brand-profile .dossier-notes{padding-top:14px}
 .p-site .brand-profile .dossier-notes p{font-size:11px;line-height:1.8;color:#857c8d;margin:0 0 6px}
 .p-site .brand-profile .p-questions{border-top:0;counter-reset:brand-question}

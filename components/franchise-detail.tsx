@@ -34,13 +34,17 @@ export function FranchiseDetail({brand:original,brands}:{brand:any;brands:any[]}
     <div className="profile-section-heading"><h2>Investment &amp; format</h2></div>
     <div className="dossier-commercial">
      <div className="dossier-investment-total"><div className="dossier-investment-row"><div><span>Indicative investment</span><strong>{b.budget}</strong></div></div>{f.investmentNote&&<p>{f.investmentNote}</p>}</div>
-     <dl className="dossier-specs">{specs.map(([k,v])=>{const SpecIcon=specIcons[k];return <div key={k} className={'commercial-detail'+(String(v).length>75?' commercial-wide':'')}><div className="commercial-row"><dt><SpecIcon size={15}/>{k}</dt><dd>{v}</dd></div>{k==='Agreement term'&&terms.guarantee&&<div className="commercial-row commercial-return" id="returns"><dt>Minimum guarantee</dt><dd>{terms.guarantee}</dd></div>}{k==='Lock-in period'&&terms.share&&<div className="commercial-row commercial-return" id={!terms.guarantee?'returns':undefined}><dt>Revenue share</dt><dd>{terms.share}</dd></div>}</div>})}
-      {!specs.some(([label])=>label==='Agreement term')&&terms.guarantee&&<div id="returns" className="commercial-row commercial-return"><dt>Minimum guarantee</dt><dd>{terms.guarantee}</dd></div>}
-      {!specs.some(([label])=>label==='Lock-in period')&&terms.share&&<div id={!terms.guarantee?'returns':undefined} className="commercial-row commercial-return"><dt>Revenue share</dt><dd>{terms.share}</dd></div>}
-      {terms.fixed&&<div id="returns" className="commercial-row commercial-return"><dt>Fixed return</dt><dd>{terms.fixed}</dd></div>}
-      {terms.legacy&&<div id="returns" className="dossier-return-terms"><dt>Return terms</dt><dd>{terms.legacy}</dd></div>}
-      {terms.note&&<div className="dossier-return-terms"><dt>Return conditions</dt><dd>{terms.note}</dd></div>}
-     </dl>
+     <dl className="dossier-specs">{specs.map(([k,v])=>{const SpecIcon=specIcons[k];return <div key={k} className={'commercial-detail'+(String(v).length>75?' commercial-wide':'')}><div className="commercial-row"><dt><SpecIcon size={15}/>{k}</dt><dd>{v}</dd></div></div>})}</dl>
+     <section id="returns" className="dossier-returns" aria-labelledby="returns-heading">
+      <h3 id="returns-heading">Returns</h3>
+      {(terms.guarantee||terms.share||terms.fixed)&&<dl className="dossier-returns-values">
+       {terms.guarantee&&<div><dt>Minimum guarantee</dt><dd>{terms.guarantee}</dd></div>}
+       {terms.share&&<div><dt>Revenue share</dt><dd>{terms.share}</dd></div>}
+       {terms.fixed&&<div><dt>Fixed return</dt><dd>{terms.fixed}</dd></div>}
+      </dl>}
+      {terms.legacy&&<p className="dossier-returns-legacy">{terms.legacy}</p>}
+      {terms.note&&<p className="dossier-returns-note">{terms.note}</p>}
+     </section>
     </div>
     <div className="dossier-notes">{b.slug==='lassi-n-cafe'&&<p>The proposal contains different investment figures. Request a confirmed cost sheet.</p>}{b.slug==='original-burger-co'&&<p>Unit and master franchise proposals have separate investment and territory terms.</p>}<p>Confirm costs, fees and return terms in the latest written proposal from the brand.</p></div>
    </section>

@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useState} from 'react';
-import {ArrowUpRight,Search,FileText} from 'lucide-react';
+import {ArrowUpRight,Search,FileText,PlayCircle} from 'lucide-react';
 import {ResourceCard} from './resource-card';
 import {resourceCategories,filterResources} from '../lib/resource-categories.mjs';
 
@@ -37,9 +37,9 @@ export function ResourceLibrary({items,mode='all',initialCategory='all'}:{items:
   </div>
   </div>
   <>
-   <div className="resource-results"><span role="status" aria-live="polite">{list.length>0?`${start+1}–${Math.min(start+12,list.length)} of ${list.length}`:0} {mode==='blogs'?(list.length===1?'blog':'blogs'):mode==='articles'?(list.length===1?'article':'articles'):(list.length===1?'resource':'resources')}{category!=='all'&&categorised?' · '+resourceCategories.find(c=>c.id===category)?.label:''}</span>{(query||category!=='all'||topic!=='all')&&<button type="button" onClick={reset}>Clear filters</button>}</div>
+   <div className="resource-results"><span role="status" aria-live="polite">{list.length>0?`${start+1}–${Math.min(start+12,list.length)} of ${list.length}`:0} {mode==='blogs'?(list.length===1?'blog':'blogs'):mode==='articles'?(list.length===1?'article':'articles'):mode==='videos'?(list.length===1?'video':'videos'):(list.length===1?'resource':'resources')}{category!=='all'&&categorised?' · '+resourceCategories.find(c=>c.id===category)?.label:''}</span>{(query||category!=='all'||topic!=='all')&&<button type="button" onClick={reset}>Clear filters</button>}</div>
    <div className="journal-grid">{list.slice(start,start+12).map((a:any)=><ResourceCard item={a} key={a.path}/>)}</div>
-   {!list.length&&<div className="resource-empty"><FileText size={32}/><h2>{query||category!=='all'||topic!=='all'?'No matching resources':mode==='videos'?'Franchising videos':'No resources yet'}</h2><p>{query||category!=='all'||topic!=='all'?'Try another category or clear your filters.':mode==='videos'?'Our upcoming YouTube videos will appear here. Explore our articles in the meantime.':'New posts will appear here.'}</p>{query||category!=='all'||topic!=='all'?<button type="button" className="p-button" onClick={reset}>Clear filters</button>:<a className="p-link" href="/resources/articles">Explore articles <ArrowUpRight size={18}/></a>}</div>}
+   {!list.length&&<div className="resource-empty">{mode==='videos'?<PlayCircle size={32} aria-hidden="true"/>:<FileText size={32} aria-hidden="true"/>}<h2>{query||category!=='all'||topic!=='all'?'No matching resources':mode==='videos'?'Franchising videos':'No resources yet'}</h2><p>{query||category!=='all'||topic!=='all'?'Try another category or clear your filters.':mode==='videos'?'Our upcoming YouTube videos will appear here. Explore our articles in the meantime.':'New posts will appear here.'}</p>{query||category!=='all'||topic!=='all'?<button type="button" className="p-button" onClick={reset}>Clear filters</button>:<a className="p-link" href="/resources/articles">Explore articles <ArrowUpRight size={18}/></a>}</div>}
    {totalPages>1&&<nav className="resource-pagination" aria-label="Resource pages"><button disabled={current===1} onClick={()=>turn(current-1)}>Previous</button>{Array.from({length:totalPages},(_,i)=>i+1).filter(n=>n===1||n===totalPages||Math.abs(n-current)<=1).map((n,i,nums)=><span key={n}>{i>0&&n-nums[i-1]>1&&<span aria-hidden="true"> … </span>}<button aria-label={'Page '+n} aria-current={current===n?'page':undefined} onClick={()=>turn(n)}>{n}</button></span>)}<button disabled={current===totalPages} onClick={()=>turn(current+1)}>Next</button></nav>}
   </>
  </>;
