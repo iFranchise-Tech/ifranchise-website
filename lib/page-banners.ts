@@ -2,16 +2,16 @@
 export const pageBanners = {
   "brand": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-expansion-planning.webp",
-    "mobilePosition": "50% 45%",
+    "mobileImage": "/assets/stock-heroes/mobile/brand-strategy-workshop-12902905.webp",
+    "mobilePosition": "50% 50%",
     "image": "/assets/stock-heroes/brand-business-owners-hd.webp",
     "alt": "Business owners working together on their business",
     "position": "62% 45%"
   },
   "about": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/about-advisory-team.webp",
-    "mobilePosition": "50% 25%",
+    "mobileImage": "/assets/stock-heroes/mobile/about-collaborative-advisors-12899116.webp",
+    "mobilePosition": "50% 50%",
     "image": "/assets/stock-heroes/about-collaborative-team-hd.webp",
     "alt": "Colleagues sharing ideas and planning together in a collaborative business meeting",
     "position": "60% 45%"

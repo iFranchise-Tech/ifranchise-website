@@ -33,3 +33,10 @@ Checks performed in the ChatGPT in-app browser against the local development sit
 - Phone dimensions are responsive browser checks, not physical iOS or Android testing. Real iPhone Safari status-bar blending, notch insets and browser-toolbar expansion still require device verification.
 - No lead submissions were created: submission logic and integrations were not changed.
 - Safari safe-area approach follows [WebKit guidance](https://webkit.org/blog/7929/designing-websites-for-iphone-x/). Websites cannot dictate the exact appearance of Safari's own controls.
+
+## Follow-up: fresh images and vertically centred inner-page text
+
+- Replaced the initial List your Brand and About us mobile selections with two previously unused real Pexels photographs (12902905 and 12899116), optimised to 1200 × 1800 WebP (184,024 and 142,270 bytes respectively).
+- Centred the text block vertically within mobile photographic banners using symmetrical spacing. Homepage placement remains unchanged.
+- At 390 × 844, List your Brand, About us and Careers remain 680px tall; Resources, Blogs, Articles and Videos remain 390px tall. All seven text-block centres match their banner centre (0px measured difference), all images loaded, no horizontal overflow.
+- At 320 × 740, List your Brand and About us are 606.8px tall; Articles is 390px. Copy remains centred with no overflow. Homepage still fills 740px and its heading remains four lines.

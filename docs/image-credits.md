@@ -192,3 +192,12 @@ The approved homepage video and its existing poster are unchanged.
 - License: Pexels free commercial use; source checked 27 October 2026.
 - Adaptation: portrait crop and WebP compression. Illustrative stock team, not iFranchise employees.
 - Mobile List your Brand uses the existing credited Monstera Production business-planning photograph (`mobile/brand-expansion-planning.webp`). Desktop images are unchanged.
+
+### Fresh mobile banners — 28 October 2026
+
+These replace the earlier List your Brand and About us phone images with photographs not previously used on the website. Desktop imagery remains unchanged.
+
+- **List your Brand:** [Three People at Office While Planning](https://www.pexels.com/photo/three-people-at-office-while-planning-12902905/), Mizuno K / Pexels, photo 12902905. `public/assets/stock-heroes/mobile/brand-strategy-workshop-12902905.webp`. A team planning around a project board; 1200 × 1800 WebP.
+- **About us:** [Business Planning in Office](https://www.pexels.com/photo/business-planning-in-office-12899116/), Mizuno K / Pexels, photo 12899116. `public/assets/stock-heroes/mobile/about-collaborative-advisors-12899116.webp`. Colleagues discussing plans together; 1200 × 1800 WebP.
+
+Both sourced under the [Pexels License](https://www.pexels.com/license/) allowing commercial use and modification. Illustrative stock photography; these people are not represented as iFranchise employees or clients.
