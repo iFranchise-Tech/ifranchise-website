@@ -31,9 +31,10 @@
  .p-site .p-header .p-dropdown a{color:#292332;font-weight:600;transition:background-color .2s,color .2s}
  .p-site .p-header .p-dropdown a:is(:hover,:focus-visible){color:#32159b;background:#32159b09}
 }
-.brand-mobile-contact .brand-contact-toggle{touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.brand-mobile-contact{height:160px;touch-action:none;user-select:none;-webkit-user-select:none}
+.brand-mobile-contact button{touch-action:none;cursor:grab}
 .brand-mobile-contact.is-dragging{transition:none;user-select:none}
-.brand-mobile-contact.is-dragging .brand-contact-toggle{cursor:grabbing;box-shadow:-3px 3px 16px #32159b24}
+.brand-mobile-contact.is-dragging button{cursor:grabbing;box-shadow:-3px 3px 16px #32159b24}
 .brand-mobile-contact .brand-contact-toggle>svg{width:16px;height:16px;stroke-width:2;flex:none;pointer-events:none}
 /* A slim edge handle, with the full 44px-wide touch area retained for dragging. */
 .brand-mobile-contact.is-collapsed{height:48px}

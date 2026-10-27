@@ -16,6 +16,16 @@ export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]
  const {scrolled,overHero,darkHero,protectBrand,joinedHeight}=headerState.path===path?headerState:{scrolled:false,overHero:hasPhotoHero,darkHero:hasPhotoHero,protectBrand:false,joinedHeight:0};
  useEffect(()=>{setMobile(false);setOpen(null);hoveredMenu.current=null},[path]);
  useEffect(()=>{
+  const query=matchMedia('(max-width: 767px)');
+  const update=()=>{
+   const color=query.matches&&overHero&&darkHero&&!mobile?'#101010':'#ffffff';
+   document.querySelector('meta[name="theme-color"]')?.setAttribute('content',color);
+  };
+  update();query.addEventListener('change',update);
+  return()=>query.removeEventListener('change',update);
+ },[overHero,darkHero,mobile,path]);
+
+ useEffect(()=>{
   let userScrollUntil=0;
   document.documentElement.removeAttribute('data-wordmark-motion');
   const arm=()=>{userScrollUntil=performance.now()+1200};

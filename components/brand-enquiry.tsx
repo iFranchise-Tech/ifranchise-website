@@ -33,12 +33,12 @@ export function BrandSectionNav({hasQuestions}:{hasQuestions:boolean}){
 export function BrandEnquiryPanel({name,slug}:{name:string;slug:string}){
  const [mobile,setMobile]=useState(false),[open,setOpen]=useState(false),[collapsed,setCollapsed]=useState(false);
  const panel=useRef<HTMLElement>(null),dialog=useRef<HTMLDialogElement>(null);
- const rail=useRef<HTMLDivElement>(null),drag=useRef<{id:number;start:number;center:number;moved:boolean}|null>(null),suppressClick=useRef(false),position=useRef(.5);
+ const rail=useRef<HTMLDivElement>(null),drag=useRef<{id:number;start:number;center:number;moved:boolean;target:HTMLElement}|null>(null),suppressClick=useRef(false),position=useRef(.5);
  const [dragging,setDragging]=useState(false);
  const placeRail=(center:number)=>{
   const el=rail.current;if(!el)return;
   const viewport=window.visualViewport,top=viewport?.offsetTop||0,height=viewport?.height||innerHeight;
-  const half=el.offsetHeight/2,header=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--site-header-height'))||80;
+  const half=el.offsetHeight/2,header=document.querySelector('.p-header')?.getBoundingClientRect().height||80;
   const min=top+Math.min(header+12,height/3)+half,max=top+height-half-12;
   const next=Math.max(Math.min(min,max),Math.min(max,center));
   el.style.top=next+'px';position.current=(next-top)/height;
@@ -52,23 +52,24 @@ export function BrandEnquiryPanel({name,slug}:{name:string;slug:string}){
   window.addEventListener('resize',measure);visualViewport?.addEventListener('resize',measure);visualViewport?.addEventListener('scroll',measure);
   return()=>{observer.disconnect();window.removeEventListener('resize',measure);visualViewport?.removeEventListener('resize',measure);visualViewport?.removeEventListener('scroll',measure)};
  },[mobile,open]);
- const dragStart=(event:ReactPointerEvent<HTMLButtonElement>)=>{
+ const dragStart=(event:ReactPointerEvent<HTMLDivElement>)=>{
   if(!event.isPrimary||event.button!==0||!rail.current)return;
   const rect=rail.current.getBoundingClientRect();suppressClick.current=false;
-  drag.current={id:event.pointerId,start:event.clientY,center:rect.top+rect.height/2,moved:false};
-  event.currentTarget.setPointerCapture(event.pointerId);
+  const target=(event.target as HTMLElement).closest('button')||event.currentTarget;
+  drag.current={id:event.pointerId,start:event.clientY,center:rect.top+rect.height/2,moved:false,target};
+  target.setPointerCapture(event.pointerId);
  };
- const dragMove=(event:ReactPointerEvent<HTMLButtonElement>)=>{
+ const dragMove=(event:ReactPointerEvent<HTMLDivElement>)=>{
   const active=drag.current;if(!active||active.id!==event.pointerId)return;
   if(Math.abs(event.clientY-active.start)>6){active.moved=true;suppressClick.current=true;setDragging(true)}
   if(active.moved){event.preventDefault();placeRail(active.center+event.clientY-active.start)}
  };
- const dragEnd=(event:ReactPointerEvent<HTMLButtonElement>)=>{
+ const dragEnd=(event:ReactPointerEvent<HTMLDivElement>)=>{
   if(drag.current?.id!==event.pointerId)return;
-  suppressClick.current=drag.current.moved;drag.current=null;setDragging(false);savePosition();
-  if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);
+  const target=drag.current.target;suppressClick.current=drag.current.moved;drag.current=null;setDragging(false);savePosition();
+  if(target.hasPointerCapture(event.pointerId))target.releasePointerCapture(event.pointerId);
  };
- const moveWithKeyboard=(event:ReactKeyboardEvent<HTMLButtonElement>)=>{
+ const moveWithKeyboard=(event:ReactKeyboardEvent<HTMLDivElement>)=>{
   if(!['ArrowUp','ArrowDown','Home','End'].includes(event.key)||!rail.current)return;
   event.preventDefault();const rect=rail.current.getBoundingClientRect();
   placeRail(event.key==='Home'?0:event.key==='End'?innerHeight:rect.top+rect.height/2+(event.key==='ArrowUp'?-40:40));savePosition();
@@ -80,6 +81,6 @@ export function BrandEnquiryPanel({name,slug}:{name:string;slug:string}){
  useEffect(()=>{if(mobile||!panel.current)return;const el=panel.current;const measure=()=>{const top=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--site-header-height'))+18;el.style.setProperty('--enquiry-sticky-top',Math.min(top,innerHeight-el.offsetHeight-18)+'px')};const observer=new ResizeObserver(measure);observer.observe(el);window.addEventListener('resize',measure);measure();return()=>{observer.disconnect();window.removeEventListener('resize',measure)}},[mobile]);
  const contacts=<div className="brand-enquiry-contacts"><a href={whatsappUrl(name,contact.phone)} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp"/>WhatsApp<ArrowUpRight size={14}/></a><a href={mail}><Mail size={18}/>Email<ArrowUpRight size={14}/></a></div>;
  const contents=<><header className="brand-enquiry-heading"><div><span>Let’s talk about your plans</span><h2 id="brand-enquiry-title">Enquire about {name}</h2></div>{mobile&&<button type="button" className="brand-enquiry-close" aria-label="Close enquiry form" onClick={()=>setOpen(false)}><X size={22}/></button>}</header><EnquiryForm compact brandSlug={slug} items={[{slug,name}]}/>{!mobile&&contacts}</>;
- if(mobile)return createPortal(<><dialog ref={dialog} className="p-site brand-enquiry-dialog" aria-labelledby="brand-enquiry-title" onCancel={()=>setOpen(false)} onClose={()=>setOpen(false)} onClick={e=>{if(e.target===e.currentTarget){const r=e.currentTarget.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)setOpen(false)}}}><div className="brand-enquiry-card">{contents}</div></dialog>{!open&&<div ref={rail} className={'brand-mobile-contact'+(collapsed?' is-collapsed':'')+(dragging?' is-dragging':'')} role="group" aria-label="Brand enquiry options"><div id="brand-contact-actions" className="brand-contact-actions" inert={collapsed} aria-hidden={collapsed}><button type="button" className="brand-contact-enquire" onClick={()=>setOpen(true)} aria-haspopup="dialog" aria-label={'Enquire about '+name}><span>Enquire</span></button><a href={whatsappUrl(name,contact.phone)} target="_blank" rel="noopener noreferrer" aria-label={'WhatsApp enquiry about '+name} title="Enquire on WhatsApp"><Icon name="whatsapp"/></a><a href={mail} aria-label={'Email enquiry about '+name} title="Enquire by email"><Mail size={20}/></a></div><button type="button" className="brand-contact-toggle" onPointerDown={dragStart} onPointerMove={dragMove} onPointerUp={dragEnd} onPointerCancel={dragEnd} onLostPointerCapture={dragEnd} onKeyDown={moveWithKeyboard} aria-describedby="brand-rail-help" aria-expanded={!collapsed} aria-controls="brand-contact-actions" aria-label={collapsed?'Expand enquiry options':'Collapse enquiry options'} title={collapsed?'Show enquiry options · drag to move':'Minimise enquiry options · drag to move'} onClick={()=>{if(suppressClick.current){suppressClick.current=false;return}setCollapsed(value=>!value)}}>{collapsed?<ChevronLeft size={18}/>:<ChevronRight size={18}/>}</button><span id="brand-rail-help" className="sr-only">Drag this button up or down to move the enquiry options. With the keyboard, use Up and Down arrows, or Home and End.</span></div>}</>,document.body);
+ if(mobile)return createPortal(<><dialog ref={dialog} className="p-site brand-enquiry-dialog" aria-labelledby="brand-enquiry-title" onCancel={()=>setOpen(false)} onClose={()=>setOpen(false)} onClick={e=>{if(e.target===e.currentTarget){const r=e.currentTarget.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)setOpen(false)}}}><div className="brand-enquiry-card">{contents}</div></dialog>{!open&&<div ref={rail} className={'brand-mobile-contact'+(collapsed?' is-collapsed':'')+(dragging?' is-dragging':'')} role="group" aria-label="Brand enquiry options" onPointerDown={dragStart} onPointerMove={dragMove} onPointerUp={dragEnd} onPointerCancel={dragEnd} onLostPointerCapture={dragEnd} onKeyDown={moveWithKeyboard} onClickCapture={event=>{if(suppressClick.current){event.preventDefault();event.stopPropagation();suppressClick.current=false}}}><div id="brand-contact-actions" className="brand-contact-actions" inert={collapsed} aria-hidden={collapsed}><button type="button" className="brand-contact-enquire" onClick={()=>setOpen(true)} aria-haspopup="dialog" aria-describedby="brand-rail-help" aria-label={'Enquire about '+name}><span>Enquire</span></button></div><button type="button" className="brand-contact-toggle" aria-describedby="brand-rail-help" aria-expanded={!collapsed} aria-controls="brand-contact-actions" aria-label={collapsed?'Expand enquiry options':'Collapse enquiry options'} title={collapsed?'Show enquiry options · drag to move':'Minimise enquiry options · drag to move'} onClick={()=>setCollapsed(value=>!value)}>{collapsed?<ChevronLeft size={18}/>:<ChevronRight size={18}/>}</button><span id="brand-rail-help" className="sr-only">Drag anywhere on this control up or down to move it. Tap Enquire to open the form. With the keyboard, use Up and Down arrows, or Home and End.</span></div>}</>,document.body);
  return <aside ref={panel} id="enquire" className="brand-enquiry-card is-sticky" aria-labelledby="brand-enquiry-title">{contents}</aside>;
 }

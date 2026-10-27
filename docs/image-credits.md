@@ -183,3 +183,12 @@ Real stock photography under the [Pexels licence](https://www.pexels.com/license
 - **Careers, mobile:** `mobile/careers-friendly-colleagues-hd.webp` — [Gustavo Fring, Businesswomen Consulting Documents](https://www.pexels.com/photo/businesswomen-consulting-documents-8770081/).
 
 The approved homepage video and its existing poster are unchanged.
+
+
+### Mobile About iFranchise — advisory team (27 October 2026)
+- File: `public/assets/stock-heroes/mobile/about-advisory-team.webp`
+- Photographer: Thirdman
+- Source: https://www.pexels.com/photo/group-of-people-smiling-while-in-a-meeting-5256822/
+- License: Pexels free commercial use; source checked 27 October 2026.
+- Adaptation: portrait crop and WebP compression. Illustrative stock team, not iFranchise employees.
+- Mobile List your Brand uses the existing credited Monstera Production business-planning photograph (`mobile/brand-expansion-planning.webp`). Desktop images are unchanged.
