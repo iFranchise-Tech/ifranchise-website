@@ -8,6 +8,8 @@ type PhotoHeroProps={
  image:string;
  imageAlt:string;
  imagePosition?:string;
+ mobileImage?:string;
+ mobileImagePosition?:string;
  title:ReactNode;
  description:string;
  actions?:ReactNode;
@@ -17,9 +19,9 @@ type PhotoHeroProps={
  scroll?:{href:string;label:string};
 };
 
-export function PhotoHero({image,imageAlt,imagePosition,title,description,actions,breadcrumb,scroll,compact=false,presentation,editorial=false}:PhotoHeroProps){
- return <section style={presentation?{...frameStyle(presentation),width:undefined,...(presentation.ratio!=='original'?{minHeight:0}:{}),marginInline:'auto'}:undefined} data-hero-tone={editorial?'light':'dark'} className={'p-photo-hero'+(compact?' p-photo-hero-compact':'')+(editorial?' p-photo-hero-editorial':'')}>
-  <img className="p-photo-hero-image" style={{objectPosition:imagePosition,...(presentation?{...imageStyle(presentation),width:(presentation.width||100)+'%',left:((100-(presentation.width||100))/2)+'%'}:{})} as any} {...responsiveImage(image,'100vw')} alt={imageAlt} width="2400" height="1600" fetchPriority="high" decoding="async"/>
+export function PhotoHero({image,imageAlt,imagePosition,mobileImage,mobileImagePosition,title,description,actions,breadcrumb,scroll,compact=false,presentation,editorial=false}:PhotoHeroProps){
+ return <section style={presentation?{...frameStyle(presentation),width:undefined,...(presentation.ratio!=='original'?{minHeight:0}:{}),marginInline:'auto'}:undefined} data-hero-tone="dark" className={'p-photo-hero'+(compact?' p-photo-hero-compact':'')+(editorial?' p-photo-hero-editorial':'')}>
+  <picture>{mobileImage&&<source media="(max-width: 767px)" srcSet={mobileImage}/>}<img className="p-photo-hero-image" style={{'--hero-desktop-position':imagePosition||'50% 50%','--hero-mobile-position':mobileImagePosition||imagePosition||'50% 50%',...(presentation?{...imageStyle(presentation),width:(presentation.width||100)+'%',left:((100-(presentation.width||100))/2)+'%'}:{})} as any} {...responsiveImage(image,'100vw')} alt={imageAlt} width="2400" height="1600" fetchPriority="high" decoding="async"/></picture>
   <div className="p-photo-hero-overlay" aria-hidden="true"/>
   <div className="p-container p-photo-hero-inner">
    {breadcrumb&&<Crumb label={breadcrumb}/>}

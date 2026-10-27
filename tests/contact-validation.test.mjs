@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {phoneCountries,normalizePhone,normalizeEmail,normalizeWorkEmail,emailSuggestions,emailFieldError,nationalPhoneInput,formatNationalPhone} from '../lib/contact-validation.mjs';
+import {phoneCountries,normalizePhone,normalizeEmail,normalizeWorkEmail,emailSuggestions,emailFieldError,nationalPhoneInput,phoneInputState,formatNationalPhone} from '../lib/contact-validation.mjs';
 import {validateContact} from '../lib/enquiry.mjs';
 import {journeyConfig} from '../lib/journey-client.mjs';
 test('country catalogue includes supported territories and shared calling codes',()=>{assert(phoneCountries.length>240);assert.equal(new Set(phoneCountries.map(c=>c.code)).size,phoneCountries.length);for(const code of ['IN','GB','US','CA','AE','AU','SG','ZA','BR','JP'])assert(phoneCountries.find(c=>c.code===code));assert.equal(phoneCountries.find(c=>c.code==='CA').dial,'+1');});
@@ -36,7 +36,7 @@ test('aliases, international domains, long TLDs and custom domains are not treat
 test('national entry rejects letters and normalizes a country-code paste without duplication',()=>{
  assert.equal(nationalPhoneInput('+91 91234-56789','IN'),'9123456789');
  assert.equal(normalizePhone(nationalPhoneInput('+91 9123456789','IN'),'IN'),'+919123456789');
- assert.throws(()=>nationalPhoneInput('09123456789','IN'),/no more than 10 digits/);
+ assert.equal(nationalPhoneInput('09123456789','IN'),'09123456789');
  assert.throws(()=>normalizePhone(nationalPhoneInput('09123456789','IN'),'IN'));
  for(const value of ['912345678','91234567890','919123456789','+91919123456789','5123456789'])assert.throws(()=>normalizePhone(value,'IN'),value);
  for(const value of ['abc','91234a56789','91234#56789','91234+56789','++919123456789'])assert.throws(()=>nationalPhoneInput(value,'IN'),value);
@@ -48,3 +48,17 @@ test('country rules, formatting and international pastes cover multiple regions'
  for(const [country,national,expected] of cases){assert.equal(normalizePhone(national,country),expected);assert.equal(normalizePhone(formatNationalPhone(national,country),country),expected);assert.equal(normalizePhone(nationalPhoneInput(expected,country),country),expected);assert.throws(()=>normalizePhone('12345',country));assert(phoneCountries.find(c=>c.code===country)?.flag);}
  assert.throws(()=>normalizePhone('81234567','IN'));
 });
+
+ test('phone correction clears every previous error and retains excess digits for editing',()=>{
+  for(let attempt=0;attempt<3;attempt++){
+   for(const raw of ['91234567890','912345678','5123456789','91234a56789','09123456789','919123456789']){
+    const invalid=phoneInputState(raw,'IN');assert.equal(invalid.value,raw);assert(invalid.error);
+    const corrected=phoneInputState('9123456789','IN');assert.equal(corrected.error,'');assert.equal(normalizePhone(corrected.value,'IN'),'+919123456789');
+   }
+  }
+  const pasted=phoneInputState('+91 91234-567890','IN');assert.equal(pasted.value,'91234567890');assert.match(pasted.error,/exactly 10/);
+  assert.deepEqual(phoneInputState('+91 91234-56789','IN'),{value:'9123456789',error:''});
+  assert(phoneInputState('07400123456','IN').error);assert.equal(phoneInputState('07400123456','GB').error,'');
+  assert(phoneInputState('81234567','IN').error);assert.equal(phoneInputState('81234567','SG').error,'');
+  assert(phoneInputState('+447400123456','IN').error);
+ });

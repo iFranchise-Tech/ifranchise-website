@@ -20,6 +20,6 @@ html{scrollbar-gutter:auto}
 .page-scrollbar>span{position:absolute;top:0;right:3px;width:4px;border-radius:10px;background:rgba(104,100,115,.65);box-shadow:0 0 1px 1px #ffffff40;transition:width .16s,background-color .16s}
 html.is-scrolling .page-scrollbar,.page-scrollbar:is(:hover,:focus-visible,.is-dragging){opacity:1}
 .page-scrollbar:is(:hover,:focus-visible,.is-dragging)>span{width:9px;background:rgba(87,80,103,.85)}
-.page-scrollbar:focus-visible>span{outline:2px solid #32159b;outline-offset:1px}
+.page-scrollbar:focus-visible>span{outline:1px solid #6f6b78;outline-offset:1px}
 @media(prefers-reduced-motion:reduce){.page-scrollbar,.page-scrollbar>span{transition:none}}
 @media(forced-colors:active){html,body *{scrollbar-width:auto!important;scrollbar-color:auto!important}.page-scrollbar{display:none}::-webkit-scrollbar-thumb{background:ButtonText!important}}

@@ -85,3 +85,85 @@ This revision supersedes the page assignments above. All seven photographs are n
 - This photograph illustrates a collaborative consultation with a tablet and laptop. It is distinct from the seven page banners above. It does not depict or imply endorsement by iFranchise employees or clients.
 - Licence: https://www.pexels.com/license/ (free commercial website use and modification; checked 26 October 2026).
 - Edits: resizing and WebP encoding only. The website may crop to its 4:3 frame with a 44% horizontal, 50% vertical focal position. No generated imagery is used. The homepage hero video remains unchanged.
+
+
+## Mobile page banners — 27 October 2026
+
+Mobile page banner stock photography — 27 October 2026
+
+All seven assets are 900 × 1200 pixels (3:4) optimized WebP. Only deliberate cropping, resizing and encoding; no AI generation, retouching, artificial blur or relighting.
+License: https://www.pexels.com/license/ — verified 27 October 2026; free commercial website use and modification allowed. These illustrative stock settings are not iFranchise staff, clients or premises and imply no endorsement.
+
+Suggested positions are intended for object-fit: cover at narrow mobile hero sizes. Avoid increasing hero height so much that a second crop cuts heads or pushes all photographic context behind text.
+
+About us
+File: public/assets/stock-heroes/mobile/about-consultation.webp
+URL path: /assets/stock-heroes/mobile/about-consultation.webp
+Alt: Two professionals reviewing documents during a business consultation.
+Object position: 50% 42%
+Photographer: Tima Miroshnichenko
+Source: https://www.pexels.com/photo/recruiter-looking-at-a-document-5439433/
+Bytes: 60838
+Composition: New portrait stock; both participants retained.
+
+List your Brand
+File: public/assets/stock-heroes/mobile/brand-expansion-planning.webp
+URL path: /assets/stock-heroes/mobile/brand-expansion-planning.webp
+Alt: Business partners reviewing charts and a commercial plan around a table.
+Object position: 50% 45%
+Photographer: Monstera Production
+Source: https://www.pexels.com/photo/close-up-of-buisnesspeople-discussing-documents-in-office-9489078/
+Bytes: 72544
+Composition: New portrait stock; hands, charts and planning context retained.
+
+Careers
+File: public/assets/stock-heroes/mobile/careers-professional-team.webp
+URL path: /assets/stock-heroes/mobile/careers-professional-team.webp
+Alt: Two professional colleagues discussing documents outside an office.
+Object position: 50% 35%
+Photographer: Gustavo Fring
+Source: https://www.pexels.com/photo/businesswomen-consulting-documents-8770081/
+Bytes: 105312
+Composition: New stock; deliberate portrait crop retains both faces and documents.
+
+Resources
+File: public/assets/stock-heroes/mobile/resources-commercial-analysis.webp
+URL path: /assets/stock-heroes/mobile/resources-commercial-analysis.webp
+Alt: Colleagues comparing reports and commercial performance charts.
+Object position: 50% 45%
+Photographer: fauxels
+Source: https://www.pexels.com/photo/people-discuss-about-graphs-and-rates-3184292/
+Bytes: 73022
+Composition: Same photo as desktop; portrait crop concentrates on charts and collaboration.
+
+Blogs
+File: public/assets/stock-heroes/mobile/blogs-professional-research.webp
+URL path: /assets/stock-heroes/mobile/blogs-professional-research.webp
+Alt: A professional taking notes while researching on a laptop.
+Object position: 50% 35%
+Photographer: Gustavo Fring
+Source: https://www.pexels.com/photo/young-woman-writing-in-notebook-while-working-on-laptop-3874629/
+Bytes: 82496
+Composition: New portrait stock; intact head, notebook and laptop retained.
+
+Articles
+File: public/assets/stock-heroes/mobile/articles-business-learning.webp
+URL path: /assets/stock-heroes/mobile/articles-business-learning.webp
+Alt: A reader studying online material on a laptop at a quiet workspace.
+Object position: 50% 40%
+Photographer: Michael Burrows
+Source: https://www.pexels.com/photo/ethnic-student-with-laptop-studying-online-7129697/
+Bytes: 34342
+Composition: Same photo as desktop; portrait crop retains complete head, laptop and work surface.
+
+Videos
+File: public/assets/stock-heroes/mobile/videos-business-workshop.webp
+URL path: /assets/stock-heroes/mobile/videos-business-workshop.webp
+Alt: A presenter explaining ideas on a whiteboard during a business workshop.
+Object position: 50% 35%
+Photographer: cottonbro studio
+Source: https://www.pexels.com/photo/man-presenting-at-the-meeting-6814345/
+Bytes: 86602
+Composition: New portrait stock; presenter, whiteboard and audience context retained.
+
+Total bytes: 515156

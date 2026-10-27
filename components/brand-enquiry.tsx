@@ -11,6 +11,21 @@ import {whatsappUrl} from '../lib/contact';
 export function BrandSectionNav({hasQuestions}:{hasQuestions:boolean}){
  const [active,setActive]=useState('gallery'),nav=useRef<HTMLElement>(null);
  const sections=[['gallery','Gallery'],['overview','Overview'],['investment','Investment & format'],['returns','Returns'],...(hasQuestions?[['questions','FAQs']]:[])];
+ useEffect(()=>{
+  const scroller=nav.current?.querySelector<HTMLElement>('.profile-section-nav-inner');if(!scroller)return;
+  const reveal=()=>{
+   const link=scroller.querySelector<HTMLElement>('[aria-current="location"]');if(!link)return;
+   const bounds=scroller.getBoundingClientRect(),item=link.getBoundingClientRect(),enquire=scroller.lastElementChild as HTMLElement|null;
+   const right=enquire&&getComputedStyle(enquire).position==='sticky'?Math.min(bounds.right,enquire.getBoundingClientRect().left):bounds.right;
+   const available=right-bounds.left;
+   if(item.left<bounds.left+8||item.right>right-8){
+    const delta=item.left-bounds.left-Math.max(8,(available-item.width)/2);
+    scroller.scrollTo({left:scroller.scrollLeft+delta,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+   }
+  };
+  reveal();const observer=new ResizeObserver(reveal);observer.observe(scroller);
+  return()=>observer.disconnect();
+ },[active]);
  useEffect(()=>{let frame=0;function update(){frame=0;const line=(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--site-header-height'))||80)+(nav.current?.offsetHeight||54)+28;let current='gallery';for(const [id] of sections){if((document.getElementById(id)?.getBoundingClientRect().top??Infinity)<=line)current=id;}setActive(current)}function schedule(){if(!frame)frame=requestAnimationFrame(update)}update();window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);return()=>{cancelAnimationFrame(frame);window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule)}},[hasQuestions]);
  return <nav ref={nav} className="profile-section-nav" aria-label="On this brand page"><div className="profile-section-nav-inner">{sections.map(([id,label])=><a key={id} href={'#'+id} aria-current={active===id?'location':undefined}>{label}</a>)}<a href="#enquire" onClick={event=>{if(matchMedia('(max-width: 1023px)').matches)event.preventDefault();window.dispatchEvent(new Event('open-brand-enquiry'))}}>Enquire<ArrowUpRight size={15}/></a></div></nav>;
 }

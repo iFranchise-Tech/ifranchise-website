@@ -13,25 +13,30 @@
 .catalogue-suggestions{position:absolute;inset:calc(100% + 6px) 0 auto;z-index:20;margin:0;padding:6px;list-style:none;background:rgba(255,255,255,.97);border:1px solid var(--p-line);border-radius:10px;box-shadow:0 12px 30px #1c143b1a;backdrop-filter:blur(18px)}
 .catalogue-suggestions button{display:block;width:100%;min-height:44px;padding:10px 12px;border:0;border-radius:6px;background:transparent;color:var(--p-ink);text-align:left;font:inherit;font-size:13px;line-height:1.5;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
 .catalogue-suggestions button:hover,.catalogue-suggestions button[aria-selected=true]{background:#eee9fb;color:#32159b}
-/* Editorial resource heroes keep the photograph clear of headline text. */
-.p-site .p-photo-hero-editorial{background:#f3f4f8;color:var(--p-ink);display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:0;isolation:isolate}
-.p-site .p-photo-hero-editorial .p-photo-hero-image{position:static;grid-column:2;grid-row:1;width:100%;height:100%;min-height:330px;max-height:460px;object-fit:cover;object-position:50% 50%;z-index:0}
-.p-photo-hero-editorial .p-photo-hero-overlay{display:none}
-.p-site .p-photo-hero-editorial .p-photo-hero-inner{grid-column:1;grid-row:1;width:auto;margin:0;padding:56px max(28px,calc((100vw - 1320px)/2));padding-right:44px;min-height:0;z-index:1}
-.p-site .p-photo-hero-editorial .p-photo-hero-copy{max-width:620px;text-shadow:none}
-.p-site main .p-photo-hero-editorial h1{font-size:var(--type-section);color:var(--p-ink);margin:0 0 22px;text-wrap:balance}
-.p-site .p-photo-hero-editorial .p-photo-hero-copy>p{font-size:16px;color:var(--p-copy);margin:0;max-width:490px}
+/* Resource collections share the same image-backed hero as the other pages. */
+.p-site .p-photo-hero-editorial .p-photo-hero-inner{min-height:350px;padding-block:64px}
+.p-site .p-photo-hero-editorial .p-photo-hero-copy{max-width:620px}
+.p-site main .p-photo-hero-editorial h1{font-size:var(--type-section);color:#fff;margin:0 0 22px;text-wrap:balance}
+.p-site .p-photo-hero-editorial .p-photo-hero-copy>p{font-size:16px;color:#fff;margin:0;max-width:490px}
 .p-about .p-photo-hero-image{object-position:55% 30%}
 .careers-page .p-photo-hero-image{object-position:55% 30%}
 .p-solutions .p-photo-hero-image{object-position:60% 32%}
 .careers-page .p-photo-hero-inner{min-height:560px;padding-block:100px 80px}
-/* Keep the existing mobile job presentation; use the existing 750px breakpoint. */
-.job-sidebar .job-desktop-facts{display:none}
-@media(min-width:751px){
- .job-heading .job-facts{display:none}
- .job-sidebar .job-desktop-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;padding-bottom:20px;border-bottom:1px solid var(--p-line)}
- .job-sidebar .job-desktop-facts>div{margin:0;min-width:0}
- .job-sidebar .job-mobile-detail{display:none}
+/* One role summary, with identical information and styling at every size. */
+.job-sidebar .job-key-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px;padding-bottom:20px;border-bottom:1px solid var(--p-line)}
+.job-sidebar .job-key-facts>div{margin:0;min-width:0}
+.p-site .job-sidebar dt{color:var(--p-copy);font-size:12px;line-height:1.5}
+.p-site .job-sidebar dd{color:var(--p-ink);font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.p-site .job-sidebar .job-key-facts dd{font-weight:650}
+.p-site .job-sidebar .button{padding:12px 16px!important;gap:14px}
+.p-site .job-sidebar .button svg{width:18px;height:18px;padding:0;border:0;flex:none}
+@media(max-width:750px){
+ .p-site .job-heading{border-bottom:0;padding-bottom:0}
+ .p-site .job-heading>p:last-of-type{margin-bottom:0}
+ .p-site .job-sidebar{padding:22px}
+ .job-sidebar .job-key-facts>div:first-child{grid-column:auto}
+ .job-sidebar .job-secondary-facts>div:first-child{grid-column:1/-1}
+ .job-sidebar .button,.job-sidebar .job-back{max-width:none}
 }
 .dossier-investment-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .dossier-investment-row>div{min-width:0}
@@ -55,14 +60,14 @@
  .p-video-hero .p-actions a{min-height:44px;font-size:clamp(10.5px,2.9vw,13px);white-space:nowrap;gap:6px;min-width:0;padding:12px 9px}
  .p-video-hero .p-actions .p-link{padding-inline:2px}
  .p-video-hero .p-actions svg{width:14px;height:14px;flex-shrink:0}
- /* Keep the full stock photograph visible instead of cutting off faces. */
- .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero{display:flex;flex-direction:column;background:#15151b}
- .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero-inner{order:0;min-height:0;padding-block:28px 36px}
- .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero-image{position:relative;order:1;inset:auto;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;z-index:0}
- .p-site :is(.p-about,.careers-page,.p-solutions) .p-photo-hero-overlay{display:none}
- .p-site .p-photo-hero-editorial{display:flex;flex-direction:column}
- .p-site .p-photo-hero-editorial .p-photo-hero-inner{padding:28px 24px 34px;order:0}
- .p-site .p-photo-hero-editorial .p-photo-hero-image{order:1;min-height:0;max-height:none;height:auto;aspect-ratio:3/2}
+ /* Keep the photograph behind the copy, including on narrow screens. */
+ .p-site .p-photo-hero .p-photo-hero-inner{min-height:clamp(430px,calc(82svh - var(--site-header-height)),580px);padding-block:48px;justify-content:flex-end}
+ .p-site .p-photo-hero .p-photo-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}
+ .p-site .p-photo-hero-overlay{display:block;background:linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,.24) 20%,rgba(0,0,0,.68) 56%,rgba(0,0,0,.88))}
+ .p-site .p-photo-hero .p-photo-hero-copy>p{margin:20px 0 26px}
+ .p-site .p-photo-hero:has(.p-scroll-link) .p-photo-hero-inner{padding-bottom:80px}
+ .p-site .p-photo-hero-editorial .p-photo-hero-inner{min-height:360px;padding-block:42px}
+ .p-site .p-photo-hero-editorial .p-photo-hero-copy>p{margin-bottom:0}
  .p-site main .p-photo-hero-editorial h1{font-size:32px}
  .enquiry-confirmation-card{padding:28px 20px}
  .dossier-investment-row strong{font-size:25px}
@@ -99,3 +104,35 @@
  .p-site:has(>.p-header.has-section-glass) .opportunities-page .opportunity-filters{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
  .p-site:has(>.p-header.has-section-glass) .opportunities-page .opportunity-filters::before{display:none}
 }
+
+/* Distinguish no vacancies from an empty search result. */
+.p-site .careers-no-results{max-width:680px;margin:0 auto;padding:42px 24px;text-align:center;border:1px solid var(--line);border-radius:20px;background:var(--panel)}
+.p-site .careers-no-results>svg{color:var(--brand);margin-bottom:18px}
+.p-site .careers-no-results h2{font-size:clamp(24px,3vw,32px);line-height:1.2;margin:0 0 14px}
+.p-site .careers-no-results p{max-width:510px;margin:0 auto;color:var(--muted);line-height:1.7}
+.p-site .careers-no-results button{margin-top:20px}
+
+.p-site .p-photo-hero-image{object-position:var(--hero-desktop-position,50% 50%)}
+@media(max-width:767px){.p-site .p-photo-hero-image{object-position:var(--hero-mobile-position,50% 50%)}}
+
+/* Mobile editorial rows: one metadata line, then thumbnail and title together. */
+@media(max-width:767px){
+ .p-site .home-reading-grid{gap:22px}
+ .p-site .home-reading-grid .p-reading-card{grid-template-columns:92px minmax(0,1fr) 16px;gap:12px 14px;padding:0 0 22px;margin:0;align-items:center}
+ .p-site .home-reading-grid .p-reading-card .p-label{grid-column:1/-1;grid-row:1;display:flex;justify-content:flex-start;align-items:center;gap:12px;margin:0;font-size:10px;line-height:1.4}
+ .p-site .home-reading-grid .p-reading-card .p-label span{display:inline;margin:0;font-size:11px}
+ .p-site .home-reading-grid .p-reading-card>div{grid-column:1;grid-row:2;min-height:0;aspect-ratio:1;margin:0;border-radius:8px}
+ .p-site .home-reading-grid .p-reading-card img{object-fit:cover}
+ .p-site .home-reading-grid .p-reading-card h3{grid-column:2;grid-row:2;font-size:17px;line-height:1.35;margin:0;max-width:none}
+ .p-site .home-reading-grid .p-reading-arrow{position:static;grid-column:3;grid-row:2;align-self:center;display:flex}
+ .p-site .home-reading-grid .p-reading-arrow svg{width:16px;height:16px}
+}
+@media(max-width:359px){.p-site .home-reading-grid .p-reading-card{grid-template-columns:76px minmax(0,1fr) 14px;column-gap:10px}.p-site .home-reading-grid .p-reading-card h3{font-size:16px}}
+
+/* Every photographic landing banner is one image-backed surface, at all widths. */
+.p-site .p-photo-hero{display:block;background:#101010;color:#fff}
+.p-site .p-photo-hero>picture{position:absolute;inset:0;z-index:-3;display:block}
+.p-site .p-photo-hero .p-photo-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.p-site .p-photo-hero .p-photo-hero-overlay{display:block;position:absolute;inset:0;z-index:-2}
+.p-site main .p-photo-hero h1,.p-site main .p-photo-hero h1 span{color:#fff}
+@media(min-width:768px){.p-site .p-photo-hero .p-photo-hero-overlay{background:linear-gradient(90deg,#000c 0%,#0009 40%,#0002 82%),linear-gradient(180deg,#0007,transparent 38%)}}

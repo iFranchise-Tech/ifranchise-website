@@ -20,3 +20,14 @@
 .contact-input-anchor .country-empty{font-size:13px;padding:8px;margin:0}
 .cms-field.email-field .contact-input-anchor>input{width:100%}
 @media(max-width:520px){.email-field .contact-input-anchor>input{font-size:16px}.email-suggestions>li>button{font-size:14px}.contact-input-anchor .country-picker{padding:8px}.phone-control .country-trigger{gap:5px;padding:0 9px}.phone-control .country-flag{font-size:16px}}
+
+/* One enclosed control: the divider and chevron remain inside its height. */
+.p-site .phone-field .phone-control,.phone-field .phone-control{display:flex;align-items:stretch;min-width:0;height:52px;min-height:52px;box-sizing:border-box}
+.p-site .phone-field .phone-control .country-trigger,.phone-field .phone-control .country-trigger{position:relative;display:flex;align-items:center;justify-content:center;align-self:stretch;flex:0 0 auto;gap:6px;min-width:100px;width:auto;height:100%;min-height:0;max-height:100%;margin:0;padding:0 10px;border:0;border-right:1px solid var(--p-line,#dedbe8);border-radius:6px 0 0 6px;box-sizing:border-box;transform:none;background:transparent}
+.p-site .phone-field .phone-control input,.phone-field .phone-control input{flex:1 1 0;min-width:0;width:0;height:100%;min-height:0;max-height:100%;margin:0;border:0!important;padding:0 12px;box-sizing:border-box;line-height:normal}
+.p-site .phone-field .country-trigger>svg,.phone-field .country-trigger>svg{position:static;inset:auto;flex:none;width:12px;height:12px;margin:0;padding:0;transform:none}
+.p-site .phone-field .country-trigger .country-iso,.phone-field .country-iso{font-size:11px;font-weight:600;line-height:1;color:var(--p-copy,#615b70);flex:none}
+.p-site .phone-field .country-trigger strong{font-size:12px;line-height:1;color:var(--p-ink,#211c31);flex:none}
+.phone-field .country-options .country-iso{display:inline-block;min-width:22px;margin-right:5px}
+.p-site .phone-field .phone-control:focus-within,.phone-field .phone-control:focus-within{border-color:#32159b;outline:2px solid #32159b;outline-offset:2px;box-shadow:none}
+.p-site .phone-field .phone-control>:is(input,.country-trigger):focus,.phone-field .phone-control>:is(input,.country-trigger):focus{outline:0;box-shadow:none}

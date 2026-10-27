@@ -3,7 +3,7 @@
 .p-header{position:sticky;top:0;background:transparent;border-bottom:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
 .p-header:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:rgba(255,255,255,.76);-webkit-backdrop-filter:blur(24px) saturate(145%);backdrop-filter:blur(24px) saturate(145%);transition:background-color .25s ease,opacity .25s ease}
 html[data-theme=dark] .p-header:before{background:rgba(8,8,8,.76)}
-.p-header.is-on-hero:not(.is-menu-open):before{left:calc(max(var(--site-gutter),calc((100% - var(--site-width))/2)) + var(--wordmark-compact) + 24px);background:rgba(255,255,255,.24);-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px);mask-image:linear-gradient(90deg,transparent,#000 28px)}
+.p-header.is-on-hero:not(.is-menu-open):before{left:0;background:rgba(255,255,255,.24);-webkit-mask:none;mask:none}
 html[data-theme=dark] .p-header.is-on-hero:not(.is-menu-open):before,.p-header.is-on-hero.is-over-hero:not(.is-menu-open):before{background:rgba(8,8,8,.2)}
 .p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open):before{opacity:0}
 .p-header.is-menu-open:before{background:var(--p-bg);opacity:1;-webkit-backdrop-filter:none;backdrop-filter:none}
@@ -30,11 +30,12 @@ html[data-theme=dark] .p-header.is-on-hero.is-brand-protected:not(.is-menu-open)
 .p-floating-brand .identity-master{filter:none}
 html[data-theme=dark] .p-floating-brand .identity-master{filter:brightness(0) invert(1)}
 .p-floating-brand.is-on-dark-hero .identity-master{filter:brightness(0) invert(1)}
-/* Use the approved wordmark as a mask: the moving backdrop remains visible inside it. */
+/* Opaque artwork stays legible; the navigation surface supplies the glass. */
+.p-floating-brand{mix-blend-mode:normal}
 .p-floating-brand .identity-lockup{position:relative}
-.p-floating-brand.is-blended .identity-master{opacity:0}
-.p-floating-brand.is-blended .identity-lockup:after{content:'';position:absolute;inset:0;pointer-events:none;-webkit-mask:url('/assets/ifranchise-wordmark.svg') center/contain no-repeat;mask:url('/assets/ifranchise-wordmark.svg') center/contain no-repeat;-webkit-backdrop-filter:brightness(2.6) invert(1);backdrop-filter:brightness(2.6) invert(1)}
-@supports not ((backdrop-filter:invert(1)) or (-webkit-backdrop-filter:invert(1))){.p-floating-brand.is-blended{mix-blend-mode:difference}.p-floating-brand.is-blended .identity-master{opacity:1;filter:brightness(0) invert(1)}}
+.p-floating-brand .identity-master{opacity:1}
+.p-floating-brand.is-on-dark-hero .identity-master{filter:brightness(0) invert(1) drop-shadow(0 1px 4px #0008)}
+.p-floating-brand .identity-lockup:after{display:none}
 .p-floating-brand.is-large .identity-lockup.identity-wordmark{width:210px}
 .p-brand-space{width:var(--wordmark-compact);flex:none;transition:width .35s cubic-bezier(.22,.61,.36,1)}
 .p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:210px}
@@ -42,7 +43,7 @@ html[data-theme=dark] .p-floating-brand .identity-master{filter:brightness(0) in
 @media(max-width:767px){:root{--wordmark-compact:124px}.p-floating-brand.is-large .identity-lockup.identity-wordmark,.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:175px}}
 @media(max-width:370px){.p-floating-brand.is-large .identity-lockup.identity-wordmark,.p-header.is-on-hero:not(.is-scrolled):not(.is-menu-open) .p-brand-space{width:160px}}
 @media(prefers-reduced-motion:reduce){.p-header,.p-floating-brand .identity-lockup.identity-wordmark,.p-brand-space{transition:none}}
-@media(prefers-reduced-transparency:reduce){.p-header:before,.p-header.is-on-hero:before,html[data-theme=dark] .p-header:before{left:0;background:var(--p-bg);opacity:1;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask:none;mask:none}.p-floating-brand.is-blended .identity-master{opacity:1}.p-floating-brand.is-blended .identity-lockup:after{display:none}.p-header.is-over-hero :is(.p-navigation>a,.p-nav-group>button,.p-menu-button){color:var(--p-ink)}.p-header.is-over-hero .theme-toggle{color:var(--p-brand)!important}}
+@media(prefers-reduced-transparency:reduce){.p-header:before,.p-header.is-on-hero:before,html[data-theme=dark] .p-header:before{left:0;background:var(--p-bg);opacity:1;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask:none;mask:none}.p-floating-brand.is-blended{mix-blend-mode:normal}.p-floating-brand.is-blended .identity-master{opacity:1}.p-floating-brand.is-blended .identity-lockup:after{display:none}.p-header.is-over-hero :is(.p-navigation>a,.p-nav-group>button,.p-menu-button){color:var(--p-ink)}.p-header.is-over-hero .theme-toggle{color:var(--p-brand)!important}}
 
 /* Shared glass treatment for navigation panels and the brand section bar. */
 :root{--nav-panel:rgba(255,255,255,.78);--nav-panel-border:rgba(225,220,235,.66);--nav-hover:rgba(238,234,250,.75)}

@@ -14,12 +14,12 @@ test('catalogue choices come only from published brand data, with safe unknown i
  assert.deepEqual(filterBrands(list,{budget:'25'}).map(b=>b.name),['Alpha']);
  assert.equal(catalogueOptions([]).budgets.length,0);
 });
-test('phone input rejects excess digits and duplication without truncating, and permits legitimate domestic prefixes',()=>{
- for(const v of ['91234567890','09123456789','919123456789','+9191234567890'])assert.throws(()=>nationalPhoneInput(v,'IN'));
+test('phone input preserves excess digits for correction and validation rejects them',()=>{
+ for(const v of ['91234567890','09123456789','919123456789','+9191234567890']){const entered=nationalPhoneInput(v,'IN');assert.equal(entered,v.startsWith('+91')?v.slice(3):v);assert.throws(()=>normalizePhone(entered,'IN'));}
  assert.equal(nationalPhoneInput('+91 91234-56789','IN'),'9123456789');
  for(const [country,number,expected] of [['GB','07400123456','+447400123456'],['AU','0412345678','+61412345678'],['AE','0501234567','+971501234567'],['US','4155552671','+14155552671'],['FR','0612345678','+33612345678']]){
   assert.equal(normalizePhone(nationalPhoneInput(number,country),country),expected);
-  assert.throws(()=>nationalPhoneInput(number+'99',country));
+  assert.equal(nationalPhoneInput(number+'99',country),number+'99');assert.throws(()=>normalizePhone(number+'99',country));
  }
 });
 test('Odette MG and revenue share stay exact and complex legacy return conditions are preserved',()=>{

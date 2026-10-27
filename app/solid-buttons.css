@@ -34,7 +34,25 @@
 .brand-mobile-contact .brand-contact-toggle{touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
 .brand-mobile-contact.is-dragging{transition:none;user-select:none}
 .brand-mobile-contact.is-dragging .brand-contact-toggle{cursor:grabbing;box-shadow:-3px 3px 16px #32159b24}
-.brand-mobile-contact.is-collapsed .brand-contact-toggle{background:#32159b;color:white}
+.brand-mobile-contact .brand-contact-toggle>svg{width:16px;height:16px;stroke-width:2;flex:none;pointer-events:none}
+/* A slim edge handle, with the full 44px-wide touch area retained for dragging. */
+.brand-mobile-contact.is-collapsed{height:48px}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle{width:44px;height:48px;min-height:48px;background:transparent;color:#fff;border:0;border-radius:0;box-shadow:none;isolation:isolate}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle:before{content:"";position:absolute;inset:0 0 0 14px;background:#32159b;border:1px solid #ffffff26;border-right:0;border-radius:16px 0 0 16px;box-shadow:-2px 2px 8px #211b3114;z-index:-1;transition:background-color .18s,box-shadow .18s}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle>svg{transform:translateX(7px)}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle:hover:before{background:#261078}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle:focus-visible{outline:0}
+.brand-mobile-contact.is-collapsed .brand-contact-toggle:focus-visible:before{outline:2px solid white;outline-offset:-4px}
+.brand-mobile-contact.is-collapsed.is-dragging .brand-contact-toggle:before{background:#261078;box-shadow:-3px 3px 12px #32159b24}
+@media(prefers-reduced-motion:reduce){.brand-mobile-contact.is-collapsed .brand-contact-toggle:before{transition:none}}
 @media(prefers-reduced-motion:reduce){.p-site .p-header .p-navigation :is(a,button,span):after,.p-site .p-header .p-navigation :is(a,button,span){transition:none!important;animation:none!important}}
 @media(prefers-reduced-transparency:reduce){.p-site .p-header.is-menu-open:before{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.p-site .p-header.is-menu-open:before{background:#fff}}
+
+/* A selection is an immediate state change, not a light-to-dark crossfade. */
+.p-site .p-form-switch.intake-switch button{transition:none;transform:none;animation:none}
+.p-site .p-form-progress{display:grid;grid-template-columns:minmax(0,1fr) minmax(12px,.4fr) minmax(0,1fr)}
+.p-site .p-form-progress button{min-width:0;transition:color .16s;transform:none}
+.p-site .p-form-progress button:last-child{justify-content:flex-end}
+.p-site :is(.p-button,.button,.p-contact-button){transition:background-color .18s,color .18s;transform:none}
+.p-site :is(.p-button,.button,.p-contact-button):hover{transform:none}

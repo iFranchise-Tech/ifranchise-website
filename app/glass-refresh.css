@@ -50,20 +50,19 @@
 .p-site .resource-section-heading h2{font-size:32px;line-height:1.2;margin:8px 0 0}
 .resource-section-heading p{font-size:14px;color:var(--p-copy);margin:0}
 .p-site .resource-browse-heading{font-size:24px;margin:0 0 24px}
-/* A route change never runs the logo-size transition. */
-.p-floating-brand .identity-lockup.identity-wordmark,.p-header .p-brand-space{width:var(--wordmark-compact)!important;transition:none}
-html[data-wordmark-size=large] .p-floating-brand .identity-lockup.identity-wordmark,html[data-wordmark-size=large] .p-header .p-brand-space{width:190px!important}
-html[data-wordmark-motion=scroll] :is(.p-floating-brand .identity-lockup.identity-wordmark,.p-header .p-brand-space){transition:width .35s cubic-bezier(.22,.61,.36,1)}
-@media(max-width:1279px){.p-site .p-navigation.is-open{background:rgba(255,255,255,.97)}.p-site .p-navigation .p-dropdown{box-shadow:none;background:rgba(240,243,252,.6);-webkit-backdrop-filter:none;backdrop-filter:none}}
-@media(max-width:767px){
- html[data-wordmark-size=large] .p-floating-brand .identity-lockup.identity-wordmark,html[data-wordmark-size=large] .p-header .p-brand-space{width:160px!important}
- .p-photo-hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.76),rgba(0,0,0,.34)),linear-gradient(0deg,rgba(0,0,0,.22),transparent)}
- .p-video-hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.74),rgba(0,0,0,.4))}
- .p-photo-hero-compact .p-photo-hero-inner{padding-block:48px 44px}
- .resource-section-heading{align-items:flex-start;flex-direction:column;gap:12px}.p-site .resource-section-heading h2{font-size:28px}
- .p-site .p-form-switch.intake-switch button{font-size:12px!important;padding:10px 8px}
-}
+/* Reserve stable navigation space and scale only the artwork on user scroll. */
+:root{--wordmark-expanded:190px;--wordmark-scale:.7368421053}
+.p-floating-brand{width:var(--wordmark-compact);overflow:visible}
+.p-floating-brand .identity-lockup.identity-wordmark{width:var(--wordmark-expanded)!important;flex:none;aspect-ratio:910/224;transform:scale(var(--wordmark-scale));transform-origin:left center;transition:none}
+.p-floating-brand .identity-master{width:100%;height:100%;object-fit:contain}
+.p-header .p-brand-space{width:var(--wordmark-expanded)!important;transition:none}
+html[data-wordmark-size=large] .p-floating-brand .identity-lockup.identity-wordmark{transform:scale(1)}
+html[data-wordmark-size=large] .p-header .p-brand-space{width:var(--wordmark-expanded)!important}
+html[data-wordmark-motion=scroll] .p-floating-brand .identity-lockup.identity-wordmark{transition:transform .35s cubic-bezier(.22,.61,.36,1)}
+html[data-wordmark-motion=scroll] .p-header .p-brand-space{transition:none}
+@media(max-width:767px){:root{--wordmark-expanded:160px;--wordmark-scale:.775}}
 @media(prefers-reduced-motion:reduce){html[data-wordmark-motion=scroll] :is(.p-floating-brand .identity-lockup.identity-wordmark,.p-header .p-brand-space){transition:none}}
+
 @media(prefers-reduced-transparency:reduce){.p-site :is(.p-button,.button,.p-contact-button,.brand-contact-enquire,.whatsapp-float){background:#32159b;-webkit-backdrop-filter:none;backdrop-filter:none}.p-site :is(.p-dropdown,.country-picker){background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
 
 /* Keep every primary action blue, including the header when it overlays a hero. */
