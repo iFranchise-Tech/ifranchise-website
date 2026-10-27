@@ -2,7 +2,7 @@
 
 ## Approved homepage video — From plan to presence, 25 October 2026
 
-The owner selected option 5 from five real-stock montage previews. Four related scenes form a silent 16.72-second loop:
+The owner selected option 5 from five real-stock montage previews. Four related scenes form a silent loop of approximately 17 seconds:
 
 1. Commercial planning — Kampus Production: https://www.pexels.com/video/business-people-looking-at-documents-8425719/
 2. Preparing a location — cottonbro studio: https://www.pexels.com/video/colleague-discussing-plans-for-the-construction-materials-6568705/
@@ -10,10 +10,10 @@ The owner selected option 5 from five real-stock montage previews. Four related 
 4. A wider retail destination — Joshua Santos: https://www.pexels.com/video/people-spending-time-inside-a-mall-2985409/
 
 - Licence: https://www.pexels.com/license/ (commercial website use permitted; checked 25 October 2026).
-- Assets: `public/assets/home-hero/plan-to-presence.mp4`, `plan-to-presence-mobile.mp4` and `plan-to-presence.webp`.
-- Edits: short extracts, 0.8-second crossfades between scenes and back to the opening scene, muted H.264 encoding, fast-start metadata. Desktop is 1920 × 1080; mobile is 1280 × 720. The poster matches the opening frame.
+- Current assets (27 October 2026): `public/assets/home-hero/plan-to-presence-{hd,qhd,portrait}-v2.mp4` and their matching WebP posters. Older files are retained for existing cached pages.
+- Rebuilt directly from the original 4K/1440p stock footage using `scripts/encode-home-hero.py`, rather than recompressing the previous montage. Short extracts, 0.8-second crossfades between scenes and back to the opening scene, silent H.264 encoding, 25 fps, CRF 19 and fast-start metadata. Desktop renditions are 1920 × 1080 (10.25 MiB) and 2560 × 1440 (17.26 MiB); portrait mobile is 810 × 1440 (5.81 MiB). The portrait file retains native source detail instead of enlarging a narrow crop of the former 720p landscape file. Posters match the opening frame.
 - These are illustrative business settings, not iFranchise staff, clients or locations. No endorsement is implied.
-- The still poster renders immediately. Video loads after the page, respects reduced motion and data saving, and pauses out of view or in a hidden tab. Narrow screens and 3G connections receive the smaller film. No play/pause controls are shown, as requested.
+- The responsive still poster renders immediately. Only one video rendition loads, after the page. Portrait mobile gets the portrait film; large/high-density screens get QHD; other desktops and 3G connections get HD. Playback respects reduced motion and data saving, pauses out of view/in hidden tabs, and recovers unexpected pauses and stalls with bounded retries. Browser autoplay restrictions are respected. No play/pause controls are shown, as requested.
 
 ## Previously prepared homepage photograph
 

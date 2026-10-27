@@ -1,10 +1,9 @@
 'use client';
 
 import {useEffect,useRef,useState} from 'react';
+import {createHeroPlayback,selectHeroFilm} from '@/lib/hero-video-playback.mjs';
 
-const film='/assets/home-hero/plan-to-presence.mp4';
-const mobileFilm='/assets/home-hero/plan-to-presence-mobile.mp4';
-const poster='/assets/home-hero/plan-to-presence.webp';
+const poster='/assets/home-hero/plan-to-presence-hd-v2.webp';
 type DataConnection=EventTarget & {saveData?:boolean;effectiveType?:string};
 
 export function HeroVideo(){
@@ -16,29 +15,32 @@ export function HeroVideo(){
   const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
   const connection=(navigator as Navigator & {connection?:DataConnection}).connection;
   let visible=false,loaded=document.readyState==='complete';
-  const update=()=>{
-   const conserve=motion.matches||connection?.saveData||['slow-2g','2g'].includes(connection?.effectiveType||'');
-   if(!visible||document.hidden||!loaded||conserve){element.pause();return;}
-   // Keep the video request out of the initial page load and respect visitor preferences.
-   if(!element.getAttribute('src')){
-    const smallerScreen=window.matchMedia('(max-width: 767px)').matches;
-    element.src=smallerScreen||connection?.effectiveType==='3g'?mobileFilm:film;
-   }
-   element.muted=true;
-   void element.play().catch(()=>{});
-  };
+  const playback=createHeroPlayback(element,{
+   canPlay:()=>visible&&!document.hidden&&loaded&&!motion.matches&&!connection?.saveData&&!['slow-2g','2g'].includes(connection?.effectiveType||''),
+   source:()=>selectHeroFilm(window.innerWidth,window.innerHeight,window.devicePixelRatio,connection?.effectiveType),
+   onUnavailable:setFailed,
+  });
+  const update=()=>playback.sync();
+  const resume=()=>playback.sync(true);
   const onLoad=()=>{loaded=true;update();};
   const onPreference=update;
   const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0});
   observer.observe(element);
   window.addEventListener('load',onLoad);
+  window.addEventListener('pageshow',resume);
+  window.addEventListener('online',resume);
+  document.addEventListener('pointerdown',resume,{passive:true});
+  document.addEventListener('keydown',resume);
   document.addEventListener('visibilitychange',update);
   motion.addEventListener('change',onPreference);
   connection?.addEventListener('change',onPreference);
-  return ()=>{observer.disconnect();element.pause();window.removeEventListener('load',onLoad);document.removeEventListener('visibilitychange',update);motion.removeEventListener('change',onPreference);connection?.removeEventListener('change',onPreference);};
+  return ()=>{observer.disconnect();playback.destroy();window.removeEventListener('load',onLoad);window.removeEventListener('pageshow',resume);window.removeEventListener('online',resume);document.removeEventListener('pointerdown',resume);document.removeEventListener('keydown',resume);document.removeEventListener('visibilitychange',update);motion.removeEventListener('change',onPreference);connection?.removeEventListener('change',onPreference);};
  },[]);
  return <>
-  <img className="p-video-hero-poster" src={poster} alt="" width="1920" height="1080" fetchPriority="high" decoding="async"/>
-  <video ref={video} className="p-video-hero-video" poster={poster} muted loop playsInline preload="none" disablePictureInPicture aria-hidden="true" tabIndex={-1} onError={()=>setFailed(true)} hidden={failed}/>
+  <picture>
+   <source media="(max-width:767px) and (orientation:portrait)" srcSet="/assets/home-hero/plan-to-presence-portrait-v2.webp"/>
+   <img className="p-video-hero-poster" src={poster} srcSet={`${poster} 1920w, /assets/home-hero/plan-to-presence-qhd-v2.webp 2560w`} sizes="100vw" alt="" width="1920" height="1080" fetchPriority="high" decoding="async"/>
+  </picture>
+  <video ref={video} className="p-video-hero-video" muted loop playsInline preload="none" disablePictureInPicture aria-hidden="true" tabIndex={-1} hidden={failed}/>
  </>;
 }
