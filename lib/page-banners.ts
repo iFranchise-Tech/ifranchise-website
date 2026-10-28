@@ -42,18 +42,18 @@ export const pageBanners = {
   },
   "articles": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/articles-business-insights-hd.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/articles-strategy-discussion-7688443.webp",
     "mobilePosition": "50% 40%",
-    "image": "/assets/stock-heroes/articles-business-insights-hd.webp",
-    "alt": "Hands reviewing a commercial report with charts and business insights",
+    "image": "/assets/stock-heroes/articles-strategy-discussion-7688443.webp",
+    "alt": "Business colleagues comparing strategy documents and commercial charts",
     "position": "50% 50%"
   },
   "videos": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/videos-interview-recording-hd.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/videos-podcast-studio-11901222.webp",
     "mobilePosition": "50% 35%",
-    "image": "/assets/stock-heroes/videos-interview-recording-hd.webp",
-    "alt": "A camera recording an interview with two speakers",
+    "image": "/assets/stock-heroes/videos-podcast-studio-11901222.webp",
+    "alt": "A professional interview and podcast recording studio with microphones and lighting",
     "position": "50% 45%"
   }
   ,"homeProcess": {

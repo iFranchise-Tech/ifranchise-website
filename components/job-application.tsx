@@ -1,17 +1,18 @@
 'use client';
+import {showConfirmation} from '../lib/intake/confirmation.mjs';
 import {useRef,useState} from 'react';
-import {ArrowUpRight,Check,FileUp} from 'lucide-react';
+import {ArrowUpRight,FileUp} from 'lucide-react';
 import {PhoneField,EmailField,NameField,validatePhoneFields} from './contact-fields';
 import {LocationFields,IntakeConsent,useIntake,readReceipt} from './intake-fields';
 import {MAX_RESUME,QUALIFICATIONS,EDUCATION_STATUSES,EMPLOYMENT_STATUSES,NOTICE_PERIODS} from '../lib/intake/constants.mjs';
 
 export function JobApplicationForm({job}:{job:{id:string;slug?:string;title:string}}){
  const sending=useRef(false),intake=useIntake();
- const [busy,setBusy]=useState(false),[error,setError]=useState(''),[receipt,setReceipt]=useState<any>(null);
+ const [busy,setBusy]=useState(false),[error,setError]=useState('');
  const [fileName,setFileName]=useState(''),[experienceType,setExperienceType]=useState(''),[employmentStatus,setEmploymentStatus]=useState('');
  const id='job-application';
- async function send(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(sending.current)return;validatePhoneFields(e.currentTarget);if(!e.currentTarget.reportValidity())return;sending.current=true;setBusy(true);setError('');try{const form=e.currentTarget,p=await intake.payload(form,'job'),fd=new FormData(form),file=fd.get('resume') as File;if(!file?.size||file.size>MAX_RESUME)throw Error('Upload a PDF resume up to 5 MB.');const body=new FormData();body.set('payload',JSON.stringify({...p,resume:undefined,jobSlug:job.slug||job.id}));body.set('resume',file);setReceipt(await readReceipt(await fetch('/api/intake/applications',{method:'POST',body})));}catch(e:any){setError(e.message)}finally{sending.current=false;setBusy(false)}}
- if(receipt)return <div className="intake-success"><Check size={32}/><h2>Application received.</h2><p role="status">Thank you for applying for {job.title}.</p><small>Reference: {receipt.reference}</small><a className="p-link" href="/careers">View other roles <ArrowUpRight size={18}/></a></div>;
+ async function send(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(sending.current)return;validatePhoneFields(e.currentTarget);if(!e.currentTarget.reportValidity())return;sending.current=true;setBusy(true);setError('');let redirecting=false;try{const form=e.currentTarget,p=await intake.payload(form,'job'),fd=new FormData(form),file=fd.get('resume') as File;if(!file?.size||file.size>MAX_RESUME)throw Error('Upload a PDF resume up to 5 MB.');const body=new FormData();body.set('payload',JSON.stringify({...p,resume:undefined,jobSlug:job.slug||job.id}));body.set('resume',file);await readReceipt(await fetch('/api/intake/applications',{method:'POST',body}));redirecting=true;showConfirmation(window);}catch(e:any){setError(e.message)}finally{if(!redirecting){sending.current=false;setBusy(false)}}}
+
  return <form className="candidate-form" aria-label="Job application" noValidate onSubmit={send}>
   <div className="field-row"><NameField id={id}/><EmailField id={id}/></div>
   <div className="field-row"><PhoneField id={id}/><div className="field"><label htmlFor={id+'-profile'}>LinkedIn or portfolio</label><input id={id+'-profile'} name="profile" type="url" placeholder="https://" maxLength={500}/></div></div>

@@ -201,3 +201,8 @@ These replace the earlier List your Brand and About us phone images with photogr
 - **About us:** [Business Planning in Office](https://www.pexels.com/photo/business-planning-in-office-12899116/), Mizuno K / Pexels, photo 12899116. `public/assets/stock-heroes/mobile/about-collaborative-advisors-12899116.webp`. Colleagues discussing plans together; 1200 × 1800 WebP.
 
 Both sourced under the [Pexels License](https://www.pexels.com/license/) allowing commercial use and modification. Illustrative stock photography; these people are not represented as iFranchise employees or clients.
+# Articles and Videos refresh — 28 October 2026
+
+- Articles: Kindel Media, “People Discuss Strategy Documents”, Pexels photo 7688443. https://www.pexels.com/photo/people-discuss-strategy-documents-7688443/
+- Videos: dlxmedia.hu, “Studio Set for the Recording of a Podcast”, Pexels photo 11901222. https://www.pexels.com/photo/studio-set-for-the-recording-of-a-podcast-11901222/
+- Both are real stock photographs supplied under the Pexels licence. https://www.pexels.com/license/ WebP derivatives: 640, 960, 1440, 2400 and 3200 pixels; mobile 1280 pixels. Other page banners are unchanged.

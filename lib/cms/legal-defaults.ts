@@ -63,7 +63,7 @@ export const legalDefaults=[
         "body": [
           "Necessary storage supports website access, security and your settings. Browsing or scrolling is not consent to optional cookies. You can choose “Necessary only”, “Accept all cookies”, or reopen your preferences at any time.",
           "Preferences",
-          "Cookie choices, date and notice version are stored in this browser under ifranchise_privacy_v1 for 180 days. The record contains no name or contact details. We ask again after expiry or a material notice change, or when you clear browser data or use a different browser. Theme and temporary interface settings may also be remembered locally.",
+          "Cookie preferences and the date of your choice are remembered in this browser for up to 180 days. The record contains no name or contact details. We ask again after expiry or a material notice change, or when you clear browser data or use a different browser. Theme and temporary interface settings may also be remembered locally.",
           "Saved resources",
           "When you save a resource, its address, reading position and save time are stored under ifranchise_saved_resources_v1. Up to 100 resources remain in that browser until removed or browser data is cleared. They are not sent to our servers or synced across devices. External video playback positions are not saved by this website.",
           "Optional measurement",

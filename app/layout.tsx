@@ -35,6 +35,7 @@ import './website-issues.css';
 import './brand-profile.css';
 import './solid-buttons.css';
 import './scrollbars.css';
+import './issues-two.css';
 import {ScrollbarActivity} from '../components/scrollbar-activity';
 import {publishedPage} from '../lib/cms/public';
 import {SiteSettingsProvider} from '../components/site-settings';

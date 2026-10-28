@@ -22,7 +22,7 @@ export function FranchiseDetail({brand:original,brands}:{brand:any;brands:any[]}
   <div className="p-container dossier-layout">
    <div className="profile-content">
     <header className="profile-intro">
-     <div className="profile-brand-line"><BrandLogo brand={b} className="profile-logo"/><div className="profile-brand-name"><p className="profile-eyebrow">{b.category}</p><h1>{b.caption||b.name}</h1></div>{outlets&&<div className="profile-outlet-count" aria-label={outlets}><strong>{outletParts?outletParts[1]:outlets}</strong><span>{outletParts?outletParts[2] : "Brand presence"}</span></div>}</div>
+     <div className="profile-brand-line"><BrandLogo brand={b} className="profile-logo"/><div className="profile-brand-name"><p className="profile-eyebrow">{b.category}</p><h1>{b.caption||b.name}</h1></div>{outlets&&<div className={"profile-outlet-count"+(outletParts?"":" profile-brand-presence")} aria-label={outlets}><strong>{outletParts?outletParts[1]:outlets}</strong>{outletParts&&<span>{outletParts[2]}</span>}</div>}</div>
      <p className="profile-description">{b.description}</p>
 
     </header>

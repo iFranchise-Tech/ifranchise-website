@@ -44,7 +44,7 @@ export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]
    // Routes may stream their hero after the shared header has hydrated.
    const nextHero=document.querySelector('.p-video-hero,.p-photo-hero,.opportunities-hero,.p-about-intro');
    if(nextHero!==hero){if(hero)resize.unobserve(hero);hero=nextHero;if(hero)resize.observe(hero);}
-   const nextBar=document.querySelector('.dossier-nav,.reader-toolbar,.p-brand-nav'+(innerWidth>=1024?',.opportunity-filters':''));
+   const nextBar=document.querySelector('.dossier-nav,.reader-toolbar,.p-brand-nav,.profile-section-nav'+(innerWidth>=1024?',.opportunity-filters':''));
    if(nextBar!==sectionBar){if(sectionBar)resize.unobserve(sectionBar);sectionBar=nextBar;if(sectionBar)resize.observe(sectionBar);}
    const height=header?.getBoundingClientRect().height||80;
    header?.style.setProperty('--menu-panel-height',(mobile?(header.querySelector('.p-navigation')?.getBoundingClientRect().height||0):0)+'px');
@@ -62,7 +62,8 @@ export function Header(){const [mobile,setMobile]=useState(false),[open,setOpen]
    setHeaderState(current=>current.path===next.path&&current.scrolled===next.scrolled&&current.overHero===next.overHero&&current.darkHero===next.darkHero&&current.protectBrand===next.protectBrand&&current.joinedHeight===next.joinedHeight?current:next);
   };
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
-  const content=new MutationObserver(schedule);
+  // Form validation and dropdown changes must not remeasure the whole header.
+  const content=new MutationObserver(records=>{if(records.some(record=>Array.from(record.addedNodes).some(node=>node instanceof Element&&(node.matches('main,.p-photo-hero,.p-video-hero,.profile-section-nav')||node.querySelector('.p-photo-hero,.p-video-hero,.profile-section-nav')))))schedule()});
   content.observe(document.querySelector('.p-site')||document.body,{childList:true,subtree:true});
   if(header){resize.observe(header);const navigation=header.querySelector('.p-navigation');if(navigation)resize.observe(navigation);}
   update();
@@ -85,10 +86,9 @@ export function Footer(){const contact=useSiteSettings();const contactPage=usePa
  <div className="p-footer-bottom"><span>© {new Date().getFullYear()} iFranchise. All rights reserved.</span><nav className="p-footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a><a href="/privacy-choices">Privacy choices</a></nav><a href="#main" className="p-back-top">Back to top<ArrowUpRight size={15}/></a></div>
  </div></footer>}
 export function WhatsAppButton(){const contact=useSiteSettings();
- const path=usePathname(),[footerVisible,setFooterVisible]=useState(false),[intro,setIntro]=useState(false);
- const eligible=path==='/franchise-opportunities'||path.startsWith('/franchise/');
+ const path=usePathname(),[footerVisible,setFooterVisible]=useState(false);
  useEffect(()=>{const footer=document.querySelector('.p-footer');if(!footer)return;const observer=new IntersectionObserver(([entry])=>setFooterVisible(entry.isIntersecting));observer.observe(footer);return()=>observer.disconnect()},[path]);
- useEffect(()=>{if(!eligible)return;let show=false;try{show=!sessionStorage.getItem('ifranchise-whatsapp-intro');if(show)sessionStorage.setItem('ifranchise-whatsapp-intro','1')}catch{}const frame=requestAnimationFrame(()=>setIntro(show));const timer=setTimeout(()=>setIntro(false),4500);return()=>{cancelAnimationFrame(frame);clearTimeout(timer)}},[eligible]);
+
  if(path.startsWith('/franchise/')||path==='/'||path==='/contact-us'||path==='/list-your-brand'||path==='/careers'||path.startsWith('/careers/')||footerVisible)return null;
- return <a className={'whatsapp-float whatsapp-compact'+(intro?' is-intro':'')} href={whatsappUrl(undefined,contact.phone)} target="_blank" rel="noopener noreferrer" aria-label="Chat with iFranchise on WhatsApp"><Icon name="whatsapp" width="25"/><span>WhatsApp</span></a>
+ return <a className="whatsapp-float whatsapp-compact" href={whatsappUrl(undefined,contact.phone)} target="_blank" rel="noopener noreferrer" aria-label="Chat with iFranchise on WhatsApp"><Icon name="whatsapp" width="25"/></a>
 }
