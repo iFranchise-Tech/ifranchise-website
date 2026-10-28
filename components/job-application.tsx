@@ -1,4 +1,5 @@
 'use client';
+import {useRouter} from 'next/navigation';
 import {showConfirmation} from '../lib/intake/confirmation.mjs';
 import {useRef,useState} from 'react';
 import {ArrowUpRight,FileUp} from 'lucide-react';
@@ -7,11 +8,12 @@ import {LocationFields,IntakeConsent,useIntake,readReceipt} from './intake-field
 import {MAX_RESUME,QUALIFICATIONS,EDUCATION_STATUSES,EMPLOYMENT_STATUSES,NOTICE_PERIODS} from '../lib/intake/constants.mjs';
 
 export function JobApplicationForm({job}:{job:{id:string;slug?:string;title:string}}){
+ const router=useRouter();
  const sending=useRef(false),intake=useIntake();
  const [busy,setBusy]=useState(false),[error,setError]=useState('');
  const [fileName,setFileName]=useState(''),[experienceType,setExperienceType]=useState(''),[employmentStatus,setEmploymentStatus]=useState('');
  const id='job-application';
- async function send(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(sending.current)return;validatePhoneFields(e.currentTarget);if(!e.currentTarget.reportValidity())return;sending.current=true;setBusy(true);setError('');let redirecting=false;try{const form=e.currentTarget,p=await intake.payload(form,'job'),fd=new FormData(form),file=fd.get('resume') as File;if(!file?.size||file.size>MAX_RESUME)throw Error('Upload a PDF resume up to 5 MB.');const body=new FormData();body.set('payload',JSON.stringify({...p,resume:undefined,jobSlug:job.slug||job.id}));body.set('resume',file);await readReceipt(await fetch('/api/intake/applications',{method:'POST',body}));redirecting=true;showConfirmation(window);}catch(e:any){setError(e.message)}finally{if(!redirecting){sending.current=false;setBusy(false)}}}
+ async function send(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(sending.current)return;validatePhoneFields(e.currentTarget);if(!e.currentTarget.reportValidity())return;sending.current=true;setBusy(true);setError('');let redirecting=false;try{const form=e.currentTarget,p=await intake.payload(form,'job'),fd=new FormData(form),file=fd.get('resume') as File;if(!file?.size||file.size>MAX_RESUME)throw Error('Upload a PDF resume up to 5 MB.');const body=new FormData();body.set('payload',JSON.stringify({...p,resume:undefined,jobSlug:job.slug||job.id}));body.set('resume',file);await readReceipt(await fetch('/api/intake/applications',{method:'POST',body}));redirecting=true;showConfirmation(window,(path:string)=>router.push(path));}catch(e:any){setError(e.message)}finally{if(!redirecting){sending.current=false;setBusy(false)}}}
 
  return <form className="candidate-form" aria-label="Job application" noValidate onSubmit={send}>
   <div className="field-row"><NameField id={id}/><EmailField id={id}/></div>

@@ -16,7 +16,7 @@ export function PremiumMotion({children}:{children:React.ReactNode}){
   root.current.querySelectorAll('[data-reveal]').forEach(element=>{
    if(element.getBoundingClientRect().top<=innerHeight*.95)return;
    const animation=element.animate(
-    [{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'none'}],
+    [{transform:'translateY(12px)'},{transform:'none'}],
     {duration:700,easing:'ease',fill:'both'}
    );
    animation.pause();

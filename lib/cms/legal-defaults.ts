@@ -1,11 +1,11 @@
-// Existing legal text, retained verbatim. Rendering uses safe inline links, never raw HTML.
+// Public legal notices. Rendering uses safe inline links, never raw HTML.
 export const legalDefaults=[
   {
     "slug": "privacy-policy",
-    "noticeVersion": "2026-10-25",
+    "noticeVersion": "2026-10-28",
     "title": "Privacy Policy",
     "intro": "Your information, its purpose and your choices.",
-    "date": "2026-10-25",
+    "date": "2026-10-28",
     "opening": "IFRANCHISE SERVICES PRIVATE LIMITED (iFranchise, “we”, “us” or “our”) operates this website. This notice explains our handling of personal information. Our [Terms & Conditions](/terms-and-conditions) separately cover use of the website and its content.",
     "sections": [
       {
@@ -32,19 +32,17 @@ export const legalDefaults=[
         "id": "requests",
         "heading": "Privacy requests",
         "body": [
-          "The privacy request form collects your email, request type, optional reference and explanation, together with a request reference, receipt time and handling status. We use these to locate relevant records, verify identity proportionately, handle the request and record the outcome. These requests are stored in the restricted website administration area and are not sent to the sales enquiries sheet.",
+          "The privacy request form collects your email, request type, optional reference and explanation, together with a request reference, receipt time and handling status. We use these to locate relevant records, verify identity proportionately, handle the request and record the outcome. Access is limited to those responsible for handling privacy requests.",
           "You do not have to consent to marketing or further sales contact to exercise a privacy choice. A request is reviewed before information is disclosed, changed or erased. Please do not submit identity documents unless we explain why they are necessary."
         ]
       },
       {
         "id": "sharing",
-        "heading": "Where information goes",
+        "heading": "How we protect and share information",
         "body": [
-          "Enquiries and applications are stored in a protected website record and delivered to the existing iFranchise Google Workspace enquiries workbook. Resumes are stored separately in private file storage, with access controlled through the website administration area.",
-          "**Sites and Cloudflare:** website hosting, protected form records, private resume storage and security controls.",
-          "**Google Workspace:** Google Sheets and Apps Script deliver enquiry and application records to our authorised team.",
-          "**Email, telephone and WhatsApp providers:** process communications you choose to send through those channels under their own terms and privacy notices.",
-          "Service providers may process information outside India. Applicable contractual and legal requirements govern those arrangements. Our forms do not automatically send your information to franchise brands or advertising platforms. Any proposed introduction to a brand or partner should be explained during your enquiry. We do not sell form information. Disclosure may be required by applicable law or a valid legal request."
+          "Your information is handled by authorised team members and trusted service providers who help us operate the website and respond to your requests. Access is limited to what is needed for those purposes, with appropriate confidentiality and security safeguards.",
+          "We do not sell your personal information or automatically share enquiry details with franchise brands or advertising platforms. Any proposed introduction to a brand or partner will be explained during your enquiry.",
+          "Service providers may process information in other countries, subject to applicable contractual and legal safeguards. We may disclose information where required by law or a valid legal request. External websites you choose to visit apply their own privacy notices."
         ]
       },
       {
@@ -52,8 +50,8 @@ export const legalDefaults=[
         "heading": "Retention, security and age",
         "body": [
           "Information is retained for the enquiry, recruitment or privacy-request purpose and relevant record-keeping, security, legal or dispute-resolution needs. Retention can differ between active matters, closed matters, security records and records subject to a legal hold. Ask our privacy contact about the records and retention applicable to your interaction.",
-          "A withdrawal request does not automatically remove every record. Where retention is required, the purpose and access should be restricted; retention does not itself permit continued sales follow-up. An erasure request needs to cover relevant website, workbook, resume and communication copies, subject to applicable exceptions.",
-          "We use HTTPS, restricted administrative access, private resume storage, signed delivery to the workbook and checks against automated submissions. Technical records may include requested pages, request times, browser information and security or error logs. Short-lived form sessions and daily IP hashes protect the forms. No online service can guarantee absolute security.",
+          "A withdrawal request does not automatically remove every record. Where retention is required, the purpose and access should be restricted; retention does not itself permit continued sales follow-up. Erasure requests are assessed across relevant records and copies, subject to applicable exceptions.",
+          "We use appropriate technical and organisational safeguards to protect information from unauthorised access, loss or misuse. Limited technical and security records help us keep the website reliable and prevent abuse. No online service can guarantee absolute security.",
           "Our enquiry and job-application forms are intended for adults aged 18 or older and ask for confirmation without collecting a date of birth. A parent or guardian can contact us about information submitted by a child through [Privacy choices](/privacy-choices)."
         ]
       },
@@ -65,7 +63,7 @@ export const legalDefaults=[
           "Preferences",
           "Cookie preferences and the date of your choice are remembered in this browser for up to 180 days. The record contains no name or contact details. We ask again after expiry or a material notice change, or when you clear browser data or use a different browser. Theme and temporary interface settings may also be remembered locally.",
           "Saved resources",
-          "When you save a resource, its address, reading position and save time are stored under ifranchise_saved_resources_v1. Up to 100 resources remain in that browser until removed or browser data is cleared. They are not sent to our servers or synced across devices. External video playback positions are not saved by this website.",
+          "When you save a resource, its address, reading position and save time are remembered in your browser. Up to 100 resources remain in that browser until removed or browser data is cleared. They are not sent to our servers or synced across devices. External video playback positions are not saved by this website.",
           "Optional measurement",
           "Analytics and advertising integrations are currently inactive, even after “Accept all cookies”. Website form records discard campaign attribution while these integrations are inactive. Before activating optional integrations, we will explain the actual providers, data and retention and request a fresh choice.",
           "Withdrawing optional cookie consent changes future processing based on that choice on this browser. It does not withdraw an enquiry permission; use [Privacy choices](/privacy-choices) for that.",

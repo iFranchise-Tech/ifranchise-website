@@ -206,3 +206,7 @@ Both sourced under the [Pexels License](https://www.pexels.com/license/) allowin
 - Articles: Kindel Media, “People Discuss Strategy Documents”, Pexels photo 7688443. https://www.pexels.com/photo/people-discuss-strategy-documents-7688443/
 - Videos: dlxmedia.hu, “Studio Set for the Recording of a Podcast”, Pexels photo 11901222. https://www.pexels.com/photo/studio-set-for-the-recording-of-a-podcast-11901222/
 - Both are real stock photographs supplied under the Pexels licence. https://www.pexels.com/license/ WebP derivatives: 640, 960, 1440, 2400 and 3200 pixels; mobile 1280 pixels. Other page banners are unchanged.
+
+### Mobile About banner — 28 October 2026
+- Mikhail Nilov, Pexels: [Colleagues having a Discussion](https://www.pexels.com/photo/colleagues-having-a-discussion-9304670/). Used under the [Pexels license](https://www.pexels.com/license/).
+- Local asset: `public/assets/stock-heroes/mobile/about-advisory-planning-9304670.webp` (1200 × 1500). Optimised mobile crop of advisors reviewing commercial charts; illustrative stock photography, not an image of iFranchise staff.

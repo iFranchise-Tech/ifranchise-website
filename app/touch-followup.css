@@ -1,0 +1,22 @@
+/* Native state pickers commit reliably on touch devices without a typing keyboard. */
+.p-site .location-field select{width:100%;min-width:0;padding-right:40px;background-position:right 14px center}
+.location-suggestions{position:fixed;z-index:10020;box-sizing:border-box;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;margin:0;padding:6px;list-style:none;border:1px solid #ded8eb;border-radius:9px;background:#fff;box-shadow:0 12px 30px #211b3126;color:#211b31;font:400 14px/1.5 Manrope,Arial,sans-serif;outline:none}
+.location-suggestions li{padding:12px;border-radius:5px;cursor:pointer;min-height:44px;box-sizing:border-box}
+.location-suggestions li:hover,.location-suggestions li[aria-selected=true]{background:#efebfa;color:#32159b}
+.page-navigation-progress{position:fixed;top:0;left:0;right:0;height:3px;background:#32159b;z-index:20000;pointer-events:none;animation:navigation-progress 1.2s ease-in-out infinite;transform-origin:left}
+@keyframes navigation-progress{0%{transform:scaleX(.05)}80%,100%{transform:scaleX(.95)}}
+.p-site .submission-confirmation{background:#f7f7fb;padding:48px 20px;min-height:calc(100svh - var(--site-header-height));text-align:left}
+.p-site .confirmation-card{width:min(100%,600px);box-sizing:border-box;padding:40px;border:1px solid #e6e3ef;border-radius:20px;background:#fff;box-shadow:0 12px 40px #211b3108}
+.p-site .confirmation-card .submission-check{width:60px;height:60px;margin:0 0 24px}
+.p-site .confirmation-card>p:not(.p-eyebrow){margin:0 0 24px;max-width:none}
+.p-site .confirmation-card h1{font-size:clamp(30px,4vw,42px);margin:10px 0 16px}
+.confirmation-next{padding:20px;background:#f6f4fc;border-radius:12px;margin:0 0 28px}
+.confirmation-next>span{font:700 14px/1.5 Manrope,Arial,sans-serif;color:#32159b}
+.p-site .confirmation-next p{font:400 15px/1.7 Manrope,Arial,sans-serif;margin:8px 0 0;color:#635f6e}
+.p-site .confirmation-card .p-button{font-size:14px;gap:12px;min-height:50px}
+@media(max-width:767px){
+ .p-site .p-home .p-video-hero,.p-site .p-home .p-video-hero-inner{min-height:100vh;min-height:100lvh;height:auto}
+ .p-site .p-home .p-video-hero-inner{box-sizing:border-box}
+ .p-site .confirmation-card{padding:28px 24px}
+}
+@media(prefers-reduced-motion:reduce){.page-navigation-progress{animation:none}}

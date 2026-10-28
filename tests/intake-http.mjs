@@ -1,6 +1,7 @@
+import {NOTICE_VERSION} from '../lib/intake/constants.mjs';
 import assert from 'node:assert/strict';
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5173';
-const base={name:'Integration Test',phone:'+14155552671',phoneCountry:'US',email:'qa-intake@ifranchise.in',city:'Bengaluru',state:'Karnataka',consent:true,adult:true,noticeVersion:'2026-10-25',sourcePage:'/contact-us',trap:''};
+const base={name:'Integration Test',phone:'+14155552671',phoneCountry:'US',email:'qa-intake@ifranchise.in',city:'Bengaluru',state:'Karnataka',consent:true,adult:true,noticeVersion:NOTICE_VERSION,sourcePage:'/contact-us',trap:''};
 assert.ok(['127.0.0.1','localhost'].includes(new URL(origin).hostname),'Local preview only');
 const clientIp='198.51.100.'+(1+Date.now()%250);
 const headers={'Content-Type':'application/json',Origin:origin,'cf-connecting-ip':clientIp};

@@ -10,7 +10,7 @@ export const pageBanners = {
   },
   "about": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/about-collaborative-advisors-12899116.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/about-advisory-planning-9304670.webp",
     "mobilePosition": "50% 50%",
     "image": "/assets/stock-heroes/about-collaborative-team-hd.webp",
     "alt": "Colleagues sharing ideas and planning together in a collaborative business meeting",
