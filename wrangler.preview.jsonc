@@ -6,9 +6,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": false,
   "preview_urls": false,
-  // Replace database_id after `wrangler d1 create ifranchise-db-preview`.
-  // Leave this placeholder until that empty preview database exists.
-  // Do not put the production D1 id or the production bucket name here.
+  // Preview database only. Do not copy this id into wrangler.jsonc or production.
   "vars": {
     "SITE_ACCESS": "public",
     "CMS_SUPER_ADMIN_EMAIL": "abdul@ifranchise.in",
@@ -20,7 +18,7 @@
     {
       "binding": "DB",
       "database_name": "ifranchise-db-preview",
-      "database_id": "00000000-0000-4000-8000-000000000001",
+      "database_id": "724549ad-1e0a-431b-b15d-192b55e407de",
       "migrations_dir": "drizzle"
     }
   ],
