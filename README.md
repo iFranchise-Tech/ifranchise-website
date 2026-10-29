@@ -21,6 +21,8 @@ pnpm dev
 
 `pnpm dev` starts Vinext. Confirm the printed address is **http://localhost:3019/**.
 
+`pnpm db:verify-empty` repeats the migration and seed on a throwaway local database. It does not use `.wrangler/state` or a remote database. The preview Worker, Access application, and test spreadsheet steps are in [docs/cloudflare-preview.md](docs/cloudflare-preview.md).
+
 Copy `.env.example` to `.env` before adding secrets. The example has every secret commented out, so it does not override `wrangler.jsonc`. Public pages work with that file unchanged. If `.dev.vars` exists, Wrangler uses it and ignores `.env`.
 
 ### Environment
@@ -79,7 +81,7 @@ The public website header uses the approved wordmark with tagline, without the b
 
 ## Publishing
 
-The live site remains on its current Sites deployment until a separate cutover is approved. This branch runs locally and, later, on a preview Cloudflare Worker. A push does not publish the website, change DNS, or apply remote migrations.
+The live site remains on its current Sites deployment until a separate cutover is approved. This branch runs locally. A later preview uses `wrangler.preview.jsonc` and a new D1 database, R2 bucket, and Access application. A push does not publish the website, change DNS, or apply remote migrations. See [docs/cloudflare-preview.md](docs/cloudflare-preview.md).
 
 `.openai/hosting.json`, `vite.config.sites.ts`, and `build/sites-worker.ts` remain in the repository so the Sites path can be restored. They are not the active local runtime. `pnpm dev:sites` still starts the previous Sites command.
 
