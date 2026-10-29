@@ -1,3 +1,4 @@
+// Targets the retained Sites preview identity. It does not authenticate against the Cloudflare Access worker.
 // Local production Worker only. Never run fixture writes against the hosted website.
 import assert from 'node:assert/strict';
 const base='http://127.0.0.1:3028',stamp=Date.now();

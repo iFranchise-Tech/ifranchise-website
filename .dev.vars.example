@@ -1,0 +1,4 @@
+# Optional alternative to .env. Wrangler prefers this file.
+# If you create .dev.vars, Wrangler ignores .env.
+# Use one file, not both. The variable list is in .env.example.
+# Never commit .dev.vars.

@@ -1,6 +1,6 @@
 # Website admin
 
-Portal: `/admin`. Hosted authentication is provided by Sites. Only verified `@ifranchise.in` identities with an active or unexpired invited membership can enter. Identity is bound to the site's stable authenticated user ID after the first accepted invitation. The initial Super Admin is configured through the `CMS_SUPER_ADMIN_EMAIL` runtime variable, not client code. The portable local starter uses an explicitly development-only preview identity; this is removed from production bundles.
+Portal: `/admin`. Sign-in is Cloudflare Access. The Worker and `adminIdentity()` both require a valid Access token. Only verified `@ifranchise.in` identities with an active or unexpired invited membership can enter. Identity is bound to the Access subject after the first accepted invitation. The initial Super Admin is configured through `CMS_SUPER_ADMIN_EMAIL`, not client code. There is no local preview identity: `/admin` returns 401 until Access is configured.
 
 ## Roles
 
@@ -11,7 +11,7 @@ Portal: `/admin`. Hosted authentication is provided by Sites. Only verified `@if
 
 Assign every non-super-admin employee to an active Approver or Super Admin. Manager scopes must cover the employee's scopes. Circular hierarchies and removal of one's own Super Admin access are rejected. Suspensions apply to subsequent requests immediately. Invitations expire after 14 days and can be renewed. Invitations are email-bound; no transferable bearer invite token is used.
 
-The portal creates access invitations and provides a prefilled email through the sender's mail application. It does not send emails automatically. The site's current private/custom audience is an independent platform gate: new employees also need access in the site's native sharing settings. Existing shared colleagues still need a CMS invitation and assigned role. Sharing grants alone never grant CMS edit rights.
+The portal creates access invitations and provides a prefilled email through the sender's mail application. It does not send emails automatically. Cloudflare Access is a separate gate: a CMS invitation does not admit someone whom Access rejects, and an Access login does not grant CMS edit rights by itself.
 
 ## Publishing
 
@@ -25,7 +25,7 @@ D1 (`DB`) stores memberships, content snapshots, audit events and media metadata
 
 Uploads are restricted to PNG, JPEG, WebP and PDF, checked by content signature and size (8 MB). Uploaded draft files require authorized membership. An upload becomes public only while referenced in a current published record. SVG/HTML uploads are not accepted. Draft documents are never sent to another service. Public media responses use a restrictive content policy and no browser cache so archived files stop being publicly accessible on subsequent requests.
 
-Lead intake, enquiry relays and advertising conversion sending remain disabled. This portal does not enable lead collection, marketing automation or analytics.
+Public forms can be stored in local D1. Optional Google Sheets delivery runs only after that insert and only when both sheet secrets are set. A failed delivery leaves the row pending for retry. Enquiry relays and advertising conversion sending remain disabled.
 
 ## Validation
 
@@ -35,4 +35,4 @@ Lead intake, enquiry relays and advertising conversion sending remain disabled. 
 - `node tests/cms-media-http.mjs` — local production Worker upload/access tests.
 - TypeScript check, framework build and responsive browser checks in both themes.
 
-HTTP tests intentionally mutate local test data and must never target the hosted site. Test identities must not be seeded in hosted storage. The deployed bootstrap account is accepted only after real Sites sign-in with the configured work email; production sign-in needs the owner's account.
+HTTP tests intentionally mutate local test data and must never target the hosted site. Test identities must not be seeded in hosted storage. The bootstrap account is accepted only after a real Cloudflare Access sign-in with the configured work email. Production sign-in needs the owner's Access application and has not been verified from this branch.

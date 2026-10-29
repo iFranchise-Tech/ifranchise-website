@@ -1,3 +1,4 @@
+// Targets the retained Sites preview identity. It does not authenticate against the Cloudflare Access worker.
 // Runs only against a disposable local preview database.
 import assert from 'node:assert/strict';
 const base=process.env.CMS_TEST_ORIGIN||'http://127.0.0.1:3028';if(!/^http:\/\/127\.0\.0\.1:\d+$/.test(base))throw new Error('Local preview only');

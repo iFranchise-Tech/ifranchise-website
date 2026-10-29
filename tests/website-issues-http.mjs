@@ -1,3 +1,4 @@
+// Targets the retained Sites preview identity. It does not authenticate against the Cloudflare Access worker.
 // Isolated local Worker only; no hosted writes or external lead delivery.
 import assert from 'node:assert/strict';
 const base='http://127.0.0.1:3028';
