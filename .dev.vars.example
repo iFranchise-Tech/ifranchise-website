@@ -1,0 +1,25 @@
+# Local secrets for Wrangler. Copy this file to .dev.vars only when a value below is real.
+# .dev.vars is the local secret file. When it exists, Wrangler uses it and does not read .env.
+# Leave every line commented until the value exists. Commented lines do not override wrangler.jsonc.
+# Do not invent values, and do not copy a production key into this file.
+# Never commit .dev.vars, .env, or .secrets/.
+
+# Not used on the public website
+# SITE_ACCESS and CMS_SUPER_ADMIN_EMAIL are already set in wrangler.jsonc.
+# DB and BUCKET are bindings in that file, not secrets.
+
+# Cloudflare Access — required before staff sign-in can succeed
+# Set these only after the account owner creates an Access application.
+# Localhost cannot complete the browser sign-in even after these are set.
+# ACCESS_TEAM_DOMAIN="https://team-name.cloudflareaccess.com"
+# ACCESS_AUD="access-application-audience"
+
+# Google Sheets test copy — optional, and off until both values are set
+# Use a separate test spreadsheet. Do not use the production workbook or its Apps Script.
+# Generate a new key with: node scripts/create-intake-keys.mjs
+# Put only the new public key in the test Apps Script.
+# SHEETS_WEBHOOK_URL="https://script.google.com/macros/s/TEST-DEPLOYMENT-ID/exec"
+# INTAKE_SIGNING_KEY='{"kty":"RSA","n":"REPLACE","e":"AQAB","d":"REPLACE"}'
+
+# One-time brochure import — optional. The route still requires this secret or a Super Admin.
+# CMS_BROCHURE_IMPORT_TOKEN="replace-with-a-random-secret"

@@ -1,6 +1,6 @@
 export const SITE = {
   name: 'iFranchise',
-  url: 'https://ifranchise-studio-2026.babbysyed.chatgpt.site',
+  url: 'https://www.ifranchise.in',
   productionUrl: 'https://www.ifranchise.in',
   preview: true,
   phone: '+91 91291 30303',

@@ -46,6 +46,7 @@ next-env.d.ts
 !/build/sites-vite-plugin.LICENSE
 !/build/sites-vite-plugin.ts
 !/build/sites-worker.ts
+!/build/worker.ts
 
 /dist/
 /.wrangler/
@@ -58,4 +59,6 @@ next-env.d.ts
 
 # Local credentials and runtime state
 .dev.vars*
+!.dev.vars.example
+.secrets/
 *.tsbuildinfo

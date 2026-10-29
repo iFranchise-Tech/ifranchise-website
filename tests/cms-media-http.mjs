@@ -1,3 +1,4 @@
+// Targets the retained Sites preview identity. It does not authenticate against the Cloudflare Access worker.
 import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
 const base='http://127.0.0.1:3028',h={'oai-authenticated-user-email':'preview@ifranchise.in','oai-authenticated-user-id':'local_seedy',Origin:base};
 async function upload(file,status){const f=new FormData();f.set('scope','articles');f.set('file',file);const r=await fetch(base+'/api/admin/upload',{method:'POST',headers:h,body:f});const d=await r.json();assert.equal(r.status,status,JSON.stringify(d));return d;}

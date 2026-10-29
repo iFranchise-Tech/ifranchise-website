@@ -1,5 +1,5 @@
 import {env} from 'cloudflare:workers';
-import {getChatGPTUser} from '../../app/chatgpt-auth';
+import {getAccessUser} from '../access-auth';
 import {workEmail} from './policy.mjs';
 import {CmsError} from './errors';
 export {CmsError} from './errors';
@@ -7,12 +7,10 @@ export function db(){if(!env.DB)throw new CmsError(503,'The content service is u
 export function memberFromRow(r:any){return {...r,userId:r.user_id,scopes:Array.isArray(JSON.parse(r.scopes))?JSON.parse(r.scopes):Object.keys(JSON.parse(r.scopes)).filter(k=>JSON.parse(r.scopes)[k].view),permissions:Array.isArray(JSON.parse(r.scopes))?undefined:JSON.parse(r.scopes),expiresAt:r.expires_at,updatedAt:r.updated_at};}
 export async function getMembers(){return (await db().prepare('SELECT * FROM cms_members ORDER BY name').all()).results.map(memberFromRow);}
 export async function adminIdentity(){
- let user=await getChatGPTUser();
+ const user=await getAccessUser();
  if(!user)throw new CmsError(401,'Sign in to continue.');
- // This is the portable starter's local preview identity. Vite removes this branch from production.
- if(import.meta.env.DEV&&user.userId==='local_seedy')user={...user,email:'preview@ifranchise.in',displayName:'Preview Admin',fullName:'Preview Admin'};
  const email=user.email.toLowerCase().trim();if(!workEmail(email))throw new CmsError(403,'This account does not have access.');
- const owner=import.meta.env.DEV?'preview@ifranchise.in':(env as any).CMS_SUPER_ADMIN_EMAIL?.toLowerCase();
+ const owner=(env as any).CMS_SUPER_ADMIN_EMAIL?.toLowerCase().trim();
  if(email===owner){const now=new Date().toISOString();await db().prepare("INSERT INTO cms_members (email,user_id,name,role,scopes,manager,status,version,created_at,updated_at) SELECT ?,?,?,'super_admin','[]',NULL,'active',1,?,? WHERE NOT EXISTS (SELECT 1 FROM cms_members WHERE role='super_admin') ON CONFLICT(email) DO NOTHING").bind(email,user.userId,user.fullName||'Abdul',now,now).run();}
  let row:any=await db().prepare('SELECT * FROM cms_members WHERE email=?').bind(email).first();
  if(!row||row.status==='suspended')throw new CmsError(403,'This account does not have access.');

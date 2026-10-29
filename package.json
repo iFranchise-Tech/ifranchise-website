@@ -7,11 +7,18 @@
   },
   "scripts": {
     "install:ci": "pnpm install --no-frozen-lockfile",
-    "dev": "node scripts/run-framework.mjs dev",
-    "build": "node scripts/run-framework.mjs build && node scripts/build-asset-cache.mjs",
-    "start": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "dev": "vinext dev --host localhost --port 3019",
+    "dev:sites": "node scripts/run-framework.mjs dev",
+    "build": "vinext build && node scripts/build-asset-cache.mjs",
+    "start": "wrangler dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip localhost --port 3019",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .wrangler",
+    "test": "node --test tests/*.test.mjs && node scripts/run-sheets-delivery-test.mjs",
+    "db:verify-empty": "node scripts/verify-empty-database.mjs",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:local": "wrangler d1 migrations apply DB --local",
+    "db:remote": "wrangler d1 migrations apply DB --remote",
+    "test:cms": "esbuild tests/cms-schema.ts --bundle --platform=node --format=esm --outfile=.wrangler/qa/cms-schema.mjs && node .wrangler/qa/cms-schema.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -24,8 +31,8 @@
     "drizzle-orm": "0.45.2",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
-    "lucide-react": "^1.31.0",
-    "next": "16.3.4",
+    "lucide-react": "1.58.0",
+    "next": "16.4.1",
     "next-themes": "^0.4.6",
     "radix-ui": "^1.6.7",
     "react": "19.2.6",
@@ -37,9 +44,10 @@
     "sonner": "^2.0.8",
     "tailwind-merge": "3.6.0",
     "vaul": "^1.1.2",
-    "zod": "^3.25.76",
+    "zod": "4.6.6",
     "three": "0.186.1",
-    "libphonenumber-js": "^1.12.0"
+    "libphonenumber-js": "^1.12.0",
+    "jose": "^6.1.0"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
@@ -51,8 +59,9 @@
     "@vitejs/plugin-react": "6.0.2",
     "@vitejs/plugin-rsc": "0.5.26",
     "drizzle-kit": "0.31.10",
+    "esbuild": "0.28.2",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "16.4.1",
     "json-rpc-2.0": "1.7.1",
     "raw-body": "3.0.2",
     "react-server-dom-webpack": "19.2.6",
@@ -65,10 +74,5 @@
     "@types/three": "0.186.0"
   },
   "type": "module",
-  "overrides": {
-    "miniflare": {
-      "sharp": "0.35.4"
-    }
-  },
   "packageManager": "pnpm@11.25.0"
 }
