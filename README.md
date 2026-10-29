@@ -19,27 +19,31 @@ pnpm dev
 
 `pnpm db:local` applies `drizzle/` to the local D1 database under `.wrangler/state`. Import `database/content.sql` once on a new database. Do not import it again after editors have published changes.
 
-`pnpm dev` starts Vinext. Confirm the printed address is **http://localhost:3019/**.
+`pnpm dev` starts Vinext. Confirm the printed address is **http://localhost:3019/**. No `.env` or `.dev.vars` file is required for the public website.
 
 `pnpm db:verify-empty` repeats the migration and seed on a throwaway local database. It does not use `.wrangler/state` or a remote database. The preview Worker, Access application, and test spreadsheet steps are in [docs/cloudflare-preview.md](docs/cloudflare-preview.md).
 
-Copy `.env.example` to `.env` before adding secrets. The example has every secret commented out, so it does not override `wrangler.jsonc`. Public pages work with that file unchanged. If `.dev.vars` exists, Wrangler uses it and ignores `.env`.
+### Configuration
 
-### Environment
+Wrangler reads one local secret file. When `.dev.vars` exists, that file wins and `.env` is ignored. When `.dev.vars` is absent, Wrangler reads `.env`. Do not create both. Copy `.dev.vars.example` to `.dev.vars` only after a real value exists, and leave unused lines commented. `.env.example` repeats those placeholders for reference.
 
-| Variable | Required for | Where it is read |
+Non-secret settings stay in `wrangler.jsonc` for local development and `wrangler.preview.jsonc` for the separate preview Worker. A value in `.dev.vars` overrides the same key from `wrangler.jsonc` during local development. Preview secrets are set with `pnpm exec wrangler secret put --config wrangler.preview.jsonc`, not in either JSON file.
+
+| Variable | Required for | Where it belongs |
 |---|---|---|
-| `SITE_ACCESS` | Public vs whole-site lock. `public` is already set in `wrangler.jsonc`. | Worker config, not `.env` |
-| `ACCESS_TEAM_DOMAIN` | Admin sign-in | `.env` or `.dev.vars`, overriding `wrangler.jsonc` when set |
-| `ACCESS_AUD` | Admin sign-in | same |
-| `CMS_SUPER_ADMIN_EMAIL` | First Super Admin, `@ifranchise.in` only | `wrangler.jsonc`, or `.env` when uncommented |
-| `SHEETS_WEBHOOK_URL` | Optional Google Sheets copy of form submissions | `.env` |
-| `INTAKE_SIGNING_KEY` | Optional Google Sheets copy. Private JWK JSON | `.env` |
-| `CMS_BROCHURE_IMPORT_TOKEN` | Optional one-time brochure import | `.env` |
+| `SITE_ACCESS` | Public site. Already `public`. | `wrangler.jsonc` |
+| `CMS_SUPER_ADMIN_EMAIL` | First Super Admin. Already `abdul@ifranchise.in`. | `wrangler.jsonc` |
+| `DB` | Content and form storage. Local name `ifranchise-db`. | `wrangler.jsonc` binding |
+| `BUCKET` | Uploads. Local name `ifranchise-files`. | `wrangler.jsonc` binding |
+| `ACCESS_TEAM_DOMAIN` | Staff sign-in, after an Access application exists. | `.dev.vars` locally; preview Worker secret |
+| `ACCESS_AUD` | Staff sign-in, after an Access application exists. | `.dev.vars` locally; preview Worker secret |
+| `SHEETS_WEBHOOK_URL` | Optional test spreadsheet copy. | `.dev.vars` locally; preview Worker secret |
+| `INTAKE_SIGNING_KEY` | Optional test spreadsheet copy. Private JWK. | `.dev.vars` locally; preview Worker secret |
+| `CMS_BROCHURE_IMPORT_TOKEN` | Optional one-time brochure import. | `.dev.vars` locally; preview Worker secret |
 
-For production, set `INTAKE_SIGNING_KEY` and `SHEETS_WEBHOOK_URL` with `pnpm exec wrangler secret put`, not in the repository. `DB` and `BUCKET` are Cloudflare bindings. The `database_id` in `wrangler.jsonc` is still a placeholder.
+`pnpm db:local` applies `drizzle/` to the local D1 database under `.wrangler/state`. `pnpm exec wrangler d1 migrations apply DB --remote --config wrangler.preview.jsonc` applies the same files to `ifranchise-db-preview` only after its real database id replaces the placeholder. Do not run `pnpm db:remote` for this work. Local R2 is simulated in `.wrangler/`. The preview bucket is `ifranchise-files-preview`.
 
-Local `/admin` returns 401 until `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` match a Cloudflare Access application and the request carries a valid token. Protect only `/admin`, `/admin/*`, `/api/admin`, and `/api/admin/*`. Do not protect the public site or `/api/intake`. There is no local preview identity.
+Opening `/admin` in a browser returns the staff sign-in screen with status 401. Cloudflare Access cannot complete that sign-in on localhost, because it only issues a session for the hostname on the Access application. Admin APIs and resume downloads stay 401 without a valid token. There is no local password or preview identity. A real sign-in can be checked only on the preview hostname after the account owner creates the Access application.
 
 ### Database
 
@@ -49,7 +53,7 @@ No scheduled D1 or R2 backup is configured in this repository. Before an approve
 
 ### Google Sheets
 
-Forms are stored in D1 first. If `SHEETS_WEBHOOK_URL` and `INTAKE_SIGNING_KEY` are unset, the row stays `pending` and nothing is sent. When both are set, the server signs the body and posts it after the database insert. A failed or unconfirmed response increments `attempts` and leaves `sheet_status` as `pending`. The visitor still receives the stored-submission response. The next submission retries up to two older pending rows, and a staff member who can edit enquiries or applications can run **Submissions → Sync pending**. Privacy requests are not sent to Sheets. This delivery path has not been confirmed against a live workbook. Do not point a test at the production spreadsheet.
+Forms are stored in D1 first. If `SHEETS_WEBHOOK_URL` and `INTAKE_SIGNING_KEY` are unset, the row stays `pending` and nothing is sent. When both are set in `.dev.vars` for a test spreadsheet, or as preview Worker secrets, the server signs the body and posts it after the database insert. A failed or unconfirmed response increments `attempts` and leaves `sheet_status` as `pending`. The visitor still receives the stored-submission response. The next submission retries up to two older pending rows, and a staff member who can edit enquiries or applications can run **Submissions → Sync pending**. Privacy requests are not sent to Sheets. `pnpm test` verifies that retry against a local database and a local webhook. It has not been confirmed against Google. Do not point a test at the production spreadsheet.
 
 ## Checks and build
 

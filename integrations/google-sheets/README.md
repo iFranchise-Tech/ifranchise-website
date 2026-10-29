@@ -4,7 +4,7 @@ Production uses one Google Workspace workbook, with four tabs: Franchise Enquiri
 
 The website stores a submission in D1 before acknowledging it. Its server signs the sheet delivery with RSA-SHA256; the receiver contains only the public verification key, rejects unsigned or stale requests and deduplicates by reference. Formula-like user input is escaped. Existing records are never overwritten by a repeated delivery.
 
-`INTAKE_SIGNING_KEY` (private JWK) and `SHEETS_WEBHOOK_URL` are secret Wrangler environment variables. Do not put their values in source, build archives, browser code or documentation. The public key already in `Code.gs` stays in place. Changing the receiver requires a new Apps Script deployment version. Keep the production workbook unchanged until a labeled test against a separate spreadsheet succeeds.
+`INTAKE_SIGNING_KEY` (private JWK) and `SHEETS_WEBHOOK_URL` are local `.dev.vars` entries or preview Worker secrets. Do not put their values in source, build archives, browser code or documentation. The public key already in `Code.gs` stays in place. Changing the receiver requires a new Apps Script deployment version. Keep the production workbook unchanged until a labeled test against a separate spreadsheet succeeds.
 
 The receiver URL is reachable by anyone, but no data can be read from it. Only signed submissions can append to the fixed workbook and allowed tabs. The sheet itself remains private; access to the website does not grant Google Sheet access.
 

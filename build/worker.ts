@@ -1,5 +1,6 @@
 import handler from 'vinext/server/fetch-handler';
 import {accessCredential, isStaffPath} from '../lib/access-gate.mjs';
+import {renderStaffSignIn} from '../lib/access-login.mjs';
 import {withIntakeContext} from '../lib/intake/context';
 import {verifyAccessToken} from '../lib/access-token.mjs';
 export default {
@@ -13,6 +14,10 @@ export default {
       const user = await verifyAccessToken(accessCredential(request), env);
       if (!user) {
         const status = siteLocked ? 403 : 401;
+        if (!siteLocked) {
+          const page = renderStaffSignIn(request, env);
+          if (page) return page;
+        }
         const message = siteLocked
           ? 'Access is restricted. Configure your identity provider and sign in through the website domain.'
           : 'Sign in to continue.';

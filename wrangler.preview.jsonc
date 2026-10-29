@@ -12,6 +12,7 @@
   "vars": {
     "SITE_ACCESS": "public",
     "CMS_SUPER_ADMIN_EMAIL": "abdul@ifranchise.in",
+    // Set the real Access values with `wrangler secret put` on this Worker only.
     "ACCESS_TEAM_DOMAIN": "",
     "ACCESS_AUD": ""
   },

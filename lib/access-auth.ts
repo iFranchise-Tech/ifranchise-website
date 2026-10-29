@@ -8,5 +8,4 @@ export async function getAccessUser(){
  const token=h.get('cf-access-jwt-assertion')||(await cookies()).get('CF_Authorization')?.value;
  return verifyAccessToken(token,env);
 }
-export function accessSignInPath(returnTo='/admin'){return returnTo.startsWith('/')&&!returnTo.startsWith('//')?returnTo:'/admin';}
-export function accessSignOutPath(_returnTo='/'){return '/cdn-cgi/access/logout';}
+export function accessSignOutPath(){return '/cdn-cgi/access/logout';}

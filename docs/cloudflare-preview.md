@@ -31,7 +31,7 @@ pnpm build
 
 A second import of `database/content.sql` must fail. Do not import it again after anyone has edited the preview database. The command does not read or write `.wrangler/state`.
 
-`pnpm dev` remains http://localhost:3019/. Public pages and `/api/intake` stay anonymous. `/admin`, `/api/admin`, and `/api/admin/intake/resume/...` return 401 until a real Access token is present.
+`pnpm dev` remains http://localhost:3019/ and does not need `.env` or `.dev.vars`. Public pages and `/api/intake` stay anonymous. A browser request to `/admin` returns the staff sign-in screen with status 401. `/api/admin` and `/api/admin/intake/resume/...` return 401 text. Localhost cannot complete Cloudflare Access sign-in.
 
 ## Account owner: create the preview resources
 
@@ -83,7 +83,11 @@ pnpm exec wrangler secret put ACCESS_TEAM_DOMAIN --config wrangler.preview.jsonc
 pnpm exec wrangler secret put ACCESS_AUD --config wrangler.preview.jsonc
 ```
 
-`ACCESS_TEAM_DOMAIN` is the issuer origin, such as `https://team-name.cloudflareaccess.com`. Empty values fail closed. There is no local preview identity. The first successful sign-in of `CMS_SUPER_ADMIN_EMAIL` (`abdul@ifranchise.in`) creates the Super Admin row only when that preview database has no Super Admin yet.
+`ACCESS_TEAM_DOMAIN` is the issuer origin, such as `https://team-name.cloudflareaccess.com`. Empty values fail closed. There is no local password or preview identity.
+
+Localhost cannot receive the Access session cookie. After the preview application exists, sign-in is verified by opening `/admin` on the preview hostname. `cloudflared access token -app https://<preview-host>` can mint a real token for that same application. Sending that token to localhost works only when local `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` match the preview application, because the Worker checks Cloudflare’s published certificates. That command has not been run. Do not copy a production Access cookie.
+
+The first successful sign-in of `CMS_SUPER_ADMIN_EMAIL` (`abdul@ifranchise.in`) creates the Super Admin row only when that preview database has no Super Admin yet.
 
 ## Account owner: Google Sheets test copy
 
