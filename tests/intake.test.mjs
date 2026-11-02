@@ -13,6 +13,17 @@ for(const p of [...payloads,{...common,kind:'privacy',requestType:'Access my inf
  if(p.kind!=='privacy')test(p.kind+': server independently validates country-specific phone rules',()=>{for(const phone of ['912345678','91234567890','5123456789','09123456789','919123456789','91234abc89'])assert.throws(()=>validateIntake({...p,phone,phoneCountry:'IN'}),phone);assert.equal(validateIntake({...p,phone:'+91 9123456789',phoneCountry:'IN'}).phone,'+919123456789');assert.equal(validateIntake({...p,phone:'81234567',phoneCountry:'SG'}).phone,'+6581234567');});
 }
 test('each submission maps to the correct single-workbook tab and column count',()=>{const names=['Franchise Enquiries','Brand Expansion','General Enquiries','Job Applications'],widths=[19,18,16,21];payloads.forEach((p,i)=>{const data=validateIntake(p);const record={id:p.id,reference:'IF-'+p.id,kind:p.kind,created_at:'2026-10-22T10:00:00Z',payload:JSON.stringify(data)};const result=sheetEntry(record,'https://example.test');assert.equal(result.tab,names[i]);assert.equal(result.row.length,widths[i]);assert.equal(result.row[3],common.email);assert(result.row.includes('Yes'));if(p.kind==='job')assert.equal(result.row[12],'https://example.test/admin/submissions/'+p.id)})});
+test('a general enquiry uses the 16-column General Enquiries row and keeps franchise and brand widths',()=>{
+ const data=validateIntake(payloads[2]);
+ const sheet=sheetEntry({id:payloads[2].id,reference:'IF-'+payloads[2].id,kind:'general',created_at:'2026-10-29T10:00:00Z',payload:JSON.stringify(data)},'https://example.test');
+ assert.equal(sheet.tab,'General Enquiries');
+ assert.equal(sheet.row.length,16);
+ assert.equal(sheet.row[7],data.message);
+ assert.equal(sheet.row.at(-1),'');
+ assert.equal(sheetEntry({id:payloads[0].id,reference:'IF-'+payloads[0].id,kind:'investor',created_at:'2026-10-29T10:00:00Z',payload:JSON.stringify(validateIntake(payloads[0]))},'https://example.test').row.length,19);
+ assert.equal(sheetEntry({id:payloads[1].id,reference:'IF-'+payloads[1].id,kind:'brand',created_at:'2026-10-29T10:00:00Z',payload:JSON.stringify(validateIntake(payloads[1]))},'https://example.test').row.length,18);
+ for(const message of ['','short','x'.repeat(9)])assert.throws(()=>validateIntake({...payloads[2],message}),message);
+});
 test('email, consent, honeypot, role experience and request type are validated',()=>{for(const change of [{email:''},{consent:false},{trap:'bot'},{kind:'unknown'},{id:'bad'}])assert.throws(()=>validateIntake({...payloads[0],...change}));assert.throws(()=>validateIntake({...payloads[3],experienceYears:'-1'}));assert.throws(()=>validateIntake({...payloads[1],companyWebsite:'javascript:alert(1)'}));assert.throws(()=>validateIntake({...payloads[2],message:'x'}))});
 test('editing job posts does not grant access to job applications',()=>{const member={role:'editor',status:'active',permissions:{jobs:{view:true,edit:true,approve:false}}};assert.equal(canView(member,'applications'),false);assert.equal(canView({...member,permissions:{applications:{view:true,edit:false,approve:false}}},'applications'),true)});
 test('Google receiver verifies signatures, rejects tampering and deduplicates rows',()=>{

@@ -10,7 +10,7 @@
   "preview_urls": false,
   "vars": {
     "SITE_ACCESS": "public",
-    "CMS_SUPER_ADMIN_EMAIL": "abdul@ifranchise.in",
+    "CMS_SUPER_ADMIN_EMAIL": "abdul@ifranchise.in,sumanth.reddy@ifranchise.in",
     // Empty Access values fail closed. Put real values in .dev.vars locally,
     // or in preview Worker secrets. Do not put them in this file.
     "ACCESS_TEAM_DOMAIN": "",

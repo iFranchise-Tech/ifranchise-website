@@ -38,7 +38,7 @@ function rowsFrom(output) {
 const persist = await mkdtemp(join(tmpdir(), 'ifranchise-empty-db-'));
 try {
   const applied = await wrangler(['d1', 'migrations', 'apply', 'DB', '--local'], persist);
-  if (!applied.includes('0000_') || !applied.includes('0002_')) throw new Error(applied);
+  if (!applied.includes('0000_') || !applied.includes('0002_') || !applied.includes('0003_') || !applied.includes('0004_')) throw new Error(applied);
   await wrangler(['d1', 'execute', 'DB', '--local', '--file=database/content.sql'], persist);
   let duplicateRejected = false;
   try {
@@ -52,7 +52,14 @@ try {
   if (JSON.stringify(actual) !== JSON.stringify(expected)) throw new Error(JSON.stringify(actual));
   const submissions = rowsFrom(await wrangler(['d1', 'execute', 'DB', '--local', '--json', '--command', 'SELECT COUNT(*) AS n FROM website_submissions'], persist));
   if (Number(submissions[0].n) !== 0) throw new Error('Seed imported submission rows.');
-  console.log('Empty database: 3 migrations, 5 editorial rows, second import rejected, no submissions.');
+  const members = rowsFrom(await wrangler(['d1', 'execute', 'DB', '--local', '--json', '--command', "SELECT email, role, status FROM cms_members WHERE role='super_admin' ORDER BY email"], persist));
+  const expectedAdmins = [
+    ['abdul@ifranchise.in', 'super_admin'],
+    ['sumanth.reddy@ifranchise.in', 'super_admin'],
+  ];
+  const actualAdmins = members.map((row) => [row.email, row.role]);
+  if (JSON.stringify(actualAdmins) !== JSON.stringify(expectedAdmins)) throw new Error(JSON.stringify(actualAdmins));
+  console.log('Empty database: 5 migrations, dual Super Admins, 5 editorial rows, second import rejected, no submissions.');
 } finally {
   await rm(persist, {recursive: true, force: true});
 }

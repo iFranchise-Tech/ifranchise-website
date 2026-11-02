@@ -1,18 +1,29 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ifranchise-website-preview",
-  "main": "build/worker.ts",
+  "main": "dist/server/index.js",
+  "no_bundle": true,
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": ["**/*.js", "**/*.mjs"]
+    }
+  ],
   "compatibility_date": "2026-05-15",
   "compatibility_flags": ["nodejs_compat"],
-  "workers_dev": false,
+  "workers_dev": true,
   "preview_urls": false,
+  "triggers": {"crons": ["* * * * *"]},
   // Preview database only. Do not copy this id into wrangler.jsonc or production.
   "vars": {
     "SITE_ACCESS": "public",
-    "CMS_SUPER_ADMIN_EMAIL": "abdul@ifranchise.in",
-    // Set the real Access values with `wrangler secret put` on this Worker only.
-    "ACCESS_TEAM_DOMAIN": "",
-    "ACCESS_AUD": ""
+    "CMS_SUPER_ADMIN_EMAIL": "abdul@ifranchise.in,sumanth.reddy@ifranchise.in",
+    "EMAIL_MODE": "disabled",
+    "EMAIL_ENVIRONMENT": "preview",
+    "EMAIL_PUBLIC_ORIGIN": "https://ifranchise-website-preview.damp-field-d970.workers.dev",
+    "CMS_NOTIFICATION_TO": "it@ifranchise.in",
+    "WEBSITE_NOTIFICATION_TO": "contact@ifranchise.in"
+    // ACCESS_TEAM_DOMAIN and ACCESS_AUD belong only in preview Worker secrets.
   },
   "d1_databases": [
     {
@@ -30,6 +41,7 @@
   ],
   "assets": {
     "binding": "ASSETS",
+    "directory": "dist/client",
     "run_worker_first": true,
     "not_found_handling": "none"
   }

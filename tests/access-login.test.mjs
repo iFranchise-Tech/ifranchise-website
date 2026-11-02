@@ -25,16 +25,23 @@ test('Access login points at the team login path and only returns to https hosts
 test('localhost explains the Access limitation and does not offer a password', () => {
   const described = describeStaffSignIn({teamDomain: '', audience: '', requestUrl: 'http://localhost:3019/admin'});
   assert.equal(described.href, null);
-  assert.match(described.explanation, /authorized iFranchise staff/);
+  assert.match(described.explanation, /iFranchise work account/);
   assert.match(described.explanation, /cannot finish sign-in on localhost/);
-  assert.match(described.explanation, /not configured for this environment/);
+  assert.match(described.explanation, /temporarily unavailable/);
   const response = renderStaffSignIn(new Request('http://localhost:3019/admin', {headers: {accept: 'text/html'}}), {});
   assert.equal(response.status, 401);
   assert.match(response.headers.get('content-type'), /text\/html/);
   return response.text().then((html) => {
-    assert.match(html, /Staff portal/);
-    assert.doesNotMatch(html, /type="password"|<form/i);
-    assert.doesNotMatch(html, /Continue with Cloudflare Access/);
+    assert.match(html, /CMS Portal/);
+    assert.match(html, /CMS Portal/);
+    assert.match(html, /iFranchise work account/);
+    assert.match(html, /Staff sign-in is temporarily unavailable/);
+    assert.match(html, /role="status"/);
+    assert.match(html, /Need help with staff access/);
+    assert.match(html, /href="\/cms\/access-help"/);
+    assert.match(html, /color-scheme:light/);
+    assert.doesNotMatch(html, /#100c1b|type="password"|<form/i);
+    assert.doesNotMatch(html, /Continue with your work account|class="button"/);
   });
 });
 
@@ -43,7 +50,11 @@ test('a configured https host can continue to Cloudflare Access', () => {
   const response = renderStaffSignIn(request, {ACCESS_TEAM_DOMAIN: team, ACCESS_AUD: audience});
   return response.text().then((html) => {
     assert.ok(html.includes(`href="${team}/cdn-cgi/access/login/${audience}?redirect_url=https%3A%2F%2Fpreview.example%2Fadmin"`));
-    assert.match(html, /does not accept a password/);
+    assert.match(html, /Continue with your work account/);
+    assert.doesNotMatch(html, /temporarily unavailable/);
+    assert.match(html, /company identity provider/);
+    assert.match(html, /box-shadow/);
+    assert.doesNotMatch(html, /#100c1b|type="password"|<form/i);
   });
 });
 
@@ -51,7 +62,7 @@ test('admin APIs and data requests do not receive the sign-in page', () => {
   assert.equal(shouldShowStaffSignIn(new Request('http://localhost:3019/api/admin', {headers: {accept: 'text/html'}})), false);
   assert.equal(shouldShowStaffSignIn(new Request('http://localhost:3019/api/admin/intake/resume/1', {headers: {accept: 'text/html'}})), false);
   assert.equal(shouldShowStaffSignIn(new Request('http://localhost:3019/admin', {method: 'POST', headers: {accept: 'text/html'}})), false);
-  assert.equal(shouldShowStaffSignIn(new Request('http://localhost:3019/admin?_rsc=1', {headers: {accept: 'text/html'}})), false);
+  assert.equal(shouldShowStaffSignIn(new Request('http://localhost:3019/admin?_rsc=1', {headers: {accept: 'text/html'}})), true);
   assert.equal(shouldShowStaffSignIn(new Request('http://localhost:3019/', {headers: {accept: 'text/html'}})), false);
   assert.equal(renderStaffSignIn(new Request('http://localhost:3019/api/admin'), {}), null);
 });

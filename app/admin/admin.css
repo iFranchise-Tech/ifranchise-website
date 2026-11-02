@@ -18,3 +18,45 @@
 @media(max-width:650px){.cms-main{padding:23px 15px 50px}.cms-page-heading{gap:14px}.cms-editor .cms-actions{max-width:none;width:100%;display:grid;grid-template-columns:1fr 1fr}.cms-editor .cms-actions>.cms-primary{grid-column:1/-1}.cms-panel{padding:19px}.cms-list-panel{padding:0}.cms-stats{grid-template-columns:1fr 1fr;gap:10px}.cms-stats button{padding:15px;min-height:112px}.cms-stats span{font-size:11px}.cms-stats strong{font-size:27px}.cms-form-grid{grid-template-columns:1fr;gap:18px}.cms-editor-sections{gap:4px;display:grid;grid-template-columns:1fr 1fr}.cms-editor-sections button{font-size:11px;padding:10px 7px}.cms-editor-aside{grid-template-columns:1fr;gap:0}.cms-content-fields{padding:19px 16px}.cms-tabs button{padding:12px 15px;font-size:12px}.cms-dialog{padding:21px 17px;max-height:94dvh}.cms-permissions th,.cms-permissions td{padding:12px 8px;font-size:11px}.cms-permissions th:first-child{width:48%}.cms-permission-heading{align-items:flex-start;gap:12px;flex-direction:column}.cms-permission-heading select{max-width:none;width:100%}.cms-dialog-actions{bottom:-21px}.cms-multiselect>div{grid-template-columns:1fr 1fr}.cms-table td,.cms-table th{padding:0}.cms-root h1{font-size:25px}.cms-root .cms-toast{top:75px}.cms-preview-banner{font-size:11px;flex-wrap:wrap}}
 
 .cms-permissions table{table-layout:fixed}.cms-permissions thead th:not(:first-child){text-align:center}.cms-permissions tbody th{background:transparent;font-weight:550}.cms-permissions th:first-child{width:46%}.cms-permissions input{min-height:18px}.cms-root .cms-permissions td{vertical-align:middle}.cms-permissions tbody td{height:49px}
+
+.cms-root .cms-access,[data-theme=dark] .cms-root .cms-access{color-scheme:light;background:radial-gradient(circle at 50% 18%,#ffffff 0%,#eef0f5 58%,#e8ebf2 100%);color:#201a38;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+.cms-root .cms-access section{margin:auto;width:min(420px,100%);padding:40px 36px;background:#fff;border:1px solid #e2e5ee;border-radius:18px;box-shadow:0 22px 60px rgba(28,34,52,.08);text-align:center}
+.cms-root .cms-access .identity-lockup{display:block;width:196px;margin:0 auto 28px}
+.cms-root .cms-access .cms-kicker{margin:0 0 8px;color:#6d7385;font-size:12px;letter-spacing:.14em}
+.cms-root .cms-access h1{margin:0;color:#201a38;font-size:28px;font-weight:600;line-height:1.25}
+.cms-root .cms-access .cms-access-lede{margin:14px 0 0;color:#6d7385;font-size:16px;line-height:1.6;text-align:left}
+.cms-root .cms-access form{text-align:left}
+.cms-root .cms-access .cms-access-notice,.cms-root .cms-access .cms-access-warning{margin-top:20px;padding:12px 14px;border-radius:10px}
+.cms-root .cms-access .cms-access-notice{border:1px solid #edc4c0;background:#fff0ef;color:#9e2929}
+.cms-root .cms-access .cms-access-warning{border:1px solid #e7e2d6;background:#faf8f4;color:#5e584c}
+.cms-root .cms-access .cms-access-notice p,.cms-root .cms-access .cms-access-warning p{margin:0;color:inherit;font-size:14px;line-height:1.55}
+.cms-root .cms-access .cms-access-notice p+p,.cms-root .cms-access .cms-access-warning p+p{margin-top:8px}
+.cms-root .cms-access .cms-access-action,.cms-root .cms-access .cms-button.cms-primary,[data-theme=dark] .cms-root .cms-access .cms-button.cms-primary{display:flex;width:100%;min-height:52px;margin:24px 0 0;border-radius:8px;background:#32159b!important;border-color:#32159b!important;color:#fff!important;font-size:16px!important}
+.cms-root .cms-access .cms-access-help,.cms-root .cms-access .cms-access-home{display:inline-block;margin-top:22px;color:#32159b;font-weight:700;text-decoration:none}
+.cms-root .cms-access .cms-access-home{display:block;width:fit-content;margin:22px auto 0;padding-top:4px;color:#6d7385;font-size:14px;font-weight:600}
+.cms-root .cms-access .cms-access-home:hover{color:#32159b}
+.cms-root .cms-access .cms-access-field{margin-top:18px}
+.cms-root .cms-access .cms-access-field:first-of-type{margin-top:24px}
+.cms-root .cms-access .cms-access-field label{display:block;margin:0 0 8px;font-size:13px;font-weight:700;color:#201a38}
+.cms-root .cms-access .cms-access-field input,.cms-root .cms-access .cms-access-secret input{width:100%;height:48px;min-height:48px;padding:0 14px;border:1px solid #e6e4ee;border-radius:8px;background:#fff;color:#201a38;font-size:16px}
+.cms-root .cms-access .cms-access-secret{position:relative}
+.cms-root .cms-access .cms-access-secret input{padding-right:48px}
+.cms-root .cms-access .cms-access-secret button{position:absolute;top:0;right:0;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:#706a80;cursor:pointer}
+.cms-root .cms-access .cms-access-forgot{margin-top:10px;text-align:left}
+.cms-root .cms-access .cms-access-forgot-link{display:inline;padding:0;border:0;background:none;color:#32159b;font:700 13px/1.4 Manrope,Arial,sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.cms-root .cms-access .cms-access-forgot-help{margin:10px 0 0;padding:12px 14px;border:1px solid #e7e2d6;border-radius:10px;background:#faf8f4;color:#5e584c;font-size:13px;line-height:1.55;text-align:left}
+.cms-root .cms-access form .cms-access-action{margin-top:24px;min-height:48px!important}
+@media(max-width:640px){.cms-root .cms-access{padding:20px 16px}.cms-root .cms-access section{padding:28px 22px}.cms-root .cms-access h1{font-size:26px}.cms-root .cms-access .identity-lockup{width:168px;margin-bottom:22px}}
+
+.cms-sidebar-bottom .cms-sign-out{display:flex;align-items:center;gap:10px;border:0;padding:10px 0;background:transparent;color:inherit;font:inherit;cursor:pointer;width:100%;text-align:left}
+.cms-access-field input:focus-visible,.cms-access-secret button:focus-visible,.cms-access-forgot-link:focus-visible{outline:3px solid #9882db;outline-offset:3px}
+.cms-root .cms-access .cms-access-accounts{display:grid;gap:12px;margin-top:28px}
+.cms-root .cms-access .cms-access-account{display:flex;align-items:center;gap:12px;width:100%;min-height:80px;padding:14px;border:1px solid #e2e5ee;border-radius:12px;background:#fff;color:#201a38;text-align:left;cursor:pointer}
+.cms-root .cms-access .cms-access-account:hover{border-color:#32159b;background:#f8f6ff}
+.cms-root .cms-access .cms-access-account:focus-visible{outline:3px solid #9882db;outline-offset:3px}
+.cms-root .cms-access .cms-access-account:disabled{opacity:.55;cursor:default}
+.cms-root .cms-access .cms-access-avatar{display:grid;place-items:center;flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#eee9fc;color:#32159b;font-size:13px;font-weight:700}
+.cms-root .cms-access .cms-access-account-name{flex:1;min-width:0}
+.cms-root .cms-access .cms-access-account-name strong{display:block;font-size:14px;line-height:1.5}
+.cms-root .cms-access .cms-access-account-name small{display:block;margin-top:3px;color:#6d7385;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+.cms-root .cms-access .cms-access-account-arrow{color:#32159b;font-size:20px}

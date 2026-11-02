@@ -9,7 +9,7 @@ test('public website paths do not require Cloudflare Access', () => {
 });
 
 test('admin pages and admin APIs require Cloudflare Access', () => {
-  for (const path of ['/admin', '/admin/', '/admin/preview', '/admin/submissions/11111111-1111-4111-8111-111111111111', '/api/admin', '/api/admin/', '/api/admin/upload', '/api/admin/intake', '/api/admin/intake/resume/11111111-1111-4111-8111-111111111111', '/api/admin/brochures/extra']) {
+  for (const path of ['/admin', '/admin.rsc', '/%61dmin.rsc', '/admin/', '/admin/preview.rsc', '/admin/preview', '/admin/submissions/11111111-1111-4111-8111-111111111111', '/api/admin', '/api/admin/', '/api/admin/upload', '/api/admin/intake', '/api/admin/intake/resume/11111111-1111-4111-8111-111111111111', '/api/admin/brochures/extra']) {
     assert.equal(isStaffPath(path), true, path);
   }
 });
