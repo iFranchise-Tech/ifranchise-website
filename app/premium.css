@@ -78,3 +78,7 @@ html[data-theme="dark"] .p-header .identity-lockup .identity-master{filter:brigh
 }
 
 .p-footer-legal{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px}
+@media(min-width:1024px){
+ .p-footer-bottom>.p-footer-legal{gap:0}
+ .p-footer-legal>a+a{border-left:1px solid currentColor;margin-left:10px;padding-left:10px}
+}

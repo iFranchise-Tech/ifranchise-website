@@ -4,6 +4,7 @@ export const members=sqliteTable('cms_members',{
  role:text('role').notNull(), scopes:text('scopes').notNull(), manager:text('manager'),
  status:text('status').notNull(), expiresAt:text('expires_at'), version:integer('version').notNull().default(1),
  createdAt:text('created_at').notNull(),updatedAt:text('updated_at').notNull(),
+ invitationRequired:integer('invitation_required').notNull().default(0),
 });
 export const records=sqliteTable('cms_records',{
  id:text('id').primaryKey(), kind:text('kind').notNull(), slug:text('slug').notNull(),
@@ -29,3 +30,14 @@ export const submissions=sqliteTable('website_submissions',{
  createdAt:text('created_at').notNull(),sheetStatus:text('sheet_status').notNull().default('pending'),syncedAt:text('synced_at'),attempts:integer('attempts').notNull().default(0),
 },t=>[index('website_submissions_pending').on(t.sheetStatus,t.createdAt)]);
 export const intakeLimits=sqliteTable('intake_limits',{id:text('id').primaryKey(),count:integer('count').notNull(),expiresAt:integer('expires_at').notNull()});
+
+export const invitationTokens=sqliteTable('cms_invitation_tokens',{
+ tokenHash:text('token_hash').primaryKey(),email:text('email').notNull().references(()=>members.email),expiresAt:integer('expires_at').notNull(),usedAt:integer('used_at'),createdAt:integer('created_at').notNull(),
+},t=>[index('cms_invitation_email').on(t.email)]);
+export const emailOutbox=sqliteTable('email_outbox',{
+ id:text('id').primaryKey(),dedupeKey:text('dedupe_key').notNull().unique(),kind:text('kind').notNull(),sourceRef:text('source_ref').notNull(),payload:text('payload'),status:text('status').notNull().default('queued'),providerId:text('provider_id').unique(),attempts:integer('attempts').notNull().default(0),firstAttemptAt:integer('first_attempt_at'),nextAttemptAt:integer('next_attempt_at').notNull().default(0),leaseUntil:integer('lease_until').notNull().default(0),lastError:text('last_error'),eventAt:integer('event_at').notNull().default(0),eventRank:integer('event_rank').notNull().default(0),createdAt:integer('created_at').notNull(),updatedAt:integer('updated_at').notNull(),
+},t=>[index('email_outbox_pending').on(t.status,t.nextAttemptAt)]);
+export const emailDeliveryEvents=sqliteTable('email_delivery_events',{
+ id:text('id').primaryKey(),providerId:text('provider_id').notNull(),type:text('type').notNull(),occurredAt:integer('occurred_at').notNull(),receivedAt:integer('received_at').notNull(),
+},t=>[index('email_delivery_provider').on(t.providerId,t.occurredAt)]);
+export const emailLimits=sqliteTable('email_limits',{id:text('id').primaryKey(),count:integer('count').notNull(),expiresAt:integer('expires_at').notNull()});

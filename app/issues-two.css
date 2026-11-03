@@ -8,14 +8,6 @@
 .p-site .location-control li:hover,.p-site .location-control li[aria-selected=true]{background:#efebfa;color:#32159b}
 .p-site .location-field>small{display:block;margin-top:5px;font-size:11px;line-height:1.5;color:#706979}
 .p-site .location-control input:disabled{background:#f5f4f8;cursor:not-allowed;color:#77717f}
-.p-site .submission-confirmation{min-height:calc(100svh - var(--site-header-height));display:grid;place-items:center;padding:72px 24px;text-align:center}
-.submission-confirmation>section{max-width:650px}
-.p-site .submission-confirmation h1{font-size:clamp(30px,4vw,46px);line-height:1.2;margin:12px 0 20px}
-.p-site .submission-confirmation section>p:not(.p-eyebrow){font-size:16px;line-height:1.8;color:#635f6e;margin:0 auto 30px;max-width:500px}
-.submission-check{display:grid;place-items:center;width:78px;height:78px;margin:0 auto 26px;border-radius:50%;background:#eeebfb;color:#32159b;animation:confirmation-in .35s ease-out both}
-.submission-check svg{stroke-dasharray:80;stroke-dashoffset:0;animation:confirmation-tick .6s ease-out both}
-@keyframes confirmation-in{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
-@keyframes confirmation-tick{from{stroke-dashoffset:80}to{stroke-dashoffset:0}}
 .p-site .consent-status{font-size:14px;line-height:1.8;color:#635f6e;padding:14px 16px;border-radius:10px;background:#f7f5fc}
 .p-site .brand-profile .profile-brand-presence{max-width:220px;flex:0 1 220px}
 .p-site .brand-profile .profile-brand-presence strong{font-size:16px;line-height:1.5;letter-spacing:0;font-weight:650}
@@ -23,8 +15,10 @@
 .p-site .opportunity-results label{display:block;font-size:13px;white-space:nowrap;color:#635f6e}
 .p-site .opportunity-results select{height:42px;max-width:240px;min-width:0;padding:8px 36px 8px 12px;border:1px solid #ded8eb;border-radius:8px;background-color:#fff;font:500 13px/1.5 Manrope,sans-serif;color:#211b31;background-position:right 12px center}
 .p-site .whatsapp-float.whatsapp-compact{width:52px;height:52px;min-width:52px;padding:0;display:grid;place-items:center;gap:0;border-radius:50%;background:#32159b;color:#fff;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));box-shadow:0 4px 14px #211b3120;overflow:visible}
-.p-site .whatsapp-float.whatsapp-compact:before{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid #32159b55;animation:whatsapp-halo 3s ease-out infinite;pointer-events:none}
-@keyframes whatsapp-halo{0%,35%{transform:scale(1);opacity:.45}85%,100%{transform:scale(1.28);opacity:0}}
+.p-site .whatsapp-float.whatsapp-compact:before,.p-site .whatsapp-float.whatsapp-compact:after{content:"";position:absolute;inset:-2px;border-radius:inherit;border:1px solid #32159b;opacity:0;animation:whatsapp-halo 3.6s ease-out infinite;pointer-events:none}
+.p-site .whatsapp-float.whatsapp-compact:after{animation-delay:-1.8s}
+.p-site .whatsapp-float.whatsapp-compact:is(:hover,:focus-visible):before,.p-site .whatsapp-float.whatsapp-compact:is(:hover,:focus-visible):after{animation-play-state:paused}
+@keyframes whatsapp-halo{0%{transform:scale(1);opacity:.28}75%,100%{transform:scale(1.32);opacity:0}}
 @media(min-width:1280px){.p-site .p-navigation>.p-menu-row,.p-site .p-navigation>.p-nav-group>.p-menu-row{font-size:14px}}
 /* Shared type roles preserve the homepage itself and its scale. */
 .p-site main:not(.p-home) :is(h1,h2,h3,h4){font-family:Sora,Arial,sans-serif}
@@ -50,4 +44,4 @@
 .brand-mobile-contact.is-collapsed .brand-contact-toggle>svg{transform:none}
 .brand-mobile-contact .brand-contact-toggle:focus-visible{outline:2px solid #32159b;outline-offset:3px}
 .brand-mobile-contact.is-collapsed .brand-contact-toggle:focus-visible{outline:2px solid #fff;outline-offset:-4px}
-@media(prefers-reduced-motion:reduce){.submission-check,.submission-check svg,.p-site .whatsapp-float.whatsapp-compact:before{animation:none}}
+@media(prefers-reduced-motion:reduce){.submission-check,.submission-check svg,.p-site .whatsapp-float.whatsapp-compact:before,.p-site .whatsapp-float.whatsapp-compact:after{animation:none}}

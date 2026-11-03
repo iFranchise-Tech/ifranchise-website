@@ -1,23 +1,37 @@
 import {env} from 'cloudflare:workers';
-import {getChatGPTUser} from '../../app/chatgpt-auth';
+import {getAccessUser} from '../access-auth';
 import {workEmail} from './policy.mjs';
 import {CmsError} from './errors';
+import {displayNameForSuperAdmin,isConfiguredSuperAdmin} from './super-admins.mjs';
 export {CmsError} from './errors';
 export function db(){if(!env.DB)throw new CmsError(503,'The content service is unavailable.');return env.DB;}
 export function memberFromRow(r:any){return {...r,userId:r.user_id,scopes:Array.isArray(JSON.parse(r.scopes))?JSON.parse(r.scopes):Object.keys(JSON.parse(r.scopes)).filter(k=>JSON.parse(r.scopes)[k].view),permissions:Array.isArray(JSON.parse(r.scopes))?undefined:JSON.parse(r.scopes),expiresAt:r.expires_at,updatedAt:r.updated_at};}
 export async function getMembers(){return (await db().prepare('SELECT * FROM cms_members ORDER BY name').all()).results.map(memberFromRow);}
 export async function adminIdentity(){
- let user=await getChatGPTUser();
+ const user=await getAccessUser();
  if(!user)throw new CmsError(401,'Sign in to continue.');
- // This is the portable starter's local preview identity. Vite removes this branch from production.
- if(import.meta.env.DEV&&user.userId==='local_seedy')user={...user,email:'preview@ifranchise.in',displayName:'Preview Admin',fullName:'Preview Admin'};
  const email=user.email.toLowerCase().trim();if(!workEmail(email))throw new CmsError(403,'This account does not have access.');
- const owner=import.meta.env.DEV?'preview@ifranchise.in':(env as any).CMS_SUPER_ADMIN_EMAIL?.toLowerCase();
- if(email===owner){const now=new Date().toISOString();await db().prepare("INSERT INTO cms_members (email,user_id,name,role,scopes,manager,status,version,created_at,updated_at) SELECT ?,?,?,'super_admin','[]',NULL,'active',1,?,? WHERE NOT EXISTS (SELECT 1 FROM cms_members WHERE role='super_admin') ON CONFLICT(email) DO NOTHING").bind(email,user.userId,user.fullName||'Abdul',now,now).run();}
+ if(isConfiguredSuperAdmin(email,env)){
+  const now=new Date().toISOString();
+  const name=displayNameForSuperAdmin(email,user.fullName||'');
+  await db().prepare(`INSERT INTO cms_members (email,user_id,name,role,scopes,manager,status,expires_at,version,created_at,updated_at)
+   VALUES (?,?,?,'super_admin','[]',NULL,'active',NULL,1,?,?)
+   ON CONFLICT(email) DO UPDATE SET
+    user_id=CASE WHEN cms_members.user_id IS NULL THEN excluded.user_id ELSE cms_members.user_id END,
+    name=CASE WHEN cms_members.name IS NULL OR trim(cms_members.name)='' THEN excluded.name ELSE cms_members.name END,
+    role='super_admin',scopes='[]',manager=NULL,status='active',expires_at=NULL,
+    updated_at=excluded.updated_at,version=cms_members.version+1
+   WHERE (cms_members.user_id IS NULL OR cms_members.user_id=excluded.user_id)
+    AND (cms_members.user_id IS NULL OR cms_members.role!='super_admin' OR cms_members.status!='active'
+     OR cms_members.scopes!='[]' OR cms_members.manager IS NOT NULL OR cms_members.expires_at IS NOT NULL
+     OR cms_members.name IS NULL OR trim(cms_members.name)='')`).bind(email,user.userId,name,now,now).run();
+ }
  let row:any=await db().prepare('SELECT * FROM cms_members WHERE email=?').bind(email).first();
  if(!row||row.status==='suspended')throw new CmsError(403,'This account does not have access.');
+ if(row.role==='super_admin'&&!isConfiguredSuperAdmin(email,env))throw new CmsError(403,'Super Admin access is restricted to the configured accounts.');
  if(row.user_id&&row.user_id!==user.userId)throw new CmsError(403,'This account does not match the invited identity.');
  if(row.status==='invited'){
+  if(row.invitation_required)throw new CmsError(403,'Open your invitation email to activate this account. Ask your Super Admin to resend it if needed.');
   if(row.expires_at<new Date().toISOString())throw new CmsError(403,'Your invitation has expired. Ask your administrator to renew it.');
   await db().prepare("UPDATE cms_members SET user_id=?,status='active',updated_at=?,version=version+1 WHERE email=? AND status='invited' AND user_id IS NULL").bind(user.userId,new Date().toISOString(),email).run();
   row=await db().prepare('SELECT * FROM cms_members WHERE email=?').bind(email).first();

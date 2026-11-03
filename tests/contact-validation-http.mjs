@@ -1,3 +1,4 @@
+// Targets the retained Sites preview identity. It does not authenticate against the Cloudflare Access worker.
 // Synthetic requests only; never run this against hosted or delivery-enabled environments.
 import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';

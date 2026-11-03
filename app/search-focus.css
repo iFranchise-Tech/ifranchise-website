@@ -1,0 +1,18 @@
+/* Focus encloses the complete search control, including its icon. An inset
+   outline follows the existing radius without changing size or being clipped. */
+.p-site :is(.resource-search,.career-search,.search-field):focus-within,
+.editorial-library .search-field:focus-within,
+.p-site .opportunity-search input:focus,
+.country-picker input.country-search:focus,
+.cms-root .cms-search input:focus{
+ border-color:#32159b;
+ outline:2px solid #32159b;
+ outline-offset:-2px;
+ box-shadow:none;
+}
+/* Icon-and-input wrappers own the ring; don't draw another around the input. */
+.p-site :is(.resource-search,.career-search,.search-field) input:focus,
+.editorial-library .search-field input:focus{
+ outline:none;
+ box-shadow:none;
+}

@@ -1,0 +1,47 @@
+# Local secrets for Wrangler. Copy this file to .dev.vars only when a value below is real.
+# .dev.vars is the local secret file. When it exists, Wrangler uses it and does not read .env.
+# Leave every line commented until the value exists. Commented lines do not override wrangler.jsonc.
+# Do not invent values, and do not copy a production key into this file.
+# Never commit .dev.vars, .env, or .secrets/.
+
+# Not used on the public website
+# SITE_ACCESS and CMS_SUPER_ADMIN_EMAIL are already set in wrangler.jsonc.
+# DB and BUCKET are bindings in that file, not secrets.
+
+# Local admin sign-in — development only. Ignored by preview and production.
+# If this file exists, Wrangler uses it and does not read .env.local.
+# LOCAL_ADMIN_SECRET is required for server-side session signing; local sign-in has no password field.
+# LOCAL_ADMIN_EMAIL is a legacy setting and does not add accounts to the two-admin picker.
+# LOCAL_ADMIN_EMAIL="sumanth.reddy@ifranchise.in,abdul@ifranchise.in"
+# LOCAL_ADMIN_SECRET="paste-a-random-value-at-least-32-characters"
+
+# Cloudflare Access — required before staff sign-in can succeed on a deployed hostname
+# Set these only after the account owner creates an Access application.
+# Localhost cannot complete the browser sign-in even after these are set.
+# ACCESS_TEAM_DOMAIN="https://team-name.cloudflareaccess.com"
+# ACCESS_AUD="access-application-audience"
+
+# Google Sheets test copy — optional, and off until both values are set
+# Use a separate test spreadsheet. Do not use the production workbook or its Apps Script.
+# Generate a new key with: node scripts/create-intake-keys.mjs
+# Put only the new public key in the test Apps Script.
+# SHEETS_WEBHOOK_URL="https://script.google.com/macros/s/TEST-DEPLOYMENT-ID/exec"
+# INTAKE_SIGNING_KEY='{"kty":"RSA","n":"REPLACE","e":"AQAB","d":"REPLACE"}'
+
+# One-time brochure import — optional. The route still requires this secret or a Super Admin.
+# CMS_BROCHURE_IMPORT_TOKEN="replace-with-a-random-secret"
+
+# Transactional email — all values are server-side. Never use NEXT_PUBLIC_ or VITE_ prefixes.
+# Local capture saves encrypted email payloads without sending mail. No Resend key is needed.
+# EMAIL_MODE="capture"
+# EMAIL_ENVIRONMENT="development"
+# EMAIL_PUBLIC_ORIGIN="http://localhost:3019"
+# EMAIL_OUTBOX_KEY="base64-encoded-32-random-bytes"
+# For approved local/preview delivery: EMAIL_MODE="resend", EMAIL_ENVIRONMENT="preview".
+# Use a separate sending-only Resend key restricted to ifranchise.in.
+# RESEND_API_KEY="set-through-your-secret-manager"
+# RESEND_WEBHOOK_SECRET="whsec_value-from-the-matching-Resend-webhook"
+# EMAIL_ALLOWED_RECIPIENTS="abdul@ifranchise.in,sumanth.reddy@ifranchise.in,it@ifranchise.in,contact@ifranchise.in"
+# CMS_NOTIFICATION_TO="it@ifranchise.in"
+# WEBSITE_NOTIFICATION_TO="contact@ifranchise.in"
+# Hosted origins must be HTTPS. Capture mode is rejected by a production build.

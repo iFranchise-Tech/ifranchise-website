@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import {AboutPage} from '../../../components/about-page';
 import {CareersPage} from '../../../components/careers-page';
 import {ManagedLegalPage} from '../../../components/managed-legal-page';
 import {SiteSettingsProvider} from '../../../components/site-settings';
 import {notFound} from 'next/navigation';
-import {adminIdentity,db} from '../../../lib/cms/auth';
+import {adminIdentity,db,CmsError} from '../../../lib/cms/auth';
+import {StaffSignIn} from '../../../components/admin/staff-sign-in';
 import {canView} from '../../../lib/cms/policy.mjs';
 import {getRecord} from '../../../lib/cms/store';
 import {hydrateArticle,published,publishedPage,publishedFaq,publishedResources} from '../../../lib/cms/public';
@@ -20,7 +22,7 @@ import {PremiumMotion} from '../../../components/premium-motion';
 export const dynamic='force-dynamic';
 export const metadata={title:'Content preview',robots:{index:false,follow:false}};
 export default async function Preview({searchParams}:{searchParams:Promise<{id?:string;token?:string;loading?:string}>}){
- let me;try{me=await adminIdentity()}catch{notFound()}
+ let me;try{me=await adminIdentity()}catch(error){return <StaffSignIn status={error instanceof CmsError?error.status:503} message={error instanceof CmsError?error.message:'The admin portal is temporarily unavailable.'} returnPath="/admin/preview"/>}
  const {id,token,loading}=await searchParams;if(loading)return <div className="cms-preview-banner" role="status">Preparing preview…</div>;
  let r:any;if(token){const row:any=await db().prepare('SELECT kind,payload FROM cms_previews WHERE id=? AND expires_at>?').bind(token,new Date().toISOString()).first();if(row)r={kind:row.kind,draft:JSON.parse(row.payload)}}else r=await getRecord(id||'');
  if(!r||!canView(me,r.kind==='placements'&&r.draft?.slug==='jobs'?'job-order':r.kind))notFound();const p=r.draft,kind=r.kind;
@@ -44,5 +46,5 @@ export default async function Preview({searchParams}:{searchParams:Promise<{id?:
  page=<OpportunitiesPage brands={sorted} industries={kind==='industries'?[p,...industries.filter(i=>i.slug!==p.slug)]:industries} faqs={kind==='faqs'?p.questions:await publishedFaq('opportunities')}/>;
  }else notFound();
  const [contact,footer]=await Promise.all([publishedPage('contact-us'),publishedPage('footer')]);
- return <SiteSettingsProvider value={{...(kind==='pages'&&p.slug==='contact-us'?p:contact),socialLinks:kind==='pages'&&p.slug==='footer'?p.socialLinks:footer?.socialLinks}}><div className="cms-preview-banner"><strong>Preview</strong><span>{p.name||p.title}</span><span>Not published</span><a href="/admin">Open admin ↗</a></div><PremiumMotion><Header/>{page}<Footer/></PremiumMotion></SiteSettingsProvider>;
+ return <SiteSettingsProvider value={{...(kind==='pages'&&p.slug==='contact-us'?p:contact),socialLinks:kind==='pages'&&p.slug==='footer'?p.socialLinks:footer?.socialLinks}}><div className="cms-preview-surface"><div className="cms-preview-banner"><strong>Preview</strong><span>{p.name||p.title}</span><span>Not published</span><Link href="/admin" prefetch={false}>Open admin ↗</Link></div><PremiumMotion><Header preview/>{page}<Footer/></PremiumMotion></div></SiteSettingsProvider>;
 }

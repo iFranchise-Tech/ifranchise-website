@@ -1,0 +1,2 @@
+-- LOCAL TEST ONLY. Do not import into a hosted database.
+INSERT OR REPLACE INTO cms_records(id,kind,slug,draft,live,status,intent,version,updated_by,submitted_by,updated_at,mutation) VALUES('jobs:export-test-role','jobs','export-test-role','{"id": "export-test-role", "slug": "export-test-role", "title": "Local Test Role", "active": true}','{"id": "export-test-role", "slug": "export-test-role", "title": "Local Test Role", "active": true}','published','publish',1,'local-test@ifranchise.in',NULL,'2026-10-28T00:00:00Z','local-test');

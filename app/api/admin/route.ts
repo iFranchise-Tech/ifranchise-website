@@ -1,3 +1,6 @@
+import {env} from 'cloudflare:workers';
+import {activityDisplay} from '../../../lib/cms/activity.mjs';
+import {isConfiguredSuperAdmin} from '../../../lib/cms/super-admins.mjs';
 import {normalizeWorkEmail} from '../../../lib/contact-validation.mjs';
 import {checkMedia} from '../../../lib/cms/media-permissions';
 import {adminIdentity,assertOrigin,boundedBody,CmsError,db,failure,getMembers,memberFromRow,response} from '../../../lib/cms/auth';
@@ -6,6 +9,9 @@ import {getRecord,allRecords,summary,writeRecord} from '../../../lib/cms/store';
 import {validPayload} from '../../../lib/cms/validation';
 import {blank} from '../../../lib/cms/defaults';
 import {published} from '../../../lib/cms/public';
+import {prepareInvitation} from '../../../lib/email/invitations';
+import {emailLimit,outboxStatement,flushEmails} from '../../../lib/email/service';
+import {finishDelivery} from '../../../lib/intake/context';
 export const dynamic='force-dynamic';
 export async function GET(req:Request){try{
  const me=await adminIdentity(),u=new URL(req.url),kind=u.searchParams.get('kind'),id=u.searchParams.get('id'),view=u.searchParams.get('view');
@@ -17,8 +23,8 @@ export async function GET(req:Request){try{
  if(view==='media'){const media=(await db().prepare('SELECT * FROM cms_media ORDER BY created_at DESC LIMIT 200').all()).results.filter((m:any)=>canView(me,m.scope));return response({media});}
  const sections=[...SCOPES,'placements'].filter(k=>canView(me,k)||k==='placements'&&canView(me,'job-order'));const rows=(await Promise.all(sections.map(allRecords))).flat().filter(r=>canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind));
  const pending=rows.filter(r=>r.status==='review');const team=await getMembers();
- const activity=(await db().prepare('SELECT id,record_id,action,actor,note,created_at FROM cms_events ORDER BY created_at DESC LIMIT 150').all()).results.filter((e:any)=>e.record_id.startsWith('team:')?me.role==='super_admin':canView(me,e.record_id==='placements:jobs'?'job-order':e.record_id.split(':')[0])).slice(0,30);
- return response({me,counts:Object.fromEntries(SCOPES.filter(k=>canView(me,k)).map(k=>[k,rows.filter(r=>r.kind===k&&r.status!=='archived').length])),pending:pending.map(r=>({...summary(r),canApprove:canApprove(me,r,team)})),recent:rows.filter(r=>r.version>0).sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||'')).slice(0,6).map(summary),activity});
+ const activity=(await db().prepare('SELECT id,record_id,action,actor,note,created_at FROM cms_events ORDER BY created_at DESC LIMIT 150').all()).results.filter((e:any)=>e.record_id.startsWith('team:')||e.record_id.startsWith('email:')?me.role==='super_admin':canView(me,e.record_id==='placements:jobs'?'job-order':e.record_id.split(':')[0])).slice(0,30);
+ return response({me,counts:Object.fromEntries(SCOPES.filter(k=>canView(me,k)).map(k=>[k,rows.filter(r=>r.kind===k&&r.status!=='archived').length])),pending:pending.map(r=>({...summary(r),canApprove:canApprove(me,r,team)})),recent:rows.filter(r=>r.version>0).sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||'')).slice(0,6).map(summary),activity:activity.map(event=>({...event,display:activityDisplay(event,rows,team)}))});
  }catch(e){return failure(e)}}
 export async function POST(req:Request){try{
  assertOrigin(req);const me=await adminIdentity();if(!req.headers.get('content-type')?.includes('application/json'))throw new CmsError(415,'Use JSON for this request.');const text=new TextDecoder().decode(await boundedBody(req,350000));let body:any;try{body=JSON.parse(text)}catch{throw new CmsError(400,'Invalid request.')}
@@ -75,11 +81,13 @@ async function publishedRecord(me:any,r:any){await validatePublication(me,r);ret
 async function changeMember(me:any,b:any){
  if(me.role!=='super_admin')throw new CmsError(403,'Only a Super Admin can manage employees.');
  const p=b.payload;let email:string;try{email=normalizeWorkEmail(p?.email)}catch(e:any){throw new CmsError(422,e.message)}
+ if(p.role==='super_admin'&&!isConfiguredSuperAdmin(email,env))throw new CmsError(422,'Super Admin access is restricted to the configured accounts.');
  if(!p.name?.trim()||p.name.length>120||!ROLES.includes(p.role)||!Array.isArray(p.scopes)||p.scopes.some((s:string)=>!PERMISSION_SCOPES.includes(s)))throw new CmsError(422,'Complete the employee details.');
  const members=await getMembers(),old=members.find(m=>m.email===email);if(old&&b.version!==old.version||!old&&b.version!==0)throw new CmsError(409,'This employee changed. Reload the team list.');
  if(!['invited','active','suspended'].includes(p.status))throw new CmsError(422,'Invalid status.');
  if(!old&&p.status!=='invited'||old&&!old.userId&&p.status==='active')throw new CmsError(422,'The employee must accept their invitation by signing in.');
  if(email===me.email&&(p.role!=='super_admin'||p.status!=='active'))throw new CmsError(422,'You cannot remove your own Super Admin access.');
+ if(isConfiguredSuperAdmin(email,env)&&(p.role!=='super_admin'||p.status==='suspended'))throw new CmsError(422,'The configured Super Admin accounts must retain their access.');
  if(p.permissions){if(typeof p.permissions!=='object'||Array.isArray(p.permissions)||Object.keys(p.permissions).some(k=>!PERMISSION_SCOPES.includes(k)))throw new CmsError(422,'Invalid permissions.');for(const v of Object.values(p.permissions) as any[]){if(!v||['view','edit','approve'].some(k=>typeof v[k]!=='boolean')||(!v.view&&(v.edit||v.approve)))throw new CmsError(422,'Editing and approval require view access.');}p.scopes=Object.keys(p.permissions).filter(k=>p.permissions[k].view);}
  const candidate={...p,email,name:p.name.trim(),scopes:p.role==='super_admin'?[]:[...new Set(p.scopes)],manager:p.role==='super_admin'?null:p.manager||null};
  if(p.role!=='super_admin'&&!p.scopes.length)throw new CmsError(422,'Assign at least one section.');
@@ -87,10 +95,20 @@ async function changeMember(me:any,b:any){
  for(const member of proposed.filter(m=>m.status!=='suspended')){const problem=validateHierarchy(member,proposed);if(problem)throw new CmsError(422,member.name+': '+problem);}
  const teamVersion=members.reduce((n,m)=>n+m.version,0),teamSize=members.length;
  const now=new Date().toISOString(),expiry=p.status==='invited'?new Date(Date.now()+14*864e5).toISOString():null,id=crypto.randomUUID();
+ await emailLimit(env,'team:'+me.email,20);
+ const invitation=p.status==='invited'?await prepareInvitation(email,candidate.name,p.role,id):[];
+ const notification=await outboxStatement(env,{key:'admin:'+id,kind:'admin',source:id,condition:'EXISTS (SELECT 1 FROM cms_events WHERE id=?)',values:[id]});
  const result=await db().batch([
  db().prepare(`INSERT INTO cms_members (email,user_id,name,role,scopes,manager,status,expires_at,version,created_at,updated_at) SELECT ?,NULL,?,?,?,?,?,?,1,?,? WHERE (SELECT COALESCE(SUM(version),0) FROM cms_members)=? AND (SELECT COUNT(*) FROM cms_members)=? ON CONFLICT(email) DO UPDATE SET name=excluded.name,role=excluded.role,scopes=excluded.scopes,manager=excluded.manager,status=excluded.status,expires_at=excluded.expires_at,version=cms_members.version+1,updated_at=excluded.updated_at WHERE cms_members.version=?`).bind(email,candidate.name,p.role,JSON.stringify(candidate.permissions||candidate.scopes),candidate.manager,p.status,expiry,now,now,teamVersion,teamSize,b.version),
- db().prepare('INSERT INTO cms_events(id,record_id,action,actor,snapshot,note,created_at) SELECT ?,?,?,?,?,?,? WHERE EXISTS (SELECT 1 FROM cms_members WHERE email=? AND version=? AND updated_at=?)').bind(id,'team:'+email,old?'update employee':'invite employee',me.email,null,candidate.role+' · '+candidate.status,now,email,b.version+1,now)
+ db().prepare('INSERT INTO cms_events(id,record_id,action,actor,snapshot,note,created_at) SELECT ?,?,?,?,?,?,? WHERE changes()=1').bind(id,'team:'+email,old?'update employee':'invite employee',me.email,null,candidate.role+' · '+candidate.status,now),
+ db().prepare('UPDATE cms_members SET invitation_required=? WHERE email=? AND EXISTS (SELECT 1 FROM cms_events WHERE id=?)').bind(p.status==='invited'?1:0,email,id),
+ ...invitation,notification.statement,
+ ...(p.status==='suspended'?[
+ db().prepare('UPDATE cms_invitation_tokens SET used_at=? WHERE email=? AND used_at IS NULL AND EXISTS (SELECT 1 FROM cms_events WHERE id=?)').bind(Date.now(),email,id),
+ db().prepare("UPDATE email_outbox SET status='cancelled',payload=NULL WHERE kind='invitation' AND source_ref=? AND status IN ('queued','retry','captured','blocked') AND EXISTS (SELECT 1 FROM cms_events WHERE id=?)").bind(email,id)
+ ]:[])
  ]);if(!result[0].meta.changes)throw new CmsError(409,'This employee changed. Reload before saving.');
+ await finishDelivery(flushEmails(env));
  return response({members:await getMembers(),invited:!old||p.status==='invited'});
 }
 

@@ -1,60 +1,68 @@
-// Page-specific real stock photography. Sources: docs/image-credits.md.
+// Page-specific banner imagery. Sources and provenance: docs/image-credits.md.
 export const pageBanners = {
   "brand": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-strategy-workshop-12902905.webp",
-    "mobilePosition": "50% 50%",
-    "image": "/assets/stock-heroes/brand-business-owners-hd.webp",
-    "alt": "Business owners working together on their business",
-    "position": "62% 45%"
+    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-expansion-v1.webp",
+    "mobilePosition": "85% 8%",
+    "image": "/assets/stock-heroes/brand-franchise-expansion-v1.webp",
+    "alt": "Illustrative scene of an Indian retail founder and adviser planning new franchise locations",
+    "position": "65% 40%"
   },
   "about": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/about-advisory-planning-9304670.webp",
-    "mobilePosition": "50% 50%",
-    "image": "/assets/stock-heroes/about-collaborative-team-hd.webp",
-    "alt": "Colleagues sharing ideas and planning together in a collaborative business meeting",
-    "position": "60% 45%"
+    "mobileImage": "/assets/stock-heroes/mobile/about-franchise-advisory-v1.webp",
+    "mobilePosition": "85% 8%",
+    "image": "/assets/stock-heroes/about-franchise-advisory-v1.webp",
+    "alt": "Illustrative scene of Indian franchise advisers reviewing a retail plan and business model together",
+    "position": "65% 0%"
   },
   "careers": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/careers-friendly-colleagues-hd.webp",
-    "mobilePosition": "50% 35%",
-    "image": "/assets/stock-heroes/careers-friendly-colleagues-hd.webp",
-    "alt": "Smiling colleagues sharing ideas around a meeting table",
-    "position": "50% 45%"
+    "mobileImage": "/assets/stock-heroes/mobile/careers-collaborative-workplace-v1.webp",
+    "mobilePosition": "85% 8%",
+    "image": "/assets/stock-heroes/careers-collaborative-workplace-v1.webp",
+    "alt": "Illustrative scene of two Indian colleagues collaborating in a bright contemporary workplace",
+    "position": "65% 0%"
   },
   "resources": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/resources-commercial-analysis-hd.webp",
-    "mobilePosition": "50% 45%",
-    "image": "/assets/stock-heroes/resources-commercial-analysis-hd.webp",
-    "alt": "A team comparing reports and commercial performance charts",
-    "position": "50% 50%"
+    "mobileImage": "/assets/stock-heroes/mobile/resources-franchise-learning-v1.webp",
+    "mobilePosition": "70% 8%",
+    "image": "/assets/stock-heroes/resources-franchise-learning-v1.webp",
+    "alt": "Illustrative scene of Indian entrepreneurs exploring business guides and ideas together",
+    "position": "65% 0%"
   },
   "blogs": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/blogs-business-journal-hd.webp",
-    "mobilePosition": "50% 35%",
-    "image": "/assets/stock-heroes/blogs-business-journal-hd.webp",
-    "alt": "A laptop, notebook and coffee arranged for research and writing",
-    "position": "50% 58%"
+    "mobileImage": "/assets/stock-heroes/mobile/blogs-business-perspectives-v1.webp",
+    "mobilePosition": "70% 8%",
+    "image": "/assets/stock-heroes/blogs-business-perspectives-v1.webp",
+    "alt": "Illustrative scene of an Indian entrepreneur writing business insights in a cafe",
+    "position": "65% 0%"
+  },
+  "saved": {
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/saved-business-reading-v1.webp",
+    "mobilePosition": "70% 8%",
+    "image": "/assets/stock-heroes/saved-business-reading-v1.webp",
+    "alt": "Illustrative scene of an Indian entrepreneur returning to a personal collection of business reading",
+    "position": "65% 0%"
   },
   "articles": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/articles-strategy-discussion-7688443.webp",
-    "mobilePosition": "50% 40%",
-    "image": "/assets/stock-heroes/articles-strategy-discussion-7688443.webp",
-    "alt": "Business colleagues comparing strategy documents and commercial charts",
-    "position": "50% 50%"
+    "mobileImage": "/assets/stock-heroes/mobile/articles-franchise-planning-v1.webp",
+    "mobilePosition": "70% 8%",
+    "image": "/assets/stock-heroes/articles-franchise-planning-v1.webp",
+    "alt": "Illustrative scene of a business owner and adviser reviewing a franchise plan in a cafe",
+    "position": "65% 40%"
   },
   "videos": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/videos-podcast-studio-11901222.webp",
-    "mobilePosition": "50% 35%",
-    "image": "/assets/stock-heroes/videos-podcast-studio-11901222.webp",
-    "alt": "A professional interview and podcast recording studio with microphones and lighting",
-    "position": "50% 45%"
+    "mobileImage": "/assets/stock-heroes/mobile/videos-franchise-conversation-v1.webp",
+    "mobilePosition": "70% 8%",
+    "image": "/assets/stock-heroes/videos-franchise-conversation-v1.webp",
+    "alt": "Illustrative filmed conversation with a cafe owner about running and growing a business",
+    "position": "70% 40%"
   }
   ,"homeProcess": {
   "image": "/assets/stock-heroes/home-business-consultation.webp",

@@ -23,7 +23,7 @@
 .p-site select option{background:#fff;color:#211b31}
 .p-site .p-enquiry .country-picker{background:rgba(255,255,255,.97);z-index:80}
 .p-site :is(input,select,textarea){color:var(--p-ink)}
-.p-site .p-form-switch.intake-switch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;padding:5px;overflow-anchor:none;background:rgba(235,238,250,.68)}
+.p-site .p-form-switch.intake-switch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;padding:5px;overflow-anchor:none;background:rgba(235,238,250,.68)}.p-site .p-form-switch.intake-switch:has(button:nth-child(3)){grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:640px){.p-site .p-form-switch.intake-switch:has(button:nth-child(3)){grid-template-columns:minmax(0,1fr)}}
 .p-site .p-form-switch.intake-switch button{min-width:0;min-height:46px;line-height:1.4;white-space:normal;padding:10px 12px;border-radius:7px}
 .p-contact-form{overflow-anchor:none}
 .p-contact-form .p-form-heading{min-height:34px}
