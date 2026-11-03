@@ -10,12 +10,12 @@ import {cmsRequest} from '../../lib/cms/client.mjs';
 import {createNavigationCache} from '../../lib/cms/navigation-cache.mjs';
 import {imageSrc} from '../../lib/responsive-image';
 import {AdminDashboard,sectionGuidance,pageCards} from './dashboard';
-import {emailFieldError} from '../../lib/contact-validation.mjs';
+import {emailFieldError} from '../../lib/email-validation.mjs';
 import {Submissions} from './submissions';
 import {EmailDelivery} from './email-delivery';
 import {ActivityList} from './activity';
 import {AccessMatrix,presetPermissions,sectionNames} from './access-matrix';
-import {lazy,Suspense,useCallback,useEffect,useEffectEvent,useRef,useState} from 'react';
+import {lazy,Suspense,useCallback,useEffect,useLayoutEffect,useEffectEvent,useRef,useState} from 'react';
 import {LayoutDashboard,Store,BriefcaseBusiness,NotebookText,PanelsTopLeft,Image,CheckCheck,Users,History,ArrowUpRight,Search,Plus,ArrowDownUp,Menu,X,FileText,Copy,Mail} from 'lucide-react';
 import {BrandIdentity} from '../brand-identity';
 import {AccountMenu} from './account-menu';
@@ -54,7 +54,8 @@ export function AdminPortal({me,localSession=false}:{me:any;localSession?:boolea
     const result=await request('?id='+encodeURIComponent(current.id));
     if(id!==loadId.current)return;setEditor(result);editorRoute.current=current.id;
    }else{
-    const key=sectionQuery(next),result=await navigationCache.read(key,refresh||next==='team');if(id!==loadId.current)return;
+    const key=sectionQuery(next),cached=!refresh&&next!=='team'?navigationCache.peek(key):undefined;
+    const result=cached??await navigationCache.read(key,refresh||next==='team');if(id!==loadId.current)return;
     if(!key)setData(result);
     if(SCOPES.includes(next)){setRecords(result.records);setTemplate(result.blank);if(current.mode==='create')setEditor({_editorKey:'new',record:{kind:next,id:'',slug:'',draft:result.blank,live:null,version:0,status:'draft',intent:'publish'},history:[]})}
     else if(next==='team'){
@@ -69,7 +70,7 @@ export function AdminPortal({me,localSession=false}:{me:any;localSession?:boolea
  function prefetch(next:string){if(next===section||['team','email','submissions'].includes(next)||editorDirty)return;navigationCache.prefetch(sectionQuery(next))}
  useEffect(()=>{const clear=()=>navigationCache.clear();window.addEventListener('focus',clear);document.addEventListener('visibilitychange',clear);return()=>{clear();window.removeEventListener('focus',clear);document.removeEventListener('visibilitychange',clear)}},[navigationCache,me]);
  const loadRoute=useEffectEvent(()=>{routeRef.current=route;void load(section)});
- useEffect(()=>{loadRoute();return()=>{loadId.current++}},[routeKey,me.email]);
+ useLayoutEffect(()=>{loadRoute();return()=>{loadId.current++}},[routeKey,me.email]);
  useEffect(()=>{if(!mobile)return;const previous=document.activeElement as HTMLElement,overflow=document.body.style.overflow;document.body.style.overflow='hidden';sidebar.current?.querySelector<HTMLButtonElement>('.cms-mobile-close')?.focus({preventScroll:true});function keys(e:KeyboardEvent){if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'){e.preventDefault();setMobile(false)}if(e.key==='Tab'){const items=[...sidebar.current!.querySelectorAll<HTMLElement>('button:not([disabled]),a[href]')].filter(el=>el.getClientRects().length),first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus()}}}document.addEventListener('keydown',keys);return()=>{document.body.style.overflow=overflow;document.removeEventListener('keydown',keys);(previous?.isConnected?previous:menuButton.current)?.focus({preventScroll:true})}},[mobile]);
  useEffect(()=>{const media=window.matchMedia('(min-width:901px)'),close=()=>{if(media.matches)setMobile(false)};media.addEventListener('change',close);return()=>media.removeEventListener('change',close)},[]);
  function navigate(next:string){void location.go(modulePath(next))}

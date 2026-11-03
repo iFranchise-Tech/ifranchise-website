@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 
 const preview = readFileSync(new URL('../wrangler.preview.jsonc', import.meta.url), 'utf8');
-const local = readFileSync(new URL('../wrangler.jsonc', import.meta.url), 'utf8');
+const production = readFileSync(new URL('../wrangler.jsonc', import.meta.url), 'utf8');
 const gitignore = readFileSync(new URL('../.gitignore', import.meta.url), 'utf8');
 
 test('preview Worker bindings stay off production storage', () => {
@@ -19,13 +19,21 @@ test('preview Worker bindings stay off production storage', () => {
   assert.doesNotMatch(preview, /"ACCESS_AUD"/);
 });
 
-test('local wrangler config does not point at the preview database id', () => {
-  assert.match(local, /"name": "ifranchise-website"/);
-  assert.match(local, /"database_id": "00000000-0000-4000-8000-000000000000"/);
-  assert.doesNotMatch(local, /724549ad-1e0a-431b-b15d-192b55e407de/);
-  assert.doesNotMatch(local, /ifranchise-files-preview/);
-  assert.match(local, /"ACCESS_TEAM_DOMAIN": ""/);
-  assert.match(local, /"ACCESS_AUD": ""/);
+test('production uses separate storage, public routes and disabled email; unconfigured CMS fails closed', () => {
+  assert.match(production, /"name": "ifranchise-website"/);
+  assert.match(production, /"database_id": "f15d6252-c85c-46f8-812b-e03ccafafed8"/);
+  assert.match(production, /"database_name": "ifranchise-db"/);
+  assert.match(production, /"bucket_name": "ifranchise-files"/);
+  assert.doesNotMatch(production, /724549ad-1e0a-431b-b15d-192b55e407de/);
+  assert.doesNotMatch(production, /ifranchise-files-preview/);
+  assert.match(production, /"ACCESS_TEAM_DOMAIN": ""/);
+  assert.match(production, /"ACCESS_AUD": ""/);
+  assert.match(production, /"SITE_ACCESS": "public"/);
+  assert.match(production, /"workers_dev": true/);
+  assert.match(production, /"EMAIL_MODE": "disabled"/);
+  assert.match(production, /"EMAIL_ENVIRONMENT": "production"/);
+  assert.match(production, /"WEBSITE_NOTIFICATION_TO": "contact@ifranchise.in"/);
+  assert.doesNotMatch(production, /"routes"|"RESEND_API_KEY"|"EMAIL_OUTBOX_KEY"|"LOCAL_ADMIN_SECRET"/);
 });
 
 test('local secrets stay gitignored', () => {

@@ -1,6 +1,6 @@
 import {env} from 'cloudflare:workers';
 import {assertOrigin,boundedBody,CmsError,response,failure} from '../../../../lib/cms/auth';
-import {normalizeWorkEmail} from '../../../../lib/contact-validation.mjs';
+import {normalizeWorkEmail} from '../../../../lib/email-validation.mjs';
 import {emailLimit,emailOrigin,emailReady,outboxStatement,flushEmails,logEmail} from '../../../../lib/email/service';
 import {accessHelpEmail} from '../../../../lib/email/templates.mjs';
 import {tokenHash} from '../../../../lib/email/crypto.mjs';

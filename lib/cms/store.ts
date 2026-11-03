@@ -13,6 +13,20 @@ async function preserveLegacyFaq(){await db().batch([
 export async function getRecord(id:string){if(id==='pages:faqs')id='faqs:general';if(id==='faqs:general')await preserveLegacyFaq();const row=await db().prepare('SELECT * FROM cms_records WHERE id=?').bind(id).first();if(row)return recordFromRow(row);const [kind,slug]=id.split(':');return baseline(kind,slug);}
 export async function allRecords(kind:string){if(kind==='faqs')await preserveLegacyFaq();const map=new Map((defaults[kind]||[]).map(d=>[d.slug,baseline(kind,d.slug)!]));const rows=await db().prepare('SELECT * FROM cms_records WHERE kind=?').bind(kind).all();for(const row of rows.results){const r=recordFromRow(row);if(kind==='pages'&&r.slug==='faqs')continue;map.set(r.slug,r);}return [...map.values()];}
 export function summary(r:any){return {id:r.id,kind:r.kind,slug:r.slug,title:r.draft.name||r.draft.title,subtitle:r.draft.category||r.draft.dept||'',image:r.draft.logo||r.draft.image||'',status:r.status,intent:r.intent,version:r.version,live:!!r.live,updatedBy:r.updatedBy,submittedBy:r.submittedBy,updatedAt:r.updatedAt};}
+// Lists and dashboard counts do not need article bodies, image galleries or
+// published snapshots. Project only their existing summary contract in D1.
+export async function recordSummaries(kind:string){
+ if(kind==='faqs')await preserveLegacyFaq();
+ const map=new Map((defaults[kind]||[]).map(d=>[d.slug,summary(baseline(kind,d.slug))]));
+ const rows=await db().prepare(`SELECT id,kind,slug,status,intent,version,
+  COALESCE(NULLIF(json_extract(draft,'$.name'),''),json_extract(draft,'$.title')) AS title,
+  COALESCE(NULLIF(json_extract(draft,'$.category'),''),NULLIF(json_extract(draft,'$.dept'),''),'') AS subtitle,
+  COALESCE(NULLIF(json_extract(draft,'$.logo'),''),NULLIF(json_extract(draft,'$.image'),''),'') AS image,
+  live IS NOT NULL AS live,updated_by AS updatedBy,submitted_by AS submittedBy,updated_at AS updatedAt
+  FROM cms_records WHERE kind=?`).bind(kind).all();
+ for(const row of rows.results){if(kind==='pages'&&row.slug==='faqs')continue;map.set(row.slug as string,{...row,title:row.title??undefined,live:!!row.live} as ReturnType<typeof summary>);}
+ return [...map.values()];
+}
 export async function writeRecord(record:any,expected:number,actor:string,action:string,note=''){
  const mutation=crypto.randomUUID(),now=new Date().toISOString(),next={...record,version:expected+1,updatedAt:now,updatedBy:actor};
  const originalId=crypto.randomUUID(),original=expected===0?baseline(record.kind,record.slug)?.live:null;

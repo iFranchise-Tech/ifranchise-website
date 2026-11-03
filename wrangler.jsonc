@@ -6,21 +6,27 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "workers_dev": false,
+  "workers_dev": true,
   "preview_urls": false,
   "vars": {
     "SITE_ACCESS": "public",
     "CMS_SUPER_ADMIN_EMAIL": "abdul@ifranchise.in,sumanth.reddy@ifranchise.in",
     // Empty Access values fail closed. Put real values in .dev.vars locally,
-    // or in preview Worker secrets. Do not put them in this file.
+    // or configure the production Access application before enabling CMS sign-in.
+    // Never reuse the preview application's audience for production.
     "ACCESS_TEAM_DOMAIN": "",
-    "ACCESS_AUD": ""
+    "ACCESS_AUD": "",
+    "EMAIL_MODE": "disabled",
+    "EMAIL_ENVIRONMENT": "production",
+    "EMAIL_PUBLIC_ORIGIN": "https://ifranchise-website.damp-field-d970.workers.dev",
+    "WEBSITE_NOTIFICATION_TO": "contact@ifranchise.in",
+    "CMS_NOTIFICATION_TO": "it@ifranchise.in"
   },
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "ifranchise-db",
-      "database_id": "00000000-0000-4000-8000-000000000000",
+      "database_id": "f15d6252-c85c-46f8-812b-e03ccafafed8",
       "migrations_dir": "drizzle"
     }
   ],

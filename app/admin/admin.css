@@ -60,3 +60,4 @@
 .cms-root .cms-access .cms-access-account-name strong{display:block;font-size:14px;line-height:1.5}
 .cms-root .cms-access .cms-access-account-name small{display:block;margin-top:3px;color:#6d7385;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
 .cms-root .cms-access .cms-access-account-arrow{color:#32159b;font-size:20px}
+.cms-root .cms-session-warning{position:fixed;z-index:100;bottom:16px;left:50%;transform:translateX(-50%);width:min(480px,calc(100% - 32px));padding:14px 18px;border:1px solid #e7e2d6;border-radius:12px;background:#faf8f4;color:#5e584c;font-size:14px;line-height:1.5;box-shadow:0 8px 24px #201a3814}

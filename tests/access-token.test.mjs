@@ -10,3 +10,8 @@ async function token(overrides={}){return new SignJWT({sub:'test-user',email:'AD
 test('independent identity accepts a signed matching JWT',async()=>assert.equal((await verifyAccessToken(await token(),config,keys)).email,'admin@ifranchise.in'));
 test('identity fails closed for invalid audience, issuer, expiry, or unsigned input',async()=>{for(const overrides of [{aud:'wrong'},{iss:'https://wrong.cloudflareaccess.com'},{exp:1},{email:null},{sub:null}])assert.equal(await verifyAccessToken(await token(overrides),config,keys),null);assert.equal(await verifyAccessToken('unsigned',config,keys),null)});
 test('missing or insecure identity configuration is rejected',async()=>{for(const c of [{},{...config,ACCESS_AUD:''},{...config,ACCESS_TEAM_DOMAIN:'http://test.cloudflareaccess.com'},{...config,ACCESS_TEAM_DOMAIN:'https://attacker.invalid'}])assert.equal(await verifyAccessToken(await token(),c,keys),null)});
+test('explicitly unverified identities and credential-bearing issuer URLs fail closed',async()=>{
+ assert.equal(await verifyAccessToken(await token({email_verified:false}),config,keys),null);
+ assert.equal(await verifyAccessToken(await token({email:' '}),config,keys),null);
+ for(const issuer of ['test.cloudflareaccess.com','https://user@test.cloudflareaccess.com','https://test.cloudflareaccess.com:444'])assert.equal(await verifyAccessToken(await token(),{...config,ACCESS_TEAM_DOMAIN:issuer},keys),null);
+});

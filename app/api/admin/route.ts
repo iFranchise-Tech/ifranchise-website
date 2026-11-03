@@ -1,11 +1,11 @@
 import {env} from 'cloudflare:workers';
 import {activityDisplay} from '../../../lib/cms/activity.mjs';
 import {isConfiguredSuperAdmin} from '../../../lib/cms/super-admins.mjs';
-import {normalizeWorkEmail} from '../../../lib/contact-validation.mjs';
+import {normalizeWorkEmail} from '../../../lib/email-validation.mjs';
 import {checkMedia} from '../../../lib/cms/media-permissions';
 import {adminIdentity,assertOrigin,boundedBody,CmsError,db,failure,getMembers,memberFromRow,response} from '../../../lib/cms/auth';
 import {canView,canEdit,canPublish,canReview,canApprove,scopeFor,SCOPES,PERMISSION_SCOPES,ROLES,validateHierarchy} from '../../../lib/cms/policy.mjs';
-import {getRecord,allRecords,summary,writeRecord} from '../../../lib/cms/store';
+import {getRecord,allRecords,recordSummaries,writeRecord} from '../../../lib/cms/store';
 import {validPayload} from '../../../lib/cms/validation';
 import {blank} from '../../../lib/cms/defaults';
 import {published} from '../../../lib/cms/public';
@@ -15,16 +15,21 @@ import {finishDelivery} from '../../../lib/intake/context';
 export const dynamic='force-dynamic';
 export async function GET(req:Request){try{
  const me=await adminIdentity(),u=new URL(req.url),kind=u.searchParams.get('kind'),id=u.searchParams.get('id'),view=u.searchParams.get('view');
- if(id){const r=await getRecord(id);if(!r||!canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind))throw new CmsError(404,'Item not found.');const history=await db().prepare('SELECT id,action,actor,note,created_at FROM cms_events WHERE record_id=? ORDER BY created_at DESC LIMIT 50').bind(id).all();return response({record:r,history:history.results,canApprove:canApprove(me,r,await getMembers())});}
- if(kind){if(![...SCOPES,'placements'].includes(kind)||!(canView(me,kind)||kind==='placements'&&canView(me,'job-order')))throw new CmsError(403,'You do not have access to this section.');return response({records:(await allRecords(kind)).filter(r=>canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind)).map(summary),blank:blank(kind)});}
+ if(id){const r=await getRecord(id);if(!r||!canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind))throw new CmsError(404,'Item not found.');const [history,team]=await Promise.all([db().prepare('SELECT id,action,actor,note,created_at FROM cms_events WHERE record_id=? ORDER BY created_at DESC LIMIT 50').bind(id).all(),getMembers()]);return response({record:r,history:history.results,canApprove:canApprove(me,r,team)});}
+ if(kind){if(![...SCOPES,'placements'].includes(kind)||!(canView(me,kind)||kind==='placements'&&canView(me,'job-order')))throw new CmsError(403,'You do not have access to this section.');return response({records:(await recordSummaries(kind)).filter(r=>canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind)),blank:blank(kind)});}
  if(view==='choices'){const groups=await Promise.all(['franchises','articles','blogs','videos','jobs'].map(async k=>(await published(k)).map(p=>({id:k+':'+p.slug,kind:k,slug:p.slug,title:p.name||p.title,image:p.logo||p.image||'',audience:p.audience,locationType:k==='franchises'?p.facts?.locationType:undefined}))));return response({choices:groups.flat()});}
  if(view==='industries'){if(!canView(me,'franchises')&&!canView(me,'industries'))throw new CmsError(403,'Access unavailable.');return response({industries:(await allRecords('industries')).filter(r=>r.live).map(r=>r.live)});}
  if(view==='team'){if(me.role!=='super_admin')throw new CmsError(403,'You do not have access to team settings.');return response({members:await getMembers()});}
  if(view==='media'){const media=(await db().prepare('SELECT * FROM cms_media ORDER BY created_at DESC LIMIT 200').all()).results.filter((m:any)=>canView(me,m.scope));return response({media});}
- const sections=[...SCOPES,'placements'].filter(k=>canView(me,k)||k==='placements'&&canView(me,'job-order'));const rows=(await Promise.all(sections.map(allRecords))).flat().filter(r=>canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind));
- const pending=rows.filter(r=>r.status==='review');const team=await getMembers();
- const activity=(await db().prepare('SELECT id,record_id,action,actor,note,created_at FROM cms_events ORDER BY created_at DESC LIMIT 150').all()).results.filter((e:any)=>e.record_id.startsWith('team:')||e.record_id.startsWith('email:')?me.role==='super_admin':canView(me,e.record_id==='placements:jobs'?'job-order':e.record_id.split(':')[0])).slice(0,30);
- return response({me,counts:Object.fromEntries(SCOPES.filter(k=>canView(me,k)).map(k=>[k,rows.filter(r=>r.kind===k&&r.status!=='archived').length])),pending:pending.map(r=>({...summary(r),canApprove:canApprove(me,r,team)})),recent:rows.filter(r=>r.version>0).sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||'')).slice(0,6).map(summary),activity:activity.map(event=>({...event,display:activityDisplay(event,rows,team)}))});
+ const sections=[...SCOPES,'placements'].filter(k=>canView(me,k)||k==='placements'&&canView(me,'job-order'));
+ const [groups,team,events]=await Promise.all([
+  Promise.all(sections.map(recordSummaries)),getMembers(),
+  db().prepare('SELECT id,record_id,action,actor,note,created_at FROM cms_events ORDER BY created_at DESC LIMIT 150').all(),
+ ]);
+ const rows=groups.flat().filter(r=>canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind));
+ const pending=rows.filter(r=>r.status==='review');
+ const activity=events.results.filter((e:any)=>e.record_id.startsWith('team:')||e.record_id.startsWith('email:')?me.role==='super_admin':canView(me,e.record_id==='placements:jobs'?'job-order':e.record_id.split(':')[0])).slice(0,30);
+ return response({me,counts:Object.fromEntries(SCOPES.filter(k=>canView(me,k)).map(k=>[k,rows.filter(r=>r.kind===k&&r.status!=='archived').length])),pending:pending.map(r=>({...r,canApprove:canApprove(me,r,team)})),recent:rows.filter(r=>r.version>0).sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||'')).slice(0,6),activity:activity.map(event=>({...event,display:activityDisplay(event,rows,team)}))});
  }catch(e){return failure(e)}}
 export async function POST(req:Request){try{
  assertOrigin(req);const me=await adminIdentity();if(!req.headers.get('content-type')?.includes('application/json'))throw new CmsError(415,'Use JSON for this request.');const text=new TextDecoder().decode(await boundedBody(req,350000));let body:any;try{body=JSON.parse(text)}catch{throw new CmsError(400,'Invalid request.')}

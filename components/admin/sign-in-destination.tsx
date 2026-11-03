@@ -8,8 +8,8 @@ function useDestination(fallback='/admin'){
 export function StaffReturnPath({fallback}:{fallback:string}){
  return <input type="hidden" name="returnPath" value={useDestination(fallback)}/>;
 }
-export function StaffAccessLink({href,requestUrl,children}:{href:string;requestUrl:string;children:React.ReactNode}){
+export function StaffAccessLink({href,children}:{href:string;children:React.ReactNode}){
  const destination=useDestination(),url=new URL(href);
- url.searchParams.set('redirect_url',new URL(destination,requestUrl).toString());
+ url.searchParams.set('redirect_url',destination);
  return <a className="cms-button cms-primary cms-access-action" href={url.toString()} target="_top">{children}</a>;
 }

@@ -15,7 +15,7 @@ export function AccountMenu({name,email,role,localSession,dirty,onSignOut}:{name
    try{
     // Fetch sends the same-origin POST with an Origin even when the portal's
     // no-referrer policy would give a navigational form an opaque Origin.
-    const response=await fetch(form.action,{method:'POST',mode:'same-origin',credentials:'same-origin',redirect:'manual'});
+    const response=await fetch(form.action,{method:'POST',mode:'same-origin',credentials:'same-origin',redirect:'manual',signal:AbortSignal.timeout(15000)});
     if(response.type!=='opaqueredirect')throw new Error('Sign-out was not confirmed');
    }catch{setSigningOut(false);setError('We couldn’t sign you out. Please try again. Your work is still open.');return}
   }

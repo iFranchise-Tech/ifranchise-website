@@ -28,8 +28,9 @@ export function RecordEditor({initial,me,onClose,notify,onDirty,onSaved,loadOpti
  useEffect(()=>{
   const controller=new AbortController();setLoadingChoices(true);setLookupError('');
   const get=(path:string)=>loadOptions?loadOptions(path):cmsRequest(path,{signal:controller.signal});
-  Promise.all([get('/api/admin?view=choices'),kind==='placements'?get('/api/admin?kind='+(record.slug==='jobs'?'jobs':'franchises')):null,kind==='franchises'?get('/api/admin?view=industries'):null])
-   .then(([options,order,categories])=>{if(!controller.signal.aborted){setChoices(options.choices||[]);setBrands(order?.records||[]);setIndustries(categories?.industries||[])}})
+  const needsChoices=['franchises','articles','blogs','videos'].includes(kind)||kind==='pages'&&record.slug==='homepage';
+  Promise.all([needsChoices?get('/api/admin?view=choices'):null,kind==='placements'?get('/api/admin?kind='+(record.slug==='jobs'?'jobs':'franchises')):null,kind==='franchises'?get('/api/admin?view=industries'):null])
+   .then(([options,order,categories])=>{if(!controller.signal.aborted){setChoices(options?.choices||[]);setBrands(order?.records||[]);setIndustries(categories?.industries||[])}})
    .catch((e:Error)=>{if(!controller.signal.aborted)setLookupError(e.message)})
    .finally(()=>{if(!controller.signal.aborted)setLoadingChoices(false)});
   return()=>controller.abort();

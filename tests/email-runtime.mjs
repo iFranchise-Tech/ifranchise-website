@@ -6,8 +6,8 @@ import {env} from 'cloudflare:workers';
 import {localD1} from './local-d1.mjs';
 import {setHeaders} from './cms-auth-headers.mjs';
 import {outboxStatement,flushEmails,receiveWebhook,emailReady,emailOrigin,emailLimit,retryEmail} from '../lib/email/service.ts';
-import {unseal} from '../lib/email/crypto.mjs';
-import {accessHelpEmail} from '../lib/email/templates.mjs';
+import {seal,unseal} from '../lib/email/crypto.mjs';
+import {accessHelpEmail,websiteEmail} from '../lib/email/templates.mjs';
 import {acceptInvitation} from '../lib/email/invitations.ts';
 import {adminIdentity} from '../lib/cms/auth.ts';
 import {POST as team} from '../app/api/admin/route.ts';
@@ -72,6 +72,29 @@ try{
  quota();const blocked=await queued(undefined,'outsider@ifranchise.in');mode='success';const prior=calls.length;await flushEmails(env,1);assert.equal(row(blocked).status,'blocked');assert.equal(calls.length,prior);
  quota();const expired=await queued();database.prepare('UPDATE email_outbox SET first_attempt_at=?,attempts=1 WHERE id=?').run(Date.now()-24*3600000,expired);await flushEmails(env,1);assert.equal(row(expired).status,'manual_review');
  quota();const concurrent=await queued();await Promise.all([flushEmails(env,1),flushEmails(env,1)]);assert.equal(row(concurrent).attempts,1);
+ // A different invocation can update a selected batch before this worker gets
+ // the lease. Dispatch must use the current payload, attempt count and window.
+ async function afterBatchSelected(update){
+  let updated=false;
+  env.DB={...DB,prepare(sql){
+   const wrap=statement=>({...statement,bind:(...values)=>wrap(statement.bind(...values)),async all(){
+    const result=await statement.all();
+    if(!updated&&sql.startsWith('SELECT * FROM email_outbox WHERE')){updated=true;await update();}
+    return result;
+   }});return wrap(DB.prepare(sql));
+  }};
+  try{quota();await flushEmails(env,1);assert(updated);}finally{env.DB=DB;}
+ }
+ const stalePayload=await queued();
+ const frozenMessage={...accessHelpEmail({email:'staff@ifranchise.in',origin:env.EMAIL_PUBLIC_ORIGIN}),subject:'Already frozen before this lease'};
+ const frozenPayload=await seal(frozenMessage,env.EMAIL_OUTBOX_KEY,stalePayload);
+ await afterBatchSelected(()=>database.prepare("UPDATE email_outbox SET payload=?,attempts=1,first_attempt_at=? WHERE id=?").run(frozenPayload,Date.now()-1000,stalePayload));
+ assert.deepEqual(JSON.parse(calls.at(-1).body),frozenMessage);assert.equal(row(stalePayload).attempts,2);
+ for(const limit of ['window','attempts']){
+  const stale=await queued(),sent=calls.length;
+  await afterBatchSelected(()=>database.prepare('UPDATE email_outbox SET first_attempt_at=?,attempts=? WHERE id=?').run(Date.now()-(limit==='window'?24*3600000:1000),limit==='attempts'?8:1,stale));
+  assert.equal(calls.length,sent);assert.equal(row(stale).status,'manual_review');
+ }
  quota();await emailLimit(env,'example',1);await assert.rejects(()=>emailLimit(env,'example',1),e=>e.status===429);
  env.EMAIL_MODE='capture';if(import.meta.env.DEV){quota();const captured=await queued();await flushEmails(env,1);assert.equal(row(captured).status,'captured');}else assert.throws(()=>emailReady(env));env.EMAIL_MODE='resend';
  const allowed=env.EMAIL_ALLOWED_RECIPIENTS;env.EMAIL_ALLOWED_RECIPIENTS='';assert.throws(()=>emailReady(env));env.EMAIL_ALLOWED_RECIPIENTS=allowed;
@@ -139,6 +162,43 @@ try{
  // Post-persistence delivery failures are safe in both local and Worker execution contexts.
  const oldWarn=console.warn;const warnings=[];console.warn=s=>warnings.push(s);
  try{await finishDelivery(Promise.reject(Error('sensitive details')));let background;await withIntakeContext({waitUntil:p=>{background=p}},()=>finishDelivery(Promise.reject(Error('secret'))));await background;assert.equal(warnings.length,2);assert(!warnings.join('').includes('sensitive'));}finally{console.warn=oldWarn}
+ }
+ { // Resend account ownership cannot change the website lead destination, even on retries.
+ const record=database.prepare("SELECT * FROM website_submissions WHERE kind='general' LIMIT 1").get();assert(record);
+ const before=database.prepare('SELECT count(*) n FROM website_submissions').get().n;
+ env.EMAIL_ALLOWED_RECIPIENTS=allowed+',marketing@ifranchise.in';mode='success';env.EMAIL_MODE='resend';
+ const correct=websiteEmail({to:['contact@ifranchise.in'],record,origin:env.EMAIL_PUBLIC_ORIGIN});
+ for(const wrong of ['it@ifranchise.in','marketing@ifranchise.in','contact@ifranchise.in,it@ifranchise.in']){
+  env.WEBSITE_NOTIFICATION_TO=wrong;
+  const q=await outboxStatement(env,{key:'wrong-config-'+crypto.randomUUID(),kind:'website',source:record.id});await q.statement.run();
+  const sent=calls.length;quota();await flushEmails(env,1);
+  assert.equal(calls.length,sent);assert.equal(row(q.id).status,'blocked');assert.equal(row(q.id).attempts,0);
+  assert.equal(row(q.id).last_error,'website_notification_identity_mismatch');
+ }
+ env.WEBSITE_NOTIFICATION_TO='contact@ifranchise.in';
+ for(const message of [
+  {...correct,to:['it@ifranchise.in']},
+  {...correct,to:['marketing@ifranchise.in']},
+  {...correct,to:['contact@ifranchise.in','marketing@ifranchise.in']},
+  {...correct,from:'iFranchise <it@ifranchise.in>'},
+  {...correct,from:'iFranchise <marketing@ifranchise.in>'},
+ ]){
+  const q=await outboxStatement(env,{key:'wrong-frozen-'+crypto.randomUUID(),kind:'website',source:record.id,message});await q.statement.run();
+  // A retry with an already encrypted body must pass the same identity checks.
+  database.prepare("UPDATE email_outbox SET status='retry' WHERE id=?").run(q.id);
+  const sent=calls.length;quota();await flushEmails(env,1);
+  assert.equal(calls.length,sent);assert.equal(row(q.id).status,'blocked');assert.equal(row(q.id).attempts,0);
+  assert.equal(row(q.id).last_error,'website_notification_identity_mismatch');
+ }
+ for(const message of [undefined,correct]){
+  const q=await outboxStatement(env,{key:'correct-identity-'+crypto.randomUUID(),kind:'website',source:record.id,message});await q.statement.run();
+  const sent=calls.length;quota();await flushEmails(env,1);
+  assert.equal(calls.length,sent+1);assert.equal(row(q.id).status,'accepted');
+  const sentMessage=JSON.parse(calls.at(-1).body);assert.equal(sentMessage.from,'iFranchise <contact@ifranchise.in>');assert.deepEqual(sentMessage.to,['contact@ifranchise.in']);
+ }
+ assert.equal(database.prepare('SELECT count(*) n FROM website_submissions').get().n,before);
+ assert(!beforeLogs.join('').includes('marketing@ifranchise.in'));assert(!beforeLogs.join('').includes(env.RESEND_API_KEY));
+ delete env.WEBSITE_NOTIFICATION_TO;env.EMAIL_ALLOWED_RECIPIENTS=allowed;
  }
  console.log('PASS email integration: durable retries, deduplication, signature verification, ordering, capture isolation, rate limits, role validation, both owners, invitation binding/expiry/renewal/replay, access-help and log redaction.');
 }finally{console.info=savedLog;database.close();}

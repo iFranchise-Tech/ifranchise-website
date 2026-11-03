@@ -3,7 +3,7 @@ import {submissionError} from '../lib/intake/receipt.mjs';
 import {useRouter} from 'next/navigation';
 import {showConfirmation,captureConfirmationOrigin} from '../lib/intake/confirmation.mjs';
 import {useRef,useState} from 'react';
-import {EmailField} from './contact-fields';
+import {EmailField} from './email-field';
 import {ArrowUpRight} from 'lucide-react';
 import {useIntake,readReceipt} from './intake-fields';
 import {NOTICE_VERSION,PRIVACY_REQUEST_TYPES} from '../lib/intake/constants.mjs';

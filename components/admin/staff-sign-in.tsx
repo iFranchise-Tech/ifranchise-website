@@ -14,14 +14,14 @@ export async function StaffSignIn({status, message, returnPath}: {status: number
   const requestUrl = `${protocol}://${host}${returnPath}`;
   const signIn = describeStaffSignIn({teamDomain: env.ACCESS_TEAM_DOMAIN, audience: env.ACCESS_AUD, requestUrl});
   const local = describeLocalSignIn({dev: import.meta.env.DEV === true, requestUrl, env});
-  const denied = status !== 401;
+  const denied = status === 403, unavailable = status >= 500;
   const notices = local.enabled ? [local.missing].filter(Boolean) : signIn.notices;
   return <main className="cms-access"><section aria-labelledby="staff-sign-in-title">
     <BrandIdentity linked={false}/>
-    <h1 id="staff-sign-in-title">{denied ? 'Access unavailable' : 'CMS Portal'}</h1>
-    <p className="cms-access-lede">{denied ? 'This account cannot open the CMS portal.' : local.enabled ? 'Choose your account to continue.' : STAFF_PORTAL_INTRO}</p>
-    {denied ? <div className="cms-access-notice" role="alert"><p>{message}</p></div> : notices.length ? <div className="cms-access-warning" role="status">{notices.map(notice => <p key={notice}>{notice}</p>)}</div> : null}
-    {!denied && local.enabled ? <form method="post" action={LOCAL_ADMIN_PATH}>
+    <h1 id="staff-sign-in-title">{unavailable ? 'Temporarily unavailable' : denied ? 'Access unavailable' : 'CMS Portal'}</h1>
+    <p className="cms-access-lede">{unavailable ? 'Please try again shortly.' : denied ? 'CMS access is by invitation only.' : local.enabled ? 'Choose your account to continue.' : STAFF_PORTAL_INTRO}</p>
+    {denied || unavailable ? <div className="cms-access-notice" role="alert"><p>{message}</p></div> : notices.length ? <div className="cms-access-warning" role="status">{notices.map(notice => <p key={notice}>{notice}</p>)}</div> : null}
+    {!denied && !unavailable && local.enabled ? <form method="post" action={LOCAL_ADMIN_PATH}>
       <StaffReturnPath fallback={returnPath}/>
       <div className="cms-access-accounts" role="group" aria-label="Choose your account">{local.accounts.map(account => <button key={account.email} className="cms-access-account" type="submit" name="email" value={account.email} disabled={!local.ready}>
         <span className="cms-access-avatar" aria-hidden="true">{account.name.split(' ').map((word: string) => word[0]).join('')}</span>
@@ -30,12 +30,13 @@ export async function StaffSignIn({status, message, returnPath}: {status: number
       </button>)}</div>
       <ForgotPasswordHelp local/>
     </form> : null}
-    {!denied && !local.enabled ? <>
-      {signIn.href ? <StaffAccessLink href={signIn.href} requestUrl={requestUrl}>{STAFF_SIGN_IN_ACTION}</StaffAccessLink> : null}
+    {!denied && !unavailable && !local.enabled ? <>
+      {signIn.href ? <StaffAccessLink href={signIn.href}>{STAFF_SIGN_IN_ACTION}</StaffAccessLink> : null}
       <ForgotPasswordHelp/>
       <a className="cms-access-help" href={STAFF_ACCESS_HELP_HREF}>{STAFF_ACCESS_HELP_LABEL}</a>
     </> : null}
     {denied ? local.enabled ? <form method="post" action={LOCAL_ADMIN_LOGOUT}><button className="cms-button cms-primary cms-access-action" type="submit">Switch account</button></form> : <a className="cms-button cms-primary cms-access-action" href={accessSignOutPath()} target="_top">Switch account</a> : null}
+    {(denied || unavailable) && <a className="cms-access-help" href="mailto:it@ifranchise.in">Contact the IT team</a>}
     <a className="cms-access-home" href="/">Return to the website</a>
   </section></main>;
 }

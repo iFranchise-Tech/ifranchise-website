@@ -32,6 +32,8 @@
 # CMS_BROCHURE_IMPORT_TOKEN="replace-with-a-random-secret"
 
 # Transactional email — all values are server-side. Never use NEXT_PUBLIC_ or VITE_ prefixes.
+# Resend is configured manually by marketing@ifranchise.in (account identity only).
+# Website lead notifications must be From and To contact@ifranchise.in.
 # Local capture saves encrypted email payloads without sending mail. No Resend key is needed.
 # EMAIL_MODE="capture"
 # EMAIL_ENVIRONMENT="development"

@@ -8,7 +8,7 @@ import {locationPopup} from '../lib/location-popup.mjs';
 type City={name:string;aliases?:string[]};
 type CityData={states:Array<{name:string;cities:City[]}>};
 let citiesRequest:Promise<CityData>|undefined;
-function cityData():Promise<CityData>{return citiesRequest??=fetch('/data/india-locations.json').then(r=>{if(!r.ok)throw Error('Locations unavailable');return r.json() as Promise<CityData>}).catch(e=>{citiesRequest=undefined;throw e})}
+function cityData():Promise<CityData>{return citiesRequest??=fetch('/data/india-locations.json',{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error('Locations unavailable');return r.json() as Promise<CityData>}).catch(e=>{citiesRequest=undefined;throw e})}
 
 /** One editable combobox for canonical states and free-entry cities. */
 function LocationInput({id,label,name,value,onChange,options,disabled=false,restricted=false}:{id:string;label:string;name:string;value:string;onChange:(value:string)=>void;options:readonly string[];disabled?:boolean;restricted?:boolean}){

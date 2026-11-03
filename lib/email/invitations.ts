@@ -1,6 +1,8 @@
 import {env} from 'cloudflare:workers';
 import {getAccessUser} from '../access-auth';
 import {CmsError} from '../cms/errors';
+import {ROLES,workEmail} from '../cms/policy.mjs';
+import {isConfiguredSuperAdmin} from '../cms/super-admins.mjs';
 import {randomToken,tokenHash} from './crypto.mjs';
 import {emailLimit,emailOrigin,emailReady,outboxStatement,flushEmails} from './service';
 import {invitationEmail} from './templates.mjs';
@@ -22,18 +24,22 @@ export async function prepareInvitation(email:string,name:string,role:string,eve
 export async function acceptInvitation(token:unknown) {
   const user=await getAccessUser();
   if(!user)throw new CmsError(401,'Sign in with your invited work account first.');
+  if(!workEmail(user.email))throw new CmsError(403,'Use your invited @ifranchise.in work account.','company_account_required');
   await emailLimit(env,'activate:'+user.email,12,600000);
   if(typeof token!=='string'||!/^[A-Za-z0-9_-]{43}$/.test(token))throw new CmsError(422,'This invitation is invalid or expired.');
   const hash=await tokenHash(token),now=Date.now(),stamp=new Date(now).toISOString(),email=user.email.trim().toLowerCase(),eventId=crypto.randomUUID();
+  const member=await env.DB!.prepare('SELECT role,version FROM cms_members WHERE email=?').bind(email).first<{role:string;version:number}>();
+  if(!member)throw new CmsError(422,'This invitation is invalid, expired, already used, or belongs to another account.');
+  if(!ROLES.includes(member.role)||member.role==='super_admin'&&!isConfiguredSuperAdmin(email,env))throw new CmsError(403,'This account does not have an approved CMS role.','role_unavailable');
   const welcome=await outboxStatement(env,{key:'activation:'+hash,kind:'activation',source:email,condition:'EXISTS (SELECT 1 FROM cms_events WHERE id=?)',values:[eventId]});
   const notification=await outboxStatement(env,{key:'admin:'+eventId,kind:'admin',source:eventId,condition:'EXISTS (SELECT 1 FROM cms_events WHERE id=?)',values:[eventId]});
   // The membership transition, one-time consumption, audit event and notifications
   // are one D1 transaction. A GET/email scanner never consumes an invitation.
   const result=await env.DB!.batch([
     env.DB!.prepare(`UPDATE cms_members SET status='active',user_id=?,invitation_required=0,expires_at=NULL,version=version+1,updated_at=?
-      WHERE email=? AND status='invited' AND invitation_required=1 AND (user_id IS NULL OR user_id=?) AND expires_at>?
+      WHERE email=? AND status='invited' AND invitation_required=1 AND (user_id IS NULL OR user_id=?) AND expires_at>? AND version=?
       AND EXISTS (SELECT 1 FROM cms_invitation_tokens WHERE token_hash=? AND email=? AND used_at IS NULL AND expires_at>?)`)
-      .bind(user.userId,stamp,email,user.userId,stamp,hash,email,now),
+      .bind(user.userId,stamp,email,user.userId,stamp,member.version,hash,email,now),
     env.DB!.prepare(`INSERT INTO cms_events(id,record_id,action,actor,snapshot,note,created_at) SELECT ?,?,'accept invitation',?,NULL,'Account activated',? WHERE changes()=1`).bind(eventId,'team:'+email,email,stamp),
     env.DB!.prepare('UPDATE cms_invitation_tokens SET used_at=? WHERE token_hash=? AND EXISTS (SELECT 1 FROM cms_events WHERE id=?)').bind(now,hash,eventId),
     welcome.statement,notification.statement,

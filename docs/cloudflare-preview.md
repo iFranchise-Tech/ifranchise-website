@@ -189,6 +189,16 @@ Run build and the full suite sequentially because integration tests read generat
 
 ## Resend transactional email
 
+### Account ownership and delivery handoff (3 November 2026)
+
+The owner will configure Resend manually using **`marketing@ifranchise.in`** and supply credentials securely. Reuse the existing `ifranchise.in` domain and suitable existing API key; do not create or rotate resources on the owner's behalf. The account email is administrative context only, not an application environment variable or a substitute for API authentication.
+
+- Internal website notifications: **From `iFranchise <contact@ifranchise.in>`; To `contact@ifranchise.in`**. Set the ordinary variable `WEBSITE_NOTIFICATION_TO=contact@ifranchise.in`. Server-side dispatch blocks any other sender or recipient for this email type, including encrypted payloads from previous attempts. Blocked messages remain visible for review and the persisted lead is retained.
+- Store `RESEND_API_KEY` only as an encrypted Worker secret or in an ignored local server environment file. Preserve the existing `EMAIL_OUTBOX_KEY`. Neither key belongs in browser code, chat, logs or Git.
+- Keep hosted `EMAIL_MODE=disabled` while credentials are pending. For an approved preview send, the recipient allowlist must include `contact@ifranchise.in`; account ownership does not add `marketing@ifranchise.in` or `it@ifranchise.in` as website lead recipients.
+- Customer confirmations and CMS transactional messages are separate email types with their existing addressing and security rules. This handoff does not change invitation-based authentication or CMS mail.
+- No Resend dashboard changes, DNS/nameserver edits or webhook activation are part of this handoff. The earlier domain audit below is historical; the credentials supplied by the owner must be verified against the correct Resend team before a live test. Actual mailbox receipt remains unverified until that test completes.
+
 ### Verified setup (2 November 2026)
 
 The repository previously had no Gmail API sending code. Staff invites were `mailto:` drafts; website submissions used D1 and Google Sheets. The local implementation now uses `env.RESEND_API_KEY` with Resend’s HTTPS API entirely in the Worker. CMS sender: `iFranchise <it@ifranchise.in>`. Website sender: `iFranchise <contact@ifranchise.in>`. No API key, email body or invitation secret is exposed by the frontend or delivery-status API.

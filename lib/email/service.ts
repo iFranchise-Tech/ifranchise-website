@@ -1,9 +1,10 @@
 import {CmsError} from '../cms/errors';
 import {seal,unseal,tokenHash,verifyWebhook} from './crypto.mjs';
-import {activationEmail,adminEmail,websiteEmail,websiteConfirmationEmail} from './templates.mjs';
+import {activationEmail,adminEmail,websiteEmail,websiteConfirmationEmail,WEBSITE_FROM} from './templates.mjs';
 
 type Email = {from:string;to:string[];subject:string;html:string;text:string;reply_to?:string};
 type Row = {id:string;kind:string;source_ref:string;payload:string|null;status:string;provider_id:string|null;attempts:number;first_attempt_at:number|null;created_at:number};
+const WEBSITE_NOTIFICATION_TO='contact@ifranchise.in';
 const database=(env:Cloudflare.Env)=>{if(!env.DB)throw new CmsError(503,'Email service is unavailable.');return env.DB;};
 export function logEmail(id:string,status:string,code?:string) { console.info(JSON.stringify({service:'transactional_email',id,status,...(code?{code}:{})})); }
 export function emailOrigin(env:Cloudflare.Env) {
@@ -44,7 +45,7 @@ async function materialize(env:Cloudflare.Env,row:Row):Promise<Email> {
     const record=await db.prepare('SELECT * FROM website_submissions WHERE id=?').bind(row.source_ref).first();
     if(!record)throw Error('source_missing');
     if(row.kind==='website-confirmation')return websiteConfirmationEmail({record,origin});
-    return websiteEmail({to:recipients(env.WEBSITE_NOTIFICATION_TO,'contact@ifranchise.in'),record,origin});
+    return websiteEmail({to:recipients(env.WEBSITE_NOTIFICATION_TO,WEBSITE_NOTIFICATION_TO),record,origin});
   }
   if(row.kind==='activation') {
     const member=await db.prepare('SELECT email,name FROM cms_members WHERE email=?').bind(row.source_ref).first<{email:string;name:string}>();
@@ -72,11 +73,13 @@ async function reconcile(env:Cloudflare.Env,providerId:string) {
       .bind(state.status,event.occurred_at,state.rank,Date.now(),providerId,state.rank,event.occurred_at,state.rank).run();
   }
 }
-async function dispatch(env:Cloudflare.Env,row:Row) {
+async function dispatch(env:Cloudflare.Env,candidate:Row) {
   const db=database(env),now=Date.now();
-  const claim=await db.prepare("UPDATE email_outbox SET status='sending',lease_until=?,updated_at=? WHERE id=? AND ((status IN ('queued','retry') AND next_attempt_at<=?) OR (status='sending' AND lease_until<?))")
-    .bind(now+120000,now,row.id,now,now).run();
-  if(!claim.meta.changes)return;
+  // Another invocation may have attempted this message since the batch was
+  // selected. Read its frozen payload and retry limits atomically with the lease.
+  const row=await db.prepare("UPDATE email_outbox SET status='sending',lease_until=?,updated_at=? WHERE id=? AND provider_id IS NULL AND ((status IN ('queued','retry') AND next_attempt_at<=?) OR (status='sending' AND lease_until<?)) RETURNING *")
+    .bind(now+120000,now,candidate.id,now,now).first<Row>();
+  if(!row)return;
   let code='delivery_error',status='retry';
   try {
     if(row.first_attempt_at&&now-row.first_attempt_at>=23*3600000||row.attempts>=8) {
@@ -85,6 +88,10 @@ async function dispatch(env:Cloudflare.Env,row:Row) {
     }
     code='message_unavailable';status='failed';
     const message:Email=row.payload?await unseal(row.payload,env.EMAIL_OUTBOX_KEY,row.id):await materialize(env,row);
+    // Apply to frozen retries too: the Resend account owner is never a lead recipient.
+    if(row.kind==='website'&&(message.from!==WEBSITE_FROM||message.to.length!==1||message.to[0]!==WEBSITE_NOTIFICATION_TO)) {
+      status='blocked';code='website_notification_identity_mismatch';throw Error();
+    }
     if(row.kind==='invitation') {
       const token=message.text.match(/#token=([A-Za-z0-9_-]{43})/)?.[1];
       const active=token?await db.prepare("SELECT t.token_hash FROM cms_invitation_tokens t JOIN cms_members m ON m.email=t.email WHERE t.token_hash=? AND t.email=? AND t.used_at IS NULL AND t.expires_at>? AND m.status='invited' AND m.invitation_required=1")

@@ -2,9 +2,9 @@
 export const pageBanners = {
   "brand": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-expansion-v1.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-expansion-v2.webp",
     "mobilePosition": "85% 8%",
-    "image": "/assets/stock-heroes/brand-franchise-expansion-v1.webp",
+    "image": "/assets/stock-heroes/brand-franchise-expansion-v2.webp",
     "alt": "Illustrative scene of an Indian retail founder and adviser planning new franchise locations",
     "position": "65% 40%"
   },
@@ -34,9 +34,9 @@ export const pageBanners = {
   },
   "blogs": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/blogs-business-perspectives-v1.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/blogs-business-perspectives-v2.webp",
     "mobilePosition": "70% 8%",
-    "image": "/assets/stock-heroes/blogs-business-perspectives-v1.webp",
+    "image": "/assets/stock-heroes/blogs-business-perspectives-v2.webp",
     "alt": "Illustrative scene of an Indian entrepreneur writing business insights in a cafe",
     "position": "65% 0%"
   },
@@ -58,10 +58,10 @@ export const pageBanners = {
   },
   "videos": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/videos-franchise-conversation-v1.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/videos-franchise-conversation-v2.webp",
     "mobilePosition": "70% 8%",
-    "image": "/assets/stock-heroes/videos-franchise-conversation-v1.webp",
-    "alt": "Illustrative filmed conversation with a cafe owner about running and growing a business",
+    "image": "/assets/stock-heroes/videos-franchise-conversation-v2.webp",
+    "alt": "Illustrative filmed conversation between two young business professionals about franchising and business growth",
     "position": "70% 40%"
   }
   ,"homeProcess": {

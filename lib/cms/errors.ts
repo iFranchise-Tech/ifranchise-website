@@ -1,1 +1,1 @@
-export class CmsError extends Error { constructor(public status:number,message:string){super(message)} }
+export class CmsError extends Error { constructor(public status:number,message:string,public code?:string){super(message)} }

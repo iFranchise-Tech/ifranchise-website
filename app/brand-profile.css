@@ -74,10 +74,8 @@
 .p-site .brand-profile .brand-enquiry-card .p-form-progress>button>span{width:22px;height:22px;flex-shrink:0}
 .p-site .brand-profile .brand-enquiry-card .field{margin-bottom:17px}
 .p-site .brand-profile .brand-enquiry-card .field>label{font-size:11px;margin-bottom:7px}
-.p-site .brand-profile .brand-enquiry-card .field :is(input,select){border-radius:7px;min-height:46px;height:46px;font-size:13px;padding:11px 12px}
+.p-site .brand-profile .brand-enquiry-card .field :is(input:not([type=tel]),select){border-radius:7px;min-height:46px;height:46px;font-size:13px;padding:11px 12px}
 .p-site .brand-profile .brand-enquiry-card .field select{padding-right:32px}
-.p-site .brand-profile .brand-enquiry-card .phone-control{height:46px;min-height:46px}
-.p-site .brand-profile .brand-enquiry-card .phone-control input{height:44px;min-height:44px}
 .p-site .brand-profile .brand-enquiry-card .p-form-actions .p-button{border-radius:7px;min-height:46px;padding:12px 15px}
 .p-site .brand-profile .brand-enquiry-contacts{padding-top:15px;margin-top:20px;gap:12px}
 .p-site .brand-profile .brand-enquiry-contacts a{border:1px solid #e6e0ef;border-radius:7px;font-size:11px;background:#fff}

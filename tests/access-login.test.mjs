@@ -16,10 +16,18 @@ test('Access login is omitted until a real team and audience exist', () => {
 test('Access login points at the team login path and only returns to https hosts', () => {
   const login = new URL(accessLoginUrl({teamDomain: team + '/ignored', audience, redirectUrl: 'https://preview.example/admin'}));
   assert.equal(login.origin, team);
-  assert.equal(login.pathname, '/cdn-cgi/access/login/' + audience);
-  assert.equal(login.searchParams.get('redirect_url'), 'https://preview.example/admin');
-  const local = new URL(accessLoginUrl({teamDomain: team, audience, redirectUrl: 'http://localhost:3019/admin'}));
-  assert.equal(local.searchParams.get('redirect_url'), null);
+  assert.equal(login.pathname, '/cdn-cgi/access/login/preview.example');
+  assert.equal(login.searchParams.get('kid'), audience);
+  assert.equal(login.searchParams.get('redirect_url'), '/admin');
+  for(const redirectUrl of ['http://localhost:3019/admin','https://localhost/admin','https://user:pass@preview.example/admin','https://preview.example/contact-us',undefined])assert.equal(accessLoginUrl({teamDomain:team,audience,redirectUrl}),null);
+});
+
+test('Access return destinations retain nested CMS routes, filters and invitation activation',()=>{
+ for(const path of ['/admin/articles/test?tab=history&page=2','/admin/inbox?type=brand','/cms/activate']){
+  const login=new URL(accessLoginUrl({teamDomain:team,audience,redirectUrl:'https://preview.example'+path}));
+  assert.equal(login.searchParams.get('redirect_url'),path);
+  assert.equal(login.searchParams.get('kid'),audience);
+ }
 });
 
 test('localhost explains the Access limitation and does not offer a password', () => {
@@ -49,7 +57,7 @@ test('a configured https host can continue to Cloudflare Access', () => {
   const request = new Request('https://preview.example/admin', {headers: {accept: 'text/html'}});
   const response = renderStaffSignIn(request, {ACCESS_TEAM_DOMAIN: team, ACCESS_AUD: audience});
   return response.text().then((html) => {
-    assert.ok(html.includes(`href="${team}/cdn-cgi/access/login/${audience}?redirect_url=https%3A%2F%2Fpreview.example%2Fadmin"`));
+    assert.ok(html.includes(`href="${team}/cdn-cgi/access/login/preview.example?kid=${audience}&amp;redirect_url=%2Fadmin"`));
     assert.match(html, /Continue with your work account/);
     assert.doesNotMatch(html, /temporarily unavailable/);
     assert.match(html, /company identity provider/);

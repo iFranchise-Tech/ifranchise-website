@@ -11,8 +11,28 @@ test('intent prefetch and navigation share one request; later visits read fresh 
 });
 test('completed prefetches expire and explicit refresh bypasses them',async()=>{
  let time=0,calls=0;const cache=createNavigationCache(async()=>++calls,{now:()=>time,ttl:5000});
- cache.prefetch('articles');await Promise.resolve();time=5000;assert.equal(await cache.read('articles'),2);
- cache.prefetch('articles');await Promise.resolve();assert.equal(await cache.read('articles',true),4);
+ cache.prefetch('articles');await new Promise(resolve=>setImmediate(resolve));time=5000;assert.equal(await cache.read('articles'),2);
+ cache.prefetch('articles');await new Promise(resolve=>setImmediate(resolve));assert.equal(await cache.read('articles',true),4);
+});
+
+test('slow prefetches are shared and freshness starts when the response completes',async()=>{
+ let time=0,calls=0;const pending=deferred();
+ const cache=createNavigationCache(()=>{calls++;return pending.promise},{retain:true,now:()=>time});
+ cache.prefetch('articles');await Promise.resolve();time=6000;
+ const first=cache.read('articles'),second=cache.read('articles');
+ assert.equal(cache.peek('articles'),undefined);
+ pending.resolve({version:1});await first;await second;
+ assert.equal(calls,1);time=10000;assert.deepEqual(cache.peek('articles'),{version:1});
+ time=11000;assert.equal(cache.peek('articles'),undefined);
+});
+
+test('a normal module cycle remains cached only within the existing five-second freshness window',async()=>{
+ let time=0,calls=0;const cache=createNavigationCache(async key=>{calls++;return {key}},{retain:true,now:()=>time});
+ const keys=['franchises','jobs','blogs','articles','videos','faqs','pages','overview','activity'];
+ for(const key of keys)await cache.read(key);
+ time=4000;for(const key of keys)assert.deepEqual(cache.peek(key),{key});
+ assert.equal(calls,9);cache.clear();assert.equal(cache.peek('jobs'),undefined);
+ await cache.read('jobs');time=9000;assert.equal(cache.peek('jobs'),undefined);
 });
 test('failed speculation retries normally while a failed active read remains an error',async()=>{
  let calls=0;const cache=createNavigationCache(async()=>{calls++;if(calls===1)throw Error('Session expired');return {records:[]}});

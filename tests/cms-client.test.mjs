@@ -46,3 +46,34 @@ test('CMS failure can be retried without returning fake empty records',async t=>
  await assert.rejects(()=>cmsRequest('/api/admin'));
  assert.deepEqual(await cmsRequest('/api/admin'),{records:[{id:'one'}]});assert.equal(calls,2);
 });
+
+test('session loss locks protected UI, but an ordinary section permission error does not',async t=>{
+ const events=[];
+ const previous=globalThis.window;globalThis.window={dispatchEvent:event=>events.push(event.detail)};
+ t.after(()=>{if(previous===undefined)delete globalThis.window;else globalThis.window=previous;});
+ t.mock.method(globalThis,'fetch',async()=>Response.json({error:'Access disabled.',code:'account_disabled'},{status:403}));
+ await assert.rejects(()=>cmsRequest('/api/admin/session'),e=>e.status===403);
+ assert.deepEqual(events,[{message:'Access disabled.',status:403}]);
+ globalThis.fetch=async()=>Response.json({error:'You cannot edit this section.'},{status:403});
+ await assert.rejects(()=>cmsRequest('/api/admin'));assert.equal(events.length,1);
+ globalThis.fetch=async()=>new Response(null,{status:302});
+ await assert.rejects(()=>cmsRequest('/api/admin'));assert.equal(events.at(-1).status,401);
+});
+
+
+test('stalled CMS requests time out, recover and never retry a mutation automatically',async t=>{
+ let calls=0;
+ t.mock.method(globalThis,'fetch',async(_url,{signal})=>{calls++;return new Promise((_,reject)=>signal.addEventListener('abort',()=>reject(signal.reason),{once:true}))});
+ await assert.rejects(()=>cmsRequest('/api/admin',{timeoutMs:10}),/taking longer than expected/);
+ await assert.rejects(()=>cmsRequest('/api/admin',{method:'POST',timeoutMs:10}),/result is not confirmed.*Reload/);
+ assert.equal(calls,2);
+ globalThis.fetch=async()=>Response.json({records:[{id:'persisted'}]});
+ assert.deepEqual(await cmsRequest('/api/admin'),{records:[{id:'persisted'}]});
+});
+test('CMS timeout covers stalled response bodies and preserves caller cancellation',async t=>{
+ t.mock.method(globalThis,'fetch',async(_url,{signal})=>({status:200,ok:true,headers:new Headers({'content-type':'application/json'}),json:()=>new Promise((_,reject)=>signal.addEventListener('abort',()=>reject(signal.reason),{once:true}))}));
+ await assert.rejects(()=>cmsRequest('/api/admin',{timeoutMs:10}),/taking longer than expected/);
+ const controller=new AbortController(),pending=cmsRequest('/api/admin',{signal:controller.signal});
+ await Promise.resolve();controller.abort();
+ await assert.rejects(pending,error=>error.name==='AbortError');
+});

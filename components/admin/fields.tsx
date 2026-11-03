@@ -3,7 +3,7 @@ import {useId,useRef,useState} from 'react';
 import {useConfirmation} from './confirmation';
 import {cmsRequest} from '../../lib/cms/client.mjs';
 import {imageSrc} from '../../lib/responsive-image';
-import {EmailField} from '../contact-fields';
+import {EmailField} from '../email-field';
 import {Upload,Plus,Trash2,ChevronUp,ChevronDown,ImagePlus,Search,Check} from 'lucide-react';
 import {defaultPresentation,imageStyle,frameStyle} from '../../lib/cms/display.mjs';
 export function Field({label,value,onChange,type='text',options,rows=4,disabled=false,required=false,validateOnSubmit=false,maxLength,help,min,max,step='any',work=true}:{label:string;value:any;onChange:(v:any)=>void;type?:string;options?:{value:string;label:string}[];rows?:number;disabled?:boolean;required?:boolean;validateOnSubmit?:boolean;maxLength?:number;help?:string;min?:number;max?:number;step?:string;work?:boolean}){

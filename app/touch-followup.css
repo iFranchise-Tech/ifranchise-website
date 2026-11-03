@@ -13,24 +13,22 @@
 .p-site .submission-confirmation{background:#f7f7fb;padding:clamp(24px,5vw,64px) 20px;min-height:calc(100svh - var(--site-header-height));display:grid;place-items:center;text-align:center;box-sizing:border-box}
 .p-site .confirmation-card{width:min(100%,640px);box-sizing:border-box;padding:clamp(28px,4vw,48px);border:1px solid #e6e3ef;border-radius:24px;background:#fff;box-shadow:0 16px 60px #211b3109;animation:confirmation-arrive .45s ease-out both}
 .p-site .confirmation-card .submission-check{display:grid;place-items:center;border-radius:50%;width:64px;height:64px;margin:0 auto 24px;background:#f0edf9;color:#32159b;animation:confirmation-check .5s ease-out both}
-.p-site .confirmation-card .p-eyebrow{font-size:11px;line-height:1.5;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#32159b;margin:0}
 .p-site .confirmation-card>p:not(.p-eyebrow){margin:0 auto 24px;max-width:420px;font-size:16px;line-height:1.7}
 .p-site .confirmation-card h1{font-size:clamp(28px,3vw,40px);line-height:1.2;letter-spacing:-1.2px;margin:12px 0 20px;text-wrap:balance;animation:confirmation-arrive .5s .08s ease-out both}
-.confirmation-next{padding:20px 24px;background:#f8f7fb;border:1px solid #efecf5;border-radius:14px;margin:28px 0;animation:confirmation-arrive .5s .14s ease-out both}
-.confirmation-next>span{font:700 13px/1.5 Manrope,Arial,sans-serif;color:#32159b}
-.p-site .confirmation-next p{font:400 15px/1.7 Manrope,Arial,sans-serif;margin:8px 0 0;color:#635f6e}
+.p-site .confirmation-card .submission-check-success{background:#eaf7ef;color:#16834a}
+.p-site .submission-check-success svg{stroke-dasharray:48;stroke-dashoffset:0;animation:confirmation-tick .55s .12s ease-out both}
+@keyframes confirmation-tick{from{stroke-dashoffset:48}to{stroke-dashoffset:0}}
 .p-site .confirmation-card .p-button{font-size:14px;gap:12px;min-height:50px;justify-content:center}
-.p-site .confirmation-card>p.confirmation-reassurance{font-size:12px;line-height:1.6;color:#797383;margin:20px auto 0}
 .p-site .p-form-step:not([hidden]){animation:form-step-arrive .18s ease-out}
 .p-site :is(.p-enquiry,.candidate-form) .field-row{min-width:0}
 .p-site :is(.p-enquiry,.candidate-form) :is(input,select,textarea){scroll-margin-top:110px}
-.p-site :is(.p-enquiry,.candidate-form) :is(input:not([type=checkbox]):not([type=hidden]):not([type=file]),select){min-height:50px}
+.p-site :is(.p-enquiry,.candidate-form) :is(input:not([type=checkbox]):not([type=hidden]):not([type=file]):not([type=tel]),select){min-height:50px}
 .p-site :is(.p-enquiry,.candidate-form) textarea{resize:vertical}
 .p-site :is(.p-enquiry,.candidate-form) .field-error{font-size:12px;line-height:1.6}
 @keyframes confirmation-arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes confirmation-check{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 @keyframes form-step-arrive{from{opacity:.6}to{opacity:1}}
-@media(prefers-reduced-motion:reduce){.p-site .confirmation-card,.p-site .confirmation-card h1,.p-site .confirmation-next,.p-site .confirmation-card .submission-check,.p-site .p-form-step:not([hidden]){animation:none}}
+@media(prefers-reduced-motion:reduce){.p-site .confirmation-card,.p-site .confirmation-card h1,.p-site .submission-check-success svg,.p-site .confirmation-card .submission-check,.p-site .p-form-step:not([hidden]){animation:none}}
 @media(max-width:767px){
  .p-site .p-home .p-video-hero,.p-site .p-home .p-video-hero-inner{min-height:100vh;min-height:100lvh;height:auto}
  .p-site .p-home .p-video-hero-inner{box-sizing:border-box}

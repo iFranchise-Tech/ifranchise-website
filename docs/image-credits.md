@@ -244,3 +244,13 @@ Two original illustrative scenes were generated with the built-in OpenAI image-g
 - Desktop renditions: 640, 960, 1440 and 2172 pixels wide. Separate square mobile compositions: 960 × 960 pixels under `public/assets/stock-heroes/mobile/`, with the same filenames.
 - Creative direction: warm timber and ivory, muted violet accents, natural interaction, generous headroom and quiet space behind the existing headings. No baked-in text, logos or interface.
 - Preparation: downscaling and WebP encoding at quality 84. Previous image assets and custom CMS banner support are retained.
+
+## Professional banner refinements — 3 November 2026
+
+Created with the built-in OpenAI image-generation tool, using the previous fictional scenes as edit references. These do not depict actual employees, clients or interviews.
+
+- List your Brand: `brand-franchise-expansion-v2.webp`. Prompt: preserve the retail expansion planning scene, floor plans, adviser and composition; dress the woman in a classic charcoal tailored trouser suit and ivory collared shirt, with natural lighting and generous headroom.
+- Blogs: `blogs-business-perspectives-v2.webp`. Prompt: preserve the cafe writing scene, notebook, laptop and composition; dress the woman in a classic navy tailored suit and ivory shirt, without a scarf, saree or dress.
+- Videos: `videos-franchise-conversation-v2.webp`. Prompt: a filmed franchise-business conversation between two young adult Indian men in classic navy and charcoal business suits, with lapel microphones and camera; preserve the warm cafe setting and quiet space for headings.
+- Mobile prompts: use the matching desktop edit as a wardrobe/subject reference; preserve the earlier square mobile composition, fully visible heads in the upper half and quiet lower space for page copy. No baked-in text, logos or interface.
+- Files are under `public/assets/stock-heroes/`, with 640, 960, 1440 and 2172px desktop renditions and separate 960px square versions under `mobile/`. WebP quality 82. Prior versions remain available.

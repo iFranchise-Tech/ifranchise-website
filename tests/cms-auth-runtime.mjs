@@ -4,10 +4,12 @@ import {env} from 'cloudflare:workers';
 import {setHeaders} from './cms-auth-headers.mjs';
 import {localD1} from './local-d1.mjs';
 import {issueLocalAdminToken,LOCAL_ADMIN_COOKIE} from '../lib/local-admin.mjs';
+import {allRecords,recordSummaries,summary} from '../lib/cms/store.ts';
 import {adminIdentity} from '../lib/cms/auth.ts';
 import {acceptInvitation} from '../lib/email/invitations.ts';
 import {unseal} from '../lib/email/crypto.mjs';
 import {POST,GET} from '../app/api/admin/route.ts';
+import {GET as sessionGet} from '../app/api/admin/session/route.ts';
 import {GET as intakeGet,POST as intakeSync,PATCH as intakeUpdate} from '../app/api/admin/intake/route.ts';
 import {generateKeyPair,exportJWK,SignJWT} from 'jose';
 const {DB,database}=localD1();
@@ -18,6 +20,12 @@ database.exec("INSERT INTO cms_members (email,name,role,scopes,manager,status,ex
 const preserved=()=>JSON.stringify({content:database.prepare('SELECT * FROM cms_records ORDER BY id').all(),submissions:database.prepare('SELECT * FROM website_submissions ORDER BY id').all(),member:database.prepare("SELECT * FROM cms_members WHERE email='retained@ifranchise.in'").get()});
 const before=preserved();
 Object.assign(env,{EMAIL_MODE:import.meta.env.DEV?'capture':'resend',EMAIL_ENVIRONMENT:'preview',EMAIL_PUBLIC_ORIGIN:import.meta.env.DEV?'http://localhost:3021':'https://preview.example',EMAIL_OUTBOX_KEY:Buffer.alloc(32,7).toString('base64'),RESEND_API_KEY:'test-only-not-a-key',EMAIL_ALLOWED_RECIPIENTS:'editor@ifranchise.in,viewer@ifranchise.in,it@ifranchise.in',DB,LOCAL_ADMIN_EMAIL:'editor@ifranchise.in,uninvited@ifranchise.in',LOCAL_ADMIN_SECRET:'test-only-local-auth-secret-32-characters',CMS_SUPER_ADMIN_EMAIL:'abdul@ifranchise.in,sumanth.reddy@ifranchise.in'});
+// Projection must preserve list data exactly, including imported defaults,
+// archived rows and page/FAQ compatibility, without loading private snapshots.
+for(const kind of ['franchises','jobs','industries','blogs','articles','videos','faqs','pages','placements']){
+ assert.deepEqual(await recordSummaries(kind),(await allRecords(kind)).map(summary),kind+' summary equivalence');
+}
+console.log('PASS projected listings match existing record summaries for every content kind.');
 async function as(email,host='localhost:3021'){
  const token=await issueLocalAdminToken(env,email);
  setHeaders({host,cookie:LOCAL_ADMIN_COOKIE+'='+encodeURIComponent(token)});
@@ -31,9 +39,9 @@ globalThis.fetch=async input=>{
  assert.equal(url,env.ACCESS_TEAM_DOMAIN+'/cdn-cgi/access/certs');
  return Response.json({keys:[jwk]});
 };
-async function asAccess(email){
- const token=await new SignJWT({email}).setProtectedHeader({alg:'RS256',kid:jwk.kid}).setSubject('workspace:'+email).setIssuer(env.ACCESS_TEAM_DOMAIN).setAudience(env.ACCESS_AUD).setIssuedAt().setExpirationTime('5m').sign(privateKey);
- setHeaders({host:'preview.example','cf-access-jwt-assertion':token});
+async function asAccess(email,{expiry='5m',subject='workspace:'+email,cookie=false}={}){
+ const token=await new SignJWT({email}).setProtectedHeader({alg:'RS256',kid:jwk.kid}).setSubject(subject).setIssuer(env.ACCESS_TEAM_DOMAIN).setAudience(env.ACCESS_AUD).setIssuedAt().setExpirationTime(expiry).sign(privateKey);
+ setHeaders({host:'preview.example',...(cookie?{cookie:'CF_Authorization='+token}:{'cf-access-jwt-assertion':token})});
 }
 if(!import.meta.env.DEV){
  await as('abdul@ifranchise.in');
@@ -68,6 +76,38 @@ if(!import.meta.env.DEV){
  await as('abdul@ifranchise.in','preview.example');await assert.rejects(adminIdentity,error=>error.status===401);
  assert.equal(preserved(),before,'sign-in and invitations preserve existing content, submissions and unrelated members');
  console.log('PASS both Super Admin invitations, stable member versions, role boundaries, invitation activation, suspension and remote-host isolation.');
+}
+// The Access session proves identity; D1 remains authoritative on every request.
+{
+ const origin='https://preview.example';
+ for(const email of ['abdul@ifranchise.in','sumanth.reddy@ifranchise.in']){
+  const original=database.prepare('SELECT * FROM cms_members WHERE email=?').get(email);
+  // Development tests used a local identity earlier; model a separate hosted DB identity here.
+  database.prepare('UPDATE cms_members SET user_id=? WHERE email=?').run('workspace:'+email,email);
+  await asAccess(email,{cookie:true});
+  const version=(await adminIdentity()).version;
+  for(let n=0;n<3;n++){const session=await sessionGet();assert.equal(session.status,200);assert.deepEqual(await session.json(),{email,version});}
+  for(const kind of ['franchises','jobs','blogs','articles','industries','videos','faqs','pages'])assert.equal((await GET(new Request(origin+'/api/admin?kind='+kind))).status,200);
+  database.prepare("UPDATE cms_members SET status='suspended' WHERE email=?").run(email);
+  const denied=await sessionGet();assert.equal(denied.status,403);assert.equal((await denied.json()).code,'account_disabled');
+  assert.equal(database.prepare('SELECT status FROM cms_members WHERE email=?').get(email).status,'suspended');
+  database.prepare("UPDATE cms_members SET status='active' WHERE email=?").run(email);
+  await asAccess(email,{subject:'different-identity'});await assert.rejects(adminIdentity,e=>e.code==='identity_mismatch');
+  await asAccess(email,{expiry:1});assert.equal((await sessionGet()).status,401);
+  database.prepare('UPDATE cms_members SET user_id=?,status=?,role=? WHERE email=?').run(original.user_id,original.status,original.role,email);
+ }
+ await asAccess('person@gmail.com');await assert.rejects(adminIdentity,e=>e.code==='company_account_required');
+ await asAccess('outsider@ifranchise.in');await assert.rejects(adminIdentity,e=>e.code==='invitation_required');
+ const now=new Date().toISOString();
+ database.prepare("INSERT INTO cms_members(email,name,role,scopes,status,expires_at,invitation_required,version,created_at,updated_at) VALUES ('expired@ifranchise.in','Expired','editor','[]','invited','2000-01-01T00:00:00Z',1,1,?,?)").run(now,now);
+ await asAccess('expired@ifranchise.in');await assert.rejects(adminIdentity,e=>e.code==='invitation_expired');
+ // A deleted configured Super Admin must not be recreated by authentication.
+ const removed=database.prepare("SELECT * FROM cms_members WHERE email='sumanth.reddy@ifranchise.in'").get();
+ database.prepare("DELETE FROM cms_members WHERE email='sumanth.reddy@ifranchise.in'").run();
+ await asAccess(removed.email);await assert.rejects(adminIdentity,e=>e.code==='invitation_required');
+ assert.equal(database.prepare('SELECT count(*) AS n FROM cms_members WHERE email=?').get(removed.email).n,0);
+ const columns=Object.keys(removed);database.prepare('INSERT INTO cms_members('+columns.join(',')+') VALUES ('+columns.map(()=>'?').join(',')+')').run(...Object.values(removed));
+ console.log('PASS hosted cookie reuse, refresh, all content scopes, both Super Admin revocations, deleted account, identity mismatch, personal email and expired sessions/invitations.');
 }
 // A role's pending work must not be hidden behind other teams' older rows.
 {
