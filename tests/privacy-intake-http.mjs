@@ -3,6 +3,7 @@ import {NOTICE_VERSION} from '../lib/intake/constants.mjs';
 
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:3018';
 assert.ok(['127.0.0.1','localhost'].includes(new URL(origin).hostname),'This synthetic workflow is restricted to a local preview.');
+assert.equal(process.env.TEST_ISOLATED_SERVICES,'1','Run only against isolated mock Sheets/Resend; localhost alone does not isolate external services.');
 const clientIp='203.0.113.'+(1+Date.now()%250);
 const headers={'Content-Type':'application/json',Origin:origin,'cf-connecting-ip':clientIp};
 const sessionResponse=await fetch(origin+'/api/intake/session',{method:'POST',headers:{Origin:origin,'cf-connecting-ip':clientIp}});
@@ -12,13 +13,14 @@ const payload={id,token,kind:'privacy',noticeVersion:NOTICE_VERSION,email:'priva
 await new Promise(resolve=>setTimeout(resolve,1600));
 const submit=()=>fetch(origin+'/api/intake/enquiries',{method:'POST',headers,body:JSON.stringify(payload)});
 const first=await submit(),receipt=await first.json();
-assert.equal(first.status,200,JSON.stringify(receipt));
-assert.equal(receipt.received,true);
-assert.equal((await (await submit()).json()).reference,receipt.reference);
+assert.equal(first.status,503,JSON.stringify(receipt));
+assert.equal(receipt.code,'privacy_unavailable');
+assert.equal(receipt.received,undefined);
+assert.equal((await submit()).status,503);
 const read=await fetch(origin+'/api/admin/intake?id='+id);
 assert.equal(read.status,401,'Privacy records must require an authenticated administrator.');
 const patch=await fetch(origin+'/api/admin/intake',{method:'PATCH',headers,body:JSON.stringify({id,status:'In progress'})});
 assert.equal(patch.status,401,'Anonymous visitors cannot change privacy request status.');
 const crossOrigin=await fetch(origin+'/api/admin/intake',{method:'PATCH',headers:{...headers,Origin:'https://other.invalid'},body:JSON.stringify({id,status:'Received'})});
 assert.equal(crossOrigin.status,403);
-console.log('Local privacy request: minimal submission accepted, duplicate-safe receipt, administrator authentication and origin guards passed.');
+console.log('Local privacy request: unsupported receiver rejected without a false receipt, administrator authentication and origin guards passed.');

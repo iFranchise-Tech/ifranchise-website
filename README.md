@@ -34,14 +34,14 @@ Non-secret settings stay in `wrangler.jsonc` for local development and productio
 |---|---|---|
 | `SITE_ACCESS` | Public site. Already `public`. | `wrangler.jsonc` |
 | `CMS_SUPER_ADMIN_EMAIL` | Configured Super Admins. Comma-separated work emails. Defaults to `abdul@ifranchise.in` and `sumanth.reddy@ifranchise.in`. Other `@ifranchise.in` addresses still need a CMS membership. | `wrangler.jsonc` |
-| `DB` | Content and form storage. Local name `ifranchise-db`. | `wrangler.jsonc` binding |
-| `BUCKET` | Uploads. Local name `ifranchise-files`. | `wrangler.jsonc` binding |
+| `DB` | CMS content, memberships, anti-abuse sessions and historical submissions. Local name `ifranchise-db`. | `wrangler.jsonc` binding |
+| `BUCKET` | CMS uploads, not new lead files. Local name `ifranchise-files`. | `wrangler.jsonc` binding |
 | `ACCESS_TEAM_DOMAIN` | Staff sign-in, after an Access application exists. | `.dev.vars` locally; target Worker secret |
 | `ACCESS_AUD` | Staff sign-in on a deployed hostname, after an Access application exists. | `.dev.vars` locally; target Worker secret |
 | `LOCAL_ADMIN_EMAIL` | Legacy local setting; it does not add accounts to the picker. | `.env.local` |
 | `LOCAL_ADMIN_SECRET` | Local admin sign-in only. Random signing secret, at least 32 characters. Not a staff password. | `.env.local` |
-| `SHEETS_WEBHOOK_URL` | Optional signed spreadsheet delivery. | `.dev.vars` locally; target Worker secret |
-| `INTAKE_SIGNING_KEY` | Optional signed spreadsheet delivery. Private JWK. | `.dev.vars` locally; target Worker secret |
+| `SHEETS_WEBHOOK_URL` | Required for accepting website enquiries. | `.dev.vars` locally; target Worker secret |
+| `INTAKE_SIGNING_KEY` | Required for accepting website enquiries. Existing matching RSA private JWK. | `.dev.vars` locally; target Worker secret |
 | `CMS_BROCHURE_IMPORT_TOKEN` | Optional one-time brochure import. | `.dev.vars` locally; target Worker secret |
 
 `pnpm db:local` applies `drizzle/` to the local D1 database under `.wrangler/state`. `pnpm exec wrangler d1 migrations apply DB --remote --config wrangler.preview.jsonc` applies the same files to `ifranchise-db-preview` only. That preview database id is already set in `wrangler.preview.jsonc`. Production database initialization must follow the empty-database checks in [the production runbook](docs/cloudflare-production.md); never copy preview submissions into production. Local R2 is simulated in `.wrangler/`. The preview bucket is `ifranchise-files-preview`.
@@ -83,7 +83,13 @@ No scheduled D1 or R2 backup is configured in this repository. Before an approve
 
 ### Google Sheets
 
-Forms are stored in D1 first. If `SHEETS_WEBHOOK_URL` and `INTAKE_SIGNING_KEY` are unset, the row stays `pending` and nothing is sent. When both are set in `.dev.vars` for a test spreadsheet, or as secrets on the intended Worker, the server signs the body and posts it after the database insert. A failed or unconfirmed response increments `attempts` and leaves `sheet_status` as `pending`. The visitor still receives the stored-submission response. The next submission retries up to two older pending rows, and the Inbox retries pending sync in the background for staff with the appropriate enquiry/application permission while the page is visible and online. Privacy requests are not sent to Sheets. `pnpm test` verifies that retry against a local database and a local webhook. It has not been confirmed against Google. Do not point a test at the production spreadsheet.
+New website enquiries are persisted only in the approved **IFRANCHISE WEBSITE** workbook (`1CtjZy19aXx-o39u3QqZMKxCPaRhyRBPM9Ebmp9ZiWqU`). Configure `SHEETS_WEBHOOK_URL` with the existing Apps Script `/exec` deployment and `INTAKE_SIGNING_KEY` with the matching RSA private JWK on the target Worker. The existing receiver contract and columns remain unchanged. Its lock and Reference-column check deduplicate retries using the server-issued form session ID.
+
+The API reports success only after a matching JSON save acknowledgement. Sheets errors/timeouts retain the visitor's form and return a retryable error; there is no D1/R2 lead fallback or pending lead/email payload queue. D1 still holds non-payload anti-abuse sessions and rate counters. Existing D1 submissions, CMS access and historical Inbox sync remain intact; new Sheets-only leads do not appear in the CMS Inbox.
+
+The approved receiver has no privacy-request tab or private Google Drive upload contract. Online privacy requests and résumé applications therefore return clear unavailable errors with `contact@ifranchise.in` as the contact, rather than accepting incomplete submissions or storing private files in Cloudflare. Restoring those two workflows requires separately approved receiver/Drive integration.
+
+`pnpm test` tests signed saves and email notifications using isolated mock services and an in-memory database. Never point automated tests or local browser QA at the production spreadsheet. The optional campaign measurement remains inactive under the existing privacy controls; source-page paths are retained and sensitive URL parameters are excluded.
 
 ## Checks and build
 
@@ -128,9 +134,11 @@ Runtime credentials, local databases, build output and private uploads must rema
 
 Resend is the server-side email provider. CMS messages use `iFranchise <it@ifranchise.in>`; website enquiry/job notifications use `iFranchise <contact@ifranchise.in>`. Authentication stays with Cloudflare Access / Google Workspace, with the development-only two-account picker unchanged. See [CMS operations](CMS-OPERATIONS.md#transactional-email-operations) and the [preview setup](docs/cloudflare-preview.md#resend-transactional-email).
 
-The owner manages the existing Resend account as `marketing@ifranchise.in` and supplies `RESEND_API_KEY` through secure server-side environment configuration. This account email is not a runtime credential, sender or lead recipient. All internal website lead notifications must be **From `iFranchise <contact@ifranchise.in>` To `contact@ifranchise.in`** (`WEBSITE_NOTIFICATION_TO`). The outbox blocks mismatched senders/recipients, including frozen retry payloads, without discarding the saved lead. Customer confirmations remain a separate email type addressed to the submitter; CMS transactional mail remains separate. Keep hosted `EMAIL_MODE=disabled` until the owner completes manual configuration and approves delivery verification. Do not create a new Resend domain, rotate keys, or change DNS on their behalf.
+The owner manages the existing Resend account as `marketing@ifranchise.in` and supplies `RESEND_API_KEY` through secure server-side environment configuration. This account email is not a runtime credential, sender or lead recipient. All internal website lead notifications must be **From `iFranchise <contact@ifranchise.in>` To `contact@ifranchise.in`** (`WEBSITE_NOTIFICATION_TO`). New Sheets-only leads generate an internal notification after a fresh save acknowledgement, using a fixed recipient and a frozen Resend idempotency key. They do not enqueue customer confirmations or write email payloads to Cloudflare. Existing CMS/historical outbox messages and customer-confirmation templates remain separate and unchanged. Keep hosted `EMAIL_MODE=disabled` until the owner completes manual configuration and approves delivery verification. Do not create a new Resend domain, rotate keys, or change DNS on their behalf.
 
-For local email QA, apply local migrations (`pnpm db:local`) and configure `EMAIL_MODE=capture`, `EMAIL_ENVIRONMENT=development`, `EMAIL_PUBLIC_ORIGIN=http://localhost:3019`, and a random 32-byte base64 `EMAIL_OUTBOX_KEY` in the ignored local environment file. Capture mode saves encrypted messages locally and sends nothing. Keep real API keys out of frontend variables and source control. No Gmail API/OAuth refresh-token setup is required for email delivery.
+The Sheets-only notification makes at most two bounded attempts in the Worker background. A duplicate Sheets acknowledgement never resends email: the existing receiver cannot return the original payload or notification state. A lost acknowledgement, interrupted Worker or exhausted email retries can leave a saved lead without email; durable recovery requires receiver changes that are not approved. Disabled mode skips notifications and does not create a later replay queue. Provider acceptance is not verified delivery.
+
+For local CMS email QA, apply local migrations (`pnpm db:local`) and configure `EMAIL_MODE=capture`, `EMAIL_ENVIRONMENT=development`, `EMAIL_PUBLIC_ORIGIN=http://localhost:3019`, and a random 32-byte base64 `EMAIL_OUTBOX_KEY` in the ignored local environment file. Capture mode saves CMS/historical messages encrypted locally and sends nothing; new Sheets-only leads skip email in capture/disabled mode. Keep real API keys out of frontend variables and source control. No Gmail API/OAuth refresh-token setup is required for email delivery.
 
 ### Email design review
 

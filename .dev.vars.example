@@ -21,7 +21,7 @@
 # ACCESS_TEAM_DOMAIN="https://team-name.cloudflareaccess.com"
 # ACCESS_AUD="access-application-audience"
 
-# Google Sheets test copy — optional, and off until both values are set
+# Google Sheets test copy — both settings are required to accept enquiries
 # Use a separate test spreadsheet. Do not use the production workbook or its Apps Script.
 # Generate a new key with: node scripts/create-intake-keys.mjs
 # Put only the new public key in the test Apps Script.
@@ -34,7 +34,8 @@
 # Transactional email — all values are server-side. Never use NEXT_PUBLIC_ or VITE_ prefixes.
 # Resend is configured manually by marketing@ifranchise.in (account identity only).
 # Website lead notifications must be From and To contact@ifranchise.in.
-# Local capture saves encrypted email payloads without sending mail. No Resend key is needed.
+# Local capture stores CMS/historical email only. New Sheets-only leads skip email without a queue.
+# Use mocked services for website form QA; never send synthetic production leads or emails.
 # EMAIL_MODE="capture"
 # EMAIL_ENVIRONMENT="development"
 # EMAIL_PUBLIC_ORIGIN="http://localhost:3019"

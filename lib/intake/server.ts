@@ -2,10 +2,12 @@ import {finishDelivery} from './context';
 import {env} from 'cloudflare:workers';
 import {CmsError,db,assertOrigin,boundedBody,response} from '../cms/auth';
 import {published} from '../cms/public';
-import {validateIntake,sheetEntry,MAX_RESUME} from './validation.mjs';
-import {outboxStatement,flushEmails} from '../email/service';
+import {validateIntake,MAX_RESUME} from './validation.mjs';
+import {saveToSheets} from './sheets';
+import {notifySavedLead} from '../email/lead-notification';
 const config=()=>env as any;
-export function intakeFailure(e:any){return response({error:e instanceof CmsError?e.message:'Your submission could not be saved. Please try again.'},e instanceof CmsError?e.status:503)}
+class IntakeUnavailable extends CmsError {constructor(public code:string){super(503,'Your submission could not be confirmed. Please try again.')}}
+export function intakeFailure(e:any){return response({error:e instanceof CmsError?e.message:'Your submission could not be saved. Please try again.',...(e instanceof IntakeUnavailable?{code:e.code}:{})},e instanceof CmsError?e.status:503)}
 async function hash(value:string){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))).map(v=>v.toString(16).padStart(2,'0')).join('')}
 async function ipHash(req:Request){return hash((req.headers.get('cf-connecting-ip')||'local')+new Date().toISOString().slice(0,10))}
 async function limit(req:Request,action:string,max:number){
@@ -25,12 +27,7 @@ export async function deliver(record:any,origin:string){
  if(record.kind==='privacy')return false;
  const {SHEETS_WEBHOOK_URL:url,INTAKE_SIGNING_KEY:key}=config();if(!url||!key)return false;
  try{
-  const body=JSON.stringify({...sheetEntry(record,origin),timestamp:Date.now()});
-  const privateKey=await crypto.subtle.importKey('jwk',JSON.parse(key),{name:'RSASSA-PKCS1-v1_5',hash:'SHA-256'},false,['sign']);
-  const sig=await crypto.subtle.sign('RSASSA-PKCS1-v1_5',privateKey,new TextEncoder().encode(body));
-  const signature=btoa(String.fromCharCode(...new Uint8Array(sig))).replaceAll('+','-').replaceAll('/','_').replaceAll('=','');
-  const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({body,signature}),signal:AbortSignal.timeout(20000)});
-  const receipt:any=await r.json();if(!r.ok||receipt.ok!==true||receipt.reference!==record.reference)throw Error('Unconfirmed delivery');
+  await saveToSheets(config(),record,origin);
   await db().prepare("UPDATE website_submissions SET sheet_status='synced',synced_at=?,attempts=attempts+1 WHERE id=?").bind(new Date().toISOString(),record.id).run();return true;
  }catch{await db().prepare('UPDATE website_submissions SET attempts=attempts+1 WHERE id=?').bind(record.id).run();return false;}
 }
@@ -41,21 +38,30 @@ export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Arr
  const session:any=await db().prepare('SELECT * FROM intake_sessions WHERE id=?').bind(String(p.token||'')).first();
  if(!session||session.expires_at<Date.now()||session.ip_hash!==await ipHash(req))throw new CmsError(419,'Your form expired. Reload the page and try again.');
  const existing:any=await db().prepare('SELECT * FROM website_submissions WHERE id=? OR session_id=?').bind(p.id,p.token).first();
- if(existing){if(existing.id!==p.id||existing.session_id!==p.token)throw new CmsError(409,'This form has already been submitted.');if(existing.sheet_status!=='synced')await finishDelivery(deliver(existing,new URL(req.url).origin));return existing;}
+ // Honor retries of historical D1 submissions without inserting another record.
+ if(existing){
+  if(existing.id!==p.id||existing.session_id!==p.token)throw new CmsError(409,'This form has already been submitted.');
+  if(existing.kind==='privacy')throw new IntakeUnavailable('privacy_unavailable');
+  if(existing.sheet_status!=='synced'&&!await deliver(existing,new URL(req.url).origin))throw new IntakeUnavailable('sheets_unconfirmed');
+  return existing;
+ }
+ if(data.kind==='privacy')throw new IntakeUnavailable('privacy_unavailable');
  if(Date.now()-session.created_at<1500)throw new CmsError(429,'Please review your details before sending.');
  await limit(req,'submit',12);
  if(data.kind==='investor'&&data.brandSlug){const brand=(await published('franchises')).find(b=>b.slug===data.brandSlug);if(!brand)throw new CmsError(422,'Select an available franchise.');data.brandName=brand.name;}
  if(data.kind==='job'){const job=(await published('jobs')).find(j=>(j.slug===data.jobSlug||j.id===data.jobSlug)&&j.active!==false);if(!job)throw new CmsError(422,'This role is no longer accepting applications.');data.jobTitle=job.title;if(!resume)throw new CmsError(422,'Upload your resume as a PDF.');}
- const resumeKey=resume?'applications/'+p.id+'/resume.pdf':null;
- if(resume){if(resume.bytes.length>MAX_RESUME||new TextDecoder().decode(resume.bytes.slice(0,5))!=='%PDF-')throw new CmsError(422,'Upload a PDF resume up to 5 MB.');if(!env.BUCKET)throw new CmsError(503,'File uploads are unavailable.');await env.BUCKET.put(resumeKey!,resume.bytes,{httpMetadata:{contentType:'application/pdf'}});}
- const row={id:p.id,reference:'IF-'+p.id,session_id:p.token,kind:data.kind,payload:JSON.stringify(data),resume_key:resumeKey,resume_name:resume?.name||null,created_at:new Date().toISOString(),sheet_status:data.kind==='privacy'?'not_applicable':'pending'};
- try{
-  const notifications=data.kind==='privacy'?[]:await Promise.all(['website','website-confirmation'].map(kind=>outboxStatement(env,{key:kind+':'+row.id,kind,source:row.id})));
-  await db().batch([db().prepare('INSERT INTO website_submissions (id,reference,session_id,kind,payload,resume_key,resume_name,created_at,sheet_status,attempts) VALUES (?,?,?,?,?,?,?,?,?,0)').bind(row.id,row.reference,row.session_id,row.kind,row.payload,row.resume_key,row.resume_name,row.created_at,row.sheet_status),...notifications.map(notification=>notification.statement)]);
- }
- catch(e){const saved:any=await db().prepare('SELECT * FROM website_submissions WHERE id=? AND session_id=?').bind(p.id,p.token).first();if(saved)return saved;if(resumeKey&&env.BUCKET)await env.BUCKET.delete(resumeKey);throw e;}
- if(data.kind==='privacy')return row;
- await finishDelivery(Promise.allSettled([deliver(row,new URL(req.url).origin),retryPending(new URL(req.url).origin,2,row.id),flushEmails(env)]).then(results=>{if(results.some(result=>result.status==='rejected'))throw Error('Background delivery needs retry')}));
+ if(resume&&(resume.bytes.length>MAX_RESUME||new TextDecoder().decode(resume.bytes.slice(0,5))!=='%PDF-'))throw new CmsError(422,'Upload a PDF resume up to 5 MB.');
+ // The existing receiver has no private Drive upload contract. Never put files
+ // in R2 or accept an application without its required résumé.
+ if(data.kind==='job'||resume)throw new IntakeUnavailable('applications_unavailable');
+ // Use the server-issued session, not the visitor's freely changeable ID, as
+ // the stable Reference. The script's lock provides concurrent deduplication.
+ const row={id:session.id,reference:'IF-'+session.id,session_id:session.id,kind:data.kind,payload:JSON.stringify(data),created_at:new Date().toISOString(),sheet_status:'synced'};
+ let saved;
+ try{saved=await saveToSheets(config(),row,new URL(req.url).origin)}
+ catch{throw new IntakeUnavailable('sheets_unconfirmed')}
+ if(!saved.duplicate)await finishDelivery(notifySavedLead(env,row));
+
  return row;
 }
 export async function receipt(record:any,token:string){

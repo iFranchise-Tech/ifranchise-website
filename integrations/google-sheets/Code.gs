@@ -1,5 +1,5 @@
 // iFranchise website intake. This receiver writes only to the configured workbook.
-const SHEET_ID = '1eavzRbd_ajJsX9Hj6XaPiPsksXIzB7pdT8WhI6KesJk';
+const SHEET_ID = '1CtjZy19aXx-o39u3QqZMKxCPaRhyRBPM9Ebmp9ZiWqU';
 const PUBLIC_KEY = {"kty":"RSA","n":"7SOBNevxRa0m7ZAks_TFN2C8U7B4I_eMtfyIeJ0Xr11V9B71S1QFFW4LF5XzDZcPrx2hJpduNF5HqeuG0-8F77m9Buy59smQdH5-WH4Rf2yBvrR2MkRiJKyAiLKM57sHeYb7V0jkqM6esjmMTCb4Q8_YGvYUx1mAvCfHdhaiih4OVY9rURzzanTEqeY3dnxci9TqqUlUTFXh3SjWWcWrlfpXFrtcraoVNP6yRzVG5A6RnaqEdotnTdn_AKmrkq-CIlSO_1G-iEIjUe2-bovmk4LY3ZjJbbdWa6c_-Vz7jyuRrVGhhSPdl4gHclNo9PS2zwnfn0WC9TAlvDuX2pi48Q","e":"AQAB"};
 const TABS = {'Franchise Enquiries':19,'Brand Expansion':18,'General Enquiries':16,'Job Applications':21};
 function doGet(){ return json({service:'iFranchise website enquiries',ready:true}); }

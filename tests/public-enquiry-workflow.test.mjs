@@ -37,3 +37,17 @@ test('server requires canonical state, accepts custom cities and drops client re
  assert.equal(validateIntake(p).city,'Kengeri');assert.equal(validateIntake(p).state,'Karnataka');assert.equal(validateIntake(p).to,undefined);
  assert.throws(()=>validateIntake({...p,state:undefined}));assert.throws(()=>validateIntake({...p,state:'karnataka'}));
 });
+test('Sheets-only messages contain lead context without inventing a CMS record',()=>{
+ for(const kind of ['investor','brand','general']){
+  const record={id,kind,payload:JSON.stringify({...data,sourcePage:'/list-your-brand',source:{utm_campaign:'Approved campaign'}}),created_at:'2026-11-03T06:00:00Z'};
+  const email=websiteEmail({to:['contact@ifranchise.in'],record,origin,storage:'sheets'});
+  for(const value of [data.name,data.phone,data.email,data.message,'IST','/list-your-brand'])assert(email.text.includes(value),value);
+  assert(!email.text.includes('/admin/'));assert(!email.text.includes(id));assert(!email.text.includes('website inbox'));
+ }
+});
+test('unsupported receiver features and Sheets errors show approved recovery guidance only',async()=>{
+ for(const [code,message] of [['privacy_unavailable','contact@ifranchise.in'],['applications_unavailable','résumé uploads'],['sheets_unconfirmed','Your details are still here']]){
+  await assert.rejects(()=>readReceipt(Response.json({code,error:'private provider payload'},{status:503})),e=>submissionError(e).includes(message)&&!submissionError(e).includes('private provider'));
+ }
+ await assert.rejects(()=>readReceipt(Response.json({code:'unknown',error:'private details'},{status:503})),e=>!submissionError(e).includes('private details'));
+});
