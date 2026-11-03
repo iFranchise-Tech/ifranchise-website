@@ -10,5 +10,5 @@ export const metadata={title:'Accept CMS invitation',robots:{index:false,follow:
 export default async function ActivatePage(){
   const user=await getAccessUser();let origin='';try{origin=emailOrigin(env);}catch{}
   const loginUrl=origin?accessLoginUrl({teamDomain:env.ACCESS_TEAM_DOMAIN,audience:env.ACCESS_AUD,redirectUrl:origin+'/cms/activate'}):null;
-  return <div className="cms-root"><main className="cms-access"><section><BrandIdentity/><h1>Join iFranchise CMS</h1><ActivateInvitation email={user?.email||null} loginUrl={loginUrl}/><a className="cms-access-home" href="/">Return to the website</a></section></main></div>;
+  return <div className="cms-root"><main className="cms-access"><section><BrandIdentity linked={false}/><h1>Join iFranchise CMS</h1><ActivateInvitation email={user?.email||null} loginUrl={loginUrl}/><a className="cms-access-home" href="/">Return to the website</a></section></main></div>;
 }

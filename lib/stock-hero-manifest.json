@@ -1,4 +1,16 @@
 {
+  "/assets/stock-heroes/articles-franchise-planning-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
+  ],
+  "/assets/stock-heroes/videos-franchise-conversation-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
+  ],
   "/assets/stock-heroes/blogs-business-journal-hd.webp": [
     640,
     960,
@@ -61,5 +73,41 @@
     1440,
     2400,
     3200
+  ],
+  "/assets/stock-heroes/resources-franchise-learning-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
+  ],
+  "/assets/stock-heroes/blogs-business-perspectives-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
+  ],
+  "/assets/stock-heroes/saved-business-reading-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
+  ],
+  "/assets/stock-heroes/brand-franchise-expansion-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
+  ],
+  "/assets/stock-heroes/about-franchise-advisory-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
+  ],
+  "/assets/stock-heroes/careers-collaborative-workplace-v1.webp": [
+    640,
+    960,
+    1440,
+    2172
   ]
 }

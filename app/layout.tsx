@@ -37,6 +37,7 @@ import './solid-buttons.css';
 import './scrollbars.css';
 import './issues-two.css';
 import './touch-followup.css';
+import './search-focus.css';
 import {ScrollbarActivity} from '../components/scrollbar-activity';
 import {publishedPage} from '../lib/cms/public';
 import {SiteSettingsProvider} from '../components/site-settings';

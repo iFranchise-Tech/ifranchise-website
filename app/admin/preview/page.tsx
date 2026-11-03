@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {AboutPage} from '../../../components/about-page';
 import {CareersPage} from '../../../components/careers-page';
 import {ManagedLegalPage} from '../../../components/managed-legal-page';
@@ -45,5 +46,5 @@ export default async function Preview({searchParams}:{searchParams:Promise<{id?:
  page=<OpportunitiesPage brands={sorted} industries={kind==='industries'?[p,...industries.filter(i=>i.slug!==p.slug)]:industries} faqs={kind==='faqs'?p.questions:await publishedFaq('opportunities')}/>;
  }else notFound();
  const [contact,footer]=await Promise.all([publishedPage('contact-us'),publishedPage('footer')]);
- return <SiteSettingsProvider value={{...(kind==='pages'&&p.slug==='contact-us'?p:contact),socialLinks:kind==='pages'&&p.slug==='footer'?p.socialLinks:footer?.socialLinks}}><div className="cms-preview-banner"><strong>Preview</strong><span>{p.name||p.title}</span><span>Not published</span><a href="/admin">Open admin ↗</a></div><PremiumMotion><Header/>{page}<Footer/></PremiumMotion></SiteSettingsProvider>;
+ return <SiteSettingsProvider value={{...(kind==='pages'&&p.slug==='contact-us'?p:contact),socialLinks:kind==='pages'&&p.slug==='footer'?p.socialLinks:footer?.socialLinks}}><div className="cms-preview-surface"><div className="cms-preview-banner"><strong>Preview</strong><span>{p.name||p.title}</span><span>Not published</span><Link href="/admin" prefetch={false}>Open admin ↗</Link></div><PremiumMotion><Header preview/>{page}<Footer/></PremiumMotion></div></SiteSettingsProvider>;
 }

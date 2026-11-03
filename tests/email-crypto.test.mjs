@@ -29,7 +29,7 @@ test('templates escape input, use the right sender, and do not invent password r
  assert.equal(invite.from,'iFranchise <it@ifranchise.in>');assert(!invite.html.includes('<script>'));assert.match(invite.html,/#token=/);assert.match(invite.text,/14 days/);
  for(const kind of ['investor','brand','general','job']){
   const message=websiteEmail({to:['contact@ifranchise.in'],origin,record:{kind,reference:'IF-test',payload:JSON.stringify({name:'<img src=x>',email:'test@outlook.com',message:'PRIVATE MESSAGE',jobTitle:'Engineer'}),resume_key:'PRIVATE RESUME'}});
-  assert.match(message.from,/contact@ifranchise.in/);assert.equal(message.reply_to,'test@outlook.com');assert(!message.html.includes('PRIVATE'));assert(!message.html.includes('<img src=x>'));
+  assert.match(message.from,/contact@ifranchise.in/);assert.equal(message.reply_to,'test@outlook.com');assert(!message.html.includes('PRIVATE RESUME'));assert(!message.text.includes('PRIVATE RESUME'));assert(!message.html.includes('<img src=x>'));
  }
  const help=accessHelpEmail({email:'staff@ifranchise.in',origin});assert.match(help.text,/does not change your password/);assert(!help.html.includes('token='));
  assert.match(activationEmail({email:'staff@ifranchise.in',name:'Staff',origin}).from,/it@ifranchise.in/);

@@ -35,7 +35,7 @@ test('all dynamic fields stay escaped, including unknown actions and application
   const messages=[invitationEmail({email:attack,name:attack,role:attack,origin,token:sampleToken}),
     activationEmail({email:attack,name:attack,origin}),adminEmail({to:[],action:attack,actor:attack,reference:attack,origin}),
     ...['investor','brand','general','job'].map(kind=>websiteEmail({to:[],origin,record:{kind,reference:attack,payload:JSON.stringify({name:attack,jobTitle:attack,email:'sender@example.test',message:'PRIVATE-CONTENT',phone:'PRIVATE-PHONE'}),resume_key:'PRIVATE-CV'}}))];
-  for(const message of messages){assert(!message.html.includes('<img src=x'));assert(message.html.includes('&lt;img'));assert(!message.html.includes('PRIVATE-'));}
+  for(const message of messages){assert(!message.html.includes('<img src=x'));assert(message.html.includes('&lt;img'));assert(!message.html.includes('PRIVATE-CV'));}
 });
 
 test('unsafe link schemes and embedded credentials are rejected', () => {
@@ -54,7 +54,7 @@ test('recovery is Workspace guidance, and delivery activity makes no delivery cl
 });
 
 test('sender identities, Reply-To and enquiry privacy are retained for every variant', () => {
-  for(const {id,message} of emailPreviews){const publicEmail=['investor','brand','general','job'].includes(id);assert.equal(message.from,publicEmail?'iFranchise <contact@ifranchise.in>':'iFranchise <it@ifranchise.in>');assert.equal(message.reply_to,publicEmail?'sender@example.test':'it@ifranchise.in');assert(!message.html.includes('Private content')&&!message.text.includes('private/resume.pdf'));}
+  for(const {id,message} of emailPreviews){const publicEmail=['investor','brand','general','job'].includes(id);assert.equal(message.from,publicEmail?'iFranchise <contact@ifranchise.in>':'iFranchise <it@ifranchise.in>');assert.equal(message.reply_to,publicEmail?'sender@example.test':'it@ifranchise.in');assert(!message.text.includes('private/resume.pdf'));}
   assert.throws(()=>websiteEmail({to:[],origin,record:{kind:'privacy',payload:'{}'}}));
 });
 

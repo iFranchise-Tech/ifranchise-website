@@ -1,4 +1,5 @@
 import {env} from 'cloudflare:workers';
+import {activityDisplay} from '../../../lib/cms/activity.mjs';
 import {isConfiguredSuperAdmin} from '../../../lib/cms/super-admins.mjs';
 import {normalizeWorkEmail} from '../../../lib/contact-validation.mjs';
 import {checkMedia} from '../../../lib/cms/media-permissions';
@@ -23,7 +24,7 @@ export async function GET(req:Request){try{
  const sections=[...SCOPES,'placements'].filter(k=>canView(me,k)||k==='placements'&&canView(me,'job-order'));const rows=(await Promise.all(sections.map(allRecords))).flat().filter(r=>canView(me,r.kind==='placements'&&r.slug==='jobs'?'job-order':r.kind));
  const pending=rows.filter(r=>r.status==='review');const team=await getMembers();
  const activity=(await db().prepare('SELECT id,record_id,action,actor,note,created_at FROM cms_events ORDER BY created_at DESC LIMIT 150').all()).results.filter((e:any)=>e.record_id.startsWith('team:')||e.record_id.startsWith('email:')?me.role==='super_admin':canView(me,e.record_id==='placements:jobs'?'job-order':e.record_id.split(':')[0])).slice(0,30);
- return response({me,counts:Object.fromEntries(SCOPES.filter(k=>canView(me,k)).map(k=>[k,rows.filter(r=>r.kind===k&&r.status!=='archived').length])),pending:pending.map(r=>({...summary(r),canApprove:canApprove(me,r,team)})),recent:rows.filter(r=>r.version>0).sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||'')).slice(0,6).map(summary),activity});
+ return response({me,counts:Object.fromEntries(SCOPES.filter(k=>canView(me,k)).map(k=>[k,rows.filter(r=>r.kind===k&&r.status!=='archived').length])),pending:pending.map(r=>({...summary(r),canApprove:canApprove(me,r,team)})),recent:rows.filter(r=>r.version>0).sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||'')).slice(0,6).map(summary),activity:activity.map(event=>({...event,display:activityDisplay(event,rows,team)}))});
  }catch(e){return failure(e)}}
 export async function POST(req:Request){try{
  assertOrigin(req);const me=await adminIdentity();if(!req.headers.get('content-type')?.includes('application/json'))throw new CmsError(415,'Use JSON for this request.');const text=new TextDecoder().decode(await boundedBody(req,350000));let body:any;try{body=JSON.parse(text)}catch{throw new CmsError(400,'Invalid request.')}

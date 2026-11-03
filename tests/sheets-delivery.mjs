@@ -115,7 +115,8 @@ test('submissions stay in D1 and retry only against the configured test webhook'
     assert.equal(saved.reference, 'IF-' + id);
     assert.equal(row.sheet_status, 'pending');
     assert.equal((await d1.prepare('SELECT COUNT(*) AS n FROM email_outbox WHERE source_ref=? AND kind=?').bind(id,'website').first()).n,1);
-    assert.ok(row.attempts >= 1);
+    assert.equal(row.attempts,1);
+    assert.equal(webhook.requests.length,1,'the new lead must not be delivered twice by the pending sweep');
     assert.ok(webhook.requests.some((item) => item.reference === row.reference && item.tab === 'General Enquiries' && item.valid && item.length === 16 && item.message === 'Local preview retry check only.' && item.notes === ''));
 
     webhook.setMode('mismatch');
@@ -165,7 +166,7 @@ test('submissions stay in D1 and retry only against the configured test webhook'
     const first = await acceptSubmission(request(otherIp), duplicateBody);
     const second = await acceptSubmission(request(otherIp), duplicateBody);
     assert.equal(second.reference, first.reference);
-    assert.equal((await d1.prepare('SELECT COUNT(*) AS n FROM email_outbox WHERE source_ref=?').bind(duplicateId).first()).n,1);
+    assert.equal((await d1.prepare('SELECT COUNT(*) AS n FROM email_outbox WHERE source_ref=?').bind(duplicateId).first()).n,2);
     assert.equal((await d1.prepare('SELECT COUNT(*) AS count FROM website_submissions WHERE reference=?').bind(first.reference).first()).count, 1);
     await assert.rejects(() => acceptSubmission(request(otherIp), {...general(crypto.randomUUID()), token: otherToken, message: 'A second general enquiry from the same session.'}), (error) => error.status === 409);
   } finally {

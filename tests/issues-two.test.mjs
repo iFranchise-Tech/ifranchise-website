@@ -6,10 +6,10 @@ import {recordConfirmation,hasRecentConfirmation,showConfirmation} from '../lib/
 import {readConsent,CONSENT_TTL,CONSENT_KEY,measurementConfig,consentExpiresAt} from '../lib/measurement.mjs';
 import {outletLabel} from '../lib/return-details.mjs';
 const storage=()=>{const data=new Map();return {getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v)}};
-test('locations support aliases, two-character suggestions, custom names and all states',()=>{
+test('locations support aliases, single-character suggestions, custom names and all states',()=>{
  const cities=[{name:'Bengaluru',aliases:['Bangalore']},{name:'Mysuru',aliases:['Mysore']}];
  assert.equal(indianStates.length,36);assert.equal(validateState('Karnataka'),'Karnataka');
- assert.deepEqual(matchingCities(cities,'b'),[]);assert.equal(matchingCities(cities,' BANG ')[0].name,'Bengaluru');
+ assert.equal(matchingCities(cities,'b')[0].name,'Bengaluru');assert.equal(matchingCities(cities,' BANG ')[0].name,'Bengaluru');
  assert.equal(matchingCities(cities,'mysore')[0].name,'Mysuru');assert.deepEqual(matchingCities(cities,'unknown'),[]);
  assert.equal(validateManualCity('Chikkaballapur'),'Chikkaballapur');assert.throws(()=>validateManualCity('City123'));assert.throws(()=>validateState('Not a state'));
 });

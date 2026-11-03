@@ -13,7 +13,7 @@ export const emailPreviews = [
     ['investor','Franchise enquiry','Rohan Mehta'], ['brand','Brand expansion','Kavya Shah'],
     ['general','General enquiry','Arjun Menon'], ['job','Job application','Priya Nair'],
   ].map(([kind,label,name], index) => ({id:kind, label, message:websiteEmail({to:['contact@ifranchise.in'], origin,
-    record:{kind, reference:`IF-72bf1d85-2ab6-4ead-96a0-507fa0ad720${index}`, payload:JSON.stringify({name, email:'sender@example.test', jobTitle:'Business Development Manager', message:'Private content — never include in email.', phone:'+91 90000 00000'}), resume_key:'private/resume.pdf'}})})),
+    record:{kind, reference:`IF-72bf1d85-2ab6-4ead-96a0-507fa0ad720${index}`, payload:JSON.stringify({name, email:'sender@example.test', jobTitle:'Business Development Manager', message:'I would like to discuss the next steps for my business.', phone:'+91 90000 00000'}), resume_key:'private/resume.pdf'}})})),
   // Render the existing admin template's delivery-action variant for review.
   // This fixture does not add a new automatic notification or webhook side effect.
   {id:'delivery-activity', label:'Delivery activity (admin variant)', message:adminEmail({to:['it@ifranchise.in'], action:'retry email', actor:'admin@example.test', reference:'email:2cd65ec6-3fe8-4ddd-b188-09de2c532d36', origin})},

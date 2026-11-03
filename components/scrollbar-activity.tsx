@@ -1,8 +1,16 @@
 'use client';
 import {useEffect,useRef,useState,type PointerEvent as ReactPointerEvent,type KeyboardEvent as ReactKeyboardEvent} from 'react';
 import {scrollbarGeometry,scrollFromThumb} from '../lib/scrollbar.mjs';
+import {usePathname} from 'next/navigation';
 /** Overlay the page thumb without reserving a strip beside full-bleed imagery. */
 export function ScrollbarActivity(){
+ const pathname=usePathname();
+ // The CMS has bounded native scroll regions, including its dialogs. Do not
+ // attach public-page scroll listeners or animate their scrollbar appearance.
+ if(/^\/(admin|cms)(\/|$)/.test(pathname||''))return null;
+ return <PublicScrollbarActivity/>;
+}
+function PublicScrollbarActivity(){
  const [enabled,setEnabled]=useState(false),[metrics,setMetrics]=useState({height:0,top:0,max:0,travel:0,viewport:0,scroll:0}),[dragging,setDragging]=useState(false),drag=useRef<{id:number;y:number;scroll:number}|null>(null),track=useRef<HTMLDivElement>(null);
  useEffect(()=>{
   const root=document.documentElement,timers=new Map<Element,ReturnType<typeof setTimeout>>(),query=matchMedia('(hover:hover) and (pointer:fine)'),forced=matchMedia('(forced-colors:active)');let frame=0;

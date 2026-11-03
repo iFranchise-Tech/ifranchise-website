@@ -210,3 +210,37 @@ Both sourced under the [Pexels License](https://www.pexels.com/license/) allowin
 ### Mobile About banner — 28 October 2026
 - Mikhail Nilov, Pexels: [Colleagues having a Discussion](https://www.pexels.com/photo/colleagues-having-a-discussion-9304670/). Used under the [Pexels license](https://www.pexels.com/license/).
 - Local asset: `public/assets/stock-heroes/mobile/about-advisory-planning-9304670.webp` (1200 × 1500). Optimised mobile crop of advisors reviewing commercial charts; illustrative stock photography, not an image of iFranchise staff.
+
+## Articles and Videos collection banners — 2 November 2026
+
+These two collection banners use original AI-generated illustrative scenes created with the built-in OpenAI image-generation tool. The people and locations are fictional; they do not depict iFranchise staff, clients or a real interview. The legacy `stock-heroes` directory name is retained for compatibility with the existing responsive image and asset-cache pipeline.
+
+- Articles: `public/assets/stock-heroes/articles-franchise-planning-v1.webp` — an Indian business owner and adviser reviewing a franchise plan in a cafe.
+- Videos: `public/assets/stock-heroes/videos-franchise-conversation-v1.webp` — a filmed conversation with an Indian cafe owner about operating and growing a business.
+- Each desktop image has 640, 960 and 1440-pixel WebP variants alongside its 2172-pixel original-size WebP. Matching 960-pixel square compositions live in `public/assets/stock-heroes/mobile/` with the same filenames.
+- Creative direction: natural editorial photography, warm neutral interiors, restrained violet accents, quiet space behind existing white page headings. Separate mobile compositions keep the subjects above the main copy. No baked-in text, logos or UI.
+- Web preparation: downscaling and WebP encoding at quality 84; page overlays and layout remain unchanged. Previous banner assets are retained.
+
+
+## Resource library and List your Brand banners — 3 November 2026
+
+Four original illustrative scenes were generated with the built-in OpenAI image-generation tool, matching the Articles and Videos editorial direction. People and places are fictional and do not represent iFranchise employees, customers or actual businesses.
+
+- All Resources: `public/assets/stock-heroes/resources-franchise-learning-v1.webp` — Indian entrepreneurs learning from business guides together.
+- Blogs: `public/assets/stock-heroes/blogs-business-perspectives-v1.webp` — an Indian entrepreneur writing business insights in a cafe.
+- Saved Resources: `public/assets/stock-heroes/saved-business-reading-v1.webp` — returning to a personal business reading collection.
+- List your Brand: `public/assets/stock-heroes/brand-franchise-expansion-v1.webp` — a retail founder and adviser planning new franchise locations.
+- Each desktop scene has 640, 960, 1440 and 2172-pixel WebP renditions. Separate square mobile compositions, with the same filenames under `public/assets/stock-heroes/mobile/`, are 960 × 960 pixels.
+- Preparation: downscaling and WebP encoding at quality 84; no baked-in text or interface. Existing assets, Articles and Videos imagery, and all other pages are preserved.
+- Creative direction: natural editorial photography, warm timber and ivory interiors, muted violet accents, subjects to the right and quiet space for white headings. Mobile compositions place faces above the copy and preserve the activity.
+
+
+## About Us and Careers banners — 3 November 2026
+
+Two original illustrative scenes were generated with the built-in OpenAI image-generation tool. The people and workplaces are fictional, not photographs of iFranchise employees or offices.
+
+- About Us: `public/assets/stock-heroes/about-franchise-advisory-v1.webp` — Indian franchise advisers reviewing a retail floor plan, scale model and tablet.
+- Careers: `public/assets/stock-heroes/careers-collaborative-workplace-v1.webp` — two colleagues collaborating at a worktable in a bright contemporary office.
+- Desktop renditions: 640, 960, 1440 and 2172 pixels wide. Separate square mobile compositions: 960 × 960 pixels under `public/assets/stock-heroes/mobile/`, with the same filenames.
+- Creative direction: warm timber and ivory, muted violet accents, natural interaction, generous headroom and quiet space behind the existing headings. No baked-in text, logos or interface.
+- Preparation: downscaling and WebP encoding at quality 84. Previous image assets and custom CMS banner support are retained.

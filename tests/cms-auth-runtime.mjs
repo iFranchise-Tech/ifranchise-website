@@ -8,6 +8,7 @@ import {adminIdentity} from '../lib/cms/auth.ts';
 import {acceptInvitation} from '../lib/email/invitations.ts';
 import {unseal} from '../lib/email/crypto.mjs';
 import {POST,GET} from '../app/api/admin/route.ts';
+import {GET as intakeGet,POST as intakeSync,PATCH as intakeUpdate} from '../app/api/admin/intake/route.ts';
 import {generateKeyPair,exportJWK,SignJWT} from 'jose';
 const {DB,database}=localD1();
 for(const file of readdirSync('drizzle').filter(file=>file.endsWith('.sql')).sort())database.exec(readFileSync('drizzle/'+file,'utf8'));
@@ -67,5 +68,48 @@ if(!import.meta.env.DEV){
  await as('abdul@ifranchise.in','preview.example');await assert.rejects(adminIdentity,error=>error.status===401);
  assert.equal(preserved(),before,'sign-in and invitations preserve existing content, submissions and unrelated members');
  console.log('PASS both Super Admin invitations, stable member versions, role boundaries, invitation activation, suspension and remote-host isolation.');
+}
+// A role's pending work must not be hidden behind other teams' older rows.
+{
+ const origin='http://localhost:3021',email='qa-hr@ifranchise.in',now=new Date().toISOString();
+ database.prepare("INSERT INTO cms_members (email,user_id,name,role,scopes,manager,status,version,created_at,updated_at) VALUES (?,?,?,'editor',?,'abdul@ifranchise.in','active',1,?,?)").run(email,'workspace:'+email,'HR QA',JSON.stringify({applications:{view:true,edit:true,approve:false}}),now,now);
+ for(let i=0;i<35;i++)database.prepare("INSERT INTO website_submissions (id,reference,session_id,kind,payload,created_at,sheet_status) VALUES (?,?,?,?,?,?, 'pending')").run('queue-'+i,'IF-queue-'+i,'queue-session-'+i,i<30?'general':'job','{}',i<30?'2025-01-01':'2026-01-01');
+ await asAccess(email);
+ const queued=await intakeSync(new Request(origin+'/api/admin/intake',{method:'POST',headers:{origin}}));assert.equal(queued.status,200);
+ assert.deepEqual(await queued.json(),{synced:0,pending:5},'HR receives its own oldest five pending applications even behind thirty enquiries');
+ const page=await intakeGet(new Request(origin+'/api/admin/intake?page=1.5'));assert.equal(page.status,200);assert.equal((await page.json()).page,1);
+ database.prepare("INSERT INTO website_submissions (id,reference,session_id,kind,payload,created_at,sheet_status) VALUES ('privacy-qa','IF-privacy-qa','privacy-session','privacy',?,?,'private')").run(JSON.stringify({name:'Privacy QA',status:'Received'}),now);
+ const patch=payload=>intakeUpdate(new Request(origin+'/api/admin/intake',{method:'PATCH',headers:{origin,'content-type':'application/json'},body:JSON.stringify(payload)}));
+ assert.equal((await patch({id:'privacy-qa',status:'In progress'})).status,403);
+ if(import.meta.env.DEV)await as('abdul@ifranchise.in');else await asAccess('abdul@ifranchise.in');
+ assert.equal((await patch({id:'privacy-qa',status:'Completed'})).status,422);
+ const updated=await patch({id:'privacy-qa',status:'Completed',verified:true,handled:true});assert.equal(updated.status,200);
+ const data=await updated.json();assert.equal(data.record.payload.status,'Completed');assert(!('session_id' in data.record));assert(!('resume_key' in data.record));
+ console.log('PASS scoped sync queue, integer pagination, private status permissions and fresh response.');
+}
+// Inbox filters must apply before pagination and only narrow role permissions.
+{
+ const origin='http://localhost:3021';
+ const insert=database.prepare("INSERT INTO website_submissions (id,reference,session_id,kind,payload,created_at,sheet_status) VALUES (?,?,?,?,?,?,?)");
+ for(let i=0;i<30;i++)insert.run('filter-job-'+i,'IF-filter-job-'+i,'filter-job-session-'+i,'job','{}','2024-03-02T08:00:00.000Z','pending');
+ insert.run('filter-private','IF-filter-private','filter-private-session','privacy','{}','2024-03-02T08:00:00.000Z','not_applicable');
+ insert.run('filter-brand','IF-filter-brand','filter-brand-session','brand','{}','2024-03-02T08:00:00.000Z','synced');
+ const list=async query=>{const r=await intakeGet(new Request(origin+'/api/admin/intake?'+query));assert.equal(r.status,200);return r.json()};
+ await asAccess('qa-hr@ifranchise.in');
+ const first=await list('type=job&received=2024-03-02&sync=pending');
+ assert.equal(first.total,30);assert.equal(first.records.length,25);
+ const second=await list('page=2&type=job&received=2024-03-02&sync=pending');
+ assert.equal(second.total,30);assert.equal(second.records.length,5);
+ assert.equal(new Set([...first.records,...second.records].map(r=>r.id)).size,30);
+ for(const query of ['type=privacy','type=brand','sync=private']){const filtered=await list(query);assert.equal(filtered.total,0);assert.deepEqual(filtered.records,[])}
+ assert.equal((await intakeGet(new Request(origin+'/api/admin/intake?received=2026-02-30'))).status,422);
+ assert.equal((await intakeGet(new Request(origin+'/api/admin/intake?type=unknown'))).status,422);
+ if(import.meta.env.DEV)await as('abdul@ifranchise.in');else await asAccess('abdul@ifranchise.in');
+ assert.equal((await list('received=2024-03-02&sync=private')).total,1);
+ assert.equal((await list('type=brand&received=2024-03-02&sync=synced')).total,1);
+ const snapshot=JSON.stringify(database.prepare('SELECT * FROM website_submissions ORDER BY id').all());
+ await list('type=job&sync=pending');
+ assert.equal(JSON.stringify(database.prepare('SELECT * FROM website_submissions ORDER BY id').all()),snapshot,'filtering does not change submissions');
+ console.log('PASS Inbox filters, IST day, complete pagination, invalid inputs, private status and role isolation.');
 }
 database.close();

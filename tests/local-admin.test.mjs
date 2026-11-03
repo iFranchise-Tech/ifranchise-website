@@ -149,3 +149,12 @@ test('account picker cannot authorize configured staff or widen the fixed Super 
     assert.match(response.headers.get('set-cookie'),/Max-Age=0/);
   }
 });
+
+test('local sign-in returns to the requested CMS record and blocks open redirects',async()=>{
+ for(const [returnPath,expected] of [['/admin/careers/example?page=2','/admin/careers/example?page=2'],['https://evil.test','/admin'],['//evil.test','/admin']]){
+  const response=await localAdminSessionResponse(new Request('http://localhost:3019'+LOCAL_ADMIN_PATH,{method:'POST',headers:{origin:'http://localhost:3019','content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({email:env.LOCAL_ADMIN_EMAIL,returnPath})}),env,true);
+  assert.equal(response.status,303);assert.equal(response.headers.get('location'),expected);
+ }
+ const page=await renderStaffSignIn(new Request('http://localhost:3019/admin/blogs/example?q=test'),env,{dev:true}).text();
+ assert.match(page,/name="returnPath" value="\/admin\/blogs\/example\?q=test"/);
+});

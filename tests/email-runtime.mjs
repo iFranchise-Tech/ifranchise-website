@@ -15,6 +15,7 @@ import {GET as deliveries,POST as processEmails} from '../app/api/admin/email/ro
 import {POST as help} from '../app/api/cms/access-help/route.ts';
 import {POST as webhook} from '../app/api/email/webhook/route.ts';
 import {POST as activate} from '../app/api/admin/invitations/accept/route.ts';
+import {finishDelivery,withIntakeContext} from '../lib/intake/context.ts';
 import {acceptSubmission} from '../lib/intake/server.ts';
 import {published} from '../lib/cms/public.ts';
 import {NOTICE_VERSION} from '../lib/intake/constants.mjs';
@@ -107,6 +108,37 @@ try{
   const resume=form.kind==='job'?{bytes:new TextEncoder().encode('%PDF-1.7 synthetic'),name:'test.pdf'}:undefined;
   const saved=await acceptSubmission(req,data,resume);assert.equal(saved.id,id);await acceptSubmission(req,data,resume);
   assert.equal(database.prepare("SELECT count(*) n FROM email_outbox WHERE source_ref=? AND kind='website'").get(id).n,1);
+  assert.equal(database.prepare("SELECT count(*) n FROM email_outbox WHERE source_ref=? AND kind='website-confirmation'").get(id).n,1);
+  assert.equal(JSON.parse(saved.payload).state,'Karnataka');assert.equal(JSON.parse(saved.payload).city,'Bengaluru');
+  const otherToken=crypto.randomUUID();database.prepare('INSERT INTO intake_sessions(id,ip_hash,created_at,expires_at) VALUES (?,?,?,?)').run(otherToken,await tokenHash(ip+new Date().toISOString().slice(0,10)),Date.now()-5000,Date.now()+60000);
+  await assert.rejects(()=>acceptSubmission(req,{...data,token:otherToken},resume),e=>e.status===409);
+  // Materialize only this saved lead's pair. All network calls use the mock above.
+  database.prepare("UPDATE email_outbox SET status='cancelled' WHERE source_ref!=? AND status IN ('queued','retry')").run(id);
+  env.EMAIL_MODE='resend';mode='success';env.EMAIL_ALLOWED_RECIPIENTS=allowed+',synthetic@outlook.com';
+  for(let i=0;i<2;i++){quota();await flushEmails(env,1)}
+  const messages=database.prepare('SELECT * FROM email_outbox WHERE source_ref=?').all(id);
+  for(const message of messages){assert.equal(message.status,'accepted');const rendered=await unseal(message.payload,env.EMAIL_OUTBOX_KEY,message.id);assert.deepEqual(rendered.to,[message.kind==='website'?'contact@ifranchise.in':'synthetic@outlook.com']);assert.equal(rendered.from,'iFranchise <contact@ifranchise.in>');}
+  const sentCount=calls.length;await acceptSubmission(req,data,resume);assert.equal(calls.length,sentCount);
+  env.EMAIL_MODE='disabled';env.EMAIL_ALLOWED_RECIPIENTS=allowed;
+ }
+ { // An outbox failure rolls the lead back, so no success receipt can be issued.
+ const token=crypto.randomUUID(),id=crypto.randomUUID(),ip='203.0.113.26';
+ database.prepare('INSERT INTO intake_sessions(id,ip_hash,created_at,expires_at) VALUES (?,?,?,?)').run(token,await tokenHash(ip+new Date().toISOString().slice(0,10)),Date.now()-5000,Date.now()+60000);
+ const req=request('/api/intake/enquiries',{});req.headers.set('cf-connecting-ip',ip);
+ const data={token,id,kind:'general',name:'Synthetic Test',email:'synthetic@outlook.com',phone:'+14155552671',phoneCountry:'US',city:'Custom Town',state:'Karnataka',consent:true,adult:true,noticeVersion:NOTICE_VERSION,message:'A valid custom city enquiry.',to:'attacker@example.test'};
+ database.exec("CREATE TRIGGER reject_confirmation BEFORE INSERT ON email_outbox WHEN NEW.kind='website-confirmation' BEGIN SELECT RAISE(ABORT,'simulated queue failure'); END");
+ await assert.rejects(()=>acceptSubmission(req,data));assert.equal(database.prepare('SELECT count(*) n FROM website_submissions WHERE id=?').get(id).n,0);assert.equal(database.prepare('SELECT count(*) n FROM email_outbox WHERE source_ref=?').get(id).n,0);
+ database.exec('DROP TRIGGER reject_confirmation');
+ const saved=await acceptSubmission(req,data);assert.equal(JSON.parse(saved.payload).city,'Custom Town');assert.equal(JSON.parse(saved.payload).to,undefined);
+ await acceptSubmission(req,data);assert.equal(database.prepare('SELECT count(*) n FROM email_outbox WHERE source_ref=?').get(id).n,2);
+ // Customer recipients must still pass preview restrictions; an internal address cannot be injected.
+ database.prepare("UPDATE email_outbox SET status='cancelled' WHERE source_ref!=? AND status IN ('queued','retry')").run(id);
+ env.EMAIL_MODE='resend';mode='success';for(let i=0;i<2;i++){quota();await flushEmails(env,1)}
+ assert.equal(database.prepare("SELECT status FROM email_outbox WHERE source_ref=? AND kind='website-confirmation'").get(id).status,'blocked');
+ assert.equal(database.prepare("SELECT status FROM email_outbox WHERE source_ref=? AND kind='website'").get(id).status,'accepted');
+ // Post-persistence delivery failures are safe in both local and Worker execution contexts.
+ const oldWarn=console.warn;const warnings=[];console.warn=s=>warnings.push(s);
+ try{await finishDelivery(Promise.reject(Error('sensitive details')));let background;await withIntakeContext({waitUntil:p=>{background=p}},()=>finishDelivery(Promise.reject(Error('secret'))));await background;assert.equal(warnings.length,2);assert(!warnings.join('').includes('sensitive'));}finally{console.warn=oldWarn}
  }
  console.log('PASS email integration: durable retries, deduplication, signature verification, ordering, capture isolation, rate limits, role validation, both owners, invitation binding/expiry/renewal/replay, access-help and log redaction.');
 }finally{console.info=savedLog;database.close();}

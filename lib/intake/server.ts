@@ -34,14 +34,14 @@ export async function deliver(record:any,origin:string){
   await db().prepare("UPDATE website_submissions SET sheet_status='synced',synced_at=?,attempts=attempts+1 WHERE id=?").bind(new Date().toISOString(),record.id).run();return true;
  }catch{await db().prepare('UPDATE website_submissions SET attempts=attempts+1 WHERE id=?').bind(record.id).run();return false;}
 }
-export async function retryPending(origin:string,max=5){const rows=await db().prepare("SELECT * FROM website_submissions WHERE sheet_status='pending' ORDER BY created_at LIMIT ?").bind(max).all();let synced=0;for(const r of rows.results)if(await deliver(r,origin))synced++;return synced;}
+export async function retryPending(origin:string,max=5,excludeId=''){const rows=await db().prepare("SELECT * FROM website_submissions WHERE sheet_status='pending' AND id!=? ORDER BY created_at LIMIT ?").bind(excludeId,max).all();let synced=0;for(const r of rows.results)if(await deliver(r,origin))synced++;return synced;}
 export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Array;name:string}){
  assertOrigin(req);
  let data:any;try{data=validateIntake(p)}catch(e:any){throw new CmsError(422,e.message)}
  const session:any=await db().prepare('SELECT * FROM intake_sessions WHERE id=?').bind(String(p.token||'')).first();
  if(!session||session.expires_at<Date.now()||session.ip_hash!==await ipHash(req))throw new CmsError(419,'Your form expired. Reload the page and try again.');
  const existing:any=await db().prepare('SELECT * FROM website_submissions WHERE id=? OR session_id=?').bind(p.id,p.token).first();
- if(existing){if(existing.id!==p.id)throw new CmsError(409,'This form has already been submitted.');if(existing.sheet_status!=='synced')await finishDelivery(deliver(existing,new URL(req.url).origin));return existing;}
+ if(existing){if(existing.id!==p.id||existing.session_id!==p.token)throw new CmsError(409,'This form has already been submitted.');if(existing.sheet_status!=='synced')await finishDelivery(deliver(existing,new URL(req.url).origin));return existing;}
  if(Date.now()-session.created_at<1500)throw new CmsError(429,'Please review your details before sending.');
  await limit(req,'submit',12);
  if(data.kind==='investor'&&data.brandSlug){const brand=(await published('franchises')).find(b=>b.slug===data.brandSlug);if(!brand)throw new CmsError(422,'Select an available franchise.');data.brandName=brand.name;}
@@ -50,12 +50,12 @@ export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Arr
  if(resume){if(resume.bytes.length>MAX_RESUME||new TextDecoder().decode(resume.bytes.slice(0,5))!=='%PDF-')throw new CmsError(422,'Upload a PDF resume up to 5 MB.');if(!env.BUCKET)throw new CmsError(503,'File uploads are unavailable.');await env.BUCKET.put(resumeKey!,resume.bytes,{httpMetadata:{contentType:'application/pdf'}});}
  const row={id:p.id,reference:'IF-'+p.id,session_id:p.token,kind:data.kind,payload:JSON.stringify(data),resume_key:resumeKey,resume_name:resume?.name||null,created_at:new Date().toISOString(),sheet_status:data.kind==='privacy'?'not_applicable':'pending'};
  try{
-  const notification=data.kind==='privacy'?null:await outboxStatement(env,{key:'website:'+row.id,kind:'website',source:row.id});
-  await db().batch([db().prepare('INSERT INTO website_submissions (id,reference,session_id,kind,payload,resume_key,resume_name,created_at,sheet_status,attempts) VALUES (?,?,?,?,?,?,?,?,?,0)').bind(row.id,row.reference,row.session_id,row.kind,row.payload,row.resume_key,row.resume_name,row.created_at,row.sheet_status),...(notification?[notification.statement]:[])]);
+  const notifications=data.kind==='privacy'?[]:await Promise.all(['website','website-confirmation'].map(kind=>outboxStatement(env,{key:kind+':'+row.id,kind,source:row.id})));
+  await db().batch([db().prepare('INSERT INTO website_submissions (id,reference,session_id,kind,payload,resume_key,resume_name,created_at,sheet_status,attempts) VALUES (?,?,?,?,?,?,?,?,?,0)').bind(row.id,row.reference,row.session_id,row.kind,row.payload,row.resume_key,row.resume_name,row.created_at,row.sheet_status),...notifications.map(notification=>notification.statement)]);
  }
  catch(e){const saved:any=await db().prepare('SELECT * FROM website_submissions WHERE id=? AND session_id=?').bind(p.id,p.token).first();if(saved)return saved;if(resumeKey&&env.BUCKET)await env.BUCKET.delete(resumeKey);throw e;}
  if(data.kind==='privacy')return row;
- await finishDelivery(Promise.all([deliver(row,new URL(req.url).origin),retryPending(new URL(req.url).origin,2),flushEmails(env)]));
+ await finishDelivery(Promise.allSettled([deliver(row,new URL(req.url).origin),retryPending(new URL(req.url).origin,2,row.id),flushEmails(env)]).then(results=>{if(results.some(result=>result.status==='rejected'))throw Error('Background delivery needs retry')}));
  return row;
 }
 export async function receipt(record:any,token:string){

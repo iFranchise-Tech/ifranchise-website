@@ -1,3 +1,4 @@
+import {cmsApiResponse,isCmsApiPath} from '../lib/cms/api-response.mjs';
 import handler from 'vinext/server/fetch-handler';
 import {accessCredential, isAdminPagePath, isStaffPath} from '../lib/access-gate.mjs';
 import {renderStaffSignIn} from '../lib/access-login.mjs';
@@ -15,6 +16,7 @@ export default {
     ctx.waitUntil(maintainEmailQueue(env));
   },
   async fetch(request:Request, env:Cloudflare.Env, ctx:ExecutionContext) {
+    return cmsApiResponse(request, async () => {
     const url = new URL(request.url);
     // Public pages and public APIs do not require a login.
     // Preview and production staff routes require a verified Access token.
@@ -49,7 +51,7 @@ export default {
     }
     // Static files are served only after the decision above. Route misses
     // continue to the application; never expose private uploads through ASSETS.
-    if ((request.method === 'GET' || request.method === 'HEAD') && env.ASSETS) {
+    if ((request.method === 'GET' || request.method === 'HEAD') && env.ASSETS && !isCmsApiPath(url.pathname)) {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 404) return asset;
     }
@@ -60,5 +62,6 @@ export default {
       return protectedResponse;
     }
     return response;
+    });
   }
 };

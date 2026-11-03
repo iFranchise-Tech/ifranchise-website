@@ -1,6 +1,6 @@
 import {CmsError} from '../cms/errors';
 import {seal,unseal,tokenHash,verifyWebhook} from './crypto.mjs';
-import {activationEmail,adminEmail,websiteEmail} from './templates.mjs';
+import {activationEmail,adminEmail,websiteEmail,websiteConfirmationEmail} from './templates.mjs';
 
 type Email = {from:string;to:string[];subject:string;html:string;text:string;reply_to?:string};
 type Row = {id:string;kind:string;source_ref:string;payload:string|null;status:string;provider_id:string|null;attempts:number;first_attempt_at:number|null;created_at:number};
@@ -40,9 +40,10 @@ function recipients(value:string|undefined,fallback:string) {
 }
 async function materialize(env:Cloudflare.Env,row:Row):Promise<Email> {
   const origin=emailOrigin(env),db=database(env);
-  if(row.kind==='website') {
+  if(row.kind==='website'||row.kind==='website-confirmation') {
     const record=await db.prepare('SELECT * FROM website_submissions WHERE id=?').bind(row.source_ref).first();
     if(!record)throw Error('source_missing');
+    if(row.kind==='website-confirmation')return websiteConfirmationEmail({record,origin});
     return websiteEmail({to:recipients(env.WEBSITE_NOTIFICATION_TO,'contact@ifranchise.in'),record,origin});
   }
   if(row.kind==='activation') {

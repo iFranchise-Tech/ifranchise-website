@@ -11,7 +11,9 @@ export default defineConfig(async () => {
     // Bind IPv4 loopback explicitly: `localhost` can resolve to ::1 alone,
     // making 127.0.0.1 fail. Browsers can reach this binding by either name.
     server: {host: '127.0.0.1', port: 3019, strictPort: false, watch: {usePolling: true}},
-    optimizeDeps: {exclude: ['lucide-react']},
+    // Bundle the icon library in development instead of loading thousands of
+    // individual modules through the local Workers server for each session.
+    optimizeDeps: {include: ['lucide-react']},
     plugins: [vinext(), cloudflare({configPath: 'wrangler.jsonc', viteEnvironment: {name: 'rsc', childEnvironments: ['ssr']}, inspectorPort: false})],
   };
 });
