@@ -20,7 +20,27 @@ test('all public forms preserve pre-submit context, query, fragment and scroll w
  for(const kind of ['investor','brand','general','job','privacy']){
   const values=new Map(),storage={setItem:(k,v)=>values.set(k,v),getItem:k=>values.get(k)},win={sessionStorage:storage,location:{pathname:'/franchise/odette',search:'?journey=investor&brand=odette&email=private',hash:'#enquire'},scrollY:450};
   const target=captureConfirmationOrigin(win,kind);win.location.pathname='/';let next;showConfirmation(win,p=>next=p,target);
-  assert.equal(next,'/thank-you');assert.deepEqual(confirmationReturn(storage),{path:'/franchise/odette?journey=investor&brand=odette#enquire',y:450,kind});assert(![...values.values()].join('').includes('private'));
+  assert.equal(next,kind==='investor'?'/franchise/odette/thank-you':'/thank-you');assert.deepEqual(confirmationReturn(storage),{path:'/franchise/odette?journey=investor&brand=odette#enquire',y:450,kind});assert(![...values.values()].join('').includes('private'));
+ }
+});
+test('accepted brand enquiries use the original brand URL, including when storage is unavailable',async()=>{
+ for(const slug of ['odette','emori','original-burger-co']){
+  for(const clientRouting of [true,false]){
+   let destination;
+   const win={get sessionStorage(){throw Error('blocked')},location:{pathname:`/franchise/${slug}/`,search:'?email=private&brand=another-brand',hash:'#enquire',assign:path=>destination=path},scrollY:500};
+   const target=captureConfirmationOrigin(win,'investor');
+   await readReceipt(Response.json({received:true,reference:'IF-saved'}));
+   win.location.pathname='/contact-us';
+   showConfirmation(win,clientRouting?path=>destination=path:undefined,target);
+   assert.equal(destination,`/franchise/${slug}/thank-you`);
+  }
+ }
+});
+test('non-brand enquiry pages and invalid origins keep the generic confirmation URL',()=>{
+ for(const path of ['/contact-us?brand=odette','/franchise-opportunities','/list-your-brand','/careers/example','/franchise/odette/thank-you','/franchise/odette/other','/franchise/odette/../../admin','//evil.test/franchise/odette']){
+  let destination;
+  showConfirmation({},value=>destination=value,{path,y:0,kind:'investor'});
+  assert.equal(destination,'/thank-you',path);
  }
 });
 test('return destinations reject external, encoded and normalized privileged routes',()=>{
