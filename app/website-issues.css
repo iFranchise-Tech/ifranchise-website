@@ -255,3 +255,21 @@
  .p-site .p-footer-office{grid-column:1;grid-row:1}
  .p-site .p-footer-contact{grid-column:4;grid-row:1}
 }
+
+/* Keep the short page titles together within the existing banner columns. */
+.p-site main:is(.p-about,.careers-page) .p-photo-hero h1{white-space:nowrap;text-wrap:nowrap}
+@media(min-width:768px) and (max-width:1100px){
+ .p-site main:is(.p-about,.careers-page) .p-photo-hero h1{font-size:clamp(24px,2.8vw,32px)}
+}
+@media(max-width:767px){
+ .p-site main:is(.p-about,.careers-page) .p-photo-hero h1{font-size:clamp(22px,6.7vw,32px)}
+}
+
+/* One divider beneath the filters, with rounded role hover and focus states. */
+.p-site .careers-job-list{border-top:0}
+.p-site .careers-job,.p-site .careers-job:hover{padding:30px 20px;border-radius:12px}
+.p-site .careers-job:first-child{border-top:0}
+.p-site .careers-job:focus-visible{background:var(--p-surface);outline:2px solid var(--p-brand);outline-offset:2px}
+@media(max-width:767px){
+ .p-site .careers-job,.p-site .careers-job:hover{padding:24px 16px}
+}
