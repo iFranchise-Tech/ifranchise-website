@@ -69,10 +69,10 @@ export const pageBanners = {
   }
   ,"faq": {
     "ratio": "3 / 1",
-    "image": "/assets/stock-heroes/faq-advisory-conversation-v1.webp",
-    "mobileImage": "/assets/stock-heroes/mobile/faq-advisory-conversation-v1.webp",
+    "image": "/assets/stock-heroes/faq-guidance-session-v2.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/faq-guidance-session-v2.webp",
     "mobilePosition": "70% 0%",
-    "alt": "Illustrative conversation between a business owner asking questions and a franchise adviser",
+    "alt": "Illustrative franchise adviser explaining business planning to an entrepreneur in a bright office",
     "position": "100% 0%"
   },
   "homeProcess": {

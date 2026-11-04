@@ -201,7 +201,7 @@
 }
 
 /* FAQ content uses the same editorial banner and question rows as the website. */
-.p-site .faq-page-content{padding-block:56px 72px}
+.p-site .faq-page-content{padding-block:34px 72px}
 .p-site .faq-page-group{padding-block:0 48px;margin-bottom:48px;border-bottom:1px solid var(--p-line)}
 .p-site main .faq-page-group h2,.p-site main .faq-page-contact h2{font-size:clamp(24px,2.4vw,34px);margin:0 0 14px}
 .p-site .faq-page-group>div>p,.p-site .faq-page-contact p{color:var(--p-copy);font-size:16px;line-height:1.75;max-width:420px;margin:0}
@@ -210,7 +210,9 @@
 .p-site .p-footer-grid .p-footer-email{font-size:15px;letter-spacing:0;gap:8px}
 .p-site .p-footer-email svg{width:16px;height:16px}
 @media(max-width:767px){
- .p-site .faq-page-content{padding-block:36px 48px}
+ .p-site .faq-page-content{padding-block:20px 48px}
+ .p-site .faq-page .resource-categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible}
+ .p-site .faq-page .resource-categories button{justify-content:space-between;width:100%;min-width:0}
  .p-site .faq-page-group{padding-bottom:32px;margin-bottom:32px}
  .p-site .faq-page-contact{align-items:flex-start;flex-direction:column;gap:20px}
 }

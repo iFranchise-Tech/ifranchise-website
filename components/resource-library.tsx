@@ -4,7 +4,7 @@ import {ArrowUpRight,Search,FileText,PlayCircle} from 'lucide-react';
 import {ResourceCard} from './resource-card';
 import {resourceCategories,filterResources} from '../lib/resource-categories.mjs';
 
-const tabs=[['all','All resources','/resources'],['blogs','Blogs','/resources/blogs'],['articles','Articles','/resources/articles'],['videos','Videos','/resources/videos'],['saved','Saved resources','/resources/saved']];
+const tabs=[['all','All resources','/resources'],['blogs','Blogs','/resources/blogs'],['articles','Articles','/resources/articles'],['videos','Videos','/resources/videos'],['faq','FAQs','/faq'],['saved','Saved resources','/resources/saved']];
 export function ResourceTabs({mode,category='all'}:{mode:string;category?:string}){
  return <nav className="resource-tabs" aria-label="Resource types">{tabs.map(([key,label,href])=><a href={href+(category!=='all'&&['all','blogs','articles'].includes(key)?'?category='+category+'#resource-library':'')} key={key} aria-current={mode===key?'page':undefined}>{label}</a>)}</nav>;
 }

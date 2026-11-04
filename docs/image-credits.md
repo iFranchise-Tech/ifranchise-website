@@ -400,3 +400,27 @@ Final prompt:
 ```text
 Use case: photorealistic-natural. Make a square mobile-friendly variant of this reference consultation photograph. Keep the same three friendly professional adults, same clothing, candid expressions and office, one adviser pointing to a store floor plan and business planning sheet while the client listens. Reframe by moving the camera further back to fit all THREE COMPLETE HEADS and their hair comfortably within the center 75% of the square picture (x between 13% and 87%, head tops at 15–25% down). Absolutely no cropped heads or hair at either edge. More natural office space visible on both sides; people closer together around the table, not close-ups. Table with plan and notebooks in foreground, clean window-lit background. Preserve natural skin texture and correct hands. No interface, text, logos, watermark, or collage. One coherent editorial photograph. Square 1:1 aspect ratio.
 ```
+
+## FAQ guidance banner replacement — 4 November 2026
+
+Built-in OpenAI image generation, with a separate mobile composition. Illustrative professional advice session; not a photograph of actual iFranchise employees or clients. Prepared as responsive WebP assets with Sharp.
+
+### desktop
+
+Saved asset: `public/assets/stock-heroes/faq-guidance-session-v2.webp` and responsive 640, 960 and 1440px variants.
+
+Final prompt:
+
+```text
+Use case: photorealistic-natural. Asset type: new wide 3:1 FAQ website hero banner for a franchise consulting company. Create a clearly different, authentic editorial business photograph: a friendly professional woman franchise adviser in a soft slate-blue shirt explains a simple business planning diagram on a tablet to a thoughtfully smiling male entrepreneur in a sand-coloured overshirt, seated across the corner of a light wood table in a contemporary airy library-style office with understated bookshelves and a soft sage plant. Capture a real moment of asking questions and explaining answers, relaxed eye contact, natural skin and believable hands. COMPOSITION: two people and tablet together in the rightmost 40% of the panorama, all heads fully visible with their tops between 30% and 36% down the image, faces between 35% and 65% down. Keep the top quarter free of people for navigation, and the left 55% as softly defocused uncluttered cool neutral office background for white headline text. Medium-wide environmental view, generous air around both heads and at right edge, not close-up. Gentle daylight, fresh neutral tones, no dramatic studio lighting. No text, logos, question-mark graphics, headset, watermark, fake handshake or exaggerated grins. A real-looking editorial photograph, not an illustration or collage.
+```
+
+### mobile
+
+Saved asset: `public/assets/stock-heroes/mobile/faq-guidance-session-v2.webp`.
+
+Final prompt:
+
+```text
+Use case: photorealistic-natural. Create a square mobile hero variant of this new franchise FAQ photograph. Preserve the same slate-blue-shirt woman adviser and sand-overshirt male entrepreneur, their natural faces, friendly question-and-answer conversation, tablet diagram and airy library-office atmosphere. Recompose as a distant environmental photograph: the pair seated together in the UPPER RIGHT of the square, x55–92% across, with COMPLETE heads whose tops are 20–23% down and whose faces end no lower than 37% down the canvas. Absolutely no heads touching any edge or the top navigation area. Left half is softly defocused office wall; lower 60% is soft uncluttered foreground table and office tones to receive website text. People not enlarged; keep both heads fully visible and realistic. Natural daylight, cool neutral soft greys, muted greenery and light wood. No typography, question-mark graphics, logos, watermarks, UI, or collage.
+```
