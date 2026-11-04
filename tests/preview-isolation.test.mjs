@@ -19,7 +19,7 @@ test('preview Worker bindings stay off production storage', () => {
   assert.doesNotMatch(preview, /"ACCESS_AUD"/);
 });
 
-test('production uses separate storage, public routes and disabled email; unconfigured CMS fails closed', () => {
+test('production uses separate storage, public routes and lead email to contact@ifranchise.in; unconfigured CMS fails closed', () => {
   assert.match(production, /"name": "ifranchise-website"/);
   assert.match(production, /"database_id": "f15d6252-c85c-46f8-812b-e03ccafafed8"/);
   assert.match(production, /"database_name": "ifranchise-db"/);
@@ -30,7 +30,7 @@ test('production uses separate storage, public routes and disabled email; unconf
   assert.match(production, /"ACCESS_AUD": ""/);
   assert.match(production, /"SITE_ACCESS": "public"/);
   assert.match(production, /"workers_dev": true/);
-  assert.match(production, /"EMAIL_MODE": "disabled"/);
+  assert.match(production, /"EMAIL_MODE": "resend"/);
   assert.match(production, /"EMAIL_ENVIRONMENT": "production"/);
   assert.match(production, /"WEBSITE_NOTIFICATION_TO": "contact@ifranchise.in"/);
   assert.doesNotMatch(production, /"routes"|"RESEND_API_KEY"|"EMAIL_OUTBOX_KEY"|"LOCAL_ADMIN_SECRET"/);

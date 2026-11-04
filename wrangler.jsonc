@@ -16,7 +16,7 @@
     // Never reuse the preview application's audience for production.
     "ACCESS_TEAM_DOMAIN": "",
     "ACCESS_AUD": "",
-    "EMAIL_MODE": "disabled",
+    "EMAIL_MODE": "resend",
     "EMAIL_ENVIRONMENT": "production",
     "EMAIL_PUBLIC_ORIGIN": "https://ifranchise-website.damp-field-d970.workers.dev",
     "WEBSITE_NOTIFICATION_TO": "contact@ifranchise.in",
