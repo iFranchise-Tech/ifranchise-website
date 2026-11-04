@@ -2,20 +2,20 @@
 export const pageBanners = {
   "brand": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-neutral-planning-v8.webp",
-    "tabletImage": "/assets/stock-heroes/brand-neutral-planning-v8.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/brand-collaborative-team-v9.webp",
+    "tabletImage": "/assets/stock-heroes/brand-collaborative-team-v9.webp",
     "mobilePosition": "50% 0%",
-    "image": "/assets/stock-heroes/brand-neutral-planning-v8.webp",
-    "alt": "Illustrative brand founder and professional adviser discussing a retail expansion plan together",
+    "image": "/assets/stock-heroes/brand-collaborative-team-v9.webp",
+    "alt": "Illustrative team of three smiling professionals planning a retail brand expansion together",
     "position": "0% 50%"
   },
   "about": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/about-curious-advisory-v4.webp",
-    "tabletImage": "/assets/stock-heroes/about-curious-advisory-v4.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/about-welcoming-team-v5.webp",
+    "tabletImage": "/assets/stock-heroes/about-welcoming-team-v5.webp",
     "mobilePosition": "50% 0%",
-    "image": "/assets/stock-heroes/about-curious-advisory-v4.webp",
-    "alt": "Illustrative advisory team asking questions and exploring a franchise growth plan together",
+    "image": "/assets/stock-heroes/about-welcoming-team-v5.webp",
+    "alt": "Illustrative team portrait of five smiling professionals facing forward in a welcoming office",
     "position": "0% 50%"
   },
   "careers": {

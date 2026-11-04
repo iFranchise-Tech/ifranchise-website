@@ -595,3 +595,46 @@ Reference: `public/assets/stock-heroes/mobile/brand-professional-planning-v7.web
 ```text
 Use case: lighting-weather. Edit target: the supplied square mobile List your Brand website photograph. Make one precise photographic colour correction: remove the green/olive fluorescent colour cast from the man's whole face and give both people natural, healthy, neutral warm skin tones with soft neutral daylight. Preserve these same fictional faces, expressions, poses, hair, clothes, desk, paper, laptop, office and exact square composition. Keep the people small in the upper middle and keep the large quiet lower area for website text. All heads remain complete in exactly their existing positions. Natural professional editorial photography with realistic skin texture. No green/cyan/yellow cast on skin, no oversaturated orange tan, no plastic smoothing, no new objects, no text, logo, watermark or crop. Output square 1:1.
 ```
+
+
+## Welcoming professional team banners — 2026-11-04
+
+Mode: built-in image generation, followed by referenced-image composition edits. These images depict fictional illustrative teams. Sharp was used only for resizing and WebP encoding.
+
+### about-welcoming-team-v5
+
+Saved assets: `public/assets/stock-heroes/about-welcoming-team-v5.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/about-welcoming-team-v5.webp`.
+
+Desktop prompt:
+
+```text
+Create one panoramic 3:1 website banner photograph, not a collage or interface. Premium natural business photography with accurate anatomy and real-looking skin texture. Soft neutral daylight, balanced white balance, healthy natural warm skin tones without green, cyan or fluorescent colour casts. Professional Western business attire in navy, cream and pale blue. Polite welcoming genuinely happy smiles, not exaggerated laughter. Composition: all people entirely in the LEFT 48% of the panorama, right 50% is a quiet elegant softly defocused charcoal-grey office wall for white HTML text. Keep the top 28% free of people for navigation. All complete heads and hair have generous room, no heads behind logo or touching edges. No text, logos, graphics, watermarks or UI. Clean contemporary office, refined understated decor. Output wide 3:1. About us banner: an inviting group portrait of exactly FIVE happy professional colleagues, three women and two men aged roughly 28–45, ALL looking straight forward into the camera. Natural individual poses, one woman and one man seated on a low bench and three standing casually behind, slightly staggered without any faces overlapping. The five people feel like one confident friendly close-knit advisory team. Relaxed hands, modest natural smiles with some teeth visible, distinct faces and hairstyles. The team together fits between x5–46%, all tops of heads fall below y31%; seated heads around y45%. Frame at mid-body with some bench visible, photograph from eye level, composition calm and uncluttered, no charts or desks obscuring people. Expressions should convey happy helpful colleagues ready to welcome you.
+```
+
+Desktop headroom prompt:
+
+```text
+Use case: composition edit. Keep this exact photograph, the same five fictional colleagues with the exact same forward-facing happy smiles, poses, clothes and neutral natural skin tones. Correct ONLY the headroom and scale for a website header: pull back the camera and move the entire group DOWN so every head is completely BELOW the top 30% of the canvas, with the tallest man's top of hair at y31%. Keep the whole group between x5–46% and at the bottom edge, reduce them proportionally if needed. Their visible faces must remain clear and all five must look straight at camera. Upper 28% must be completely empty neutral office wall/architecture; right 50% remains empty charcoal-grey wall for HTML text. Do not crop hair or remove anyone. Preserve five different natural poses and the bench. No text, logos, graphics. Wide 3:1 output.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: composition edit. Create a square 1:1 mobile website banner from this reference. Preserve exactly the same fictional people, faces, hairstyles, clothing, happy professional expressions and activity. Pull the camera back to show a generous environmental view. Place the complete group together in the upper middle between x22–78%. All heads begin at y22% or lower and all faces end above y42%; bodies, bench or desk end by y50%. Top 18% is quiet office architecture for logo. Lower 50% is a calm softly defocused charcoal-grey foreground for white HTML text. Natural neutral daylight and healthy skin tones, no green cast. No cropped hair, missing person, distorted face, text, logo or watermark. Keep exactly five people, all looking straight forward at the camera in the same varied seated/standing group portrait poses.
+```
+
+### brand-collaborative-team-v9
+
+Saved assets: `public/assets/stock-heroes/brand-collaborative-team-v9.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/brand-collaborative-team-v9.webp`.
+
+Desktop prompt:
+
+```text
+Create one panoramic 3:1 website banner photograph, not a collage or interface. Premium natural business photography with accurate anatomy and real-looking skin texture. Soft neutral daylight, balanced white balance, healthy natural warm skin tones without green, cyan or fluorescent colour casts. Professional Western business attire in navy, cream and pale blue. Polite welcoming genuinely happy smiles, not exaggerated laughter. Composition: all people entirely in the LEFT 48% of the panorama, right 50% is a quiet elegant softly defocused charcoal-grey office wall for white HTML text. Keep the top 28% free of people for navigation. All complete heads and hair have generous room, no heads behind logo or touching edges. No text, logos, graphics, watermarks or UI. Clean contemporary office, refined understated decor. Output wide 3:1. List your Brand banner: a warm candid meeting of exactly THREE polished business professionals, two women and one man in their early 30s, collaboratively planning a retail brand expansion at a neat oak table. Friendly happy smiles and approachable confident expressions. One woman turns a simple printed store layout toward her two colleagues; the man and other woman listen with interest, one holding a pen. Their faces are all clearly visible in three-quarter view, natural people not fashion models. Team together between x5–46%, all heads begin below y32%, hands and papers fully visible near the bottom. One slim laptop at far left, subtle neutral office background, no clutter and no visible lettering. Image feels like a thoughtful team helping a brand grow, not a couple or a staged handshake.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: composition edit. Create a square 1:1 mobile website banner from this reference. Preserve exactly the same fictional people, faces, hairstyles, clothing, happy professional expressions and activity. Pull the camera back to show a generous environmental view. Place the complete group together in the upper middle between x22–78%. All heads begin at y22% or lower and all faces end above y42%; bodies, bench or desk end by y50%. Top 18% is quiet office architecture for logo. Lower 50% is a calm softly defocused charcoal-grey foreground for white HTML text. Natural neutral daylight and healthy skin tones, no green cast. No cropped hair, missing person, distorted face, text, logo or watermark. Keep exactly three colleagues happily working together over a store plan, including the small neat meeting table and laptop.
+```
