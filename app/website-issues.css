@@ -266,7 +266,7 @@
 }
 
 /* One divider beneath the filters, with rounded role hover and focus states. */
-.p-site .careers-job-list{border-top:0}
+.p-site .careers-job-list{border-top:0;gap:12px}
 .p-site .careers-job,.p-site .careers-job:hover{padding:30px 20px;border-radius:12px}
 .p-site .careers-job:first-child{border-top:0}
 .p-site .careers-job:focus-visible{background:var(--p-surface);outline:2px solid var(--p-brand);outline-offset:2px}
