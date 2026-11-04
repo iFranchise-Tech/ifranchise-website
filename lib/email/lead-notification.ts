@@ -8,9 +8,11 @@ const log=(status:string,code?:string)=>console.info(JSON.stringify({service:'we
 export async function notifySavedLead(env:Cloudflare.Env,record:any) {
   if(env.EMAIL_MODE!=='resend'){log('disabled');return;}
   try {
-    if(!env.RESEND_API_KEY||!['preview','production'].includes(env.EMAIL_ENVIRONMENT||''))throw Error('configuration');
+    const environment=env.EMAIL_ENVIRONMENT||'';
+    const localDev=import.meta.env.DEV===true&&environment==='development';
+    if(!env.RESEND_API_KEY||!(['preview','production'].includes(environment)||localDev))throw Error('configuration');
     if(env.WEBSITE_NOTIFICATION_TO&&env.WEBSITE_NOTIFICATION_TO.trim().toLowerCase()!==recipient)throw Error('recipient_configuration');
-    if(env.EMAIL_ENVIRONMENT!=='production'||import.meta.env.DEV===true){
+    if(environment!=='production'||import.meta.env.DEV===true){
       const allowed=(env.EMAIL_ALLOWED_RECIPIENTS||'').split(',').map(value=>value.trim().toLowerCase());
       if(!allowed.includes(recipient))throw Error('recipient_not_allowed');
     }

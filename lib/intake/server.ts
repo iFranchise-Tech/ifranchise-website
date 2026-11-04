@@ -2,7 +2,8 @@ import {finishDelivery} from './context';
 import {env} from 'cloudflare:workers';
 import {CmsError,db,assertOrigin,boundedBody,response} from '../cms/auth';
 import {published} from '../cms/public';
-import {validateIntake,MAX_RESUME} from './validation.mjs';
+import {validateIntake} from './validation.mjs';
+import {validateResume} from './resume.mjs';
 import {saveToSheets} from './sheets';
 import {notifySavedLead} from '../email/lead-notification';
 const config=()=>env as any;
@@ -32,7 +33,7 @@ export async function deliver(record:any,origin:string){
  }catch{await db().prepare('UPDATE website_submissions SET attempts=attempts+1 WHERE id=?').bind(record.id).run();return false;}
 }
 export async function retryPending(origin:string,max=5,excludeId=''){const rows=await db().prepare("SELECT * FROM website_submissions WHERE sheet_status='pending' AND id!=? ORDER BY created_at LIMIT ?").bind(excludeId,max).all();let synced=0;for(const r of rows.results)if(await deliver(r,origin))synced++;return synced;}
-export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Array;name:string}){
+export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Array;name:string;type?:string}){
  assertOrigin(req);
  let data:any;try{data=validateIntake(p)}catch(e:any){throw new CmsError(422,e.message)}
  const session:any=await db().prepare('SELECT * FROM intake_sessions WHERE id=?').bind(String(p.token||'')).first();
@@ -50,17 +51,14 @@ export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Arr
  await limit(req,'submit',12);
  if(data.kind==='investor'&&data.brandSlug){const brand=(await published('franchises')).find(b=>b.slug===data.brandSlug);if(!brand)throw new CmsError(422,'Select an available franchise.');data.brandName=brand.name;}
  if(data.kind==='job'){const job=(await published('jobs')).find(j=>(j.slug===data.jobSlug||j.id===data.jobSlug)&&j.active!==false);if(!job)throw new CmsError(422,'This role is no longer accepting applications.');data.jobTitle=job.title;if(!resume)throw new CmsError(422,'Upload your resume as a PDF.');}
- if(resume&&(resume.bytes.length>MAX_RESUME||new TextDecoder().decode(resume.bytes.slice(0,5))!=='%PDF-'))throw new CmsError(422,'Upload a PDF resume up to 5 MB.');
- // The existing receiver has no private Drive upload contract. Never put files
- // in R2 or accept an application without its required résumé.
- if(data.kind==='job'||resume)throw new IntakeUnavailable('applications_unavailable');
+ if(resume){if(data.kind!=='job')throw new CmsError(422,'Use the job application form to upload a résumé.');try{validateResume(resume)}catch{throw new CmsError(422,'Upload a complete PDF résumé up to 5 MB.')}}
  // Use the server-issued session, not the visitor's freely changeable ID, as
  // the stable Reference. The script's lock provides concurrent deduplication.
  const row={id:session.id,reference:'IF-'+session.id,session_id:session.id,kind:data.kind,payload:JSON.stringify(data),created_at:new Date().toISOString(),sheet_status:'synced'};
  let saved;
- try{saved=await saveToSheets(config(),row,new URL(req.url).origin)}
- catch{throw new IntakeUnavailable('sheets_unconfirmed')}
- if(!saved.duplicate)await finishDelivery(notifySavedLead(env,row));
+ try{saved=await saveToSheets(config(),row,new URL(req.url).origin,resume)}
+ catch{throw new IntakeUnavailable(data.kind==='job'?'application_unconfirmed':'sheets_unconfirmed')}
+ if(!saved.duplicate)await finishDelivery(notifySavedLead(env,{...row,...(saved.resumeUrl?{resume_name:saved.resumeName,resume_url:saved.resumeUrl}:{})}));
 
  return row;
 }

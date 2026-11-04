@@ -11,17 +11,19 @@ import {saveToSheets} from '../lib/intake/sheets.ts';
 import {withIntakeContext} from '../lib/intake/context.ts';
 import {POST as enquiry} from '../app/api/intake/enquiries/route.ts';
 import {POST as application} from '../app/api/intake/applications/route.ts';
+import {createReceiver,PDF} from './apps-script-harness.mjs';
 
 const {DB,database}=localD1();
 for(const file of readdirSync('drizzle').filter(f=>f.endsWith('.sql')).sort())database.exec(readFileSync('drizzle/'+file,'utf8'));
 const {privateKey,publicKey}=generateKeyPairSync('rsa',{modulusLength:2048});
+const receiver=createReceiver({privateKey,publicKey});
 let mode='ok',emailMode='ok',uploads=0;
 const rows=new Map(),requests=[],emails=[],logs=[];
 const server=createServer(async(req,res)=>{
  const chunks=[];for await(const chunk of req)chunks.push(chunk);
- const envelope=JSON.parse(Buffer.concat(chunks).toString()),body=JSON.parse(envelope.body);
+ const envelope=JSON.parse(Buffer.concat(chunks).toString()),signed=JSON.parse(envelope.body),body=signed.application||signed;
  assert(verify('RSA-SHA256',Buffer.from(envelope.body),publicKey,Buffer.from(envelope.signature,'base64url')));
- assert(Math.abs(Date.now()-body.timestamp)<300000);
+ assert(Math.abs(Date.now()-signed.timestamp)<300000);
  requests.push(body);
  const reply=data=>{res.writeHead(200,{'content-type':'application/json'});res.end(JSON.stringify(data));};
  if(mode==='fail'){res.writeHead(503);res.end('unavailable');return;}
@@ -30,6 +32,18 @@ const server=createServer(async(req,res)=>{
  if(mode==='false'){reply({ok:false});return;}
  if(mode==='mismatch'){reply({ok:true,reference:'IF-other'});return;}
  if(mode==='bad-duplicate'){reply({ok:true,reference:body.row[0],duplicate:'true'});return;}
+ if(signed.version===2){
+  const result=receiver.receive(envelope);
+  if(result.ok){
+   const row=receiver.state.rows.get(body.tab).find(row=>row[0]===result.reference);
+   rows.set(result.reference,{tab:body.tab,row});
+  }
+  if(mode==='lost-response'){req.socket.destroy();return;}
+  if(mode==='missing-resume-proof')delete result.resume;
+  if(mode==='wrong-resume-proof')result.resume.sha256='0'.repeat(64);
+  if(mode==='public-resume-proof')result.resume.private=false;
+  reply(result);return;
+ }
  const duplicate=rows.has(body.row[0]);
  if(!duplicate)rows.set(body.row[0],body);
  if(mode==='lost-response'){req.socket.destroy();return;}
@@ -47,6 +61,12 @@ async function input(extra={}){
  return {payload,req};
 }
 async function submit(extra={}){const {req,payload}=await input(extra);return acceptSubmission(req,payload);}
+const jobFields={kind:'job',jobSlug:'business-development-trainee',experienceType:'fresher',qualification:'Bachelor’s degree',educationStatus:'Completed',course:'Commerce',institution:'QA College'};
+async function submitApplication(job,file=PDF){
+ const form=new FormData();form.set('payload',JSON.stringify(job.payload));form.set('resume',new Blob([file],{type:'application/pdf'}),'QA résumé.pdf');
+ const headers=new Headers(job.req.headers);headers.delete('content-type');
+ return application(new Request(job.req.url.replace('enquiries','applications'),{method:'POST',headers,body:form}));
+}
 function noCopies(){assert.equal(database.prepare('SELECT count(*) n FROM website_submissions').get().n,0);assert.equal(database.prepare('SELECT count(*) n FROM email_outbox').get().n,0);assert.equal(uploads,0);}
 
 test('Sheets-only lead delivery and existing receiver contract',async t=>{
@@ -119,17 +139,50 @@ test('Sheets-only lead delivery and existing receiver contract',async t=>{
    const result=await withIntakeContext({waitUntil:p=>{background=p;}},()=>acceptSubmission(req,payload));
    assert(rows.has(result.reference));assert(background);await background;noCopies();
   });
-  await t.test('privacy and résumé applications fail clearly without D1/R2 fallback',async()=>{
+  await t.test('unsupported privacy and incomplete PDFs fail clearly without D1/R2 fallback',async()=>{
    const before=requests.length;
    const privacy=await input({kind:'privacy',requestType:'Access my information'}),pr=await enquiry(privacy.req);
    assert.equal(pr.status,503);assert.equal((await pr.json()).code,'privacy_unavailable');
-   const job=await input({kind:'job',jobSlug:'business-development-trainee',experienceType:'fresher',qualification:'Bachelor’s degree',educationStatus:'Completed',course:'Commerce',institution:'QA College'});
-   for(const [file,expected] of [['%PDF-1.4\nsynthetic',503],['not pdf',422]]){
-    const form=new FormData();form.set('payload',JSON.stringify(job.payload));form.set('resume',new Blob([file],{type:'application/pdf'}),'test.pdf');
-    const headers=new Headers(job.req.headers);headers.delete('content-type');
-    const res=await application(new Request(job.req.url.replace('enquiries','applications'),{method:'POST',headers,body:form}));
-    assert.equal(res.status,expected);const body=await res.json();assert.equal(body.received,undefined);if(expected===503)assert.equal(body.code,'applications_unavailable');
+   const job=await input(jobFields);
+   for(const file of ['%PDF-1.4\nsynthetic','not pdf']){
+    const res=await submitApplication(job,file);
+    assert.equal(res.status,422);assert.equal((await res.json()).received,undefined);
    }assert.equal(requests.length,before);noCopies();
+  });
+  await t.test('job HTTP submission saves its private PDF and existing 21-column row before confirming; retries do not duplicate',async()=>{
+   const job=await input({...jobFields,coverNote:'Please review <my work> & portfolio.'});
+   const beforeRows=rows.size,beforeFiles=receiver.state.files.size,beforeEmails=emails.length;
+   const response=await submitApplication(job),receipt=await response.json();
+   assert.equal(response.status,200,JSON.stringify(receipt));assert.equal(receipt.received,true);
+   assert(!JSON.stringify(receipt).includes('drive.google.com'),'Private storage link is not public response data');
+   const row=rows.get(receipt.reference).row;
+   assert.equal(row.length,21);assert.equal(row[2],job.payload.name);assert.equal(row[3],job.payload.email);assert.equal(row[4],"'"+job.payload.phone,'Leading + is escaped as literal Sheet text');
+   assert.match(row[11],/QA College/);assert.match(row[11],/Please review <my work>/);assert.match(row[12],/^https:\/\/drive\.google\.com\/file\/d\/private-file-/);
+   const file=receiver.state.files.get(row[12].split('/')[5]);assert.deepEqual(file.bytes,PDF);assert.equal(file.sharing,'PRIVATE');
+   const mail=JSON.parse(emails[beforeEmails].body);assert(mail.text.includes(row[12]));assert(mail.text.includes('private Google Drive file'));
+   assert(mail.html.includes('&lt;my work&gt;'));assert(!mail.html.includes('<my work>'));assert.equal(mail.from,'iFranchise <contact@ifranchise.in>');assert.deepEqual(mail.to,['contact@ifranchise.in']);
+   const again=await submitApplication(job);assert.equal(again.status,200);assert.equal((await again.json()).reference,receipt.reference);
+   assert.equal(rows.size,beforeRows+1);assert.equal(receiver.state.files.size,beforeFiles+1);assert.equal(emails.length,beforeEmails+1);noCopies();
+  });
+  await t.test('private storage or row failure never confirms application; retry reuses saved file and preserves association',async()=>{
+   for(const failure of ['createFailure','writeFailure','flushFailure']){
+    const job=await input(jobFields),beforeRows=rows.size,beforeFiles=receiver.state.files.size,beforeEmails=emails.length;
+    receiver.state[failure]=true;const response=await submitApplication(job);receiver.state[failure]=false;
+    assert.equal(response.status,503);const result=await response.json();assert.equal(result.code,'application_unconfirmed');assert.equal(result.received,undefined);assert.equal(emails.length,beforeEmails);
+    const again=await submitApplication(job);assert.equal(again.status,200);assert.equal((await again.json()).received,true);
+    assert.equal(rows.size,beforeRows+1);assert.equal(receiver.state.files.size,beforeFiles+1);
+    // A timed-out flush may already have saved the row; do not invent email state.
+    assert.equal(emails.length,beforeEmails+(failure==='flushFailure'?0:1));noCopies();
+   }
+  });
+  await t.test('missing, mismatched or non-private résumé proof and lost acknowledgement cannot produce false success',async()=>{
+   for(const failure of ['missing-resume-proof','wrong-resume-proof','public-resume-proof','lost-response']){
+    const job=await input(jobFields),beforeRows=rows.size,beforeFiles=receiver.state.files.size,beforeEmails=emails.length;
+    mode=failure;const response=await submitApplication(job);mode='ok';
+    assert.equal(response.status,503);assert.equal((await response.json()).code,'application_unconfirmed');
+    assert.equal(emails.length,beforeEmails);const again=await submitApplication(job);assert.equal(again.status,200);
+    assert.equal(rows.size,beforeRows+1);assert.equal(receiver.state.files.size,beforeFiles+1);assert.equal(emails.length,beforeEmails);noCopies();
+   }
   });
   await t.test('validation, origin, expiry and rate limits remain enforced before delivery',async()=>{
    const {req,payload}=await input(),before=requests.length;
