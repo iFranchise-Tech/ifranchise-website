@@ -572,3 +572,26 @@ Mobile composition prompt:
 ```text
 Use case: photorealistic-natural. Make a square 1:1 mobile website hero composition of this reference photo. Keep the SAME people, their faces, clothing, polite professional expressions, activity and environment. Pull the camera back to a generous environmental view. The people together in upper right x48–82%, complete heads starting y21–24%, all faces end by y36%, their upper bodies end by y46%. Keep the recognisable video camera body, lens, monitor and short tripod FULLY visible at x83–96%, y27–48%, with clear margins, no cropped camera, no face obscured. Top 17% quiet architecture for navigation. Lower 52% softly blurred darker neutral foreground with no people or important objects, reserved for HTML text. Realistic anatomy, skin and light, no readable words, logos, watermark or UI. Do not enlarge subjects or crop any hair. One coherent editorial photograph.
 ```
+
+
+## List your Brand skin-tone correction — 2026-11-04
+
+Mode: built-in image generation, referenced-image editing. Corrected the green cast in the existing fictional business photograph while retaining its composition. Sharp was used only to resize and encode responsive WebP assets.
+
+Saved assets: `public/assets/stock-heroes/brand-neutral-planning-v8.webp`, 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/brand-neutral-planning-v8.webp`.
+
+### Desktop
+
+Reference: `public/assets/stock-heroes/brand-professional-planning-v7.webp`
+
+```text
+Use case: lighting-weather. Edit target: the supplied panoramic List your Brand website photograph. Make one precise photographic colour correction: remove the visible green/olive fluorescent cast from the man's entire face, especially cheek, nose, forehead and beard shadow, and give both people's faces and hands healthy, realistic neutral warm skin tones under soft neutral daylight. Preserve exactly these same fictional people's identities, expression, pose, hair, clothes, desk, laptop, paper, office architecture and framing. Keep the people on the left, the blank charcoal wall on the right, the full headroom and the original 3:1 panoramic composition. Natural professional editorial photography, realistic skin texture, clean neutral white balance. No green, cyan or yellow cast on any skin, no face smoothing or plastic skin, no orange tan, no extra objects, no text, no logos, no crop or changed composition. Output a wide 3:1 photograph.
+```
+
+### Mobile
+
+Reference: `public/assets/stock-heroes/mobile/brand-professional-planning-v7.webp`
+
+```text
+Use case: lighting-weather. Edit target: the supplied square mobile List your Brand website photograph. Make one precise photographic colour correction: remove the green/olive fluorescent colour cast from the man's whole face and give both people natural, healthy, neutral warm skin tones with soft neutral daylight. Preserve these same fictional faces, expressions, poses, hair, clothes, desk, paper, laptop, office and exact square composition. Keep the people small in the upper middle and keep the large quiet lower area for website text. All heads remain complete in exactly their existing positions. Natural professional editorial photography with realistic skin texture. No green/cyan/yellow cast on skin, no oversaturated orange tan, no plastic smoothing, no new objects, no text, logo, watermark or crop. Output square 1:1.
+```

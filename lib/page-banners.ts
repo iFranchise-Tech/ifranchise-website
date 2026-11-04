@@ -2,10 +2,10 @@
 export const pageBanners = {
   "brand": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-professional-planning-v7.webp",
-    "tabletImage": "/assets/stock-heroes/brand-professional-planning-v7.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/brand-neutral-planning-v8.webp",
+    "tabletImage": "/assets/stock-heroes/brand-neutral-planning-v8.webp",
     "mobilePosition": "50% 0%",
-    "image": "/assets/stock-heroes/brand-professional-planning-v7.webp",
+    "image": "/assets/stock-heroes/brand-neutral-planning-v8.webp",
     "alt": "Illustrative brand founder and professional adviser discussing a retail expansion plan together",
     "position": "0% 50%"
   },
