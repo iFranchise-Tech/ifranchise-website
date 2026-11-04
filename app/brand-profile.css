@@ -65,7 +65,9 @@
 .p-site .brand-profile .p-questions summary svg{width:18px;height:18px;flex-shrink:0;color:#32159b}
 .p-site .brand-profile .p-questions details[open]{background:#faf9fd;border-color:#d5cce6}
 .p-site .brand-profile .p-questions p{font-size:13px;line-height:1.9;padding:0 30px 18px 0;margin:0;color:#6d6378}
-.p-site .brand-profile .brand-enquiry-card{grid-column:2;grid-row:1;position:sticky;top:calc(var(--site-header-height,80px) + 18px);max-height:calc(100dvh - var(--site-header-height,80px) - 36px);box-sizing:border-box;padding:25px;border-radius:15px;background:#fff;border:1px solid #e3dded;box-shadow:0 10px 35px #30204f0a;overflow-y:auto;scrollbar-width:thin}
+.p-site .brand-profile .brand-enquiry-card{grid-column:2;grid-row:1;position:sticky;top:calc(var(--site-header-height,80px) + var(--enquiry-section-clearance,0px) + 18px);max-height:calc(100dvh - var(--site-header-height,80px) - var(--enquiry-section-clearance,0px) - 36px);box-sizing:border-box;padding:25px;border-radius:15px;background:#fff;border:1px solid #e3dded;box-shadow:0 10px 35px #30204f0a;overflow-y:auto;scrollbar-width:thin}
+/* The joined header backdrop includes the 54px section links and their 1px border. */
+.p-site:has(>.p-header.has-section-glass) .brand-profile .brand-enquiry-card{--enquiry-section-clearance:55px}
 .p-site .brand-profile .brand-enquiry-heading{margin-bottom:23px;padding-bottom:20px;border-bottom:1px solid #eeeaf4}
 .p-site .brand-profile .brand-enquiry-heading span{font-size:11px;color:#81748e}
 .p-site .brand-profile .brand-enquiry-heading h2{font-size:23px;line-height:1.4;letter-spacing:-.04em;margin-top:7px}
