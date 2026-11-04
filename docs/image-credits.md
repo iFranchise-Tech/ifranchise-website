@@ -254,3 +254,149 @@ Created with the built-in OpenAI image-generation tool, using the previous ficti
 - Videos: `videos-franchise-conversation-v2.webp`. Prompt: a filmed franchise-business conversation between two young adult Indian men in classic navy and charcoal business suits, with lapel microphones and camera; preserve the warm cafe setting and quiet space for headings.
 - Mobile prompts: use the matching desktop edit as a wardrobe/subject reference; preserve the earlier square mobile composition, fully visible heads in the upper half and quiet lower space for page copy. No baked-in text, logos or interface.
 - Files are under `public/assets/stock-heroes/`, with 640, 960, 1440 and 2172px desktop renditions and separate 960px square versions under `mobile/`. WebP quality 82. Prior versions remain available.
+
+## Professional team banners — 4 November 2026
+
+Created with the built-in OpenAI image-generation tool, following the requested natural business photography direction. These are fictional illustrative teams and locations, not photographs of iFranchise staff or clients. The List your Brand, About Us, Careers, Blogs, Articles and Videos banner imagery is replaced.
+
+Each desktop image has 640, 960 and 1440px renditions alongside its original-size WebP, with a matching 960px-wide mobile composition. List your Brand, About Us and Careers also have dedicated 1280px tablet compositions. WebP quality 82. The previous production assets are retained.
+
+### brand
+
+- Desktop: `public/assets/stock-heroes/brand-franchise-expansion-v5.webp`
+- Tablet: `public/assets/stock-heroes/tablet/brand-franchise-expansion-v5.webp`
+- Mobile: `public/assets/stock-heroes/mobile/brand-franchise-expansion-v5.webp`
+- Framing: full heads below the navigation; dedicated tablet and mobile compositions protect faces from the copy.
+
+Desktop prompt:
+
+> Use case: photorealistic-natural. Generate a new wide 12:5 landscape website banner photograph. This is an ENVIRONMENTAL WIDE SHOT, camera pulled far back, not a portrait or close-up. CRITICAL COMPOSITION: the ENTIRE TOP 35% of the photograph is empty uninterrupted architecture, wall, glass and ceiling; NO person's head, hair or face may enter that top 35% navigation-safe band. Every complete head starts BELOW 35% from the top. Keep full heads and natural shoulders comfortably inside all edges, with space around them. People are SMALLER in the frame, about half the total image height, gathered in the lower half. Calm, premium business editorial photography with real skin texture, believable hands, soft daylight, natural candid expressions and subtle smiles. Modern Western professional clothing; international professionals. No text, logos, watermark, graphic overlays, borders, glossy AI skin or posed stock-photo handshakes. Single continuous realistic photograph. Scene: a retail brand founder and two franchise advisers, one woman and two men of different ages, having a positive, thoughtful discussion at a clean waist-height counter in an attractive contemporary showroom. The woman holds a neat product presentation folder and one adviser points to a small printed store expansion plan on the counter. Natural human interaction, relaxed attentive smiles. A few softly blurred product shelves in the distance. ALL THREE people are grouped only between 8% and 43% of the image width, below the empty upper 35%. The RIGHT 55% is clean warm charcoal/taupe wall with very subtle texture for large white website copy. Show more of the room and space above the group, NOT oversized faces. No laptop couple scene. Refined navy, ivory and grey tailored clothing, architectural clean lines, understated warm daylight.
+
+Tablet prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Recompose the reference into a 5:3 LANDSCAPE photograph for a tablet website banner. Preserve exactly these same fictional professional people, clothes, natural expressions, business activity and room. Pull the camera back so all people are small enough to fit in the LEFT 40% only, between 5% and 40% across the frame. The RIGHT 55% is clean quiet darker wall for white website copy. ALL COMPLETE HEADS AND HAIR must be fully inside the frame, positioned between 32% and 55% from the top. The entire TOP 30% is empty architecture with no heads, reserved for navigation. Keep every head away from side edges. Show the workspace and real activity, natural daylight, realistic proportions, clean uncluttered scene. No text, no graphics, no watermark, no oversized close-up faces. Single continuous professional photograph.
+
+Mobile prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Recompose this reference photograph into a 2:3 PORTRAIT mobile website hero, preserving these same fictional professionals, clothing, setting, natural expressions and business activity. CRITICAL: camera pulled back. The TOP 20% is empty office/showroom architecture with absolutely NO heads or hair, reserved for navigation. Group everyone together in the upper-middle, with ALL COMPLETE HEADS contained between 21% and 33% down the image and between 18% and 82% across the image. The full group and their retail presentation folder and counter occupy the upper 45% only. Keep the LOWER 55% a calm, softly defocused darker continuous foreground for the website heading and paragraph; no faces in this lower text area. Preserve realistic proportions and natural daylight. Show complete heads, hair and faces with clear space above and on both sides. No big portrait faces, no clipping, no text, no logo, no added people, no montage or synthetic blur band. A single clean natural professional photograph.
+
+### about
+
+- Desktop: `public/assets/stock-heroes/about-franchise-advisory-v3.webp`
+- Tablet: `public/assets/stock-heroes/tablet/about-franchise-advisory-v3.webp`
+- Mobile: `public/assets/stock-heroes/mobile/about-franchise-advisory-v3.webp`
+- Framing: full heads below the navigation; dedicated tablet and mobile compositions protect faces from the copy.
+
+Desktop prompt:
+
+> Use case: photorealistic-natural. Generate a new wide 12:5 landscape website banner photograph. This is an ENVIRONMENTAL WIDE SHOT, camera pulled far back, not a portrait or close-up. CRITICAL COMPOSITION: the ENTIRE TOP 35% of the photograph is empty uninterrupted architecture, wall, glass and ceiling; NO person's head, hair or face may enter that top 35% navigation-safe band. Every complete head starts BELOW 35% from the top. Keep full heads and natural shoulders comfortably inside all edges, with space around them. People are SMALLER in the frame, about half the total image height, gathered in the lower half. Calm, premium business editorial photography with real skin texture, believable hands, soft daylight, natural candid expressions and subtle smiles. Modern Western professional clothing; international professionals. No text, logos, watermark, graphic overlays, borders, glossy AI skin or posed stock-photo handshakes. Single continuous realistic photograph. Scene: an approachable professional franchise advisory team of three colleagues collaborating with a business owner at a spacious round oak meeting table, in a sophisticated glass-walled strategy studio. Their thoughtful conversation expresses partnership, careful business decisions and shared growth. On the table are one neatly spread retail floor plan, a modest folder of storefront photographs and a closed tablet. A colleague naturally explains a detail while the others listen and smile. No miniature buildings. The entire group is gathered in the RIGHT 48%, between 52% and 94% horizontal positions; all heads below the empty upper 35%. LEFT 50% is a clean deep blue-grey architectural wall with soft daylight and generous negative space for white heading and paragraph. The camera sees a calm spacious office environment, not a tight portrait. Show all four people, full heads, sensible hands, natural navy and neutral tailored clothing. The people are fictional illustrative professionals, not actual company staff.
+
+Tablet prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Recompose the reference into a 5:3 LANDSCAPE photograph for a tablet website banner. Preserve exactly these same fictional professional people, clothes, natural expressions, business activity and room. Pull the camera back so all people are small enough to fit in the RIGHT 40% only, between 59% and 95% across the frame. The LEFT 55% is clean quiet darker wall for white website copy. ALL COMPLETE HEADS AND HAIR must be fully inside the frame, positioned between 32% and 55% from the top. The entire TOP 30% is empty architecture with no heads, reserved for navigation. Keep every head away from side edges. Show the workspace and real activity, natural daylight, realistic proportions, clean uncluttered scene. No text, no graphics, no watermark, no oversized close-up faces. Single continuous professional photograph.
+
+Mobile prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Recompose this reference photograph into a 2:3 PORTRAIT mobile website hero, preserving these same fictional professionals, clothing, setting, natural expressions and business activity. CRITICAL: camera pulled back. The TOP 20% is empty office/showroom architecture with absolutely NO heads or hair, reserved for navigation. Group everyone together in the upper-middle, with ALL COMPLETE HEADS contained between 21% and 33% down the image and between 18% and 82% across the image. The full group and their retail plan and round meeting table occupy the upper 45% only. Keep the LOWER 55% a calm, softly defocused darker continuous foreground for the website heading and paragraph; no faces in this lower text area. Preserve realistic proportions and natural daylight. Show complete heads, hair and faces with clear space above and on both sides. No big portrait faces, no clipping, no text, no logo, no added people, no montage or synthetic blur band. A single clean natural professional photograph.
+
+### blogs
+
+- Desktop: `public/assets/stock-heroes/blogs-team-insights-v3.webp`
+- Mobile: `public/assets/stock-heroes/mobile/blogs-team-insights-v3.webp`
+
+Desktop prompt:
+
+> Use case: photorealistic-natural. Asset type: website resource collection banner, panoramic 3:1 aspect ratio. Natural candid editorial business photography, real skin and fabric texture, believable anatomy, daylight, professional teams in tailored modern Western clothing, relaxed natural smiles. No traditional Indian clothing, no glossy synthetic skin, no text/logos/watermark, no illustration or collage. This must look like a thoughtful photograph taken during a real working day. Composition: all people and storytelling objects grouped in the RIGHT 48% with complete heads comfortably below the top 18%; LEFT 52% is uncluttered softly blurred darker architectural negative space for existing white heading and paragraph. Full-bleed single scene. Scene: two professional business editors, a curly-haired woman in a soft blue blazer and a man in a dark tailored jacket, sharing ideas at a small worktable in an airy editorial office. One holds a pen over an open notebook, the other is talking warmly, a slim closed laptop and several clean journals sit on the table. Candid moment of insight with thoughtful friendly smiles, not posing. Muted blue-grey wall on the left, daylight and a single plant in background to right. Fresh and intellectually curious, different from a generic boardroom meeting. Wider environmental framing, no tight face closeup.
+
+Mobile prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Create a matching SQUARE 1:1 mobile website banner from the reference. Preserve the same fictional professional colleagues, clothing, natural expressions, room and activity. The composition is deliberately pulled back: show the entire small professional group ONLY in the UPPER RIGHT quadrant, within the right 60% width and the top 38% height. All faces fully visible between 12% and 30% down the image. Their desk/chairs and working documents can end at 42% height. Leave the upper LEFT 45% as clean darker wall for the white navigation logo. The LOWER 60% is continuous quiet softly defocused dark neutral room/foreground for a large website heading and paragraph. This is critical: no faces or bright details in the central or lower text area. Natural single photographic scene, never split-screen or collage, no text, logos, watermark, artificial effects or extra people. Restrained daylight and realistic texture, warm professional mood.
+
+### articles
+
+- Desktop: `public/assets/stock-heroes/articles-team-research-v2.webp`
+- Mobile: `public/assets/stock-heroes/mobile/articles-team-research-v2.webp`
+
+Desktop prompt:
+
+> Use case: photorealistic-natural. Asset type: website resource collection banner, panoramic 3:1 aspect ratio. Natural candid editorial business photography, real skin and fabric texture, believable anatomy, daylight, professional teams in tailored modern Western clothing, relaxed natural smiles. No traditional Indian clothing, no glossy synthetic skin, no text/logos/watermark, no illustration or collage. This must look like a thoughtful photograph taken during a real working day. Composition: all people and storytelling objects grouped in the RIGHT 48% with complete heads comfortably below the top 18%; LEFT 52% is uncluttered softly blurred darker architectural negative space for existing white heading and paragraph. Full-bleed single scene. Scene: three experienced business analysts, two women and a man, collaboratively reviewing a large printed market map and neatly arranged research reports in a contemporary consulting studio. Slightly elevated oblique camera angle, enough faces visible to feel human. One adviser gently indicates an area on the paper, the others thoughtfully engage with subtle smiles. An orderly open reference book, pencil and simple tablet on the desk, no legible text or numbers. Warm limestone, walnut and charcoal environment; quiet dark wall on left. A precise practical research atmosphere. Avoid laptop-centred or boardroom-handshake imagery.
+
+Mobile prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Create a matching SQUARE 1:1 mobile website banner from the reference. Preserve the same fictional professional colleagues, clothing, natural expressions, room and activity. The composition is deliberately pulled back: show the entire small professional group ONLY in the UPPER RIGHT quadrant, within the right 60% width and the top 38% height. All faces fully visible between 12% and 30% down the image. Their desk/chairs and working documents can end at 42% height. Leave the upper LEFT 45% as clean darker wall for the white navigation logo. The LOWER 60% is continuous quiet softly defocused dark neutral room/foreground for a large website heading and paragraph. This is critical: no faces or bright details in the central or lower text area. Natural single photographic scene, never split-screen or collage, no text, logos, watermark, artificial effects or extra people. Restrained daylight and realistic texture, warm professional mood.
+
+### videos
+
+- Desktop: `public/assets/stock-heroes/videos-expert-conversation-v3.webp`
+- Mobile: `public/assets/stock-heroes/mobile/videos-expert-conversation-v3.webp`
+
+Desktop prompt:
+
+> Use case: photorealistic-natural. Asset type: website resource collection banner, panoramic 3:1 aspect ratio. Natural candid editorial business photography, real skin and fabric texture, believable anatomy, daylight, professional teams in tailored modern Western clothing, relaxed natural smiles. No traditional Indian clothing, no glossy synthetic skin, no text/logos/watermark, no illustration or collage. This must look like a thoughtful photograph taken during a real working day. Composition: all people and storytelling objects grouped in the RIGHT 48% with complete heads comfortably below the top 18%; LEFT 52% is uncluttered softly blurred darker architectural negative space for existing white heading and paragraph. Full-bleed single scene. Scene: a professional woman host and a male business expert in navy and charcoal jackets, seated in comfortable modern armchairs having a friendly, engaged filmed interview. They look towards one another with natural smiles. Small discreet lapel microphones, a professional video camera on tripod visible at the far right foreground, softly focused studio light and timber acoustic slats behind. A third crew member is unnecessary. Contemporary inviting business interview studio with warm wood and muted slate colours. Left half is a clean softly blurred dark blue studio wall for text, camera equipment must stay on right and not cross the text area. Authentic behind-the-scenes photographic look, no neon, no fake play icon.
+
+Mobile prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Create a matching SQUARE 1:1 mobile website banner from the reference. Preserve the same fictional professional colleagues, clothing, natural expressions, room and activity. The composition is deliberately pulled back: show the entire small professional group ONLY in the UPPER RIGHT quadrant, within the right 60% width and the top 38% height. All faces fully visible between 12% and 30% down the image. Their desk/chairs and video camera can end at 42% height. Leave the upper LEFT 45% as clean darker wall for the white navigation logo. The LOWER 60% is continuous quiet softly defocused dark neutral room/foreground for a large website heading and paragraph. This is critical: no faces or bright details in the central or lower text area. Natural single photographic scene, never split-screen or collage, no text, logos, watermark, artificial effects or extra people. Restrained daylight and realistic texture, warm professional mood.
+
+### careers
+
+- Desktop: `public/assets/stock-heroes/careers-curious-team-v2.webp`
+- Tablet: `public/assets/stock-heroes/tablet/careers-curious-team-v2.webp`
+- Mobile: `public/assets/stock-heroes/mobile/careers-curious-team-v2.webp`
+- Framing: full heads below the navigation; dedicated tablet and mobile compositions protect faces from the copy.
+
+Desktop prompt:
+
+> Use case: photorealistic-natural. Generate a new wide 12:5 landscape website banner photograph. This is an ENVIRONMENTAL WIDE SHOT, camera pulled far back, not a portrait or close-up. CRITICAL COMPOSITION: the ENTIRE TOP 35% of the photograph is empty uninterrupted architecture, wall, glass and ceiling; NO person's head, hair or face may enter that top 35% navigation-safe band. Every complete head starts BELOW 35% from the top. Keep full heads and natural shoulders comfortably inside all edges, with space around them. People are SMALLER in the frame, about half the total image height, gathered in the lower half. Calm, premium business editorial photography with real skin texture, believable hands, soft daylight, natural candid expressions and subtle smiles. Modern Western professional clothing; international professionals. No text, logos, watermark, graphic overlays, borders, glossy AI skin or posed stock-photo handshakes. Single continuous realistic photograph. Scene: a curious young professional team learning and collaborating at work. Two early-career colleagues, a woman and man in their twenties, sit with an approachable mentor in a bright modern business office, sharing an open notebook and asking thoughtful questions about a project. One young colleague is gesturing with a pen as she asks a question; the mentor smiles attentively and the other colleague leans in with interest. Natural engaged faces, welcoming career-growth energy, authentic workplace, smart business-casual blazers and shirts. A softly blurred project board with simple non-readable notes behind them, a tidy desk with notebook and one laptop, a plant and window on far right. All THREE people and their desk are in the RIGHT 48%, between 52% and 94% horizontally, heads starting BELOW 35% down the picture. The LEFT 50% is clean muted slate office wall for large white website text. All heads fully visible and well clear of the top navigation. Wide environmental photography, not a recruitment poster or posed team portrait.
+
+Tablet prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Recompose the reference into a 5:3 LANDSCAPE photograph for a tablet website banner. Preserve exactly these same fictional professional people, clothes, natural expressions, business activity and room. Pull the camera back so all people are small enough to fit in the RIGHT 40% only, between 59% and 95% across the frame. The LEFT 55% is clean quiet darker wall for white website copy. ALL COMPLETE HEADS AND HAIR must be fully inside the frame, positioned between 32% and 55% from the top. The entire TOP 30% is empty architecture with no heads, reserved for navigation. Keep every head away from side edges. Show the workspace and real activity, natural daylight, realistic proportions, clean uncluttered scene. No text, no graphics, no watermark, no oversized close-up faces. Single continuous professional photograph.
+
+Mobile prompt (desktop image used as the reference):
+
+> Use case: photorealistic-natural. Recompose this reference photograph into a 2:3 PORTRAIT mobile website hero, preserving these same fictional professionals, clothing, setting, natural expressions and business activity. CRITICAL: camera pulled back. The TOP 20% is empty office/showroom architecture with absolutely NO heads or hair, reserved for navigation. Group everyone together in the upper-middle, with ALL COMPLETE HEADS contained between 21% and 33% down the image and between 18% and 82% across the image. The full group and their open notebook, laptop and work desk occupy the upper 45% only. Keep the LOWER 55% a calm, softly defocused darker continuous foreground for the website heading and paragraph; no faces in this lower text area. Preserve realistic proportions and natural daylight. Show complete heads, hair and faces with clear space above and on both sides. No big portrait faces, no clipping, no text, no logo, no added people, no montage or synthetic blur band. A single clean natural professional photograph.
+
+## FAQ banner and homepage consultation — 4 November 2026
+
+Generated with the built-in OpenAI image-generation tool. These are illustrative business scenes, not photographs of the actual iFranchise team or customers. Responsive WebP assets prepared with Sharp.
+
+### faq
+
+Asset: `public/assets/stock-heroes/faq-advisory-conversation-v1.webp` with responsive width variants.
+
+Final prompt:
+
+```text
+Use case: photorealistic-natural. Asset type: wide 3:1 website FAQ banner for a franchise advisory company. Create a natural editorial business photograph of a friendly experienced woman adviser listening carefully while a young male business owner asks a question, with an open notebook and tablet on a meeting table. Contemporary bright neutral office, soft window light, navy and cream smart casual professional clothing, authentic relaxed expressions, candid conversation, natural skin and hands. Composition is crucial: entire two people seated at the FAR RIGHT in the rightmost 38 percent of the panorama; all heads complete, tops of heads no higher than 30 percent down the image, faces between 32 and 64 percent down. Left 55 percent is softly defocused uncluttered office wall for website title text, top 25 percent only office background for navigation, not people. Generous headroom, medium-wide environmental shot rather than close-up. No text, logos, question-mark graphics, watermarks, artificial corporate poses, headsets, or exaggerated smiles. Single coherent realistic photograph, not a montage.
+```
+
+### home
+
+Asset: `public/assets/stock-heroes/home-franchise-consultation-v2.webp` with responsive width variants.
+
+Final prompt:
+
+```text
+Use case: photorealistic-natural. Asset type: homepage How we work with you consultation image for franchise advisory website, 4:3 landscape composition. Create a high quality candid editorial photograph of three friendly business professionals collaborating around a small light oak meeting table: an experienced woman adviser and a male adviser helping a female business owner compare a simple store floor plan with a financial planning sheet. Show genuine eye contact and thoughtful, slightly smiling engaged expressions. An adviser points naturally at a plan on the table while the client listens. Modern bright welcoming office with soft daylight, subtle plant and glass wall in background, refined cream navy and warm wood palette. Camera at eye level, medium-wide scene with all three full heads comfortably inside middle 75 percent of frame and generous headroom, complete natural hands and useful documents visible; key faces remain inside the center 70 percent for responsive crops. Clean uncluttered composition, authentic skin texture and normal business casual clothes. No readable text, no logos, no watermark, no miniatures, no fake handshake, no headsets, no staged stock-photo grins.
+```
+
+### faq-mobile
+
+Asset: `public/assets/stock-heroes/mobile/faq-advisory-conversation-v1.webp` (mobile variant).
+
+Final prompt:
+
+```text
+Use case: photorealistic-natural. Create a square mobile website banner variant of this reference FAQ conversation photograph. Keep the same friendly woman adviser and male business owner, clothing, natural authentic facial features, bright neutral office and notebook/tablet consultation theme. Recompose as a wide environmental view within a square canvas: both people small and seated together in the UPPER RIGHT quadrant, ALL complete heads between 17 and 34 percent down the canvas, faces at x55–91 percent, no heads in the top 15 percent where the website navigation goes. The lower 60 percent must be softly defocused neutral meeting table/office foreground with no faces, hands or important detail, for title text overlay. Left side is calm empty office wall. Both complete heads, no clipping at sides, no close-up, no visible written words, no logos, no watermark. Realistic natural light, restrained friendly expressions. This is the photo only, no interface or text.
+```
+
+### Homepage consultation — mobile framing
+
+Asset: `public/assets/stock-heroes/mobile/home-franchise-consultation-v2.webp`. Built-in image-generation edit of the desktop consultation image, composed to keep all heads inside the phone crop.
+
+Final prompt:
+
+```text
+Use case: photorealistic-natural. Make a square mobile-friendly variant of this reference consultation photograph. Keep the same three friendly professional adults, same clothing, candid expressions and office, one adviser pointing to a store floor plan and business planning sheet while the client listens. Reframe by moving the camera further back to fit all THREE COMPLETE HEADS and their hair comfortably within the center 75% of the square picture (x between 13% and 87%, head tops at 15–25% down). Absolutely no cropped heads or hair at either edge. More natural office space visible on both sides; people closer together around the table, not close-ups. Table with plan and notebooks in foreground, clean window-lit background. Preserve natural skin texture and correct hands. No interface, text, logos, watermark, or collage. One coherent editorial photograph. Square 1:1 aspect ratio.
+```

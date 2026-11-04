@@ -155,6 +155,21 @@
  .p-site .p-photo-hero[data-image-ratio] .p-photo-hero-image{object-fit:cover}
 }
 
+/* List your Brand: keep the people on the left and the existing copy on the right. */
+@media(min-width:768px){
+ .p-site .p-solutions .p-photo-hero-copy{width:50%;max-width:650px;margin-left:auto}
+ .p-site .p-solutions .p-photo-hero .p-photo-hero-overlay{background:linear-gradient(90deg,transparent 25%,#0002 45%,#0008 68%,#0009),linear-gradient(180deg,#0008,transparent 28%)}
+}
+@media(max-width:767px){
+ .p-site .p-solutions .p-photo-hero .p-photo-hero-inner{min-height:640px;padding-top:max(300px,54vw);justify-content:flex-end}
+ .p-site .p-solutions .p-photo-hero .p-photo-hero-overlay{background:linear-gradient(180deg,#0007,transparent 18%,transparent 32%,#0008 52%,#000b)}
+}
+
+/* Tablet compositions reserve one side for text and keep complete heads visible. */
+@media(min-width:768px) and (max-width:1100px){
+ .p-site :is(.p-about,.careers-page) .p-photo-hero-copy{max-width:46%}
+}
+
 /* Make the current reading section unmistakable without moving the document. */
 .p-site .policy-navigation{top:calc(var(--site-header-height,80px) + 24px)}
 .p-site .policy-navigation a{border-left:3px solid transparent;padding:9px 12px;color:var(--p-copy);border-radius:0 6px 6px 0}
@@ -183,4 +198,23 @@
  .p-site .p-header .p-navigation.is-open{max-height:calc(100dvh - var(--site-header-height) - env(safe-area-inset-top,0px));padding-bottom:calc(25px + env(safe-area-inset-bottom,0px))}
  .p-site :is(.p-video-hero,.p-photo-hero){margin-top:calc(-1 * (var(--site-header-height) + env(safe-area-inset-top,0px)))}
  .p-site .profile-section-nav{top:calc(var(--site-header-height) + env(safe-area-inset-top,0px))}
+}
+
+/* FAQ content uses the same editorial banner and question rows as the website. */
+.p-site .faq-page-content{padding-block:56px 72px}
+.p-site .faq-page-group{padding-block:0 48px;margin-bottom:48px;border-bottom:1px solid var(--p-line)}
+.p-site main .faq-page-group h2,.p-site main .faq-page-contact h2{font-size:clamp(24px,2.4vw,34px);margin:0 0 14px}
+.p-site .faq-page-group>div>p,.p-site .faq-page-contact p{color:var(--p-copy);font-size:16px;line-height:1.75;max-width:420px;margin:0}
+.p-site .faq-page-contact{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.p-site .faq-page-contact p{max-width:600px}
+.p-site .p-footer-grid .p-footer-email{font-size:15px;letter-spacing:0;gap:8px}
+.p-site .p-footer-email svg{width:16px;height:16px}
+@media(max-width:767px){
+ .p-site .faq-page-content{padding-block:36px 48px}
+ .p-site .faq-page-group{padding-bottom:32px;margin-bottom:32px}
+ .p-site .faq-page-contact{align-items:flex-start;flex-direction:column;gap:20px}
+}
+
+@media(min-width:768px) and (max-width:1100px){
+ .p-site .faq-page .p-photo-hero-editorial .p-photo-hero-copy{max-width:40%}
 }

@@ -2,27 +2,30 @@
 export const pageBanners = {
   "brand": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-expansion-v2.webp",
-    "mobilePosition": "85% 8%",
-    "image": "/assets/stock-heroes/brand-franchise-expansion-v2.webp",
-    "alt": "Illustrative scene of an Indian retail founder and adviser planning new franchise locations",
-    "position": "65% 40%"
+    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-expansion-v5.webp",
+    "tabletImage": "/assets/stock-heroes/tablet/brand-franchise-expansion-v5.webp",
+    "mobilePosition": "50% 25%",
+    "image": "/assets/stock-heroes/brand-franchise-expansion-v5.webp",
+    "alt": "Illustrative scene of a brand founder and advisers reviewing retail expansion plans in a spacious showroom",
+    "position": "20% 50%"
   },
   "about": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/about-franchise-advisory-v1.webp",
-    "mobilePosition": "85% 8%",
-    "image": "/assets/stock-heroes/about-franchise-advisory-v1.webp",
-    "alt": "Illustrative scene of Indian franchise advisers reviewing a retail plan and business model together",
-    "position": "65% 0%"
+    "mobileImage": "/assets/stock-heroes/mobile/about-franchise-advisory-v3.webp",
+    "tabletImage": "/assets/stock-heroes/tablet/about-franchise-advisory-v3.webp",
+    "mobilePosition": "50% 25%",
+    "image": "/assets/stock-heroes/about-franchise-advisory-v3.webp",
+    "alt": "Illustrative franchise advisory team and business owner discussing store plans around a meeting table",
+    "position": "100% 50%"
   },
   "careers": {
     "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/careers-collaborative-workplace-v1.webp",
-    "mobilePosition": "85% 8%",
-    "image": "/assets/stock-heroes/careers-collaborative-workplace-v1.webp",
-    "alt": "Illustrative scene of two Indian colleagues collaborating in a bright contemporary workplace",
-    "position": "65% 0%"
+    "mobileImage": "/assets/stock-heroes/mobile/careers-curious-team-v2.webp",
+    "tabletImage": "/assets/stock-heroes/tablet/careers-curious-team-v2.webp",
+    "mobilePosition": "50% 25%",
+    "image": "/assets/stock-heroes/careers-curious-team-v2.webp",
+    "alt": "Illustrative early-career colleagues asking questions and learning with a mentor in a bright workplace",
+    "position": "100% 50%"
   },
   "resources": {
     "ratio": "3 / 1",
@@ -34,11 +37,11 @@ export const pageBanners = {
   },
   "blogs": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/blogs-business-perspectives-v2.webp",
-    "mobilePosition": "70% 8%",
-    "image": "/assets/stock-heroes/blogs-business-perspectives-v2.webp",
-    "alt": "Illustrative scene of an Indian entrepreneur writing business insights in a cafe",
-    "position": "65% 0%"
+    "mobileImage": "/assets/stock-heroes/mobile/blogs-team-insights-v3.webp",
+    "mobilePosition": "70% 0%",
+    "image": "/assets/stock-heroes/blogs-team-insights-v3.webp",
+    "alt": "Illustrative scene of professional colleagues discussing business insights and making notes together",
+    "position": "65% 35%"
   },
   "saved": {
     "ratio": "3 / 1",
@@ -50,23 +53,32 @@ export const pageBanners = {
   },
   "articles": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/articles-franchise-planning-v1.webp",
-    "mobilePosition": "70% 8%",
-    "image": "/assets/stock-heroes/articles-franchise-planning-v1.webp",
-    "alt": "Illustrative scene of a business owner and adviser reviewing a franchise plan in a cafe",
-    "position": "65% 40%"
+    "mobileImage": "/assets/stock-heroes/mobile/articles-team-research-v2.webp",
+    "mobilePosition": "70% 0%",
+    "image": "/assets/stock-heroes/articles-team-research-v2.webp",
+    "alt": "Illustrative team of business advisers reviewing market research, reference books and an expansion map",
+    "position": "65% 20%"
   },
   "videos": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/videos-franchise-conversation-v2.webp",
-    "mobilePosition": "70% 8%",
-    "image": "/assets/stock-heroes/videos-franchise-conversation-v2.webp",
-    "alt": "Illustrative filmed conversation between two young business professionals about franchising and business growth",
-    "position": "70% 40%"
+    "mobileImage": "/assets/stock-heroes/mobile/videos-expert-conversation-v3.webp",
+    "mobilePosition": "70% 0%",
+    "image": "/assets/stock-heroes/videos-expert-conversation-v3.webp",
+    "alt": "Illustrative filmed conversation between a professional host and a business expert in an interview studio",
+    "position": "70% 35%"
   }
-  ,"homeProcess": {
-  "image": "/assets/stock-heroes/home-business-consultation.webp",
-  "alt": "Two business professionals discussing a plan with a tablet and laptop in a contemporary office",
-  "position": "44% 50%"
+  ,"faq": {
+    "ratio": "3 / 1",
+    "image": "/assets/stock-heroes/faq-advisory-conversation-v1.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/faq-advisory-conversation-v1.webp",
+    "mobilePosition": "70% 0%",
+    "alt": "Illustrative conversation between a business owner asking questions and a franchise adviser",
+    "position": "100% 0%"
+  },
+  "homeProcess": {
+  "image": "/assets/stock-heroes/home-franchise-consultation-v2.webp",
+  "mobileImage": "/assets/stock-heroes/mobile/home-franchise-consultation-v2.webp",
+  "alt": "Illustrative scene of business advisers and a founder comparing store plans and financial details together",
+  "position": "50% 50%"
 }
 } as const;

@@ -16,6 +16,7 @@ export function ResourceLibrary({items,mode='all',initialCategory='all'}:{items:
  useEffect(()=>{const restore=()=>{const q=new URLSearchParams(location.search);setQuery(q.get('q')||'');setTopic(q.get('topic')||'all');setPage(Math.max(1,parseInt(q.get('page')||'1')||1));setCategory(resourceCategories.some(c=>c.id===q.get('category'))?q.get('category')!:'all')};restore();setHydrated(true);window.addEventListener('popstate',restore);return()=>window.removeEventListener('popstate',restore)},[]);
  useEffect(()=>{if(!hydrated)return;const url=new URL(location.href);for(const [key,value] of Object.entries({q:query,topic:topic==='all'?'':topic,category:category==='all'?'':category,page:page===1?'':String(page)})){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key)}history.replaceState(history.state,'',url.pathname+url.search+url.hash)},[query,topic,category,page,hydrated]);
  const categorised=['all','blogs','articles'].includes(mode);
+ const categories=mode==='blogs'?['for-brands','for-investors'].map(id=>resourceCategories.find(category=>category.id===id)!):resourceCategories;
  const categoryItems=filterResources(items,{category:categorised?category:'all'});
  const topics=[...new Set(categoryItems.map((item:any)=>item.category).filter(Boolean))].sort() as string[];
  const list=filterResources(items,{category:categorised?category:'all',topic,query});
@@ -29,7 +30,7 @@ export function ResourceLibrary({items,mode='all',initialCategory='all'}:{items:
  return <>
   <div className="resource-filter-bar"><ResourceTabs mode={mode} category={category}/>
   {categorised&&<div className="resource-categories" role="group" aria-label="Resource categories">
-   {[{id:'all',label:'All categories'},...resourceCategories].map(c=><button type="button" key={c.id} aria-pressed={category===c.id} onClick={()=>chooseCategory(c.id)}>{c.label}<span>{filterResources(items,{category:c.id}).length}</span></button>)}
+   {[{id:'all',label:'All categories'},...categories].map(c=><button type="button" key={c.id} aria-pressed={category===c.id} onClick={()=>chooseCategory(c.id)}>{c.label}<span>{filterResources(items,{category:c.id}).length}</span></button>)}
   </div>}
   <div className="resource-tools">
    <label className="resource-search"><Search size={20}/><input type="search" aria-label="Search resources" placeholder="Search resources" value={query} onChange={e=>{setQuery(e.target.value);setPage(1)}}/></label>

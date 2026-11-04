@@ -7,11 +7,11 @@ import {useSiteSettings,phoneLabel} from './site-settings';
 import {whatsappUrl} from '../lib/contact';
 import {Icon} from './icons';
 import {BrandIdentity} from './brand-identity';
-const menus={company:{label:'Company',links:[['/about-us','About us'],['/careers','Careers']]},resources:{label:'Resources',links:[['/resources','All resources'],['/resources/blogs','Blogs'],['/resources/articles','Articles'],['/resources/videos','Videos'],['/resources/saved','Saved resources']]}};
+const menus={company:{label:'Company',links:[['/about-us','About us'],['/careers','Careers']]},resources:{label:'Resources',links:[['/resources','All resources'],['/resources/blogs','Blogs'],['/resources/articles','Articles'],['/resources/videos','Videos'],['/faq','FAQs'],['/resources/saved','Saved resources']]}};
 export function SocialLinks({label=false}:{label?:boolean}){const {socialLinks}=useSiteSettings();return <div className="social-links" aria-label="iFranchise social media">{socialLinks.filter((s:any)=>s.visible!==false).map((s:any)=><a href={s.href} key={s.name} target="_blank" rel="noopener noreferrer" aria-label={'iFranchise on '+s.name} title={s.name}><Icon name={s.icon}/>{label&&<span>{s.name}</span>}</a>)}</div>}
 export function Header({preview=false}:{preview?:boolean}={}){const [mobile,setMobile]=useState(false),[open,setOpen]=useState<string|null>(null),root=useRef<HTMLElement>(null),wordmark=useRef<HTMLDivElement>(null),toggle=useRef<HTMLButtonElement>(null),path=usePathname();
  const hoveredMenu=useRef<string|null>(null);
- const hasPhotoHero=path==='/'||['/about-us','/list-your-brand','/careers','/resources','/resources/blogs','/resources/articles','/resources/videos'].includes(path);
+ const hasPhotoHero=path==='/'||['/about-us','/list-your-brand','/careers','/resources','/resources/blogs','/resources/articles','/resources/videos','/faq'].includes(path);
  const [headerState,setHeaderState]=useState({path,scrolled:false,overHero:hasPhotoHero,darkHero:hasPhotoHero,protectBrand:false,joinedHeight:0});
  const {scrolled,overHero,darkHero,protectBrand,joinedHeight}=headerState.path===path?headerState:{scrolled:false,overHero:hasPhotoHero,darkHero:hasPhotoHero,protectBrand:false,joinedHeight:0};
  useEffect(()=>{setMobile(false);setOpen(null);hoveredMenu.current=null},[path]);
@@ -80,7 +80,7 @@ export function Footer(){const contact=useSiteSettings();const contactPage=usePa
  <div className="p-footer-grid">
   <div className="p-footer-contact"><h2>{contactPage?'Follow us':'Contact'}</h2>{!contactPage&&<><a className="p-footer-email" href={'mailto:'+contact.email}>{contact.email}<ArrowUpRight size={18}/></a><a href={'tel:'+contact.phone}><Phone size={16}/>{phoneLabel(contact.phone)}</a></>}<SocialLinks/></div>
   <div><h2>Explore</h2><a href="/franchise-opportunities">Franchise opportunities</a><a href="/list-your-brand">List your Brand</a><a href="/resources">Resources</a></div>
-  <div><h2>Company</h2><a href="/about-us">About us</a><a href="/careers">Careers</a><a href="/contact-us">Contact us</a></div>
+  <div><h2>Company</h2><a href="/about-us">About us</a><a href="/careers">Careers</a><a href="/faq">FAQs</a><a href="/contact-us">Contact us</a></div>
   <div className="p-footer-office"><h2>Registered office</h2><p className="footer-company-name">iFranchise Services Private Limited</p><address>Innov 8 Mantri Commercio, Tower A, No 51,<br/>5th floor, Bellandur, Bangalore South,<br/>Bangalore 560103, Karnataka, India.</address></div>
  </div>
  <div className="p-footer-bottom"><span>© {new Date().getFullYear()} iFranchise. All rights reserved.</span><nav className="p-footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a><a href="/privacy-choices">Privacy choices</a></nav><a href="#main" className="p-back-top">Back to top<ArrowUpRight size={15}/></a></div>
