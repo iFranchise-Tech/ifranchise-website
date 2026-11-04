@@ -67,5 +67,5 @@ test('historical job rows and headers are never rewritten to fabricate a résum�
  const wrong=setup();wrong.state.header='Unexpected';assert.equal(post(wrong).ok,false);assert.equal(wrong.state.files.size,0);
 });
 test('unconfirmed résumé saves produce useful retry guidance rather than a success message',async()=>{
- await assert.rejects(()=>readReceipt(Response.json({code:'application_unconfirmed'},{status:503})),/application and résumé were saved securely/);
+ await assert.rejects(()=>readReceipt(Response.json({code:'application_unconfirmed'},{status:503})),/application and resume link were saved/);
 });

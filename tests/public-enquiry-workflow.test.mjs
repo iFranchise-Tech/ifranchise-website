@@ -46,7 +46,7 @@ test('Sheets-only messages contain lead context without inventing a CMS record',
  }
 });
 test('unsupported receiver features and Sheets errors show approved recovery guidance only',async()=>{
- for(const [code,message] of [['privacy_unavailable','contact@ifranchise.in'],['applications_unavailable','résumé uploads'],['sheets_unconfirmed','Your details are still here']]){
+ for(const [code,message] of [['privacy_unavailable','contact@ifranchise.in'],['applications_unavailable','temporarily unavailable'],['sheets_unconfirmed','Your details are still here']]){
   await assert.rejects(()=>readReceipt(Response.json({code,error:'private provider payload'},{status:503})),e=>submissionError(e).includes(message)&&!submissionError(e).includes('private provider'));
  }
  await assert.rejects(()=>readReceipt(Response.json({code:'unknown',error:'private details'},{status:503})),e=>!submissionError(e).includes('private details'));

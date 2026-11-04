@@ -126,7 +126,7 @@ function doPost(e) {
         !Array.isArray(data.row) || data.row.length !== TABS[data.tab] ||
         typeof data.row[0] !== 'string' || !/^IF-[a-f0-9-]{36}$/.test(data.row[0]) ||
         data.row.some(v => v !== null && !['string','number','boolean'].includes(typeof v))) return json({ok:false});
-    if (isApplication !== (data.tab === 'Job Applications') ||
+    if ((isApplication && data.tab !== 'Job Applications') ||
         (!isApplication && (data.resume !== undefined || envelope.resume !== undefined))) return json({ok:false});
     if (isApplication && data.row[12] !== '') return json({ok:false});
     const bytes = isApplication ? resumeBytes(data.resume, envelope.resume) : null;

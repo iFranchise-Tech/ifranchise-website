@@ -61,7 +61,7 @@ async function input(extra={}){
  return {payload,req};
 }
 async function submit(extra={}){const {req,payload}=await input(extra);return acceptSubmission(req,payload);}
-const jobFields={kind:'job',jobSlug:'business-development-trainee',experienceType:'fresher',qualification:'Bachelor’s degree',educationStatus:'Completed',course:'Commerce',institution:'QA College'};
+const jobFields={kind:'job',jobSlug:'business-development-trainee',experienceType:'fresher',qualification:'Bachelor’s degree',educationStatus:'Completed',course:'Commerce',institution:'QA College',resumeLink:'https://drive.google.com/file/d/applicant-resume/view?usp=sharing'};
 async function submitApplication(job,file=PDF){
  const form=new FormData();form.set('payload',JSON.stringify(job.payload));form.set('resume',new Blob([file],{type:'application/pdf'}),'QA résumé.pdf');
  const headers=new Headers(job.req.headers);headers.delete('content-type');
@@ -149,6 +149,15 @@ test('Sheets-only lead delivery and existing receiver contract',async t=>{
     assert.equal(res.status,422);assert.equal((await res.json()).received,undefined);
    }assert.equal(requests.length,before);noCopies();
   });
+  await t.test('a Google Drive résumé link is stored in the existing job row and lead email without a file upload',async()=>{
+   const job=await input(jobFields),beforeRows=rows.size,beforeFiles=receiver.state.files.size,beforeEmails=emails.length;
+   const response=await application(new Request(job.req.url.replace('enquiries','applications'),{method:'POST',headers:job.req.headers,body:JSON.stringify(job.payload)}));
+   const receipt=await response.json();
+   assert.equal(response.status,200,JSON.stringify(receipt));assert.equal(receipt.received,true);
+   const saved=rows.get(receipt.reference);assert.equal(saved.tab,'Job Applications');assert.equal(saved.row.length,21);assert.equal(saved.row[12],jobFields.resumeLink);
+   const mail=JSON.parse(emails[beforeEmails].body);assert(mail.text.includes(jobFields.resumeLink));assert.deepEqual(mail.to,['contact@ifranchise.in']);
+   assert.equal(rows.size,beforeRows+1);assert.equal(receiver.state.files.size,beforeFiles);assert.equal(emails.length,beforeEmails+1);noCopies();
+  });
   await t.test('job HTTP submission saves its private PDF and existing 21-column row before confirming; retries do not duplicate',async()=>{
    const job=await input({...jobFields,coverNote:'Please review <my work> & portfolio.'});
    const beforeRows=rows.size,beforeFiles=receiver.state.files.size,beforeEmails=emails.length;
@@ -159,7 +168,7 @@ test('Sheets-only lead delivery and existing receiver contract',async t=>{
    assert.equal(row.length,21);assert.equal(row[2],job.payload.name);assert.equal(row[3],job.payload.email);assert.equal(row[4],"'"+job.payload.phone,'Leading + is escaped as literal Sheet text');
    assert.match(row[11],/QA College/);assert.match(row[11],/Please review <my work>/);assert.match(row[12],/^https:\/\/drive\.google\.com\/file\/d\/private-file-/);
    const file=receiver.state.files.get(row[12].split('/')[5]);assert.deepEqual(file.bytes,PDF);assert.equal(file.sharing,'PRIVATE');
-   const mail=JSON.parse(emails[beforeEmails].body);assert(mail.text.includes(row[12]));assert(mail.text.includes('private Google Drive file'));
+   const mail=JSON.parse(emails[beforeEmails].body);assert(mail.text.includes(row[12]));assert(mail.text.includes('private Google Drive file'));assert(mail.text.includes('Resume'));
    assert(mail.html.includes('&lt;my work&gt;'));assert(!mail.html.includes('<my work>'));assert.equal(mail.from,'iFranchise <contact@ifranchise.in>');assert.deepEqual(mail.to,['contact@ifranchise.in']);
    const again=await submitApplication(job);assert.equal(again.status,200);assert.equal((await again.json()).reference,receipt.reference);
    assert.equal(rows.size,beforeRows+1);assert.equal(receiver.state.files.size,beforeFiles+1);assert.equal(emails.length,beforeEmails+1);noCopies();

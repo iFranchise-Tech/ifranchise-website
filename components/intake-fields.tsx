@@ -19,7 +19,7 @@ export function useIntake(){
 export function IntakeConsent({job=false}:{job?:boolean}){return <>
  <input type="hidden" name="noticeVersion" value={NOTICE_VERSION}/>
  {job&&<label className="checkbox-label"><input type="checkbox" name="adult" required/><span>I am 18 or older.</span></label>}
- <label className="checkbox-label"><input type="checkbox" name={job?'consent':'enquiryConsent'} required/><span>{job?'I agree to iFranchise using my details and resume to assess this application.':'I am 18 or older and agree to iFranchise using my contact details and preferences to respond to this enquiry.'} <a href={'/privacy-policy#'+(job?'applications':'enquiries')} target="_blank" rel="noreferrer">Privacy notice</a> · <a href="/privacy-choices" target="_blank" rel="noreferrer">Privacy choices</a></span></label>
+ <label className="checkbox-label"><input type="checkbox" name={job?'consent':'enquiryConsent'} required/><span>{job?'I agree to iFranchise using my details and resume link to assess this application.':'I am 18 or older and agree to iFranchise using my contact details and preferences to respond to this enquiry.'} <a href={'/privacy-policy#'+(job?'applications':'enquiries')} target="_blank" rel="noreferrer">Privacy notice</a> · <a href="/privacy-choices" target="_blank" rel="noreferrer">Privacy choices</a></span></label>
  <div className="honeypot" aria-hidden="true"><label>Leave this empty<input name="trap" tabIndex={-1} autoComplete="off"/></label></div>
  </>}
 

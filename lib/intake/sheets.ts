@@ -8,7 +8,6 @@ export async function saveToSheets(config:{SHEETS_WEBHOOK_URL?:string;INTAKE_SIG
   const local=import.meta.env.DEV===true&&['localhost','127.0.0.1'].includes(endpoint.hostname);
   if(!local&&(endpoint.protocol!=='https:'||endpoint.hostname!=='script.google.com'||!/^\/macros\/s\/[^/]+\/exec$/.test(endpoint.pathname)))throw Error('invalid_sheets_endpoint');
   if(endpoint.username||endpoint.password||endpoint.search||endpoint.hash)throw Error('invalid_sheets_endpoint');
-  if(record.kind==='job'&&!resume)throw Error('resume_required');
   if(resume&&record.kind!=='job')throw Error('unexpected_resume');
   const attachment=resume?await encodeResume(resume):undefined;
   const entry=sheetEntry(record,origin);

@@ -17,8 +17,7 @@ let p={...base,kind:'general',message:'International number local audit.',phone:
 assert.equal((await request('/api/intake/enquiries',{}, {...headers,Origin:'https://untrusted.invalid'})).status,403);
 for(const path of ['/api/admin','/api/admin/intake','/api/admin/intake/resume/00000000-0000-4000-8000-000000000000'])assert.equal((await fetch(origin+path)).status,401,path);
 for(const path of ['/api/intake/brochure/00000000-0000-4000-8000-000000000000','/api/brochures/odette'])assert.equal((await fetch(origin+path)).status,410);
-const job={...base,kind:'job',jobSlug:'export-test-role',token:await session(),id:crypto.randomUUID(),experienceType:'experienced',experienceYears:'2',experienceMonths:'0',employmentStatus:'Currently employed',noticePeriod:'30 days',qualification:'Bachelor’s degree',course:'B.Com',educationStatus:'Completed',institution:'Test College'};
-const form=new FormData();form.set('payload',JSON.stringify(job));form.set('resume',new Blob(['%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\n%%EOF'],{type:'application/pdf'}),'export-test.pdf');
-let jr=await fetch(origin+'/api/intake/applications',{method:'POST',headers:{Origin:origin,'cf-connecting-ip':headers['cf-connecting-ip']},body:form});let jd=await jr.json();assert.equal(jr.status,200,JSON.stringify(jd));assert.equal(jd.received,true);ids.push(job.id);
-console.log('International phone, origin rejection, private admin, brochure removal and private PDF application: passed');
+const job={...base,kind:'job',jobSlug:'export-test-role',token:await session(),id:crypto.randomUUID(),experienceType:'experienced',experienceYears:'2',experienceMonths:'0',employmentStatus:'Currently employed',noticePeriod:'30 days',qualification:'Bachelor’s degree',course:'B.Com',educationStatus:'Completed',institution:'Test College',resumeLink:'https://drive.google.com/file/d/export-test/view'};
+let jr=await request('/api/intake/applications',job);let jd=await jr.json();assert.equal(jr.status,200,JSON.stringify(jd));assert.equal(jd.received,true);ids.push(job.id);
+console.log('International phone, origin rejection, private admin, brochure removal and Drive-link application: passed');
 console.log(JSON.stringify({localTestIds:ids}));

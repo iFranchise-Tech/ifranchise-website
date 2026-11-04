@@ -50,7 +50,7 @@ export async function acceptSubmission(req:Request,p:any,resume?:{bytes:Uint8Arr
  if(Date.now()-session.created_at<1500)throw new CmsError(429,'Please review your details before sending.');
  await limit(req,'submit',12);
  if(data.kind==='investor'&&data.brandSlug){const brand=(await published('franchises')).find(b=>b.slug===data.brandSlug);if(!brand)throw new CmsError(422,'Select an available franchise.');data.brandName=brand.name;}
- if(data.kind==='job'){const job=(await published('jobs')).find(j=>(j.slug===data.jobSlug||j.id===data.jobSlug)&&j.active!==false);if(!job)throw new CmsError(422,'This role is no longer accepting applications.');data.jobTitle=job.title;if(!resume)throw new CmsError(422,'Upload your resume as a PDF.');}
+ if(data.kind==='job'){const job=(await published('jobs')).find(j=>(j.slug===data.jobSlug||j.id===data.jobSlug)&&j.active!==false);if(!job)throw new CmsError(422,'This role is no longer accepting applications.');data.jobTitle=job.title;if(!resume&&!data.resumeLink)throw new CmsError(422,'Paste a Google Drive link to your resume.');}
  if(resume){if(data.kind!=='job')throw new CmsError(422,'Use the job application form to upload a résumé.');try{validateResume(resume)}catch{throw new CmsError(422,'Upload a complete PDF résumé up to 5 MB.')}}
  // Use the server-issued session, not the visitor's freely changeable ID, as
  // the stable Reference. The script's lock provides concurrent deduplication.

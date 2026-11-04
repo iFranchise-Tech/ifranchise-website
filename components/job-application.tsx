@@ -1,20 +1,20 @@
 'use client';
-import {submissionError,IntakeRequestError} from '../lib/intake/receipt.mjs';
+import {submissionError} from '../lib/intake/receipt.mjs';
 import {useRouter} from 'next/navigation';
 import {showConfirmation,captureConfirmationOrigin} from '../lib/intake/confirmation.mjs';
 import {useRef,useState} from 'react';
-import {ArrowUpRight,FileUp} from 'lucide-react';
+import {ArrowUpRight} from 'lucide-react';
 import {PhoneField,EmailField,NameField,validatePhoneFields} from './contact-fields';
 import {LocationFields,IntakeConsent,useIntake,readReceipt} from './intake-fields';
-import {MAX_RESUME,QUALIFICATIONS,EDUCATION_STATUSES,EMPLOYMENT_STATUSES,NOTICE_PERIODS} from '../lib/intake/constants.mjs';
+import {QUALIFICATIONS,EDUCATION_STATUSES,EMPLOYMENT_STATUSES,NOTICE_PERIODS} from '../lib/intake/constants.mjs';
 
 export function JobApplicationForm({job}:{job:{id:string;slug?:string;title:string}}){
  const router=useRouter();
  const sending=useRef(false),intake=useIntake();
  const [busy,setBusy]=useState(false),[error,setError]=useState('');
- const [fileName,setFileName]=useState(''),[experienceType,setExperienceType]=useState(''),[employmentStatus,setEmploymentStatus]=useState('');
+ const [experienceType,setExperienceType]=useState(''),[employmentStatus,setEmploymentStatus]=useState('');
  const id='job-application';
- async function send(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(sending.current)return;validatePhoneFields(e.currentTarget);if(!e.currentTarget.reportValidity())return;sending.current=true;setBusy(true);setError('');const returnTo=captureConfirmationOrigin(window,'job');let redirecting=false;try{const form=e.currentTarget,p=await intake.payload(form,'job'),fd=new FormData(form),file=fd.get('resume') as File;if(!file?.size||file.size>MAX_RESUME)throw new IntakeRequestError('Upload a PDF resume up to 5 MB.');const body=new FormData();body.set('payload',JSON.stringify({...p,resume:undefined,jobSlug:job.slug||job.id}));body.set('resume',file);await readReceipt(await fetch('/api/intake/applications',{method:'POST',body,signal:AbortSignal.timeout(60000)}));redirecting=true;showConfirmation(window,(path:string)=>router.push(path),returnTo);}catch(e:any){setError(submissionError(e))}finally{if(!redirecting){sending.current=false;setBusy(false)}}}
+ async function send(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(sending.current)return;validatePhoneFields(e.currentTarget);if(!e.currentTarget.reportValidity())return;sending.current=true;setBusy(true);setError('');const returnTo=captureConfirmationOrigin(window,'job');let redirecting=false;try{const form=e.currentTarget,p=await intake.payload(form,'job');await readReceipt(await fetch('/api/intake/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...p,jobSlug:job.slug||job.id}),signal:AbortSignal.timeout(30000)}));redirecting=true;showConfirmation(window,(path:string)=>router.push(path),returnTo);}catch(e:any){setError(submissionError(e))}finally{if(!redirecting){sending.current=false;setBusy(false)}}}
 
  return <form className="candidate-form" aria-label="Job application" noValidate onSubmit={send}>
   <div className="field-row"><NameField id={id}/><EmailField id={id}/></div>
@@ -41,7 +41,7 @@ export function JobApplicationForm({job}:{job:{id:string;slug?:string;title:stri
    </>}
   </fieldset>
   <div className="field"><label htmlFor={id+'-note'}>Cover note</label><textarea id={id+'-note'} name="coverNote" rows={4} maxLength={3000}/></div>
-  <div className="field resume-field"><label htmlFor={id+'-resume'}><FileUp size={20}/>Resume * <small>PDF · up to 5 MB</small></label><input id={id+'-resume'} name="resume" type="file" accept="application/pdf,.pdf" required onChange={e=>{const file=e.target.files?.[0];e.target.setCustomValidity(file&&(file.size>MAX_RESUME||!file.name.toLowerCase().endsWith('.pdf'))?'Choose a PDF up to 5 MB.':'');setFileName(file?.name||'')}}/>{fileName&&<span>{fileName}</span>}</div>
+  <div className="field"><label htmlFor={id+'-resume'}>Resume Link (Google Drive) *</label><input id={id+'-resume'} name="resumeLink" type="url" inputMode="url" required maxLength={500} placeholder="https://drive.google.com/file/d/…"/></div>
   <IntakeConsent job/>{error&&<p className="form-message error" role="alert">{error}</p>}<button type="submit" className="p-button" disabled={!intake.ready||busy}>{busy?'Sending application…':'Submit application'}<ArrowUpRight size={18}/></button>
  </form>;
 }

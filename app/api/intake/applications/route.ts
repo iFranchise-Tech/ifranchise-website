@@ -1,8 +1,9 @@
-import {acceptSubmission,receipt,intakeFailure} from '../../../../lib/intake/server';
+import {acceptSubmission,jsonBody,receipt,intakeFailure} from '../../../../lib/intake/server';
 import {assertOrigin,boundedBody,CmsError} from '../../../../lib/cms/auth';
 import {MAX_RESUME} from '../../../../lib/intake/validation.mjs';
 export const dynamic='force-dynamic';
 export async function POST(req:Request){try{
+ if(req.headers.get('content-type')?.includes('application/json')){const p=await jsonBody(req);if(p.kind!=='job')throw new CmsError(400,'Use the application form.');return await receipt(await acceptSubmission(req,p),p.token);}
  assertOrigin(req);if(!req.headers.get('content-type')?.startsWith('multipart/form-data'))throw new CmsError(415,'Use the application form.');
  const bytes=await boundedBody(req,MAX_RESUME+30000);const form=await new Response(bytes,{headers:{'Content-Type':req.headers.get('content-type')!}}).formData();
  let p;try{p=JSON.parse(String(form.get('payload')||''))}catch{throw new CmsError(400,'Invalid application.')}
