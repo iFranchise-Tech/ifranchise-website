@@ -4,13 +4,21 @@ import {locationPopup} from '../lib/location-popup.mjs';
 import {internalPage,anchorTop} from '../lib/page-navigation.mjs';
 import {safeReturnPath,showConfirmation,confirmationReturn} from '../lib/intake/confirmation.mjs';
 const storage=()=>{const map=new Map();return {getItem:k=>map.get(k)||null,setItem:(k,v)=>map.set(k,v),map}};
-test('city suggestions move above the field when the keyboard occupies the lower viewport',()=>{
+test('city suggestions stay attached below the field when the keyboard reduces space',()=>{
  const rect={left:24,width:342,top:300,bottom:350},v={top:0,height:450,width:390};const p=locationPopup(rect,v);
- assert(p.top<rect.top);assert(p.top>=12);assert(p.top+p.maxHeight<=rect.top);assert.equal(p.width,342);
+ assert.equal(p.top,rect.bottom+6);assert.equal(p.maxHeight,82);assert.equal(p.visibility,'visible');assert.equal(p.width,342);
 });
 test('city suggestions fit below a field when there is room and stay inside narrow screens',()=>{
  const p=locationPopup({left:0,width:500,top:100,bottom:150},{top:0,height:844,width:320});
  assert.equal(p.top,156);assert.equal(p.left,12);assert.equal(p.width,296);assert.equal(p.maxHeight,220);
+});
+test('location suggestions track a shifted visual viewport and hide with an offscreen field',()=>{
+ const viewport={top:200,height:400,width:390};
+ const placed=locationPopup({left:24,width:342,top:420,bottom:470},viewport);
+ assert.equal(placed.top,476);assert.equal(placed.maxHeight,112);assert.equal(placed.visibility,'visible');
+ for(const rect of [{left:24,width:342,top:100,bottom:150},{left:24,width:342,top:650,bottom:700},{left:24,width:342,top:530,bottom:580}]){
+  const p=locationPopup(rect,viewport);assert.equal(p.visibility,'hidden');assert.equal(p.top,rect.bottom+6);
+ }
 });
 test('anchor navigation leaves the entire form heading below the measured navbar',()=>{
  assert.equal(anchorTop(450,200,80),554);assert.equal(anchorTop(10,0,80),0);

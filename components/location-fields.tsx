@@ -1,5 +1,5 @@
 'use client';
-import {useCallback,useEffect,useRef,useState} from 'react';
+import {useCallback,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal} from 'react-dom';
 import {ChevronDown,Check} from 'lucide-react';
 import {indianStates,validateManualCity,validateState} from '../lib/locations.mjs';
@@ -13,7 +13,7 @@ function cityData():Promise<CityData>{return citiesRequest??=fetch('/data/india-
 /** One editable combobox for canonical states and free-entry cities. */
 function LocationInput({id,label,name,value,onChange,options,disabled=false,restricted=false}:{id:string;label:string;name:string;value:string;onChange:(value:string)=>void;options:readonly string[];disabled?:boolean;restricted?:boolean}){
  const [open,setOpen]=useState(false),[query,setQuery]=useState(value),[active,setActive]=useState(-1),[error,setError]=useState('');
- const [position,setPosition]=useState<React.CSSProperties>({}),[host,setHost]=useState<Element|null>(null);
+ const [position,setPosition]=useState<React.CSSProperties>({visibility:'hidden'}),[host,setHost]=useState<Element|null>(null);
  const touching=useRef(false);
  const input=useRef<HTMLInputElement>(null),list=useRef<HTMLUListElement>(null),root=useRef<HTMLDivElement>(null);
  const shown=restricted?options.filter(option=>locationSearchKey(option).includes(locationSearchKey(query))):options;
@@ -21,12 +21,19 @@ function LocationInput({id,label,name,value,onChange,options,disabled=false,rest
  const validate=useCallback((next:string,show=false)=>{let message='';if(!disabled)try{(restricted?validateState:validateManualCity)(next)}catch(e){message=(e as Error).message}input.current?.setCustomValidity(message);if(show)setError(message);return message},[disabled,restricted]);
  useEffect(()=>{validate(value);setError('')},[value,validate]);
  useEffect(()=>{setHost(input.current?.closest('dialog')||document.body)},[]);
- useEffect(()=>{
+ useLayoutEffect(()=>{
   if(!expanded)return;
-  function place(){const rect=input.current?.getBoundingClientRect();if(rect)setPosition(locationPopup(rect,{top:window.visualViewport?.offsetTop||0,height:window.visualViewport?.height||innerHeight,width:document.documentElement.clientWidth}))}
+  function viewport(){return {top:window.visualViewport?.offsetTop||0,height:window.visualViewport?.height||innerHeight,width:document.documentElement.clientWidth}}
+  function place(){const rect=input.current?.getBoundingClientRect();if(rect)setPosition(locationPopup(rect,viewport()) as React.CSSProperties)}
+  function makeRoom(){
+   const el=input.current,rect=el?.getBoundingClientRect(),view=viewport();
+   // Reveal room for at least one option instead of flipping over another field.
+   if(el&&rect&&document.activeElement===el&&rect.top>=view.top&&rect.top<view.top+view.height&&rect.bottom+76>view.top+view.height)el.scrollIntoView({block:'center',behavior:'instant'});
+   place();
+  }
   function outside(e:PointerEvent){if(!root.current?.contains(e.target as Node)&&!list.current?.contains(e.target as Node)){setOpen(false);setQuery(value)}}
-  place();window.addEventListener('resize',place);window.addEventListener('scroll',place,true);window.visualViewport?.addEventListener('resize',place);window.visualViewport?.addEventListener('scroll',place);document.addEventListener('pointerdown',outside);
-  return()=>{window.removeEventListener('resize',place);window.removeEventListener('scroll',place,true);window.visualViewport?.removeEventListener('resize',place);window.visualViewport?.removeEventListener('scroll',place);document.removeEventListener('pointerdown',outside)};
+  makeRoom();window.addEventListener('resize',makeRoom);window.addEventListener('scroll',place,true);window.visualViewport?.addEventListener('resize',makeRoom);window.visualViewport?.addEventListener('scroll',place);document.addEventListener('pointerdown',outside);
+  return()=>{window.removeEventListener('resize',makeRoom);window.removeEventListener('scroll',place,true);window.visualViewport?.removeEventListener('resize',makeRoom);window.visualViewport?.removeEventListener('scroll',place);document.removeEventListener('pointerdown',outside)};
  },[expanded,value]);
  useEffect(()=>{const el=list.current?.children[active] as HTMLElement|undefined,container=list.current;if(el&&container){if(el.offsetTop<container.scrollTop)container.scrollTop=el.offsetTop;else if(el.offsetTop+el.offsetHeight>container.scrollTop+container.clientHeight)container.scrollTop=el.offsetTop+el.offsetHeight-container.clientHeight}},[active]);
  function choose(next:string){onChange(next);setQuery(next);validate(next);setError('');setOpen(false);setActive(-1);input.current?.focus({preventScroll:true})}
