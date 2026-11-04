@@ -25,7 +25,7 @@ const calls=[];let mode='success',earlyEvent=null;
 globalThis.fetch=async(url,options)=>{
  if(String(url)===env.ACCESS_TEAM_DOMAIN+'/cdn-cgi/access/certs')return Response.json({keys:[jwk]});
  assert.equal(url,'https://api.resend.com/emails','tests must never contact other services');
- assert.equal(options.redirect,'error');assert.equal(options.headers.Authorization,'Bearer '+env.RESEND_API_KEY);
+ assert.equal(options.redirect,'manual');assert.equal(options.headers.Authorization,'Bearer '+env.RESEND_API_KEY);
  calls.push(options);
  if(mode==='timeout')throw new TypeError('Network failed with a sensitive provider response');
  if(mode==='rate')return Response.json({secret:'must never be logged'},{status:429});

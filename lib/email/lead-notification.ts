@@ -24,7 +24,10 @@ export async function notifySavedLead(env:Cloudflare.Env,record:any) {
     // payload or notification state. Durable recovery needs receiver support.
     for(let attempt=0;attempt<2;attempt++){
       try {
-        const result=await fetch('https://api.resend.com/emails',{method:'POST',redirect:'error',headers:{Authorization:'Bearer '+env.RESEND_API_KEY,'Content-Type':'application/json','Idempotency-Key':'ifranchise/sheets/'+record.id},body,signal:AbortSignal.timeout(10000)});
+        // Workers reject redirect:"error". "manual" still refuses to follow a redirect,
+        // so the Resend credential is not sent to another host.
+        const result=await fetch('https://api.resend.com/emails',{method:'POST',redirect:'manual',headers:{Authorization:'Bearer '+env.RESEND_API_KEY,'Content-Type':'application/json','Idempotency-Key':'ifranchise/sheets/'+record.id},body,signal:AbortSignal.timeout(10000)});
+        if(result.status>=300&&result.status<400){await result.body?.cancel();log('failed','redirect_rejected');return;}
         if(!result.ok){
           if([408,429].includes(result.status)||result.status>=500)throw Error('provider_temporary');
           log('failed','provider_rejected');return;

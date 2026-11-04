@@ -113,7 +113,7 @@ async function dispatch(env:Cloudflare.Env,candidate:Row) {
     }
     await db.prepare('UPDATE email_outbox SET attempts=attempts+1,first_attempt_at=COALESCE(first_attempt_at,?) WHERE id=?').bind(now,row.id).run();
     const result=await fetch('https://api.resend.com/emails',{
-      method:'POST',redirect:'error',signal:AbortSignal.timeout(10000),
+      method:'POST',redirect:'manual',signal:AbortSignal.timeout(10000),
       headers:{Authorization:`Bearer ${env.RESEND_API_KEY}`,'Content-Type':'application/json','Idempotency-Key':`ifranchise/${row.id}`},
       body:JSON.stringify(message),
     });
