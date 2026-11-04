@@ -85,10 +85,10 @@ export function Footer(){const contact=useSiteSettings();const contactPage=usePa
  </div>
  <div className="p-footer-bottom"><span>© {new Date().getFullYear()} iFranchise. All rights reserved.</span><nav className="p-footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a><a href="/privacy-choices">Privacy choices</a></nav><a href="#main" className="p-back-top">Back to top<ArrowUpRight size={15}/></a></div>
  </div></footer>}
-export function WhatsAppButton(){const contact=useSiteSettings();
+export function WhatsAppButton({brand}:{brand?:string}={}){const contact=useSiteSettings();
  const path=usePathname(),[footerVisible,setFooterVisible]=useState(false);
  useEffect(()=>{const footer=document.querySelector('.p-footer');if(!footer)return;const observer=new IntersectionObserver(([entry])=>setFooterVisible(entry.isIntersecting));observer.observe(footer);return()=>observer.disconnect()},[path]);
 
- if(path.startsWith('/franchise/')||path==='/'||path==='/contact-us'||path==='/list-your-brand'||path==='/careers'||path.startsWith('/careers/')||footerVisible)return null;
- return <a className="whatsapp-float whatsapp-compact" href={whatsappUrl(undefined,contact.phone)} target="_blank" rel="noopener noreferrer" aria-label="Chat with iFranchise on WhatsApp"><Icon name="whatsapp" width="25"/></a>
+ if((path.startsWith('/franchise/')&&!brand)||path==='/'||path==='/contact-us'||path==='/careers'||path.startsWith('/careers/')||footerVisible)return null;
+ return <a className="whatsapp-float whatsapp-compact" href={whatsappUrl(brand,contact.phone)} target="_blank" rel="noopener noreferrer" aria-label={brand?`Chat about ${brand} on WhatsApp`:"Chat with iFranchise on WhatsApp"}><Icon name="whatsapp" width="25"/></a>
 }

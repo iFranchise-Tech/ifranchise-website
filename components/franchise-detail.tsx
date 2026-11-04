@@ -6,6 +6,7 @@ import {BrandCard} from './ui';
 import {BrandLogo} from './brand-logo';
 import {BrandShowcase} from './brand-showcase';
 import {BrandEnquiryPanel,BrandSectionNav} from './brand-enquiry';
+import {WhatsAppButton} from './shell';
 import {InlineLink,Questions,SectionHeading} from './premium';
 import {Check,Layers,Maximize2,MapPin,Wallet,FileText,Clock} from 'lucide-react';
 
@@ -54,5 +55,5 @@ export function FranchiseDetail({brand:original,brands}:{brand:any;brands:any[]}
   </div>
 
   <section className="profile-related-band"><div className="p-container p-section dossier-related"><SectionHeading title="Other opportunities"><InlineLink href="/franchise-opportunities">View all brands</InlineLink></SectionHeading><div className="p-brand-grid">{(selectedItems(b.relatedBrands,brands.filter(x=>x.slug!==b.slug))??brands.filter(x=>x.slug!==b.slug).sort((a,c)=>Number(c.category===b.category)-Number(a.category===b.category)).slice(0,3)).map((x:any)=><BrandCard brand={x} key={x.slug}/>)}</div></div></section>
- </main>;
+ <WhatsAppButton brand={b.name}/></main>;
 }

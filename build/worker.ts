@@ -1,4 +1,4 @@
-import {cmsApiResponse,isCmsApiPath} from '../lib/cms/api-response.mjs';
+import {cmsApiResponse} from '../lib/cms/api-response.mjs';
 import handler from 'vinext/server/fetch-handler';
 import {accessCredential, isAdminPagePath, isStaffPath} from '../lib/access-gate.mjs';
 import {renderStaffSignIn} from '../lib/access-login.mjs';
@@ -6,6 +6,7 @@ import {localAdminLogoutResponse, localAdminSessionResponse, localAdminUserFromR
 import {withIntakeContext} from '../lib/intake/context';
 import {verifyAccessToken} from '../lib/access-token.mjs';
 import {maintainEmailQueue} from '../lib/email/service';
+import {isStaticAssetRequest} from '../lib/static-asset-request.mjs';
 function noStore(response: Response) {
   const result = new Response(response.body, response);
   result.headers.set('Cache-Control', 'no-store');
@@ -49,9 +50,8 @@ export default {
         return Response.json({error: message}, {status, headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
       }
     }
-    // Static files are served only after the decision above. Route misses
-    // continue to the application; never expose private uploads through ASSETS.
-    if ((request.method === 'GET' || request.method === 'HEAD') && env.ASSETS && !isCmsApiPath(url.pathname)) {
+    // Serve files after authorization, without an extra asset lookup for pages/RSC.
+    if (env.ASSETS && isStaticAssetRequest(request)) {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 404) return asset;
     }

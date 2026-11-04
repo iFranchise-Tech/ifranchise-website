@@ -68,8 +68,8 @@
 /* The enquiry stays below the shared navigation surface, including on short screens. */
 .p-site .brand-profile .brand-enquiry-card{grid-column:2;grid-row:1;position:sticky;z-index:33;top:calc(var(--site-header-height,80px) + var(--profile-pinned-height) + 18px);max-height:calc(100dvh - var(--site-header-height,80px) - var(--profile-pinned-height) - 36px);box-sizing:border-box;padding:25px;border-radius:15px;background:#fff;border:1px solid #e3dded;box-shadow:0 10px 35px #30204f0a;overflow-y:auto;scrollbar-width:thin}
 @media(min-width:1024px){
- /* Reuse the header's pinned-bar state so the border and form move together. */
- .p-site:has(>.p-header.has-section-glass) .brand-profile .dossier-layout{--profile-pinned-height:63px}
+ /* Reserve the navigation height from the start so the enquiry never jumps. */
+ .p-site .brand-profile .dossier-layout{--profile-pinned-height:63px}
  .p-site:has(>.p-header.has-section-glass) .brand-profile .profile-section-nav{width:calc(100% + var(--profile-column-gap) + var(--profile-sidebar-width))}
  .p-site:has(.brand-profile)>.p-header:before,.p-site:has(.brand-profile)>.p-navigation-glass{background:#fff}
 }
@@ -88,9 +88,6 @@
 .p-site .brand-profile .brand-enquiry-card .field :is(input:not([type=tel]),select){border-radius:7px;min-height:46px;height:46px;font-size:13px;padding:11px 12px}
 .p-site .brand-profile .brand-enquiry-card .field select{padding-right:32px}
 .p-site .brand-profile .brand-enquiry-card .p-form-actions .p-button{border-radius:7px;min-height:46px;padding:12px 15px}
-.p-site .brand-profile .brand-enquiry-contacts{padding-top:15px;margin-top:20px;gap:12px}
-.p-site .brand-profile .brand-enquiry-contacts a{border:1px solid #e6e0ef;border-radius:7px;font-size:11px;background:#fff}
-.p-site .brand-profile .brand-enquiry-contacts a:hover{background:#f3f0fa}
 .profile-related-band{background:#f8f7fb;border-top:1px solid #eeebf3}
 .p-site .brand-profile .dossier-related{padding-block:52px 64px}
 .p-site .brand-profile .dossier-related .p-section-heading h2{font-size:28px}

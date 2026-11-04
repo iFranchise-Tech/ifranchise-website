@@ -3,6 +3,17 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import {isCacheableAsset,isCacheableResponse} from '../lib/asset-cache-policy.mjs';
+import {isStaticAssetRequest} from '../lib/static-asset-request.mjs';
+
+test('asset routing serves build files without probing page, RSC or API navigation',()=>{
+ const request=(path,method='GET')=>new Request(`https://example.test${path}`,{method});
+ for(const path of ['/_next/static/chunks/index-ab123.js','/_next/static/css/index.ab123.css','/asset-cache-sw.js','/favicon.svg','/favicon.ico','/fonts/manrope-400.woff2','/images/photo.webp','/data/india-locations.json']){
+  assert.equal(isStaticAssetRequest(request(path)),true,path);
+  assert.equal(isStaticAssetRequest(request(path,'HEAD')),true,path);
+  assert.equal(isStaticAssetRequest(request(path,'POST')),false,path);
+ }
+ for(const path of ['/','/franchise/emori','/franchise/emori.rsc','/careers.rsc?_rsc=123','/admin','/api/admin/export.json','/api/intake/session','/_next/image?url=/photo.webp'])assert.equal(isStaticAssetRequest(request(path)),false,path);
+});
 
 test('the cache excludes pages, personal data, uploads and application endpoints',()=>{
  for(const path of ['/','/admin','/franchise/emori','/api/intake/session','/api/admin/intake/resume/1','/media/resume.pdf','/api/admin/records','/private/document.webp','/optimized/unhashed.webp','/assets/stock-heroes/private/photo.webp','/assets/stock-heroes/photo.svg','/assets/home-hero/plan-to-presence.mp4'])assert.equal(isCacheableAsset(path),false,path);
