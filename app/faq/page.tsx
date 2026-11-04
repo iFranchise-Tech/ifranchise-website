@@ -1,7 +1,6 @@
 import faqGroups from '../../content/faq-page.json';
 import {pageBanners} from '../../lib/page-banners';
 import {PhotoHero} from '../../components/photo-hero';
-import {InlineLink} from '../../components/premium';
 import {FAQLibrary} from '../../components/faq-library';
 
 export const dynamic='force-dynamic';
@@ -17,7 +16,6 @@ export default function FAQPage(){
   <PhotoHero editorial imageRatio={banner.ratio} image={banner.image} imageAlt={banner.alt} imagePosition={banner.position} mobileImage={banner.mobileImage} mobileImagePosition={banner.mobilePosition} title="Frequently asked questions" description="Clear answers to your questions about franchising, growing your brand and working with us."/>
   <div className="p-container resource-library faq-page-content" id="resource-library">
    <FAQLibrary groups={faqGroups}/>
-   <div className="faq-page-contact"><div><h2>Still have a question?</h2><p>Tell us what you’re planning. Our team can help you take the next step.</p></div><InlineLink href="/contact-us">Contact us</InlineLink></div>
   </div>
  </main>;
 }

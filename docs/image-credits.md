@@ -401,6 +401,18 @@ Final prompt:
 Use case: photorealistic-natural. Make a square mobile-friendly variant of this reference consultation photograph. Keep the same three friendly professional adults, same clothing, candid expressions and office, one adviser pointing to a store floor plan and business planning sheet while the client listens. Reframe by moving the camera further back to fit all THREE COMPLETE HEADS and their hair comfortably within the center 75% of the square picture (x between 13% and 87%, head tops at 15–25% down). Absolutely no cropped heads or hair at either edge. More natural office space visible on both sides; people closer together around the table, not close-ups. Table with plan and notebooks in foreground, clean window-lit background. Preserve natural skin texture and correct hands. No interface, text, logos, watermark, or collage. One coherent editorial photograph. Square 1:1 aspect ratio.
 ```
 
+## FAQ contact card — 4 November 2026
+
+Generated with the built-in OpenAI image-generation tool. Decorative franchise storefront and conversation illustration; contact text is accessible HTML. Optimized with Sharp.
+
+Saved asset: `public/assets/faq/contact-guidance-v1.webp`.
+
+Final prompt:
+
+```text
+Use case: ads-marketing. Asset type: portrait 2:3 background artwork for a clickable franchise consulting contact card on a website. Create a polished minimal premium 3D illustration on a rich royal purple background (#32159b family), subtly lighter toward the bottom. Bottom 45 percent: a small elegant white and lavender storefront model with clean glass windows and a simple canopy, paired with two overlapping sculptural speech bubbles floating beside it, to suggest helpful business conversation and franchise guidance. Refined soft studio lighting, smooth materials, natural delicate shadows on the purple surface, restrained composition, no money, no currency, no people. Keep the entire top 52 percent and upper left calm, empty purple negative space for live HTML text and a contact button. Objects fully inside the image with comfortable margins, clean silhouette, no clutter or excessive icons, professional rather than playful. NO words, letters, numbers, logos, brand marks or watermark. This is a background image only, not a UI mockup. Portrait 2:3.
+```
+
 ## FAQ guidance banner replacement — 4 November 2026
 
 Built-in OpenAI image generation, with a separate mobile composition. Illustrative professional advice session; not a photograph of actual iFranchise employees or clients. Prepared as responsive WebP assets with Sharp.
