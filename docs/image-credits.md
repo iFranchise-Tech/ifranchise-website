@@ -488,3 +488,87 @@ Mobile composition prompt:
 ```text
 Use case: photorealistic-natural. Create a square mobile website banner variant of this reference filmed business expert discussion photograph. Preserve these same two fictional people, natural expressions, clothes, professional setting and purpose. Recompose as a distant environmental view with both COMPLETE heads and hair together in the UPPER RIGHT quadrant, all important faces between x55–90% across, heads starting 20–23% down and faces ending no lower than 36% down. Keep the top 18% only architecture for navigation. The left half is a calm softly defocused dark neutral wall; the lower 60% is uninterrupted darker studio or desk foreground for live HTML text. Both people should be small and completely inside the rightmost 40%, no heads touching edges. Keep a discreet camera at the far right and the interview notebook visible just below the faces within upper 48%. No text, new people, logos, watermark, collage, cut heads or synthetic blur band. Authentic natural photographic texture and light. Square 1:1 canvas.
 ```
+
+## Coordinated professional banners — 4 November 2026
+
+Generated with the built-in OpenAI image-generation tool. These are fictional illustrative people, not actual iFranchise staff or clients. Desktop and mobile compositions are separate; Sharp only resized and encoded the supplied generations as WebP.
+
+### brand-professional-planning-v7
+
+Saved assets: `public/assets/stock-heroes/brand-professional-planning-v7.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/brand-professional-planning-v7.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Produce a single panoramic 3:1 website hero photograph, not a collage or interface. Authentic editorial business photography, natural skin texture, anatomically correct hands, believable elegant office, softly lit daylight, relaxed polite expressions and modest genuine smiles. No exaggerated laughter or staged handshake. Absolutely no text, logos, watermark or graphics. All complete heads and hair have generous space around them and begin at least 30% down from the top edge. Top quarter is quiet architecture for navigation. Keep faces away from all image edges. Composition: all people and their work clearly within the LEFT 42% of the panorama, with people between x8% and x43%; their complete heads from y30% to y62%, hands and useful objects below. RIGHT 55% is calm softly blurred neutral charcoal office background, reserved for white HTML title text. A female business founder in a tailored cream blazer and a male franchise consultant in a navy suit with open-collar white shirt, both approximately 30–40, seated at a tidy oak meeting desk reviewing a tasteful printed retail store layout and a slim portfolio. They listen respectfully and make friendly eye contact while discussing her brand's expansion. Contemporary professional meeting room with understated glass and wood, not a café or casual social scene. Natural warmth, approachable professionals, useful consultation, uncluttered visual.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Make a square 1:1 mobile website hero composition of this reference photo. Keep the SAME people, their faces, clothing, polite professional expressions, activity and environment. Pull the camera back to a generous environmental view. The entire group together centred between x22–78%, complete heads starting y20–24%, all faces ending by y38%, work objects and hands end by y50%. Top 17% quiet architecture for navigation. Lower 52% softly blurred darker neutral foreground with no people or important objects, reserved for HTML text. Realistic anatomy, skin and light, no readable words, logos, watermark or UI. Do not enlarge subjects or crop any hair. One coherent editorial photograph.
+```
+
+### about-curious-advisory-v4
+
+Saved assets: `public/assets/stock-heroes/about-curious-advisory-v4.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/about-curious-advisory-v4.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Produce a single panoramic 3:1 website hero photograph, not a collage or interface. Authentic editorial business photography, natural skin texture, anatomically correct hands, believable elegant office, softly lit daylight, relaxed polite expressions and modest genuine smiles. No exaggerated laughter or staged handshake. Absolutely no text, logos, watermark or graphics. All complete heads and hair have generous space around them and begin at least 30% down from the top edge. Top quarter is quiet architecture for navigation. Keep faces away from all image edges. Composition: all people and their work clearly within the LEFT 42% of the panorama, with people between x8% and x43%; their complete heads from y30% to y62%, hands and useful objects below. RIGHT 55% is calm softly blurred neutral charcoal office background, reserved for white HTML title text. Three curious franchise advisers, two women and one man in their early thirties, in refined business casual attire, collaborating around a compact meeting table. One asks a thoughtful question while another points to a simple store expansion diagram in an open notebook; the third listens attentively. They look engaged, open-minded and approachable, not posed at the camera. A bright clean modern consultancy studio with muted glass wall and understated shelving. A coherent scene expressing who a helpful franchise advisory company is: listening, understanding and planning together. No corporate stock-photo handshake.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Make a square 1:1 mobile website hero composition of this reference photo. Keep the SAME people, their faces, clothing, polite professional expressions, activity and environment. Pull the camera back to a generous environmental view. The entire group together centred between x22–78%, complete heads starting y20–24%, all faces ending by y38%, work objects and hands end by y50%. Top 17% quiet architecture for navigation. Lower 52% softly blurred darker neutral foreground with no people or important objects, reserved for HTML text. Realistic anatomy, skin and light, no readable words, logos, watermark or UI. Do not enlarge subjects or crop any hair. One coherent editorial photograph.
+```
+
+### careers-professional-interview-v3
+
+Saved assets: `public/assets/stock-heroes/careers-professional-interview-v3.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/careers-professional-interview-v3.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Produce a single panoramic 3:1 website hero photograph, not a collage or interface. Authentic editorial business photography, natural skin texture, anatomically correct hands, believable elegant office, softly lit daylight, relaxed polite expressions and modest genuine smiles. No exaggerated laughter or staged handshake. Absolutely no text, logos, watermark or graphics. All complete heads and hair have generous space around them and begin at least 30% down from the top edge. Top quarter is quiet architecture for navigation. Keep faces away from all image edges. Composition: all people and their work clearly within the LEFT 42% of the panorama, with people between x8% and x43%; their complete heads from y30% to y62%, hands and useful objects below. RIGHT 55% is calm softly blurred neutral charcoal office background, reserved for white HTML title text. A smartly dressed young adult woman candidate in a light blue blouse holding a closed portfolio waits calmly in a refined modern office lounge; a friendly young adult male recruiter in a charcoal blazer seated nearby welcomes her and discusses the next step, with a simple notebook on a small side table. They show curious engaged expressions, professional politeness, quiet confidence and warm smiles. Bright glass meeting-room setting with subtle plant and clean cream upholstery. Clearly a welcoming recruitment and career opportunity moment, not a café, conference, or headset support scene. Eye-level medium-wide photograph.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Make a square 1:1 mobile website hero composition of this reference photo. Keep the SAME people, their faces, clothing, polite professional expressions, activity and environment. Pull the camera back to a generous environmental view. The entire group together centred between x22–78%, complete heads starting y20–24%, all faces ending by y38%, work objects and hands end by y50%. Top 17% quiet architecture for navigation. Lower 52% softly blurred darker neutral foreground with no people or important objects, reserved for HTML text. Realistic anatomy, skin and light, no readable words, logos, watermark or UI. Do not enlarge subjects or crop any hair. One coherent editorial photograph.
+```
+
+### resources-professional-learning-v2
+
+Saved assets: `public/assets/stock-heroes/resources-professional-learning-v2.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/resources-professional-learning-v2.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Produce a single panoramic 3:1 website hero photograph, not a collage or interface. Authentic editorial business photography, natural skin texture, anatomically correct hands, believable elegant office, softly lit daylight, relaxed polite expressions and modest genuine smiles. No exaggerated laughter or staged handshake. Absolutely no text, logos, watermark or graphics. All complete heads and hair have generous space around them and begin at least 30% down from the top edge. Top quarter is quiet architecture for navigation. Keep faces away from all image edges. Composition: people and useful objects in RIGHT 44% of the panorama; LEFT 54% is a calm softly blurred charcoal-grey office wall reserved for white HTML title. Head tops at y30–34%, faces ending by y62%. Two polished young adult business professionals, a woman in a light grey blazer and a man in a navy jacket, comfortably reading and discussing practical franchise guides at a tidy shared desk in a contemporary business library. A tablet, two open reference books and a few neat printed diagrams convey useful resources, articles and business learning. Friendly respectful discussion, curious expressions. Clean neutral setting with softly defocused shelves and subtle greenery, no clutter or café. No readable writing in the books.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Make a square 1:1 mobile website hero composition of this reference photo. Keep the SAME people, their faces, clothing, polite professional expressions, activity and environment. Pull the camera back to a generous environmental view. The people together in upper right x48–82%, complete heads starting y21–24%, all faces end by y36%, their upper bodies end by y46%. Top 17% quiet architecture for navigation. Lower 52% softly blurred darker neutral foreground with no people or important objects, reserved for HTML text. Realistic anatomy, skin and light, no readable words, logos, watermark or UI. Do not enlarge subjects or crop any hair. One coherent editorial photograph.
+```
+
+### videos-young-experts-interview-v5
+
+Saved assets: `public/assets/stock-heroes/videos-young-experts-interview-v5.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/videos-young-experts-interview-v5.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Produce a single panoramic 3:1 website hero photograph, not a collage or interface. Authentic editorial business photography, natural skin texture, anatomically correct hands, believable elegant office, softly lit daylight, relaxed polite expressions and modest genuine smiles. No exaggerated laughter or staged handshake. Absolutely no text, logos, watermark or graphics. All complete heads and hair have generous space around them and begin at least 30% down from the top edge. Top quarter is quiet architecture for navigation. Keep faces away from all image edges. Composition: the young expert man and interviewer woman, both clearly aged about 28–35, sit in separate modern lounge chairs together at x55–80% of the image; their complete heads begin y30–34%, hands visible. LEFT 50% is quiet dark blue-grey wall reserved for white HTML title. A professional video camera with a recognisable lens, flip-out monitor and short tripod is FULLY INSIDE the rightmost 15% of the image, spanning x84–95%, y40–90%, with comfortable clear margin from every edge. The whole camera body, lens and tripod are clearly visible and in focus, no cut-off camera, does not obscure either face. The camera points diagonally toward the two people. Expert in tailored navy jacket and open-collar pale shirt, interviewer in a light neutral blazer holding a small notebook, discreet clip microphones. Warm intelligent expressions during an informative interview about business growth. Refined realistic recording studio, muted oak acoustic panel, natural soft lighting, clean and professional, no saturated studio lights.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Make a square 1:1 mobile website hero composition of this reference photo. Keep the SAME people, their faces, clothing, polite professional expressions, activity and environment. Pull the camera back to a generous environmental view. The people together in upper right x48–82%, complete heads starting y21–24%, all faces end by y36%, their upper bodies end by y46%. Keep the recognisable video camera body, lens, monitor and short tripod FULLY visible at x83–96%, y27–48%, with clear margins, no cropped camera, no face obscured. Top 17% quiet architecture for navigation. Lower 52% softly blurred darker neutral foreground with no people or important objects, reserved for HTML text. Realistic anatomy, skin and light, no readable words, logos, watermark or UI. Do not enlarge subjects or crop any hair. One coherent editorial photograph.
+```

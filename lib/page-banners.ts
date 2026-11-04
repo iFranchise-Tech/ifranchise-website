@@ -2,38 +2,39 @@
 export const pageBanners = {
   "brand": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-planning-v6.webp",
-    "tabletImage": "/assets/stock-heroes/brand-franchise-planning-v6.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/brand-professional-planning-v7.webp",
+    "tabletImage": "/assets/stock-heroes/brand-professional-planning-v7.webp",
     "mobilePosition": "50% 0%",
-    "image": "/assets/stock-heroes/brand-franchise-planning-v6.webp",
-    "alt": "Illustrative café founder and business adviser discussing a store expansion plan together",
+    "image": "/assets/stock-heroes/brand-professional-planning-v7.webp",
+    "alt": "Illustrative brand founder and professional adviser discussing a retail expansion plan together",
     "position": "0% 50%"
   },
   "about": {
-    "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/about-franchise-advisory-v3.webp",
-    "tabletImage": "/assets/stock-heroes/tablet/about-franchise-advisory-v3.webp",
-    "mobilePosition": "50% 25%",
-    "image": "/assets/stock-heroes/about-franchise-advisory-v3.webp",
-    "alt": "Illustrative franchise advisory team and business owner discussing store plans around a meeting table",
-    "position": "100% 50%"
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/about-curious-advisory-v4.webp",
+    "tabletImage": "/assets/stock-heroes/about-curious-advisory-v4.webp",
+    "mobilePosition": "50% 0%",
+    "image": "/assets/stock-heroes/about-curious-advisory-v4.webp",
+    "alt": "Illustrative advisory team asking questions and exploring a franchise growth plan together",
+    "position": "0% 50%"
   },
   "careers": {
-    "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/careers-curious-team-v2.webp",
-    "tabletImage": "/assets/stock-heroes/tablet/careers-curious-team-v2.webp",
-    "mobilePosition": "50% 25%",
-    "image": "/assets/stock-heroes/careers-curious-team-v2.webp",
-    "alt": "Illustrative early-career colleagues asking questions and learning with a mentor in a bright workplace",
-    "position": "100% 50%"
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/careers-professional-interview-v3.webp",
+    "tabletImage": "/assets/stock-heroes/careers-professional-interview-v3.webp",
+    "mobilePosition": "50% 0%",
+    "image": "/assets/stock-heroes/careers-professional-interview-v3.webp",
+    "alt": "Illustrative young professional and recruiter having a welcoming career conversation in an office lounge",
+    "position": "0% 50%"
   },
   "resources": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/resources-franchise-learning-v1.webp",
-    "mobilePosition": "70% 8%",
-    "image": "/assets/stock-heroes/resources-franchise-learning-v1.webp",
-    "alt": "Illustrative scene of Indian entrepreneurs exploring business guides and ideas together",
-    "position": "65% 0%"
+    "mobileImage": "/assets/stock-heroes/mobile/resources-professional-learning-v2.webp",
+    "tabletImage": "/assets/stock-heroes/mobile/resources-professional-learning-v2.webp",
+    "mobilePosition": "70% 0%",
+    "image": "/assets/stock-heroes/resources-professional-learning-v2.webp",
+    "alt": "Illustrative professionals exploring business guides, market research and practical learning resources",
+    "position": "100% 0%"
   },
   "blogs": {
     "ratio": "3 / 1",
@@ -62,11 +63,11 @@ export const pageBanners = {
   },
   "videos": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/videos-expert-recording-v4.webp",
-    "tabletImage": "/assets/stock-heroes/mobile/videos-expert-recording-v4.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/videos-young-experts-interview-v5.webp",
+    "tabletImage": "/assets/stock-heroes/mobile/videos-young-experts-interview-v5.webp",
     "mobilePosition": "70% 0%",
-    "image": "/assets/stock-heroes/videos-expert-recording-v4.webp",
-    "alt": "Illustrative business expert and interviewer recording a thoughtful conversation in a professional studio",
+    "image": "/assets/stock-heroes/videos-young-experts-interview-v5.webp",
+    "alt": "Illustrative young male business expert and female interviewer recording a conversation with a clearly visible video camera",
     "position": "100% 0%"
   }
   ,"faq": {
