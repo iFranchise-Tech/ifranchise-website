@@ -1,13 +1,13 @@
 // Page-specific banner imagery. Sources and provenance: docs/image-credits.md.
 export const pageBanners = {
   "brand": {
-    "ratio": "12 / 5",
-    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-expansion-v5.webp",
-    "tabletImage": "/assets/stock-heroes/tablet/brand-franchise-expansion-v5.webp",
-    "mobilePosition": "50% 25%",
-    "image": "/assets/stock-heroes/brand-franchise-expansion-v5.webp",
-    "alt": "Illustrative scene of a brand founder and advisers reviewing retail expansion plans in a spacious showroom",
-    "position": "20% 50%"
+    "ratio": "3 / 1",
+    "mobileImage": "/assets/stock-heroes/mobile/brand-franchise-planning-v6.webp",
+    "tabletImage": "/assets/stock-heroes/brand-franchise-planning-v6.webp",
+    "mobilePosition": "50% 0%",
+    "image": "/assets/stock-heroes/brand-franchise-planning-v6.webp",
+    "alt": "Illustrative café founder and business adviser discussing a store expansion plan together",
+    "position": "0% 50%"
   },
   "about": {
     "ratio": "12 / 5",
@@ -53,19 +53,21 @@ export const pageBanners = {
   },
   "articles": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/articles-team-research-v2.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/articles-editorial-research-v3.webp",
+    "tabletImage": "/assets/stock-heroes/mobile/articles-editorial-research-v3.webp",
     "mobilePosition": "70% 0%",
-    "image": "/assets/stock-heroes/articles-team-research-v2.webp",
-    "alt": "Illustrative team of business advisers reviewing market research, reference books and an expansion map",
-    "position": "65% 20%"
+    "image": "/assets/stock-heroes/articles-editorial-research-v3.webp",
+    "alt": "Illustrative business researchers comparing a market chart, reference book and tablet",
+    "position": "100% 0%"
   },
   "videos": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/videos-expert-conversation-v3.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/videos-expert-recording-v4.webp",
+    "tabletImage": "/assets/stock-heroes/mobile/videos-expert-recording-v4.webp",
     "mobilePosition": "70% 0%",
-    "image": "/assets/stock-heroes/videos-expert-conversation-v3.webp",
-    "alt": "Illustrative filmed conversation between a professional host and a business expert in an interview studio",
-    "position": "70% 35%"
+    "image": "/assets/stock-heroes/videos-expert-recording-v4.webp",
+    "alt": "Illustrative business expert and interviewer recording a thoughtful conversation in a professional studio",
+    "position": "100% 0%"
   }
   ,"faq": {
     "ratio": "3 / 1",

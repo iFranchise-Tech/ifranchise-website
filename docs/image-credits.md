@@ -436,3 +436,55 @@ Final prompt:
 ```text
 Use case: photorealistic-natural. Create a square mobile hero variant of this new franchise FAQ photograph. Preserve the same slate-blue-shirt woman adviser and sand-overshirt male entrepreneur, their natural faces, friendly question-and-answer conversation, tablet diagram and airy library-office atmosphere. Recompose as a distant environmental photograph: the pair seated together in the UPPER RIGHT of the square, x55–92% across, with COMPLETE heads whose tops are 20–23% down and whose faces end no lower than 37% down the canvas. Absolutely no heads touching any edge or the top navigation area. Left half is softly defocused office wall; lower 60% is soft uncluttered foreground table and office tones to receive website text. People not enlarged; keep both heads fully visible and realistic. Natural daylight, cool neutral soft greys, muted greenery and light wood. No typography, question-mark graphics, logos, watermarks, UI, or collage.
 ```
+
+## Professional banner refresh — 4 November 2026
+
+Generated with the built-in OpenAI image-generation tool. Fictional professional scenes, not actual iFranchise employees or clients. Separate desktop and mobile compositions, optimized with Sharp as responsive WebP assets.
+
+### brand-franchise-planning-v6
+
+Saved assets: `public/assets/stock-heroes/brand-franchise-planning-v6.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/brand-franchise-planning-v6.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Asset type: wide 3:1 website hero photograph for List your Brand, a franchise development consulting service. Primary request: a fresh, clean and believable natural business photograph with an upbeat professional team, composed for a short website banner. Scene: a modern independent cafe showroom in soft morning daylight, neutral oak, cream walls, muted greenery. On the LEFT 42% of the frame, a friendly female cafe founder in a light blue blouse and a male business adviser in a relaxed navy blazer sit together at a small round table, happily discussing a single simple store floor plan and a closed notebook. Candid relaxed eye contact, subtle authentic smiles, realistic skin and hands, calm professional collaboration, not a posed boardroom portrait. Wide environmental view, people comfortably small, all COMPLETE heads and hair fully visible: highest head starts around 30% down the picture, faces between 32% and 55% down; hands and table activity inside 60–85% down. Top quarter contains only cafe architecture so website logo and navigation cannot cover heads. Right 53% is a continuous uncluttered softly defocused cafe wall, darker warm charcoal-neutral, with no people, no bright windows or objects, for white HTML headline and call-to-action. Avoid extremely dark black void, forced grins, suits and ties, visible brands, readable text, watermarks, montage, excessive decor, cropped heads and awkward fingers. One coherent polished editorial photograph. Panoramic 3:1 aspect ratio.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Create a square mobile banner variant of this reference List your Brand photograph. Preserve the same two fictional professionals, casual blue clothing, relaxed authentic smiles, cafe founder discussing a store floor plan with an adviser, and natural wood cafe surroundings. Recompose as a distant environmental view with both complete heads and hair grouped in the UPPER MIDDLE of the square, x30–70% across, heads starting at 20–22% down and faces ending by 37% down. The top 18% is empty cafe architecture for website navigation; important people fit fully inside the central 60% so a portrait crop cannot cut heads. Show the small table and floor plan just below their faces, within upper 48%. Lower 52% is continuous softly defocused darker cafe foreground for live HTML headline and button, no faces or important props there. No text, no logos, watermark, collage, visual seam, new people or exaggerated smiles. Natural professional editorial photography, square 1:1.
+```
+
+### articles-editorial-research-v3
+
+Saved assets: `public/assets/stock-heroes/articles-editorial-research-v3.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/articles-editorial-research-v3.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Asset type: wide 3:1 professional editorial website banner for a collection of franchise business Articles. Create a natural candid photograph in a refined bright business research studio: a thoughtful female strategy analyst in an ivory blouse and a male editor in a charcoal casual jacket carefully comparing a printed market chart, a reference book and a tablet on a clean oak desk. Authentic engaged expressions with subtle friendly smiles, no looking at camera. The activity clearly suggests practical written research and useful business analysis. Contemporary calm neutral office, soft window light, modest plant and blurred shelving, realistic skin and hands, editorial photography rather than polished artificial stock pose. Composition: both people and their useful documents together in RIGHTMOST 40 percent; all heads completely visible with generous headroom, tops of hair no higher than 30 percent down, faces between 32 and 60 percent down, hands and documents between 62 and 85 percent. Left 55 percent softly defocused dark cool neutral wall for white HTML copy, top 24 percent empty architecture for navigation. Avoid any person behind the future logo at top left. No legible words, brand marks, watermark, floating charts, fake handshake, excessive props or cropped heads. One coherent panoramic 3:1 photograph.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Create a square mobile website banner variant of this reference business research and editorial analysis photograph. Preserve these same two fictional people, natural expressions, clothes, professional setting and purpose. Recompose as a distant environmental view with both COMPLETE heads and hair together in the UPPER RIGHT quadrant, all important faces between x55–90% across, heads starting 20–23% down and faces ending no lower than 36% down. Keep the top 18% only architecture for navigation. The left half is a calm softly defocused dark neutral wall; the lower 60% is uninterrupted darker studio or desk foreground for live HTML text. Both people should be small and completely inside the rightmost 40%, no heads touching edges. Keep the reference book, tablet and market chart visible just below the faces within upper 48%. No text, new people, logos, watermark, collage, cut heads or synthetic blur band. Authentic natural photographic texture and light. Square 1:1 canvas.
+```
+
+### videos-expert-recording-v4
+
+Saved assets: `public/assets/stock-heroes/videos-expert-recording-v4.webp`, responsive 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/videos-expert-recording-v4.webp`.
+
+Desktop prompt:
+
+```text
+Use case: photorealistic-natural. Asset type: wide 3:1 professional website banner for franchise learning Videos. A candid behind-the-scenes editorial photograph of a relaxed experienced business expert in a light blue shirt and a friendly female interviewer in a charcoal blouse having an engaged informative conversation, seated diagonally in a clean modern recording studio. One compact professional video camera on a small tripod is visible at the FAR RIGHT edge aimed at them, not covering either face; discreet clip microphones and one notebook make the video-learning purpose clear. Genuine thoughtful expressions and natural small smiles, realistic skin and anatomically natural hands. Soft studio window lighting, muted slate and warm oak acoustic wall, restrained plant, clean professional environment, no dramatic coloured lighting. Composition: both COMPLETE heads in the RIGHTMOST 42 percent, tops of heads 30–34 percent down the canvas, faces end by 62 percent down; complete seated upper bodies and a natural hand gesture in lower right. Left 53 percent is calm softly defocused dark blue-grey studio wall with no objects for white HTML title. Top quarter is empty architecture reserved for the navigation. Camera must not touch heads. No captions, words, logos, watermark, glowing graphics, artificial grins, stock-photo handshake or cropped heads. Single realistic panoramic 3:1 photograph.
+```
+
+Mobile composition prompt:
+
+```text
+Use case: photorealistic-natural. Create a square mobile website banner variant of this reference filmed business expert discussion photograph. Preserve these same two fictional people, natural expressions, clothes, professional setting and purpose. Recompose as a distant environmental view with both COMPLETE heads and hair together in the UPPER RIGHT quadrant, all important faces between x55–90% across, heads starting 20–23% down and faces ending no lower than 36% down. Keep the top 18% only architecture for navigation. The left half is a calm softly defocused dark neutral wall; the lower 60% is uninterrupted darker studio or desk foreground for live HTML text. Both people should be small and completely inside the rightmost 40%, no heads touching edges. Keep a discreet camera at the far right and the interview notebook visible just below the faces within upper 48%. No text, new people, logos, watermark, collage, cut heads or synthetic blur band. Authentic natural photographic texture and light. Square 1:1 canvas.
+```

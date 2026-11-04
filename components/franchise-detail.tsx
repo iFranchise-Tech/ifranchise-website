@@ -50,7 +50,7 @@ export function FranchiseDetail({brand:original,brands}:{brand:any;brands:any[]}
    </section>
    {questions.length>0&&<section className="dossier-questions dossier-section" id="questions"><div className="profile-section-heading"><h2>Before you take the next step</h2></div><Questions items={questions}/></section>}
    </div>
-   <BrandEnquiryPanel key={b.slug} name={b.name} slug={b.slug}/>
+   <BrandEnquiryPanel key={b.slug} name={b.name} slug={b.slug} logo={b.logo} logoPresentation={b.logoPresentation} logoAlt={b.logoAlt}/>
   </div>
 
   <section className="profile-related-band"><div className="p-container p-section dossier-related"><SectionHeading title="Other opportunities"><InlineLink href="/franchise-opportunities">View all brands</InlineLink></SectionHeading><div className="p-brand-grid">{(selectedItems(b.relatedBrands,brands.filter(x=>x.slug!==b.slug))??brands.filter(x=>x.slug!==b.slug).sort((a,c)=>Number(c.category===b.category)-Number(a.category===b.category)).slice(0,3)).map((x:any)=><BrandCard brand={x} key={x.slug}/>)}</div></div></section>
