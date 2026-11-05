@@ -71,10 +71,27 @@ test('lead notification includes labelled contact, enquiry, timestamp and safe s
   assert.equal(message.from,'iFranchise <contact@ifranchise.in>');assert.deepEqual(message.to,['contact@ifranchise.in']);
   assert.equal(message.reply_to,'ananya@example.test');
   for(const content of [message.html,message.text]){
-    for(const value of ['Received','IST','Contact details','Ananya Rao','ananya@example.test','+14155552671','Karnataka','Bengaluru','Investment preference','Exploring','Please share the available formats.','Source page',origin+'/franchise-opportunities/example',origin+'/admin/inbox/synthetic-lead'])assert(content.includes(value),value);
+    for(const value of ['Received','IST','Contact details','Ananya Rao','ananya@example.test','+14155552671','Karnataka','Bengaluru','Investment preference','Exploring','Please share the available formats.','Source page','https://ifranchise.in/franchise-opportunities/example',origin+'/admin/inbox/synthetic-lead'])assert(content.includes(value),value);
     for(const excluded of ['private@example.test','PRIVATE-SECRET','PRIVATE-QUERY','PRIVATE-HASH'])assert(!content.includes(excluded),excluded);
   }
   assert(message.html.includes('Example &amp; Co'));assert(message.text.includes('Example & Co'));
+});
+
+test('source pages use the live domain while CMS links retain their configured origin', () => {
+  const workerOrigin='https://ifranchise-website.damp-field-d970.workers.dev';
+  for(const storage of ['sheets','cms']){
+    for(const path of ['/contact-us','/franchise/odette','/list-your-brand']){
+      const message=websiteEmail({to:['contact@ifranchise.in'],origin:workerOrigin,storage,record:{id:'synthetic-lead',kind:'general',payload:JSON.stringify({
+        name:'Test Visitor',email:'visitor@example.test',sourcePage:path+'?email=PRIVATE-EMAIL#PRIVATE-HASH',
+      })}});
+      for(const content of [message.html,message.text]){
+        assert(content.includes('https://ifranchise.in'+path));
+        assert(!content.includes(workerOrigin+path));
+        assert(!content.includes('PRIVATE-EMAIL'));assert(!content.includes('PRIVATE-HASH'));
+        assert.equal(content.includes(workerOrigin+'/admin/inbox/synthetic-lead'),storage==='cms');
+      }
+    }
+  }
 });
 
 test('unsafe or missing source pages are omitted rather than presented as trusted attribution', () => {
