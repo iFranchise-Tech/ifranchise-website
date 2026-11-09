@@ -30,8 +30,8 @@ test('client routing handles internal pages while preserving external links and 
 });
 test('confirmation returns to the originating page and scroll position, without private form answers',()=>{
  const s=storage();let destination;
- showConfirmation({sessionStorage:s,location:{pathname:'/franchise/franco',hash:'#enquire',search:'?email=private'},scrollY:950},path=>destination=path);
- assert.equal(destination,'/thank-you');assert.deepEqual(confirmationReturn(s),{path:'/franchise/franco#enquire',y:950,kind:'general'});
+ showConfirmation({sessionStorage:s,location:{pathname:'/franchise-opportunities/franco',hash:'#enquire',search:'?email=private'},scrollY:950},path=>destination=path);
+ assert.equal(destination,'/thank-you');assert.deepEqual(confirmationReturn(s),{path:'/franchise-opportunities/franco#enquire',y:950,kind:'general'});
  assert(!JSON.stringify([...s.map]).includes('email'));assert(!JSON.stringify([...s.map]).includes('private'));
 });
 test('confirmation cannot redirect off-site or into privileged routes, and expires',()=>{

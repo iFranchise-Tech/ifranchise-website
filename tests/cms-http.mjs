@@ -28,7 +28,7 @@ job=await change(job,'save-publish',{payload:job.draft});assert.equal(job.status
 let order=(await api('?id=placements:franchises')).record;const initialOrder=order.draft;const ids=[...order.draft.ids].reverse();
 await change(order,'save-publish',{payload:{...order.draft,ids:[...ids,'not-a-real-brand']}},422);
 order=await change(order,'save-publish',{payload:{...order.draft,ids}});assert.equal(order.status,'published');
-const catalogue=await (await fetch(base+'/franchise-opportunities')).text();const first=catalogue.indexOf('opportunity-card');assert.ok(catalogue.slice(first,first+800).includes('/franchise/'+ids[0]));
+const catalogue=await (await fetch(base+'/franchise-opportunities')).text();const first=catalogue.indexOf('opportunity-card');assert.ok(catalogue.slice(first,first+800).includes('/franchise-opportunities/'+ids[0]));
 await change(order,'save-publish',{payload:initialOrder});await change(job,'archive');
 for(const id of ['pages:homepage','faqs:homepage']){const p=(await api('?id='+id)).record;const next=await change(p,'save-publish',{payload:p.draft});assert.equal(next.status,'published');assert.equal(next.version,p.version+1);}
 const badMember={name:'Personal email',email:'bad@gmail.com',role:'editor',scopes:['articles'],manager:overview.me.email,status:'invited'};

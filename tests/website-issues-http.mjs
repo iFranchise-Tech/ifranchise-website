@@ -18,7 +18,7 @@ for(const [path,image] of [['/','/assets/stock-heroes/home-business-consultation
  if(path.startsWith('/resources')){assert(!html.includes('Fresh perspectives'));assert(!html.includes('Newly added'));}
  checks++;
 }
-for(const slug of ['odette','emori']){const r=await fetch(base+'/franchise/'+slug+'/thank-you');assert.equal(r.status,200);const html=await r.text();assert(html.includes('noindex'));assert(html.includes('Franchise enquiries'));assert(!html.includes('Your enquiry about'));checks++;}
-assert.equal((await fetch(base+'/franchise/no-such-brand/thank-you')).status,404);checks++;
+for(const slug of ['odette','emori']){const r=await fetch(base+'/franchise-opportunities/'+slug+'/thank-you');assert.equal(r.status,200);const html=await r.text();assert(html.includes('noindex'));assert(html.includes('Franchise enquiries'));assert(!html.includes('Your enquiry about'));checks++;}
+assert.equal((await fetch(base+'/franchise-opportunities/no-such-brand/thank-you')).status,404);checks++;
 console.log('PASS: changed public routes, distinct stock assets, one resource grid, safe direct confirmation routes and unknown-brand 404.');
 console.log('PASS '+checks+' website issue HTTP checks. No published content was changed.');

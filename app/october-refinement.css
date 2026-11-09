@@ -29,7 +29,7 @@ html:has(.brand-dossier){scroll-padding-top:0}
 .brand-enquiry-dialog{width:min(440px,calc(100% - 28px));max-height:calc(100dvh - 32px);padding:0;border:0;border-radius:12px;overflow:auto;overscroll-behavior:contain;margin:auto 14px auto auto}
 .brand-enquiry-dialog::backdrop{background:#14102088}
 .brand-enquiry-dialog .brand-enquiry-card{border:0;border-radius:0}
-.brand-mobile-contact{position:fixed;right:0;top:50%;transform:translateY(-50%);width:44px;height:248px;z-index:42;font:600 13px/1.4 Manrope,sans-serif;transition:height .3s ease;isolation:isolate}
+.brand-mobile-contact{position:fixed;right:0;top:28%;transform:translateY(-50%);width:44px;height:248px;z-index:42;font:600 13px/1.4 Manrope,sans-serif;transition:height .3s ease;isolation:isolate}
 .brand-contact-actions{display:flex;flex-direction:column;border-radius:8px 0 0 0;box-shadow:-3px 3px 14px #211b3114;overflow:hidden;transition:transform .3s ease,opacity .25s ease}
 .brand-mobile-contact button,.brand-mobile-contact a{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px;border:0;background:var(--p-raised);color:var(--p-brand);cursor:pointer;font:inherit}
 .brand-mobile-contact a{border-left:1px solid var(--p-line);border-bottom:1px solid var(--p-line)}

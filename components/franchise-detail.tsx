@@ -17,7 +17,7 @@ export function FranchiseDetail({brand:original,brands}:{brand:any;brands:any[]}
  const specIcons:Record<string,any>={'Operating model':Layers,'Space requirement':Maximize2,'Location format':MapPin,'Franchise fee':Wallet,'Agreement term':FileText,'Lock-in period':Clock};
  const questions=brandQuestions(b),terms=returnDetails(b),outlets=outletLabel(b);
  const outletParts=outlets?.match(/^([\d,.]+(?:\s*[–-]\s*[\d,.]+)?\+?)\s*(.*)$/);
- const schema={'@context':'https://schema.org','@graph':[{'@type':'WebPage',name:b.name+' Franchise Opportunity',url:SITE.url+'/franchise/'+b.slug,description:b.description,mainEntity:{'@type':'Brand',name:b.name,logo:new URL(b.logo,SITE.url).href}},{'@type':'FAQPage',mainEntity:questions.map(({q,a}:any)=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}]};
+ const schema={'@context':'https://schema.org','@graph':[{'@type':'WebPage',name:b.name+' Franchise Opportunity',url:SITE.url+'/franchise-opportunities/'+b.slug,description:b.description,mainEntity:{'@type':'Brand',name:b.name,logo:new URL(b.logo,SITE.url).href}},{'@type':'FAQPage',mainEntity:questions.map(({q,a}:any)=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}]};
  return <main id="main" className="p-page brand-dossier brand-profile">
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>
   <div className="p-container dossier-layout">

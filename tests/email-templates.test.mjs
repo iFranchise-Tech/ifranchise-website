@@ -80,12 +80,13 @@ test('lead notification includes labelled contact, enquiry, timestamp and safe s
 test('source pages use the live domain while CMS links retain their configured origin', () => {
   const workerOrigin='https://ifranchise-website.damp-field-d970.workers.dev';
   for(const storage of ['sheets','cms']){
-    for(const path of ['/contact-us','/franchise/odette','/list-your-brand']){
+    for(const path of ['/contact-us','/franchise-opportunities/odette','/franchise/odette','/list-your-brand']){
       const message=websiteEmail({to:['contact@ifranchise.in'],origin:workerOrigin,storage,record:{id:'synthetic-lead',kind:'general',payload:JSON.stringify({
         name:'Test Visitor',email:'visitor@example.test',sourcePage:path+'?email=PRIVATE-EMAIL#PRIVATE-HASH',
       })}});
       for(const content of [message.html,message.text]){
-        assert(content.includes('https://ifranchise.in'+path));
+        const canonicalPath=path==='/franchise/odette'?'/franchise-opportunities/odette':path;
+        assert(content.includes('https://ifranchise.in'+canonicalPath));
         assert(!content.includes(workerOrigin+path));
         assert(!content.includes('PRIVATE-EMAIL'));assert(!content.includes('PRIVATE-HASH'));
         assert.equal(content.includes(workerOrigin+'/admin/inbox/synthetic-lead'),storage==='cms');

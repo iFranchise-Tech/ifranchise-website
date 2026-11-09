@@ -12,11 +12,11 @@ test('asset routing serves build files without probing page, RSC or API navigati
   assert.equal(isStaticAssetRequest(request(path,'HEAD')),true,path);
   assert.equal(isStaticAssetRequest(request(path,'POST')),false,path);
  }
- for(const path of ['/','/franchise/emori','/franchise/emori.rsc','/careers.rsc?_rsc=123','/admin','/api/admin/export.json','/api/intake/session','/_next/image?url=/photo.webp'])assert.equal(isStaticAssetRequest(request(path)),false,path);
+ for(const path of ['/','/franchise/emori','/franchise/emori.rsc','/franchise-opportunities/emori','/franchise-opportunities/emori.rsc','/careers.rsc?_rsc=123','/admin','/api/admin/export.json','/api/intake/session','/_next/image?url=/photo.webp'])assert.equal(isStaticAssetRequest(request(path)),false,path);
 });
 
 test('the cache excludes pages, personal data, uploads and application endpoints',()=>{
- for(const path of ['/','/admin','/franchise/emori','/api/intake/session','/api/admin/intake/resume/1','/media/resume.pdf','/api/admin/records','/private/document.webp','/optimized/unhashed.webp','/assets/stock-heroes/private/photo.webp','/assets/stock-heroes/photo.svg','/assets/home-hero/plan-to-presence.mp4'])assert.equal(isCacheableAsset(path),false,path);
+ for(const path of ['/','/admin','/franchise/emori','/franchise-opportunities/emori','/api/intake/session','/api/admin/intake/resume/1','/media/resume.pdf','/api/admin/records','/private/document.webp','/optimized/unhashed.webp','/assets/stock-heroes/private/photo.webp','/assets/stock-heroes/photo.svg','/assets/home-hero/plan-to-presence.mp4'])assert.equal(isCacheableAsset(path),false,path);
  for(const path of ['/_next/static/chunks/index-ab123.js','/_next/static/css/index.ab123.css','/optimized/retail-123456abcdef-800.webp','/fonts/manrope-400.woff2','/assets/ifranchise-wordmark.svg','/assets/stock-heroes/blogs-business-journal-hd-1440.webp','/assets/stock-heroes/mobile/about-collaborative-team-hd.webp','/assets/home-hero/plan-to-presence.webp'])assert.equal(isCacheableAsset(path),true,path);
  assert.equal(isCacheableResponse(new Response('<html>Sign in</html>',{headers:{'content-type':'text/html'}})),false);
  assert.equal(isCacheableResponse(new Response('data',{status:403,headers:{'content-type':'image/webp'}})),false);

@@ -8,7 +8,7 @@ const preview = /preview:\s*true/.test(site);
 const siteUrl = (site.match(/url:\s*'([^']+)'/) || [])[1];
 assert.ok(siteUrl);
 
-const routes = ['/', '/franchise-opportunities', '/for-brands', '/contact-us', '/guides', '/privacy-policy', '/franchise/odette', '/franchise/emori', '/franchise/kasturi-creations', '/guides/franchise-models', '/guides/franchise-enquiry-checklist', '/guides/franchise-ready-brand'];
+const routes = ['/', '/franchise-opportunities', '/for-brands', '/contact-us', '/guides', '/privacy-policy', '/franchise-opportunities/odette', '/franchise-opportunities/emori', '/franchise-opportunities/kasturi-creations', '/guides/franchise-models', '/guides/franchise-enquiry-checklist', '/guides/franchise-ready-brand'];
 
 for (const path of routes) {
   const res = await fetch(root + path);
@@ -42,7 +42,7 @@ for (const asset of ['/assets/storefronts.webp', '/assets/wordmark.svg', '/asset
   assert.equal((await fetch(root + asset)).status, 200, asset);
 }
 
-assert.equal((await fetch(root + '/franchise/not-a-brand')).status, 404);
+assert.equal((await fetch(root + '/franchise-opportunities/not-a-brand')).status, 404);
 assert.equal((await fetch(root + '/api/brochures/odette')).status, 410);
 assert.equal((await fetch(root + '/brochures/odette.pdf')).status, 404);
 console.log('PASS sitemap, robots, image assets, brochure gate and 404 route');

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {accessCredential, isStaffPath} from '../lib/access-gate.mjs';
 
 test('public website paths do not require Cloudflare Access', () => {
-  for (const path of ['/', '/franchise-opportunities', '/franchise/odette', '/about-us', '/contact-us', '/careers', '/resources', '/resources/blogs/example', '/blogs', '/privacy-policy', '/api/intake/session', '/api/intake/enquiries', '/api/intake/applications', '/api/locations', '/api/brochures/odette', '/media/11111111-1111-4111-8111-111111111111.png', '/fonts/sora-800.woff2', '/assets/ifranchise-wordmark.svg']) {
+  for (const path of ['/', '/franchise-opportunities', '/franchise-opportunities/odette', '/franchise-opportunities/odette/thank-you', '/franchise/odette', '/about-us', '/contact-us', '/careers', '/resources', '/resources/blogs/example', '/blogs', '/privacy-policy', '/api/intake/session', '/api/intake/enquiries', '/api/intake/applications', '/api/locations', '/api/brochures/odette', '/media/11111111-1111-4111-8111-111111111111.png', '/fonts/sora-800.woff2', '/assets/ifranchise-wordmark.svg']) {
     assert.equal(isStaffPath(path), false, path);
   }
 });

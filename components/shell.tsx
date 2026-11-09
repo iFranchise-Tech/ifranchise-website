@@ -89,6 +89,6 @@ export function WhatsAppButton({brand}:{brand?:string}={}){const contact=useSite
  const path=usePathname(),[footerVisible,setFooterVisible]=useState(false);
  useEffect(()=>{const footer=document.querySelector('.p-footer');if(!footer)return;const observer=new IntersectionObserver(([entry])=>setFooterVisible(entry.isIntersecting));observer.observe(footer);return()=>observer.disconnect()},[path]);
 
- if((path.startsWith('/franchise/')&&!brand)||path==='/'||path==='/contact-us'||path==='/careers'||path.startsWith('/careers/')||footerVisible)return null;
+ if((path.startsWith('/franchise-opportunities/')&&!brand)||path==='/'||path==='/contact-us'||path==='/careers'||path.startsWith('/careers/')||footerVisible)return null;
  return <a className="whatsapp-float whatsapp-compact" href={whatsappUrl(brand,contact.phone)} target="_blank" rel="noopener noreferrer" aria-label={brand?`Chat about ${brand} on WhatsApp`:"Chat with iFranchise on WhatsApp"}><Icon name="whatsapp" width="25"/></a>
 }

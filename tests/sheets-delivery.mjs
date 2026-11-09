@@ -12,6 +12,7 @@ import {withIntakeContext} from '../lib/intake/context.ts';
 import {POST as enquiry} from '../app/api/intake/enquiries/route.ts';
 import {POST as application} from '../app/api/intake/applications/route.ts';
 import {createReceiver,PDF} from './apps-script-harness.mjs';
+import {setCareersOpen} from './careers-status-stub.mjs';
 
 const {DB,database}=localD1();
 for(const file of readdirSync('drizzle').filter(f=>f.endsWith('.sql')).sort())database.exec(readFileSync('drizzle/'+file,'utf8'));
@@ -139,6 +140,20 @@ test('Sheets-only lead delivery and existing receiver contract',async t=>{
    const result=await withIntakeContext({waitUntil:p=>{background=p;}},()=>acceptSubmission(req,payload));
    assert(rows.has(result.reference));assert(background);await background;noCopies();
   });
+  await t.test('closed recruitment rejects both link and PDF applications without storing or emailing them',async()=>{
+   setCareersOpen(false);
+   const beforeRequests=requests.length,beforeRows=rows.size,beforeFiles=receiver.state.files.size,beforeEmails=emails.length;
+   for(const upload of [false,true]){
+    const job=await input(jobFields);
+    const response=upload?await submitApplication(job):await application(new Request(job.req.url.replace('enquiries','applications'),{method:'POST',headers:job.req.headers,body:JSON.stringify(job.payload)}));
+    const result=await response.json();
+    assert.equal(response.status,422);assert.match(result.error,/not accepting job applications/);assert.equal(result.received,undefined);
+   }
+   assert.equal(requests.length,beforeRequests);assert.equal(rows.size,beforeRows);assert.equal(receiver.state.files.size,beforeFiles);assert.equal(emails.length,beforeEmails);noCopies();
+  });
+  // The remaining application cases model recruitment reopening. Keep the
+  // production setting untouched and exercise validation and delivery fully.
+  setCareersOpen(true);
   await t.test('unsupported privacy and incomplete PDFs fail clearly without D1/R2 fallback',async()=>{
    const before=requests.length;
    const privacy=await input({kind:'privacy',requestType:'Access my information'}),pr=await enquiry(privacy.req);
@@ -216,5 +231,5 @@ test('Sheets-only lead delivery and existing receiver contract',async t=>{
    assert.equal(database.prepare('SELECT count(*) n FROM website_submissions').get().n,1);assert.equal(database.prepare('SELECT count(*) n FROM email_outbox').get().n,0);
   });
   assert(!logs.join('').includes(base.email));assert(!logs.join('').includes(base.phone));assert(!logs.join('').includes('mock-key'));assert(!logs.join('').includes('private provider'));
- }finally{globalThis.fetch=realFetch;console.info=realInfo;await new Promise(resolve=>server.close(resolve));}
+ }finally{setCareersOpen(false);globalThis.fetch=realFetch;console.info=realInfo;await new Promise(resolve=>server.close(resolve));}
 });

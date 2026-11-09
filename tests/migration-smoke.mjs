@@ -48,7 +48,7 @@ for (const brand of brands.filter((item) => item.brochure)) {
 }
 
 const map = await (await fetch(root + '/sitemap.xml')).text();
-for (const path of ['/', '/franchise-opportunities', '/list-your-brand', '/contact-us', '/privacy-policy', '/franchise/odette']) {
+for (const path of ['/', '/franchise-opportunities', '/list-your-brand', '/contact-us', '/privacy-policy', '/franchise-opportunities/odette']) {
   assert(map.includes(siteUrl + (path === '/' ? '' : path)), 'sitemap ' + path);
 }
 
@@ -59,5 +59,5 @@ for (const [from, to] of Object.entries(redirects)) {
 }
 
 assert.equal((await fetch(root + '/not-an-existing-route')).status, 404);
-assert.equal((await fetch(root + '/franchise/not-a-brand')).status, 404);
+assert.equal((await fetch(root + '/franchise-opportunities/not-a-brand')).status, 404);
 console.log('PASS ' + routes.length + ' server-rendered pages, 12 brands, gated brochures, sitemap, ' + Object.keys(redirects).length + ' redirects and 404s');

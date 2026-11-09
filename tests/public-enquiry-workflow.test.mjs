@@ -18,33 +18,33 @@ for(const kind of ['investor','brand','general','job'])test(`${kind}: internal a
 });
 test('all public forms preserve pre-submit context, query, fragment and scroll without personal data',()=>{
  for(const kind of ['investor','brand','general','job','privacy']){
-  const values=new Map(),storage={setItem:(k,v)=>values.set(k,v),getItem:k=>values.get(k)},win={sessionStorage:storage,location:{pathname:'/franchise/odette',search:'?journey=investor&brand=odette&email=private',hash:'#enquire'},scrollY:450};
+  const values=new Map(),storage={setItem:(k,v)=>values.set(k,v),getItem:k=>values.get(k)},win={sessionStorage:storage,location:{pathname:'/franchise-opportunities/odette',search:'?journey=investor&brand=odette&email=private',hash:'#enquire'},scrollY:450};
   const target=captureConfirmationOrigin(win,kind);win.location.pathname='/';let next;showConfirmation(win,p=>next=p,target);
-  assert.equal(next,kind==='investor'?'/franchise/odette/thank-you':'/thank-you');assert.deepEqual(confirmationReturn(storage),{path:'/franchise/odette?journey=investor&brand=odette#enquire',y:450,kind});assert(![...values.values()].join('').includes('private'));
+  assert.equal(next,kind==='investor'?'/franchise-opportunities/odette/thank-you':'/thank-you');assert.deepEqual(confirmationReturn(storage),{path:'/franchise-opportunities/odette?journey=investor&brand=odette#enquire',y:450,kind});assert(![...values.values()].join('').includes('private'));
  }
 });
 test('accepted brand enquiries use the original brand URL, including when storage is unavailable',async()=>{
  for(const slug of ['odette','emori','original-burger-co']){
   for(const clientRouting of [true,false]){
    let destination;
-   const win={get sessionStorage(){throw Error('blocked')},location:{pathname:`/franchise/${slug}/`,search:'?email=private&brand=another-brand',hash:'#enquire',assign:path=>destination=path},scrollY:500};
+   const win={get sessionStorage(){throw Error('blocked')},location:{pathname:`/franchise-opportunities/${slug}/`,search:'?email=private&brand=another-brand',hash:'#enquire',assign:path=>destination=path},scrollY:500};
    const target=captureConfirmationOrigin(win,'investor');
    await readReceipt(Response.json({received:true,reference:'IF-saved'}));
    win.location.pathname='/contact-us';
    showConfirmation(win,clientRouting?path=>destination=path:undefined,target);
-   assert.equal(destination,`/franchise/${slug}/thank-you`);
+   assert.equal(destination,`/franchise-opportunities/${slug}/thank-you`);
   }
  }
 });
 test('non-brand enquiry pages and invalid origins keep the generic confirmation URL',()=>{
- for(const path of ['/contact-us?brand=odette','/franchise-opportunities','/list-your-brand','/careers/example','/franchise/odette/thank-you','/franchise/odette/other','/franchise/odette/../../admin','//evil.test/franchise/odette']){
+ for(const path of ['/contact-us?brand=odette','/franchise-opportunities','/list-your-brand','/careers/example','/franchise-opportunities/odette/thank-you','/franchise-opportunities/odette/other','/franchise-opportunities/odette/../../admin','//evil.test/franchise-opportunities/odette']){
   let destination;
   showConfirmation({},value=>destination=value,{path,y:0,kind:'investor'});
   assert.equal(destination,'/thank-you',path);
  }
 });
 test('return destinations reject external, encoded and normalized privileged routes',()=>{
- for(const path of ['https://evil.test','//evil.test','/\\evil.test','/%2f%2fevil.test','/%5cevil.test','/%61dmin/inbox','/foo/../admin','/foo/%2e%2e/api/private','/%2561dmin','/cms/activate','/thank-you','/franchise/foo/thank-you','/a%0ab'])assert.equal(safeReturnPath(path),null,path);
+ for(const path of ['https://evil.test','//evil.test','/\\evil.test','/%2f%2fevil.test','/%5cevil.test','/%61dmin/inbox','/foo/../admin','/foo/%2e%2e/api/private','/%2561dmin','/cms/activate','/thank-you','/franchise-opportunities/foo/thank-you','/a%0ab'])assert.equal(safeReturnPath(path),null,path);
  assert.equal(safeReturnPath('/resources/articles?q=business%20growth&page=2#results'),'/resources/articles?q=business%20growth&page=2#results');
 });
 test('HTML, redirects, malformed JSON and false receipts cannot trigger confirmation or expose raw errors',async()=>{

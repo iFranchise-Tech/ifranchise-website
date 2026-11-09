@@ -20,5 +20,13 @@ await build({
   bundle: true, platform: 'node', format: 'esm',
   define: {'import.meta.env.DEV': 'true'},
   alias: {'cloudflare:workers': join(root, 'tests/cloudflare-workers-stub.mjs'), 'next/headers': join(root, 'tests/next-headers-stub.mjs')},
+  plugins: [{
+    name: 'careers-status-fixture',
+    setup(builder) {
+      builder.onResolve({filter: /^\.\.\/careers-status$/}, ({resolveDir}) => {
+        if (resolveDir === join(root, 'lib/intake')) return {path: join(root, 'tests/careers-status-stub.mjs')};
+      });
+    },
+  }],
 });
 await run(process.execPath, ['--test', outfile]);

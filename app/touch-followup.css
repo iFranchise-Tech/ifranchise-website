@@ -30,8 +30,6 @@
 @keyframes form-step-arrive{from{opacity:.6}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.p-site .confirmation-card,.p-site .confirmation-card h1,.p-site .submission-check-success svg,.p-site .confirmation-card .submission-check,.p-site .p-form-step:not([hidden]){animation:none}}
 @media(max-width:767px){
- .p-site .p-home .p-video-hero,.p-site .p-home .p-video-hero-inner{min-height:100vh;min-height:100lvh;height:auto}
- .p-site .p-home .p-video-hero-inner{box-sizing:border-box}
  .p-site .confirmation-card{padding:28px 24px}
 }
 @media(prefers-reduced-motion:reduce){.page-navigation-progress{animation:none}}
