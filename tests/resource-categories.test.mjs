@@ -10,7 +10,7 @@ test('every imported blog and article has exactly one category, without losing a
  const groups=resourceCategories.map(c=>filterResources(items,{category:c.id}));
  assert.equal(groups.flat().length,items.length);
  assert.equal(new Set(groups.flat().map(a=>a.slug)).size,items.length);
- assert.deepEqual(groups.map(g=>g.length),[61,61,6,8]);
+ assert.deepEqual(groups.map(g=>g.length),[62,61,6,9]);
 });
 test('fundamentals and industry guides retain their topic identity',()=>{
  assert(filterResources(articles,{category:'franchise-basics'}).every(a=>a.category==='Fundamentals'));
@@ -29,10 +29,10 @@ test('category, topic and search filters combine and reset to the full library',
  assert(result.length>0);
  assert(result.every(a=>a.audience==='investor'&&a.category==='Investment'));
  assert.equal(filterResources(items,{category:'industries',topic:'Investment'}).length,0);
- assert.equal(filterResources(items).length,136);
+ assert.equal(filterResources(items).length,138);
 });
 test('video and FAQ entries remain in all resources without becoming articles',()=>{
  const mixed=[...items,{type:'Video',title:'Future video'},{type:'FAQs',title:'Questions'}];
- assert.equal(filterResources(mixed).length,138);
+ assert.equal(filterResources(mixed).length,140);
  assert.equal(filterResources(mixed,{category:'franchise-basics'}).length,6);
 });

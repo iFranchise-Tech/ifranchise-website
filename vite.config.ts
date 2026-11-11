@@ -3,7 +3,7 @@ import {defineConfig} from 'vite';
 
 // The previous Sites preview config is kept in vite.config.sites.ts.
 // This file is the Cloudflare Workers development and build config.
-export default defineConfig(async () => {
+export default defineConfig(async ({command}) => {
   process.env.CLOUDFLARE_CF_FETCH_ENABLED ??= 'false';
   process.env.WRANGLER_SEND_METRICS ??= 'false';
   const {cloudflare} = await import('@cloudflare/vite-plugin');
@@ -14,6 +14,13 @@ export default defineConfig(async () => {
     // Bundle the icon library in development instead of loading thousands of
     // individual modules through the local Workers server for each session.
     optimizeDeps: {include: ['lucide-react']},
-    plugins: [vinext(), cloudflare({configPath: 'wrangler.jsonc', viteEnvironment: {name: 'rsc', childEnvironments: ['ssr']}, inspectorPort: false})],
+    plugins: [vinext(), cloudflare({
+      configPath: 'wrangler.jsonc',
+      // Let Vite serve its virtual browser modules in development. Sending
+      // these through the Worker first returns an HTML page instead of JS.
+      ...(command === 'serve' ? {config: config => ({assets: {...config.assets, run_worker_first: false}})} : {}),
+      viteEnvironment: {name: 'rsc', childEnvironments: ['ssr']},
+      inspectorPort: false,
+    })],
   };
 });

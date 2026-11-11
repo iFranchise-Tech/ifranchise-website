@@ -21,10 +21,10 @@ html[data-theme=light] .p-expansion-next{color:#32159b;background:#ffffffeb;padd
 .journal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .p-site .journal-card{display:flex;flex-direction:column;min-width:0;text-decoration:none;background:var(--p-bg);color:var(--p-ink);border:1px solid var(--p-line);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
 .p-site .journal-card:hover{transform:translateY(-4px);border-color:var(--p-brand);box-shadow:var(--p-shadow)}
-.journal-card-art{aspect-ratio:3/2;position:relative;overflow:hidden;background:var(--p-surface);flex:none}
-.journal-card-art .editorial-cover{height:100%;width:100%;display:block;background:none}
-.journal-card-art .editorial-cover-image{display:block;width:100%;height:100%;max-height:none;object-fit:contain;filter:none}
-.journal-card-placeholder{display:grid;place-items:center;height:100%;color:var(--p-brand);background:var(--p-brand-soft)}
+.journal-card-art{aspect-ratio:auto;position:relative;overflow:hidden;background:transparent;flex:none}
+.journal-card-art .editorial-cover{height:auto;width:100%;display:block;background:none;aspect-ratio:auto}
+.journal-card-art .editorial-cover>img.editorial-cover-image{display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center;filter:none}
+.journal-card-placeholder{display:grid;place-items:center;aspect-ratio:3/2;height:auto;color:var(--p-brand);background:var(--p-brand-soft)}
 .journal-play{position:absolute;left:18px;bottom:18px;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff;color:#32159b}
 .journal-card-copy{display:flex;flex-direction:column;align-items:stretch;flex:1;padding:23px 24px 20px}
 .journal-meta{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:11px;color:var(--p-muted);line-height:1.5;margin-bottom:16px}
@@ -171,7 +171,7 @@ html[data-theme=light] .p-expansion-next{color:#32159b;background:#ffffffeb;padd
  html[data-theme=light] .p-expansion-hero>img{opacity:.65}
  .p-page .p-expansion-copy h1{font-size:45px}
  .journal-grid{grid-template-columns:minmax(0,1fr);gap:25px}
- .journal-card-art{aspect-ratio:3/2}
+ .journal-card-art{aspect-ratio:auto}
  .journal-card-copy{padding:22px}
  .p-page .journal-card h2{font-size:21px;min-height:0;margin-bottom:13px}
  .p-page .journal-card p{font-size:14px}
