@@ -2,7 +2,7 @@ export const SITE = {
   name: 'iFranchise',
   url: 'https://www.ifranchise.in',
   productionUrl: 'https://www.ifranchise.in',
-  preview: true,
+  preview: false,
   phone: '+91 91291 30303',
   email: 'contact@ifranchise.in',
 };
