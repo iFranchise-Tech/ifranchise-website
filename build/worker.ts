@@ -7,6 +7,7 @@ import {withIntakeContext} from '../lib/intake/context';
 import {verifyAccessToken} from '../lib/access-token.mjs';
 import {maintainEmailQueue} from '../lib/email/service';
 import {isStaticAssetRequest} from '../lib/static-asset-request.mjs';
+import {preferPermanentRedirect, seoResponse} from '../lib/seo-http.mjs';
 function noStore(response: Response) {
   const result = new Response(response.body, response);
   result.headers.set('Cache-Control', 'no-store');
@@ -17,7 +18,9 @@ export default {
     ctx.waitUntil(maintainEmailQueue(env));
   },
   async fetch(request:Request, env:Cloudflare.Env, ctx:ExecutionContext) {
-    return cmsApiResponse(request, async () => {
+    const early = seoResponse(request);
+    if (early) return early;
+    const response = await cmsApiResponse(request, async () => {
     const url = new URL(request.url);
     // Public pages and public APIs do not require a login.
     // Preview and production staff routes require a verified Access token.
@@ -63,5 +66,6 @@ export default {
     }
     return response;
     });
+    return preferPermanentRedirect(request, response);
   }
 };

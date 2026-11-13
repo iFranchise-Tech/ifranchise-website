@@ -11,7 +11,8 @@ assert.ok(siteUrl);
 const read = (name) => JSON.parse(readFileSync(new URL('../content/' + name + '.json', import.meta.url), 'utf8'));
 const brands = read('brands');
 const redirects = read('redirects');
-const routes = [...new Set([...read('route-inventory').map((x) => x.path), '/franchise-solutions', '/insights', '/data-rights-request', '/for-brands', '/guides', '/guides/franchise-models', '/guides/franchise-enquiry-checklist', '/guides/franchise-ready-brand'])];
+const gone = new Set(read('gone'));
+const routes = [...new Set([...read('route-inventory').map((x) => x.path), '/franchise-solutions', '/insights', '/data-rights-request', '/for-brands', '/guides', '/guides/franchise-models', '/guides/franchise-enquiry-checklist', '/guides/franchise-ready-brand'])].filter((path) => !gone.has(path));
 
 assert.equal(brands.length, 12);
 assert.equal(read('blogs').length, 7);
@@ -54,10 +55,11 @@ for (const path of ['/', '/franchise-opportunities', '/list-your-brand', '/conta
 
 for (const [from, to] of Object.entries(redirects)) {
   const r = await fetch(root + from, {redirect: 'manual'});
-  assert.equal(r.status, 308, from);
+  assert.equal(r.status, 301, from);
   assert.equal(r.headers.get('location'), to, from);
 }
 
+for (const path of gone) assert.equal((await fetch(root + path, {redirect: 'manual'})).status, 410, path);
 assert.equal((await fetch(root + '/not-an-existing-route')).status, 404);
 assert.equal((await fetch(root + '/franchise-opportunities/not-a-brand')).status, 404);
 console.log('PASS ' + routes.length + ' server-rendered pages, 12 brands, gated brochures, sitemap, ' + Object.keys(redirects).length + ' redirects and 404s');

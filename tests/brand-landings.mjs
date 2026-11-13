@@ -16,7 +16,7 @@ for (const brand of brands) {
   assert(!/href="[^"\s]*\/franchise\//.test(html), brand.slug + ' has no legacy links');
   for (const suffix of ['', '/thank-you']) {
     const legacy = await fetch(origin + '/franchise/' + brand.slug + suffix + '?utm_source=search&tag=one&tag=two', {redirect:'manual'});
-    assert.equal(legacy.status, 308, brand.slug + suffix + ' permanent redirect');
+    assert.equal(legacy.status, 301, brand.slug + suffix + ' permanent redirect');
     const target = new URL(legacy.headers.get('location'), origin);
     assert.equal(target.pathname, '/franchise-opportunities/' + brand.slug + suffix);
     assert.equal(target.searchParams.get('utm_source'), 'search');

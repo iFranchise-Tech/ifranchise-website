@@ -22,7 +22,7 @@ export function Catalogue({brands,industries=[]}:{brands:any[];industries?:any[]
  const selected=[query&&{key:'query',label:'Search: '+query},sector!=='all'&&{key:'sector',label:sector},budget!=='all'&&{key:'budget',label:budgets.find(([v])=>v===budget)?.[1]},model!=='all'&&{key:'model',label:models.find(([v])=>v===model)?.[1]}].filter(Boolean) as {key:keyof typeof defaults;label:string}[];
  function reset(){setFilters(f=>({...defaults,sort:f.sort}));}
  return <section className="opportunity-browser" id="catalogue" aria-label="Browse franchise opportunities">
-  <div className="opportunity-filter-heading"><h2>Find a franchise</h2><button className="filter-toggle" type="button" aria-expanded={expanded} aria-controls="opportunity-filter-fields" onClick={()=>setExpanded(v=>!v)}>{expanded?'Fewer filters':'Filters'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><a href="/guides/franchise-models">Understand the operating models <Icon name="arrow"/></a></div>
+  <div className="opportunity-filter-heading"><h2>Find a franchise</h2><button className="filter-toggle" type="button" aria-expanded={expanded} aria-controls="opportunity-filter-fields" onClick={()=>setExpanded(v=>!v)}>{expanded?'Fewer filters':'Filters'} <span aria-hidden="true">{expanded?'−':'+'}</span></button><a href="/blogs/fofo-foco-fico-models">Understand the operating models <Icon name="arrow"/></a></div>
   <div className="opportunity-filters">
    <div id="opportunity-filter-fields" className={'opportunity-filter-fields'+(expanded?' is-expanded':'')}>
     <CatalogueSearch value={query} onChange={value=>change('query',value)} suggestions={suggestions}/>

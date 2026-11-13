@@ -95,7 +95,7 @@
       },
       {
         "label": "Due Diligence Checklist",
-        "path": "/resources/knowledge-hub/investor/due-diligence-checklist"
+        "path": "/blogs/franchise-due-diligence-checklist"
       }
     ],
     "audience": "investor",
@@ -373,7 +373,7 @@
     "relatedLinks": [
       {
         "label": "Due Diligence Checklist",
-        "path": "/resources/knowledge-hub/investor/due-diligence-checklist"
+        "path": "/blogs/franchise-due-diligence-checklist"
       },
       {
         "label": "Readiness Assessment",
@@ -467,7 +467,7 @@
     "relatedLinks": [
       {
         "label": "Franchise Services",
-        "path": "/services"
+        "path": "/list-your-brand"
       }
     ],
     "audience": "brand",
@@ -505,7 +505,7 @@
     "relatedLinks": [
       {
         "label": "Expansion Blueprint",
-        "path": "/resources/knowledge-hub/brand/franchise-expansion-strategy"
+        "path": "/blogs/franchise-territory-expansion"
       }
     ],
     "audience": "brand",
@@ -631,7 +631,7 @@
     "relatedLinks": [
       {
         "label": "Franchise Recruitment",
-        "path": "/resources/knowledge-hub/brand/franchise-recruitment"
+        "path": "/blogs/franchise-partner-selection"
       }
     ],
     "audience": "brand",
@@ -669,7 +669,7 @@
     "relatedLinks": [
       {
         "label": "Services",
-        "path": "/services"
+        "path": "/list-your-brand"
       }
     ],
     "audience": "brand",
@@ -719,7 +719,7 @@
       },
       {
         "label": "Recruitment Framework",
-        "path": "/resources/knowledge-hub/brand/franchise-recruitment"
+        "path": "/blogs/franchise-partner-selection"
       }
     ],
     "audience": "brand",
