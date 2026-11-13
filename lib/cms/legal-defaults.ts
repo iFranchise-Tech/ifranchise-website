@@ -65,7 +65,7 @@ export const legalDefaults=[
           "Saved resources",
           "When you save a resource, its address, reading position and save time are remembered in your browser. Up to 100 resources remain in that browser until removed or browser data is cleared. They are not sent to our servers or synced across devices. External video playback positions are not saved by this website.",
           "Optional measurement",
-          "Analytics and advertising integrations are currently inactive, even after “Accept all cookies”. Website form records discard campaign attribution while these integrations are inactive. Before activating optional integrations, we will explain the actual providers, data and retention and request a fresh choice.",
+          "If you allow optional cookies, Google Tag Manager loads Google Analytics 4 to measure page use. The container does not receive your name, email, phone number, or enquiry message. Choosing “Necessary only” keeps analytics and advertising storage denied. A fresh choice is requested when this notice changes.",
           "Withdrawing optional cookie consent changes future processing based on that choice on this browser. It does not withdraw an enquiry permission; use [Privacy choices](/privacy-choices) for that.",
           "Social icons and videos link to external services rather than loading embedded trackers. Share links identify the resource and sharing channel through campaign tags without a personal identifier. You decide whether to publish or send from the chosen service. External providers apply their own terms and privacy notices."
         ]

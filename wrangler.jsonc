@@ -20,7 +20,10 @@
     "EMAIL_ENVIRONMENT": "production",
     "EMAIL_PUBLIC_ORIGIN": "https://ifranchise-website.damp-field-d970.workers.dev",
     "WEBSITE_NOTIFICATION_TO": "contact@ifranchise.in",
-    "CMS_NOTIFICATION_TO": "it@ifranchise.in"
+    "CMS_NOTIFICATION_TO": "it@ifranchise.in",
+    // Public container IDs. GA4 is configured inside this GTM container, so the site does not load gtag.js.
+    "GTM_ID": "GTM-P6Z67GFD",
+    "GA_MEASUREMENT_ID": "G-SSHRXE8TFM"
   },
   "d1_databases": [
     {

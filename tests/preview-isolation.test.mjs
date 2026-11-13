@@ -33,6 +33,9 @@ test('production uses separate storage, public routes and lead email to contact@
   assert.match(production, /"EMAIL_MODE": "resend"/);
   assert.match(production, /"EMAIL_ENVIRONMENT": "production"/);
   assert.match(production, /"WEBSITE_NOTIFICATION_TO": "contact@ifranchise.in"/);
+  assert.match(production, /"GTM_ID": "GTM-P6Z67GFD"/);
+  assert.match(production, /"GA_MEASUREMENT_ID": "G-SSHRXE8TFM"/);
+  assert.doesNotMatch(preview, /GTM-P6Z67GFD|G-SSHRXE8TFM/);
   assert.doesNotMatch(production, /"routes"|"RESEND_API_KEY"|"EMAIL_OUTBOX_KEY"|"LOCAL_ADMIN_SECRET"/);
 });
 
