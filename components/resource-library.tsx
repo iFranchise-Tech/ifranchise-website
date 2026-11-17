@@ -16,7 +16,7 @@ export function ResourceLibrary({items,mode='all',initialCategory='all'}:{items:
  useEffect(()=>{const restore=()=>{const q=new URLSearchParams(location.search);setQuery(q.get('q')||'');setTopic(q.get('topic')||'all');setPage(Math.max(1,parseInt(q.get('page')||'1')||1));setCategory(resourceCategories.some(c=>c.id===q.get('category'))?q.get('category')!:'all')};restore();setHydrated(true);window.addEventListener('popstate',restore);return()=>window.removeEventListener('popstate',restore)},[]);
  useEffect(()=>{if(!hydrated)return;const url=new URL(location.href);for(const [key,value] of Object.entries({q:query,topic:topic==='all'?'':topic,category:category==='all'?'':category,page:page===1?'':String(page)})){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key)}history.replaceState(history.state,'',url.pathname+url.search+url.hash)},[query,topic,category,page,hydrated]);
  const categorised=['all','blogs','articles'].includes(mode);
- const categories=mode==='blogs'?['for-brands','for-investors'].map(id=>resourceCategories.find(category=>category.id===id)!):resourceCategories;
+ const categories=mode==='blogs'?resourceCategories.filter(c=>filterResources(items,{category:c.id}).length>0):resourceCategories;
  const categoryItems=filterResources(items,{category:categorised?category:'all'});
  const topics=[...new Set(categoryItems.map((item:any)=>item.category).filter(Boolean))].sort() as string[];
  const list=filterResources(items,{category:categorised?category:'all',topic,query});

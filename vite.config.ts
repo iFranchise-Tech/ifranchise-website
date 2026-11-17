@@ -1,10 +1,10 @@
 import vinext from 'vinext';
-import {defineConfig} from 'vite';
+import {defineConfig,type Plugin} from 'vite';
 import {seoDecision} from './lib/seo-http.mjs';
 
 // The previous Sites preview config is kept in vite.config.sites.ts.
 // This file is the Cloudflare Workers development and build config.
-function seoHttpPlugin() {
+function seoHttpPlugin():Plugin {
   return {
     name: 'ifranchise-seo-http',
     configureServer(server) {
@@ -37,12 +37,12 @@ function seoHttpPlugin() {
         const writeHead = res.writeHead.bind(res);
         res.writeHead = ((status: number, ...args: unknown[]) => {
           const code = status === 308 && (!req.method || req.method === 'GET' || req.method === 'HEAD') ? 301 : status;
-          return writeHead(code, ...args);
+          return Reflect.apply(writeHead, res, [code, ...args]);
         }) as typeof res.writeHead;
         const end = res.end.bind(res);
         res.end = ((...args: unknown[]) => {
           if (res.statusCode === 308 && (!req.method || req.method === 'GET' || req.method === 'HEAD')) res.statusCode = 301;
-          return end(...args);
+          return Reflect.apply(end, res, args);
         }) as typeof res.end;
         next();
       });

@@ -38,9 +38,9 @@ export const pageBanners = {
   },
   "blogs": {
     "ratio": "3 / 1",
-    "mobileImage": "/assets/stock-heroes/mobile/blogs-team-insights-v3.webp",
+    "mobileImage": "/assets/stock-heroes/mobile/blogs-team-insights-v4.webp",
     "mobilePosition": "70% 0%",
-    "image": "/assets/stock-heroes/blogs-team-insights-v3.webp",
+    "image": "/assets/stock-heroes/blogs-team-insights-v4.webp",
     "alt": "Illustrative scene of professional colleagues discussing business insights and making notes together",
     "position": "65% 35%"
   },

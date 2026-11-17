@@ -5,7 +5,7 @@ import {EditorialCover} from './editorial-cover';
 export function ResourceCard({item:a}:{item:any}){
  return <a className="journal-card" href={a.path}>
   <div className="journal-card-art">
-   {a.image?<EditorialCover src={a.image} alt={a.imageAlt||''} loading="lazy"/>:<div className="journal-card-placeholder">{a.type==='Video'?<Play size={42}/>:a.type==='FAQs'?<MessagesSquare size={42}/>:<BookOpen size={42}/>}</div>}
+   {a.image?<EditorialCover src={a.image} alt={a.imageAlt||''} presentation={a.imagePresentation} loading="lazy"/>:<div className="journal-card-placeholder">{a.type==='Video'?<Play size={42}/>:a.type==='FAQs'?<MessagesSquare size={42}/>:<BookOpen size={42}/>}</div>}
    {a.type==='Video'&&<span className="journal-play"><Play size={20}/></span>}
   </div>
   <div className="journal-card-copy">

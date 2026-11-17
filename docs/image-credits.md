@@ -638,3 +638,25 @@ Mobile composition prompt:
 ```text
 Use case: composition edit. Create a square 1:1 mobile website banner from this reference. Preserve exactly the same fictional people, faces, hairstyles, clothing, happy professional expressions and activity. Pull the camera back to show a generous environmental view. Place the complete group together in the upper middle between x22–78%. All heads begin at y22% or lower and all faces end above y42%; bodies, bench or desk end by y50%. Top 18% is quiet office architecture for logo. Lower 50% is a calm softly defocused charcoal-grey foreground for white HTML text. Natural neutral daylight and healthy skin tones, no green cast. No cropped hair, missing person, distorted face, text, logo or watermark. Keep exactly three colleagues happily working together over a store plan, including the small neat meeting table and laptop.
 ```
+
+## Blog banner lighting correction — 2026-11-16
+
+Mode: built-in image generation, referenced-image editing. Removed the yellow/green light patches from the two fictional colleagues' faces and hands, retaining the scene and layout. Sharp was used only to resize and encode the responsive WebP assets.
+
+Saved assets: `public/assets/stock-heroes/blogs-team-insights-v4.webp`, 640, 960 and 1440px variants, and `public/assets/stock-heroes/mobile/blogs-team-insights-v4.webp`.
+
+### Desktop
+
+Reference: `public/assets/stock-heroes/blogs-team-insights-v3.webp`
+
+```text
+Use case: lighting-weather. Edit target: the supplied panoramic blog banner photograph. Correct only the lighting and skin colour on the two fictional colleagues: completely remove the harsh yellow/green illuminated patches from the woman's cheek, jaw and neck and the man's forehead and face. Their entire faces and hands should have even, soft, diffuse neutral daylight, realistic natural skin tones and clear photographic detail. No direct sunlight on skin, no bright highlights, no coloured cast, no face glow, no dramatic contrast, no shiny or plastic smoothing. Preserve exactly the same two people, identities, expressions, pose, eyes, hair, clothes, office, table, books, laptop, plants and windows. Preserve the complete panoramic 3:1 composition with people on the right and the same empty charcoal wall on the left for website copy. Keep both complete heads and original framing. Clean natural editorial photography. No text, logos, borders or new objects. Output wide 3:1.
+```
+
+### Mobile
+
+Reference: `public/assets/stock-heroes/mobile/blogs-team-insights-v3.webp`
+
+```text
+Use case: lighting-weather. Edit target: the supplied square mobile blog banner photograph. Correct ONLY the lighting and colour on the two fictional colleagues: remove all yellow/green illuminated patches and direct sunlight from the woman's cheek, jaw and neck and the man's forehead and face. Give both people evenly lit, natural neutral skin tones, clear real photographic detail and soft diffuse ambient daylight. No bright patches, face glow, coloured cast, direct sunlight, dramatic shadows, shiny skin or beauty smoothing. Preserve exactly the same people, identities, expressions, poses, hair, clothes, hands, table, books, laptop, plants, windows and office. Preserve the exact original square 1:1 framing and scale: people remain small in the upper right and the large quiet charcoal lower area remains for mobile website text. Do not enlarge or move the people or change the composition. No text, logos, borders or new objects. Output square 1:1.
+```

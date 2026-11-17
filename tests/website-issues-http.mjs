@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 const base='http://127.0.0.1:3028';
 const headers={'oai-authenticated-user-email':'preview@ifranchise.in','oai-authenticated-user-id':'local_seedy',Origin:base,'Content-Type':'application/json'};
 let checks=0;async function api(path,body,status=200){const r=await fetch(base+'/api/admin'+path,{method:body?'POST':'GET',headers,body:body?JSON.stringify(body):undefined});const d=await r.json();assert.equal(r.status,status,JSON.stringify(d));checks++;return d;}
-for(const id of ['faqs:general','faqs:homepage','faqs:opportunities','faqs:list-your-brand','faqs:contact-us','articles:what-is-a-franchise','blogs:what-to-notice-on-your-first-franchise-visit','franchises:odette']){
+for(const id of ['faqs:general','faqs:homepage','faqs:opportunities','faqs:list-your-brand','faqs:contact-us','articles:what-is-a-franchise','blogs:how-the-franchise-business-model-works','franchises:odette']){
  const r=(await api('?id='+id)).record,key=r.kind==='faqs'?'questions':'faqs';
  const rows=Array.from({length:5},(_,i)=>({q:'Question '+i,a:'Answer'}));
  for(const values of [rows.slice(0,1),rows.slice(0,4),[...rows,{q:'Sixth?',a:'Answer'}],[{q:'q'.repeat(101),a:'A'}],[{q:'Q?',a:'a'.repeat(401)}],[{q:'Same?',a:'A'},{q:'Same?',a:'B'}]])await api('',{action:'save',kind:r.kind,slug:r.slug,version:r.version,payload:{...r.draft,[key]:values}},422);

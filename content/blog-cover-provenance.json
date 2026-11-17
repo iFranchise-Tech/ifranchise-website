@@ -36,6 +36,41 @@
       "provider": "User-supplied artwork",
       "asset": "public/images/blogs/start-clothing-franchise-india.webp",
       "source": "Screenshot 2026-11-11 at 10.35.39 AM.png"
+    },
+    {
+      "slug": "how-much-does-a-premium-clothing-franchise-cost-in-india",
+      "created": "2026-11-17",
+      "provider": "User-supplied artwork",
+      "asset": "public/images/blogs/premium-clothing-franchise-cost-india-v2.webp",
+      "source": "Screenshot 2026-11-17 at 10.52.30 AM.png",
+      "processing": "Sharp WebP encoding and responsive resizing only; full supplied composition preserved.",
+      "previousArtwork": {
+        "slug": "how-much-does-a-premium-clothing-franchise-cost-in-india",
+        "created": "2026-11-17",
+        "provider": "OpenAI built-in image_gen",
+        "asset": "public/images/blogs/premium-clothing-franchise-cost-india.webp",
+        "reference": "public/images/blogs/clothing-franchise-opportunities-india.webp",
+        "prompt": "Use case: ads-marketing. Create a new iFranchise editorial blog cover using the supplied image ONLY as the design reference. Match its exact visual family: deep solid brand purple (#321698) occupying the left approximately 60%, clean bold white sans-serif title, the white iFranchise wordmark with the small CONNECT. EXPAND. GROW. tagline at the top left, a thin crisp white diagonal divider descending from near 76% across the top to 46% across the bottom, and premium realistic clothing-store photography on the right. Output landscape 2400x1120, aspect ratio approximately 2.14:1. This is a new article, so replace ALL existing title text and the huge number 9. The new title must read exactly: 'How Much Does a Premium Clothing Franchise Cost in India?' Arrange it legibly in four or five balanced lines, all within the purple panel, with 'Premium Clothing' and 'Franchise Cost' strongest. Use clear modern typography similar to the reference, ample safe margins, accurate spelling, no additional words or badges, no number 9. The right side is a new photorealistic scene: an Indian woman entrepreneur and a female store manager in a refined contemporary premium fashion boutique, thoughtfully reviewing a tablet together near neatly arranged clothing racks and a clean counter. Their faces, hands and tablet remain entirely within the photo area and do not overlap the title. Faces have clear realistic skin texture and EVEN soft neutral ambient lighting: absolutely no harsh light patches, green or yellow cast, glare, face glow, or artificial smoothing. Boutique materials are cream, warm wood and brushed metal with neat premium clothing. Professional, calm, authentic retail-business mood. Preserve the iFranchise wordmark design from the reference accurately. No extra logos, price claims, tiny text, icons, borders, watermarks, gradients or ornamental shapes. High-resolution clean finished branded banner, not a screenshot or mockup.",
+        "processing": "Sharp WebP encoding and responsive resizing only."
+      }
+    },
+    {
+      "slug": "how-the-franchise-business-model-works",
+      "created": "2026-11-17",
+      "provider": "OpenAI built-in image_gen — edit of user-supplied banner",
+      "asset": "public/images/blogs/how-the-franchise-business-model-works.webp",
+      "source": "Screenshot 2026-11-17 at 10.55.38 AM.png",
+      "prompt": "Use case: identity-preserve. Edit target: the attached iFranchise blog banner. Keep the supplied banner design and exact text, deep purple background, white iFranchise logo and CONNECT. EXPAND. GROW. tagline, white lightbulb illustration, diagonal white dividing line, woman, and laptop/business scene. Primary request: the man at the far right is cut off by the image edge. Reframe/extend the right-hand photo and make the people slightly smaller within it so the man's complete hair/head, face, both shoulders, upper torso, forearms and both hands are inside the frame with clear breathing room to the right. Preserve his same appearance, olive overshirt, black shirt, watch, pose and natural expression. Keep the woman looking at the document. Keep all people naturally lit with neutral skin tones: no lighting streaks, glare patches or strong artificial lighting on faces. Preserve the headline verbatim: 'How the Franchise Business Model Works:' and subtitle 'A Complete Guide'. The purple text panel must remain clean and legible, with no added words, symbols or decoration. Remove the thin dark screenshot border. Output a crisp wide landscape banner approximately 2.16:1, full composition visible, no cropped heads or right shoulder.",
+      "processing": "Reframed the supplied composition to include the man’s full head, shoulders, forearms and hands. Sharp WebP encoding and responsive resizing; no additional crop."
+    },
+    {
+      "slug": "how-to-franchise-your-clothing-brand-in-india",
+      "created": "2026-11-17",
+      "provider": "OpenAI built-in image_gen — edit of user-supplied banner",
+      "asset": "public/images/blogs/how-to-franchise-your-clothing-brand-in-india.webp",
+      "source": "Screenshot 2026-11-17 at 10.57.10 AM.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied iFranchise blog banner. Refine only the right-side India map artwork to look smooth, clean, and consistent with the left-side purple-and-white branding. Preserve the existing overall composition, wide approximately 2.16:1 landscape aspect ratio, diagonal white divider, deep purple left panel, white iFranchise wordmark, CONNECT. EXPAND. GROW. tagline, large white location-pin/store illustration and exact headline 'How to Franchise Your Clothing Brand in India'. Keep the map recognizable as the same India map: preserve its outer silhouette, northeast connection, state divisions and both island groups; do not invent or rearrange geographic features. Give the map a very pale lavender fill, crisp smooth antialiased purple outline and subtle thin lavender-purple internal state lines. Keep the same scattered store-and-location-pin concept and approximate positions, but polish them into consistent simple purple-and-white storefront icons with clean thin details that match the left graphic. Remove the busy red/green toy-like shading, blur, jagged edges and screenshot border. Keep all of India including the southern tip and islands inside the frame with comfortable margins. White/off-white right background, restrained flat editorial graphics, no glow, no gradients, no new text or labels. Preserve the original headline and logo spelling exactly.",
+      "processing": "Refined the map and store markers into matching purple-and-white artwork while retaining the supplied layout. Sharp WebP encoding and responsive resizing; no crop."
     }
   ]
 }

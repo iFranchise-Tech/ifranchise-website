@@ -1,16 +1,25 @@
 import {loadResourceCollections} from '../resource-loading.mjs';
+import {isBlogPublished} from '../blog-publication.mjs';
 import {pageFaqs,resourceFaqs} from '../faq-content.mjs';
 import {applyCommercial} from './display.mjs';
 import {cache} from 'react';
 import {env} from 'cloudflare:workers';
 import {hydrateBrand} from './catalogue-fields.mjs';
 import {defaults} from './defaults';
+import retiredBlogs from '../../content/retired-blogs.json';
+const retiredBlogSlugs=new Set(retiredBlogs);
 export const dynamic='force-dynamic';
 export const published=cache(async function published(kind:string):Promise<any[]>{
  const items=new Map(defaults[kind]?.filter(p=>kind!=='jobs'||p.active).map(p=>[p.slug,p])||[]);
  if(!env.DB)throw new Error('Content database is unavailable');
  const result=await env.DB.prepare('SELECT kind,slug,live FROM cms_records WHERE kind IN (?,?)').bind(kind,['franchises','jobs'].includes(kind)?'placements':kind).all<{kind:string;slug:string;live:string|null}>();
  for(const r of result.results.filter(r=>r.kind===kind)){if(r.live)items.set(r.slug,JSON.parse(r.live));else items.delete(r.slug);}
+ // Apply the schedule after CMS overrides, on every request. Admin previews
+ // hydrate drafts separately and remain available before the publication date.
+ if(kind==='blogs'){
+  const now=Date.now();
+  for(const [slug,blog] of items)if(retiredBlogSlugs.has(slug)||!isBlogPublished(blog,now))items.delete(slug);
+ }
  const values=[...items.values()].map(v=>kind==='franchises'?applyCommercial(hydrateBrand(v)):kind==='faqs'?{...v,questions:pageFaqs(v.slug,v.questions)}:v);
  if(['franchises','jobs'].includes(kind)){const orders=new Map((defaults.placements||[]).map(p=>[p.slug,p]));for(const r of result.results.filter(r=>r.kind==='placements')){if(r.live)orders.set(r.slug,JSON.parse(r.live));else orders.delete(r.slug)}const ids=orders.get(kind)?.ids||[];values.sort((a,b)=>{const x=ids.indexOf(a.slug),y=ids.indexOf(b.slug);return (x<0?1e6:x)-(y<0?1e6:y)||(a.name||a.title).localeCompare(b.name||b.title)});}
  if(kind==='articles'||kind==='blogs')return values.map(a=>hydrateArticle({...a,resourceType:kind==='blogs'?'blog':'article'}));
