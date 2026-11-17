@@ -81,6 +81,7 @@ html{scroll-padding-top:calc(var(--site-header-height) + 24px)}
 .reading-byline{display:flex;align-items:center;gap:22px;margin-top:28px;padding-top:20px;border-top:1px solid var(--p-line);font-size:12px}
 .reading-author{display:flex;align-items:center;gap:12px;margin-right:auto}
 .reading-author-mark{display:block;flex-shrink:0;background-image:url(/favicon.svg)!important;background-position:center!important;background-repeat:no-repeat!important;background-size:26px!important;padding:7px;width:42px;height:42px;border-radius:50%;background:#f2effa;border:1px solid var(--p-line)}
+.reading-author-photo{display:block;flex-shrink:0;width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:1px solid var(--p-line);background:#f2effa}
 .reading-author>div{display:grid;gap:4px}
 .reading-author strong{font-size:13px;color:var(--p-ink);font-weight:650}
 .reading-author span{font-size:11px;color:var(--p-muted)}
