@@ -123,7 +123,7 @@ The public website header uses the approved wordmark with tagline, without the b
 
 ## Publishing
 
-The live site remains on its current deployment until a separate cutover is approved. The existing Cloudflare preview uses `wrangler.preview.jsonc`, `ifranchise-db-preview`, and `ifranchise-files-preview`. The intended Cloudflare account is `it@ifranchise.in`; `ifranchise.in` DNS remains with GoDaddy and must stay unchanged during migration. Google Workspace is the selected CMS identity provider. A push does not publish the website, change DNS, or apply remote migrations. See the current audit and remaining work in [docs/cloudflare-preview.md](docs/cloudflare-preview.md).
+The production site at `https://www.ifranchise.in` runs on the `ifranchise-website` Cloudflare Worker. Pushes to `main` now trigger checked automatic production deployments through Cloudflare Workers Builds; see [docs/cloudflare-production.md](docs/cloudflare-production.md). Builds do not apply remote migrations or replace production data. The separate preview uses `wrangler.preview.jsonc`, `ifranchise-db-preview`, and `ifranchise-files-preview`; see [docs/cloudflare-preview.md](docs/cloudflare-preview.md) for its audit and remaining work.
 
 `.openai/hosting.json`, `vite.config.sites.ts`, and `build/sites-worker.ts` remain in the repository so the Sites path can be restored. They are not the active local runtime. `pnpm dev:sites` still starts the previous Sites command.
 

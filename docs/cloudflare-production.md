@@ -1,5 +1,19 @@
 # Cloudflare production release
 
+## Current automatic deployment — 17 November 2026
+
+The production Worker `ifranchise-website` serves `https://www.ifranchise.in`. Cloudflare Workers Builds is connected to `iFranchise-Tech/ifranchise-website`, production branch `main`, repository root `/`. Pushes to `main` automatically build and deploy; preview builds are disabled. The separate `ifranchise-website-preview` Worker is unchanged.
+
+- Build: `pnpm typecheck && pnpm test:cms && pnpm db:verify-empty && pnpm build && pnpm test`
+- Deploy: `pnpm exec wrangler deploy --config dist/server/wrangler.json --keep-vars`
+- Build variable: `NODE_VERSION=22.23.2`; pnpm is pinned by `packageManager` in `package.json`.
+- Build caching is enabled. The approved deployment token is managed by Cloudflare and is never stored in the repository.
+- GitHub CI also runs on `main`. A failing Cloudflare build stops before deployment.
+
+`db:verify-empty` uses a disposable local database in the build environment. These commands do not apply remote migrations or seed/replace production data. Existing runtime secrets and dashboard variables are preserved. Keep using the verified production D1 and R2 bindings below.
+
+The initial migration and domain-handoff notes below are historical; the current production domain and automatic deployment settings above take precedence.
+
 ## Production target
 
 - Worker: `ifranchise-website`

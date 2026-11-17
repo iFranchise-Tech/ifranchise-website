@@ -4,7 +4,7 @@ An approved blog becomes publicly available at 00:00 Asia/Kolkata (UTC+05:30) on
 
 `published('blogs')` checks the current time on every request after merging the source defaults with approved CMS content. CMS drafts and archived records are not released by the schedule. Invalid or missing dates stay hidden. A CMS record's approved date takes precedence over its source default.
 
-Once the implementation and content are deployed, no cron job, GitHub push or rebuild is required on the publication day. A fresh page load uses the current schedule. Source changes in GitHub alone do not update the running website: the repository's current workflow runs checks, and a separate deployment is required unless a deployment integration is configured.
+Once the implementation and content are deployed, no cron job, GitHub push or rebuild is required on the publication day. A fresh page load uses the current schedule. Since 17 November 2026, pushes to `main` trigger the production Cloudflare build and deployment described in [cloudflare-production.md](cloudflare-production.md). Future publication dates are still checked at request time; they do not require scheduled builds.
 
 The November 2026 schedule is:
 
