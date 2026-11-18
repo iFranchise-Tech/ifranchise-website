@@ -1,5 +1,26 @@
 # Marketing image sources
 
+## About Us section imagery — 18 November 2026
+
+Generated with the built-in image generation tool, using `public/assets/stock-heroes/about-welcoming-team-v5.webp` as the identity and visual-style reference. The people are fictional illustrative professionals, consistent with the existing hero; they are not presented as actual iFranchise staff or clients. Sharp was used only to resize and encode WebP renditions, with no retouching or compositing.
+
+- Who we help: `public/assets/about/who-we-help-team-v1.webp`, with 640px and 960px variants.
+- Our approach: `public/assets/about/our-approach-team-v1.webp`, with 640px and 960px variants.
+
+### Who we help prompt
+
+```text
+Use case: identity-preserve. Asset type: About Us website section photograph, "Who we help".
+Input image 1 is the identity and visual-style reference: the existing About Us hero depicts five fictional professionals. Create a new photorealistic business consultation scene using exactly the seated brunette woman with loose wavy hair, cream blazer, white top and dark trousers, and the seated man with short wavy brown hair, light stubble, navy suit and pale blue open-collar shirt from this reference. Preserve their facial features, apparent ages, hair, skin tones and wardrobe; they must look like the same two people from the hero, not replacements. These two colleagues are seated at a light oak consultation table in the same welcoming modern office, calmly reviewing a franchise outlet plan with small floor-plan sketches, a closed folder and an open laptop. The woman gestures naturally at the plan; the man listens with a warm, restrained smile. Medium wide composition, landscape 5:4 aspect ratio. Both heads and faces entirely visible with comfortable room around them; hands, papers and table included. People distributed across the central area and kept inside the middle 85 percent of the frame, no huge empty banner region. Match the hero's soft neutral daylight, muted grey wall, navy/cream/light-blue palette, a subtle window and green plant. No dramatic lighting, artificial glow, flare, spotlight on faces, excessive blur, overlay, logos or readable text. Crisp natural photographic detail, realistic anatomy. Output a single clean photograph, not a collage or website screenshot.
+```
+
+### Our approach prompt
+
+```text
+Use case: identity-preserve. Asset type: About Us website section photograph, "Our approach".
+Input image 1 is the identity and visual-style reference: the existing About Us hero depicts five fictional professionals. Create a new photorealistic collaborative planning scene featuring the same three standing people from that hero: the man with dark rectangular glasses, swept brown hair, light beard, navy blazer and pale blue shirt; the blonde woman in a navy dress with thin belt; and the brunette woman with tied-back hair in a light-blue blouse and cream trousers. Preserve their individual facial features, apparent ages, hair, skin tones and outfits. They should clearly be the same people, not unrelated stock models. Seat these three at a light oak meeting table in the same welcoming modern office; they discuss a simple franchise expansion plan and documents, one colleague explaining a chart while the others listen and engage naturally. Include a restrained laptop and neatly arranged documents. Landscape 3:2 composition, camera at seated eye level, show all three heads and faces fully with generous margin around the group and believable hands. No huge empty banner region; the people and practical discussion are the focus. Match the existing hero's soft neutral daylight, muted grey office wall, navy and pale-blue palette, discreet green plant and light oak textures. No bright facial lighting effects, dramatic spotlight, flare, halo, excessive blur, text overlays, logos or readable text. Crisp natural photographic detail, realistic anatomy. Output one clean photograph, not a collage or website screenshot.
+```
+
 ## Approved homepage video — From plan to presence, 25 October 2026
 
 The owner selected option 5 from five real-stock montage previews. Four related scenes form a silent loop of approximately 17 seconds:
